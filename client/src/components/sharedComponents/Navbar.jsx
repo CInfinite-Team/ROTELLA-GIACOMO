@@ -2,14 +2,15 @@ import React from 'react'
 
 function Navbar() {
   return (
-  <nav className="w-full col-span-full lg:col-span-2 bg-white/40 backdrop-blur-lg  shadow-sm px-6 py-5 sticky top-0 flex items-center justify-between">
+  < nav className='grid grid-cols-3  shadow-sm px-6 py-5 sticky top-0 bg-white/40 backdrop-blur-lg'>
+  <div className="w-full col-span-full lg:col-span-2   flex items-center justify-between">
        {/* Left Section */}
        <div className="flex items-center gap-2">
          {/* Logo Placeholder (replace with SVG/logo) */}
          <div className="w-6 h-6 bg-black rounded-md"></div>
-         <span className="text-lg font-semibold text-gray-700">ONCE</span>
-         <span className="text-gray-400 text-lg">/</span>
-         <span className="text-lg font-semibold text-gray-700">Writebook</span>
+         <span className="text-lg font-semibold text-gray-700">Giacomo</span>
+         {/* <span className="text-gray-400 text-lg">/</span> */}
+         <span className="text-lg font-semibold text-gray-700">Rotella</span>
        </div>
  
        {/* Right Section */}
@@ -27,6 +28,8 @@ function Navbar() {
            Changelog
          </a>
        </div>
+       </div>
+       <div></div>
      </nav>
  
   )

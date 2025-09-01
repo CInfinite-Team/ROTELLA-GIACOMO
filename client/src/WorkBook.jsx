@@ -6,8 +6,9 @@ import Footer from './components/sharedComponents/Footer'
 function WorkBook() {
   return (
     <>
+      <Navbar />
       <div className='grid grid-cols-3 w-full'>
-        <Navbar />
+      
 
         {/* Main Content */}
         <div className='flex flex-col order-2 lg:order-1 col-span-full lg:col-span-2 gap-10'>
@@ -108,10 +109,10 @@ function WorkBook() {
 
         {/* Right Sidebar (Card) */}
         <div className='flex flex-col order-1 lg:order-2 mt-6 lg:mt-0 col-span-full lg:col-span-1 px-5 lg:px-0 gap-4 lg:pr-[20px] xl:pr-[80px]'>
-          <div className='max-w-sm mx-auto lg:fixed top-0 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200 p-3 bg-white'>
+          <div className='max-w-sm mx-auto lg:fixed top-0 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200  bg-[#f3efea]'>
             {/* Header */}
-            <div className='flex items-center flex-wrap gap-4 justify-between mb-4 px-3'>
-              <div className='flex items-center gap-2'>
+            <div className='flex items-center flex-wrap gap-4 justify-between py-[6px] border-b px-3'>
+              <div className='flex items-center gap-2 p-3'>
                 <div className='w-8 h-8 bg-black rounded-md'></div>
                 <h2 className='font-semibold text-gray-800'>Marketing Plan</h2>
               </div>
@@ -121,7 +122,7 @@ function WorkBook() {
             </div>
 
             {/* Body */}
-            <div className='space-y-4 px-3'>
+            <div className='space-y-4 px-6 pt-2'>
               <div>
                 <h3 className='font-semibold text-gray-800 mb-1'>
                   Includes end-to-end execution and strategy:
@@ -172,9 +173,11 @@ function WorkBook() {
             </div>
 
             {/* Button */}
-            <button className='mt-6 w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition-colors'>
+            <div className='p-2'>
+            <button className='mt-6 w-full bg-black hover:bg-[#272727] duration-500 text-white font-semibold py-3 rounded-lg transition-colors'>
               Book a Call
             </button>
+            </div>
           </div>
         </div>
       </div>
