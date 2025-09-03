@@ -2,7 +2,7 @@ import React from 'react'
 
 function Navbar() {
   return (
-  < nav className='grid grid-cols-3  shadow-sm px-6 py-5 sticky top-0 bg-white/40 backdrop-blur-lg'>
+  < nav className='grid grid-cols-3 z-10  shadow-sm px-6 py-5 sticky top-0 bg-white/40 backdrop-blur-lg'>
   <div className="w-full col-span-full lg:col-span-2   flex items-center justify-between">
        {/* Left Section */}
        <div className="flex items-center gap-2">

@@ -1,0 +1,131 @@
+/* Base animation styles */
+.animate-in {
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* easeOutQuad */
+}
+
+/* Fade in animation */
+.fade-in {
+  opacity: 0;
+}
+
+.fade-in.animate-in {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Slide up animation */
+.slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.slide-up.animate-in {
+  animation-name: slideUp;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in from left animation */
+.slide-left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.slide-left.animate-in {
+  animation-name: slideLeft;
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right animation */
+.slide-right {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.slide-right.animate-in {
+  animation-name: slideRight;
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale animation */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.scale-in.animate-in {
+  animation-name: scaleIn;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Staggered animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Easing variations */
+.ease-out-back {
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ease-out-circ {
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.ease-in-out {
+  animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+/* Sticky element styles */
+.sticky-element {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}

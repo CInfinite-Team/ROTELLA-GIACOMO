@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image1 from './assets/writebook-01.webp'
 import Navbar from './components/sharedComponents/Navbar'
 import Footer from './components/sharedComponents/Footer'
+import { useSmoothScroll, useViewportAnimation, useStickyPosition, useTextSplitting } from './components/animations/ScrollAnimations'
+import './components/animations/animations.css'
 
 function WorkBook() {
+  // Apply smooth scrolling to the entire page
+  useSmoothScroll();
   return (
     <>
       <Navbar />
@@ -14,13 +18,13 @@ function WorkBook() {
         <div className='flex flex-col order-2 lg:order-1 col-span-full lg:col-span-2 gap-10'>
           {/* Hero Section */}
           <div className='flex flex-col gap-5 px-10 lg:px-[35px] xl:px-[70px]'>
-            <h1 className='text-4xl md:text-6xl font-bold mt-16'>
+            <h1 className='text-4xl md:text-6xl font-bold mt-16 slide-up' ref={useViewportAnimation()}>
               Your Outsourced Marketing Solution
             </h1>
-            <p className='font-semibold text-2xl md:text-4xl'>
+            <p className='font-semibold text-2xl md:text-4xl slide-up stagger-1' ref={useViewportAnimation()}>
               I help small business owners…
             </p>
-            <p className='font-medium text-lg md:text-2xl text-gray-600'>
+            <p className='font-medium text-lg md:text-2xl text-gray-600 slide-up stagger-2' ref={useViewportAnimation()}>
               I have experience in Luxury, Fashion, SaaS, Tech, Fitness,
               Lifestyle, and Real Estate.
             </p>
@@ -28,31 +32,31 @@ function WorkBook() {
 
           {/* Services Section */}
           <div className='flex flex-col gap-5 px-10'>
-            <h2 className='text-lg md:text-3xl text-center font-bold mt-16'>
+            <h2 className='text-lg md:text-3xl text-center font-bold mt-16 fade-in' ref={useViewportAnimation()}>
               These are some of my services:
             </h2>
-            <h3 className='text-lg md:text-2xl text-center font-semibold'>
+            <h3 className='text-lg md:text-2xl text-center font-semibold slide-left' ref={useViewportAnimation()}>
               Service 1
             </h3>
-            <img src={Image1} className='object-cover w-full shadow-xl' alt='' />
-            <h3 className='text-lg md:text-2xl text-center font-semibold'>
+            <img src={Image1} className='object-cover w-full shadow-xl scale-in' ref={useViewportAnimation()} alt='' />
+            <h3 className='text-lg md:text-2xl text-center font-semibold slide-right' ref={useViewportAnimation()}>
               Service 2
             </h3>
-            <img src={Image1} className='object-cover w-full shadow-xl' alt='' />
-            <h3 className='text-lg md:text-2xl text-center font-semibold'>
+            <img src={Image1} className='object-cover w-full shadow-xl scale-in' ref={useViewportAnimation()} alt='' />
+            <h3 className='text-lg md:text-2xl text-center font-semibold slide-left' ref={useViewportAnimation()}>
               Service 3
             </h3>
-            <img src={Image1} className='object-cover w-full shadow-xl' alt='' />
-            <h3 className='text-lg md:text-2xl text-center font-semibold'>
+            <img src={Image1} className='object-cover w-full shadow-xl scale-in' ref={useViewportAnimation()} alt='' />
+            <h3 className='text-lg md:text-2xl text-center font-semibold slide-right' ref={useViewportAnimation()}>
               Service 4
             </h3>
-            <img src={Image1} className='object-cover w-full shadow-xl' alt='' />
+            <img src={Image1} className='object-cover w-full shadow-xl scale-in' ref={useViewportAnimation()} alt='' />
           </div>
 
           {/* Portfolio / Brands Section */}
           <div className='flex flex-col gap-5 px-[35px] xl:px-[70px]'>
-            <h2 className='text-3xl text-center font-bold mt-16'>
-              Brands I’ve Worked With
+            <h2 className='text-3xl text-center font-bold mt-16' ref={useTextSplitting()}>
+              Brands I've Worked With
             </h2>
             <ul className='list-disc space-y-7'>
               <li className='text-2xl font-medium'>
@@ -108,7 +112,7 @@ function WorkBook() {
         </div>
 
         {/* Right Sidebar (Card) */}
-        <div className='flex flex-col order-1 lg:order-2 mt-6 lg:mt-0 col-span-full lg:col-span-1 px-5 lg:px-0 gap-4 lg:pr-[20px] xl:pr-[80px]'>
+        <div className='flex z-50 flex-col order-1 lg:order-2 mt-6 lg:mt-0 col-span-full lg:col-span-1 px-5 lg:px-0 gap-4 lg:pr-[20px] xl:pr-[80px]'>
           <div className='max-w-sm mx-auto lg:fixed top-0 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200  bg-[#f3efea]'>
             {/* Header */}
             <div className='flex items-center flex-wrap gap-4 justify-between py-[6px] border-b px-3'>
@@ -174,7 +178,7 @@ function WorkBook() {
 
             {/* Button */}
             <div className='p-2'>
-            <button className='mt-6 w-full bg-black hover:bg-[#272727] duration-500 text-white font-semibold py-3 rounded-lg transition-colors'>
+            <button className='mt-6 w-full bg-black hover:bg-[#272727] duration-500 text-white font-semibold py-3 rounded-lg transition-colors scale-in ease-out-back' ref={useViewportAnimation()}>
               Book a Call
             </button>
             </div>
