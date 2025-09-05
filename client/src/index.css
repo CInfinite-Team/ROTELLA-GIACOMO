@@ -13,3 +13,19 @@
 body{
     background-color: #eae0d5;
 }
+
+/* Hide native cursor globally; we use a custom cursor */
+html, body, * {
+    cursor: none !important;
+}
+
+/* Hide system cursor globally, allow text inputs to keep I-beam */
+html, body, #root, *:not(input):not(textarea):not([contenteditable="true"]) {
+  cursor: none;
+}
+
+/* Ensure custom cursor hidden on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor { display: none; }
+  html, body, #root, * { cursor: auto; }
+}

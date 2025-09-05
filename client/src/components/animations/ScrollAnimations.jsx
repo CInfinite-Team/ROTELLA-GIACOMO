@@ -59,6 +59,74 @@ export function useViewportAnimation(options = {}) {
   return ref;
 }
 
+// Parallax hook: apply to any element, preserving layout via transform only
+export function useParallax({ speed = 0.2, axis = 'y', maxTranslate = 80 } = {}) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const onScroll = () => {
+      const rect = el.getBoundingClientRect();
+      const viewportH = window.innerHeight || document.documentElement.clientHeight;
+      // progress: 0 at bottom entering, 1 at top leaving
+      const progress = 1 - Math.min(Math.max((rect.top + rect.height) / (viewportH + rect.height), 0), 1);
+      const translateAmount = Math.max(Math.min((progress - 0.5) * 2 * speed * maxTranslate, maxTranslate), -maxTranslate);
+      const tx = axis === 'x' ? translateAmount : 0;
+      const ty = axis === 'y' ? translateAmount : 0;
+      el.style.willChange = 'transform';
+      el.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, [speed, axis, maxTranslate]);
+
+  return ref;
+}
+
+// Zero-config initializer: binds parallax to any element with data-parallax
+export function initParallaxFromDataAttr() {
+  const elements = Array.from(document.querySelectorAll('[data-parallax]'));
+  if (elements.length === 0) return;
+
+  const computeAndApply = (el) => {
+    const axis = el.getAttribute('data-axis') || 'y';
+    const speedAttr = parseFloat(el.getAttribute('data-speed'));
+    const maxAttr = parseFloat(el.getAttribute('data-max'));
+    const speed = Number.isFinite(speedAttr) ? speedAttr : 0.2;
+    const maxTranslate = Number.isFinite(maxAttr) ? maxAttr : 80;
+
+    const rect = el.getBoundingClientRect();
+    const viewportH = window.innerHeight || document.documentElement.clientHeight;
+    const progress = 1 - Math.min(Math.max((rect.top + rect.height) / (viewportH + rect.height), 0), 1);
+    const translateAmount = Math.max(Math.min((progress - 0.5) * 2 * speed * maxTranslate, maxTranslate), -maxTranslate);
+    const tx = axis === 'x' ? translateAmount : 0;
+    const ty = axis === 'y' ? translateAmount : 0;
+    el.style.willChange = 'transform';
+    el.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
+  };
+
+  const onScroll = () => {
+    elements.forEach(computeAndApply);
+  };
+
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+
+  // Return cleanup to caller so they can unbind if needed
+  return () => {
+    window.removeEventListener('scroll', onScroll);
+    window.removeEventListener('resize', onScroll);
+  };
+}
+
 // Custom hook for sticky positioning
 export function useStickyPosition(options = {}) {
   const ref = useRef(null);

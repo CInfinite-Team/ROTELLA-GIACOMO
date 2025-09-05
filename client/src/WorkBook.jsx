@@ -3,6 +3,7 @@ import Image1 from './assets/writebook-01.webp'
 import Navbar from './components/sharedComponents/Navbar'
 import Footer from './components/sharedComponents/Footer'
 import { useSmoothScroll, useViewportAnimation, useTextSplitting } from './components/animations/ScrollAnimations'
+import { initParallax } from './components/animations/Parallax'
 import './components/animations/animations.css'
 import { PopupButton } from "react-calendly";
 import FAQ from './components/sharedComponents/Faq'
@@ -10,6 +11,12 @@ import FAQ from './components/sharedComponents/Faq'
 function WorkBook() {
   // Apply smooth scrolling to the entire page
   useSmoothScroll();
+  useEffect(() => {
+    const cleanup = initParallax()
+    return () => {
+      if (typeof cleanup === 'function') cleanup()
+    }
+  }, [])
   return (
     <>
       <Navbar />
@@ -19,7 +26,7 @@ function WorkBook() {
         {/* Main Content */}
         <div className='flex flex-col order-2 lg:order-1 col-span-full lg:col-span-2 gap-10'>
           {/* Hero Section */}
-          <div className='flex flex-col gap-5 px-10 lg:px-[35px] xl:px-[70px]'>
+          <div className='flex flex-col gap-5 px-10 lg:px-[35px] xl:px-[70px]' data-parallax="0.08">
             <h1 className='text-4xl md:text-6xl font-bold mt-16 slide-up' ref={useViewportAnimation()}>
               Your Outsourced Marketing Solution
             </h1>
@@ -33,7 +40,7 @@ function WorkBook() {
           </div>
 
           {/* Services Section */}
-          <div className='flex flex-col gap-5 px-10'>
+          <div className='flex flex-col gap-5 px-10' data-parallax="0.12">
             <h2 className='text-lg md:text-3xl text-center font-bold mt-16 fade-in' ref={useViewportAnimation()}>
               These are some of my services:
             </h2>
@@ -56,7 +63,7 @@ function WorkBook() {
           </div>
 
           {/* Portfolio / Brands Section */}
-          <div className='flex flex-col gap-5 px-[35px] xl:px-[70px]'>
+          <div className='flex flex-col gap-5 px-[35px] xl:px-[70px]' data-parallax="0.06">
             <h2 className='text-3xl text-center font-bold mt-16' ref={useTextSplitting()}>
               Brands I've Worked With
             </h2>
