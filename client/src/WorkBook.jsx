@@ -26,7 +26,7 @@ function WorkBook() {
         {/* Main Content */}
         <div className='flex flex-col order-2 lg:order-1 col-span-full lg:col-span-2 gap-10'>
           {/* Hero Section */}
-          <div className='flex flex-col gap-5 px-10 lg:px-[35px] xl:px-[70px]' data-parallax="0.08">
+          <div className='flex flex-col gap-5 px-10 lg:px-[35px] xl:px-[70px]'>
             <h1 className='text-4xl md:text-6xl font-bold mt-16 slide-up' ref={useViewportAnimation()}>
               Your Outsourced Marketing Solution
             </h1>
@@ -40,30 +40,30 @@ function WorkBook() {
           </div>
 
           {/* Services Section */}
-          <div className='flex flex-col gap-5 px-10' data-parallax="0.12">
+          <div className='flex flex-col gap-5 px-10'>
             <h2 className='text-lg md:text-3xl text-center font-bold mt-16 fade-in' ref={useViewportAnimation()}>
               These are some of my services:
             </h2>
             <h3 className='text-lg md:text-2xl text-center font-semibold slide-left' ref={useViewportAnimation()}>
               Service 1
             </h3>
-            <img src={Image1} className='object-cover w-full shadow-xl scale-in' ref={useViewportAnimation()} alt='' />
+            <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.06" ref={useViewportAnimation()} alt='' />
             <h3 className='text-lg md:text-2xl text-center font-semibold slide-right' ref={useViewportAnimation()}>
               Service 2
             </h3>
-            <img src={Image1} className='object-cover w-full shadow-xl scale-in' ref={useViewportAnimation()} alt='' />
+            <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.08" ref={useViewportAnimation()} alt='' />
             <h3 className='text-lg md:text-2xl text-center font-semibold slide-left' ref={useViewportAnimation()}>
               Service 3
             </h3>
-            <img src={Image1} className='object-cover w-full shadow-xl scale-in' ref={useViewportAnimation()} alt='' />
+            <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.05" ref={useViewportAnimation()} alt='' />
             <h3 className='text-lg md:text-2xl text-center font-semibold slide-right' ref={useViewportAnimation()}>
               Service 4
             </h3>
-            <img src={Image1} className='object-cover w-full shadow-xl scale-in' ref={useViewportAnimation()} alt='' />
+            <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.07" ref={useViewportAnimation()} alt='' />
           </div>
 
           {/* Portfolio / Brands Section */}
-          <div className='flex flex-col gap-5 px-[35px] xl:px-[70px]' data-parallax="0.06">
+          <div className='flex flex-col gap-5 px-[35px] xl:px-[70px]'>
             <h2 className='text-3xl text-center font-bold mt-16' ref={useTextSplitting()}>
               Brands I've Worked With
             </h2>
