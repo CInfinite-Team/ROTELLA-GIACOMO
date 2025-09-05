@@ -166,6 +166,7 @@ function WorkBook() {
             url="https://calendly.com/rgiacomo"
             rootElement={document.getElementById("root")}
             text="Book a Call"
+            className='w-full h-full'
           />
             </button>
              <div className='text-sm text-gray-600 leading-relaxed flex justify-center mt-2'> 
