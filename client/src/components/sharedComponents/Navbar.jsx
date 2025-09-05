@@ -2,7 +2,7 @@ import React from 'react'
 
 function Navbar() {
   return (
-  < nav className='grid grid-cols-3 z-10  shadow-sm px-6 py-5 sticky top-0 bg-white/40 backdrop-blur-lg'>
+  < nav className='grid grid-cols-3 z-10 2xl:pl-36 shadow-sm px-6 py-5 sticky top-0 bg-white/40 backdrop-blur-lg'>
   <div className="w-full col-span-full lg:col-span-2   flex items-center justify-between">
        {/* Left Section */}
        <div className="flex items-center gap-2">
@@ -16,16 +16,16 @@ function Navbar() {
        {/* Right Section */}
        <div className="md:flex hidden items-center gap-6">
          <a href="#" className="text-sm font-medium text-gray-700 hover:text-black">
-           Overview
+           Home
          </a>
          <a href="#" className="text-sm font-medium text-gray-500 hover:text-black">
-           Changelog
+           Blogs
          </a>
-         <a href="#" className="text-sm font-medium text-gray-700 hover:text-black">
-           Overview
-         </a>
+         {/* <a href="#" className="text-sm font-medium text-gray-700 hover:text-black">
+           Italia 
+         </a> */}
          <a href="#" className="text-sm font-medium text-gray-500 hover:text-black">
-           Changelog
+           Services
          </a>
        </div>
        </div>

@@ -2,8 +2,10 @@ import React, { useEffect } from 'react'
 import Image1 from './assets/writebook-01.webp'
 import Navbar from './components/sharedComponents/Navbar'
 import Footer from './components/sharedComponents/Footer'
-import { useSmoothScroll, useViewportAnimation, useStickyPosition, useTextSplitting } from './components/animations/ScrollAnimations'
+import { useSmoothScroll, useViewportAnimation, useTextSplitting } from './components/animations/ScrollAnimations'
 import './components/animations/animations.css'
+import { PopupButton } from "react-calendly";
+import FAQ from './components/sharedComponents/Faq'
 
 function WorkBook() {
   // Apply smooth scrolling to the entire page
@@ -11,7 +13,7 @@ function WorkBook() {
   return (
     <>
       <Navbar />
-      <div className='grid grid-cols-3 w-full'>
+      <div className='grid grid-cols-3 2xl:pl-32 gap-4 w-full'>
       
 
         {/* Main Content */}
@@ -107,7 +109,7 @@ function WorkBook() {
               </li>
             </ul>
           </div>
-
+           <FAQ />
           <Footer />
         </div>
 
@@ -115,12 +117,12 @@ function WorkBook() {
         <div className='flex z-50 flex-col order-1 lg:order-2 mt-6 lg:mt-0 col-span-full lg:col-span-1 px-5 lg:px-0 gap-4 lg:pr-[20px] xl:pr-[80px]'>
           <div className='max-w-sm mx-auto lg:fixed top-0 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200  bg-[#f3efea]'>
             {/* Header */}
-            <div className='flex items-center flex-wrap gap-4 justify-between py-[6px] border-b px-3'>
+            <div className='flex items-center flex-wrap gap- justify-between py-[6px]  px-3'>
               <div className='flex items-center gap-2 p-3'>
-                <div className='w-8 h-8 bg-black rounded-md'></div>
-                <h2 className='font-semibold text-gray-800'>Marketing Plan</h2>
+                {/* <div className='w-8 h-8 bg-black rounded-md'></div> */}
+                <h2 className='font-semibold text-center text-gray-800'>YOUR OUTSOURCED MARKETING SOLUTION</h2>
               </div>
-              <span className='text-sm font-semibold text-green-600'>
+              <span className='text-sm text-center w-full font-semibold text-green-600'>
                 €1,000 / month
               </span>
             </div>
@@ -133,10 +135,10 @@ function WorkBook() {
                 </h3>
                 <ul className='text-sm text-gray-600 leading-relaxed list-disc pl-4'>
                   <li>
-                    Social media: content creation, posting & ad management
+                   <span className='font-semibold text-black'>Social media:</span> Social media: content creation, posting & ad management
                   </li>
                   <li>
-                    Website maintenance & optimization (SEO, geo-targeting, performance)
+                    <span className='font-semibold text-black'>Website maintenance & optimization</span> (SEO, geo-targeting, performance)
                   </li>
                   <li>All other channels relevant to your business</li>
                 </ul>
@@ -146,22 +148,31 @@ function WorkBook() {
               </div>
 
               <div>
-                <h3 className='font-semibold text-gray-800 mb-1'>
+                <h3 className='font-semibold text-gray-800 mb-'>
                   How do I get it?
                 </h3>
                 <p className='text-sm text-gray-600 leading-relaxed'>
-                  Book a 30-minutes call with me or contact via:
+                  Book a 30-minutes call with me :
                   <br />
-                  <a
-                    href='https://calendly.com/rgiacomo'
-                    className='underline font-semibold text-black'
-                  >
-                    Calendly
-                  </a>
-                  ,{' '}
+                </p>
+              </div>
+            </div>
+
+            {/* Button */}
+            <div className='p-2'>
+            <button className='mt-2 w-full bg-black hover:bg-[#272727] duration-500 text-white font-semibold py-3 rounded-lg transition-colors scale-in ease-out-back' ref={useViewportAnimation()}>
+             
+              <PopupButton
+            url="https://calendly.com/rgiacomo"
+            rootElement={document.getElementById("root")}
+            text="Book a Call"
+          />
+            </button>
+             <div className='text-sm text-gray-600 leading-relaxed flex justify-center mt-2'> 
+                  Or Connect via: {'  '}
                   <a
                     href='mailto:rotellagiacomo@gmail.com'
-                    className='underline font-semibold text-black'
+                    className='underline pl-1 font-semibold text-black'
                   >
                     Email
                   </a>
@@ -171,19 +182,12 @@ function WorkBook() {
                     className='underline font-semibold text-black'
                   >
                     WhatsApp/Call
-                  </a>
-                </p>
-              </div>
+                  </a></div>
             </div>
-
-            {/* Button */}
-            <div className='p-2'>
-            <button className='mt-6 w-full bg-black hover:bg-[#272727] duration-500 text-white font-semibold py-3 rounded-lg transition-colors scale-in ease-out-back' ref={useViewportAnimation()}>
-              Book a Call
-            </button>
-            </div>
+           
           </div>
         </div>
+        
       </div>
     </>
   )

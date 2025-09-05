@@ -2,14 +2,8 @@ import React from 'react'
 
 function Footer() {
   return (
-     <footer className='text-xs pb-10 text-center px-[100px]'>
-        ONCE
-™ products are designed, built, and backed by 
-37signals
-™. Copyright © 37signals LLC. All rights reserved.
-Anyone buying, using, or receiving a 
-ONCE
-™ product is subject to our software license agreement.
+     <footer className='text-sm pb-10 text-center px-[100px]'>
+       If you are a luxury business owner, go to my business <a href="https://www.luxury-method.com/" target='_blank' className='underline font-semibold'>Luxury Method</a>.
       </footer>
   )
 }
