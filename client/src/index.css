@@ -29,3 +29,9 @@ html, body, #root, *:not(input):not(textarea):not([contenteditable="true"]) {
   .custom-cursor { display: none; }
   html, body, #root, * { cursor: auto; }
 }
+
+
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+  background-color: #000000 !important; /* black */
+ 
+}

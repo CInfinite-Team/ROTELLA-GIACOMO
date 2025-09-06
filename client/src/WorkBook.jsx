@@ -7,6 +7,7 @@ import { initParallax } from './components/animations/Parallax'
 import './components/animations/animations.css'
 import { PopupButton } from "react-calendly";
 import FAQ from './components/sharedComponents/Faq'
+import BrandCarousel from './components/sharedComponents/BrandCarousel'
 
 function WorkBook() {
   // Apply smooth scrolling to the entire page
@@ -61,12 +62,12 @@ function WorkBook() {
             </h3>
             <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.07" ref={useViewportAnimation()} alt='' />
           </div>
-
+          <div className='px-10 lg:px-[35px] xl:px-[60px]'>
+            <BrandCarousel />
+          </div>
           {/* Portfolio / Brands Section */}
           <div className='flex flex-col gap-5 px-[35px] xl:px-[70px]'>
-            <h2 className='text-3xl text-center font-bold mt-16' ref={useTextSplitting()}>
-              Brands I've Worked With
-            </h2>
+           
             <ul className='list-disc space-y-7'>
               <li className='text-2xl font-medium'>
                 <span className='text-black font-bold'>WebsiteSetup</span>{' '}
@@ -116,7 +117,12 @@ function WorkBook() {
               </li>
             </ul>
           </div>
-           <FAQ />
+          
+          <FAQ />
+          
+          {/* Brand Carousel Section - Added after FAQ */}
+        
+          
           <Footer />
         </div>
 
