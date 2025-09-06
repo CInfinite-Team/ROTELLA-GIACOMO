@@ -12,7 +12,7 @@ import BrandCarousel from './components/sharedComponents/BrandCarousel'
 import { ChevronUp } from 'lucide-react'
 
 function WorkBook() {
-  const [showBackToTop, setShowBackToTop] = useState(false)
+  const [showCardPopup, setShowCardPopup] = useState(false)
 
   // Apply smooth scrolling to the entire page
   useSmoothScroll();
@@ -24,24 +24,24 @@ function WorkBook() {
     }
   }, [])
 
-  // Show/hide back to top button based on scroll position
+  // Toggle card popup
+  const toggleCardPopup = () => {
+    setShowCardPopup(!showCardPopup)
+  }
+
+  // Close popup when clicking outside
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-      setShowBackToTop(scrollTop > 300)
+    const handleClickOutside = (event) => {
+      if (showCardPopup && !event.target.closest('.card-popup') && !event.target.closest('.card-popup-button')) {
+        setShowCardPopup(false)
+      }
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Scroll to top function
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
+    if (showCardPopup) {
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [showCardPopup])
   return (
     <>
       <Navbar />
@@ -170,7 +170,7 @@ function WorkBook() {
         </div>
 
         {/* Right Sidebar (Card) */}
-        <div className='flex z-50 flex-col order-1 lg:order-2 mt-6 lg:mt-0 col-span-full lg:col-span-1 px-5 lg:px-0 gap-4 lg:pr-[20px] xl:pr-[80px]'>
+        <div className='z-50 flex-col hidden lg:flex order-1 lg:order-2 mt-6 lg:mt-0 col-span-full lg:col-span-1 px-5 lg:px-0 gap-4 lg:pr-[20px] xl:pr-[80px]'>
           <div className='max-w-sm mx-auto lg:fixed top-0 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200  bg-[#f3efea]'>
             {/* Header */}
             <div className='flex items-center flex-wrap gap- justify-between py-[6px]  px-3'>
@@ -225,7 +225,7 @@ function WorkBook() {
             className='w-full h-full'
           />
             </button>
-             <div className='text-sm text-gray-600 leading-relaxed flex justify-center mt-2'> 
+             <div className='text-sm text-gray-600 whitespace-nowrap flex-wrap leading-relaxed flex justify-center mt-2'> 
                   Or Connect via: {'  '}
                   <a
                     href='mailto:rotellagiacomo@gmail.com'
@@ -247,16 +247,84 @@ function WorkBook() {
         
       </div>
 
-      {/* Back to Top Button - Only visible on small to medium screens */}
-      {showBackToTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 bg-black hover:bg-gray-800 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 lg:hidden sm:block"
-          aria-label="Back to top"
-        >
-         <ChevronUp/>
+      {/* Card Popup Button - Only visible on small to medium screens */}
+      <button
+        onClick={toggleCardPopup}
+        className="fixed bottom-6 right-6 z-50 bg-black hover:bg-gray-800 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 lg:hidden sm:block card-popup-button"
+        aria-label="Show pricing card"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+        </svg>
+      </button>
+
+      {/* Card Popup Modal */}
+    {showCardPopup && (
+  <div className="fixed inset-0 bg-black/40 lg:hidden backdrop-blur-sm z-50 flex items-end overflow-y-auto sm:items-center justify-center pb-4 sm:p-4">
+    <div 
+      className="card-popup bg-white shadow-xl rounded-2xl overflow-hidden  max-w-sm w-full relative mx-2 scrollbar-hide animate-slideUp"
+    >
+      {/* Close Button */}
+      <button
+        onClick={() => setShowCardPopup(false)}
+        className="absolute top-3 right-3 z-10 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full p-1 transition-colors duration-200"
+        aria-label="Close popup"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      {/* Header */}
+      <div className='flex flex-col items-center text-center py-4 px-6 border-b'>
+        <h2 className='font-bold text-gray-800 text-sm md:text-lg '>YOUR OUTSOURCED MARKETING SOLUTION</h2>
+        <span className='text-sm font-semibold text-green-600 mt-1'>€1,000 / month</span>
+      </div>
+
+      {/* Body */}
+      <div className='space-y-4 px-6 py-4'>
+        <div>
+          <h3 className='font-semibold text-sm md:text-base text-gray-800 mb-1'>
+            Includes end-to-end execution and strategy:
+          </h3>
+          <ul className='text-sm text-gray-600 leading-relaxed list-disc pl-4'>
+            <li><span className='font-semibold text-black'>Social media:</span> content creation, posting & ad management</li>
+            <li><span className='font-semibold text-black'>Website maintenance & optimization</span> (SEO, geo-targeting, performance)</li>
+            <li>All other channels relevant to your business</li>
+          </ul>
+          <p className='text-sm text-gray-600 mt-2'>
+            Payment: 50% deposit to start · 50% on completion
+          </p>
+        </div>
+
+        <div>
+          <h3 className='font-semibold text-gray-800 mb-1'>How do I get it?</h3>
+          <p className='text-sm text-gray-600'>
+            Book a 30-minutes call with me:
+          </p>
+        </div>
+      </div>
+
+      {/* Button */}
+      <div className='p-4 border-t'>
+        <button className='w-full bg-black hover:bg-gray-800 text-white font-semibold py-3 rounded-lg transition-all'>
+          <PopupButton
+            url="https://calendly.com/rgiacomo"
+            rootElement={document.getElementById("root")}
+            text="Book a Call"
+            className='w-full text-sm md:text-base h-4'
+          />
         </button>
-      )}
+        <div className='text-xs text-gray-600 flex justify-center gap-1 mt-2 flex-wrap'> 
+          Or Connect via: 
+          <a href='mailto:rotellagiacomo@gmail.com' className='underline font-semibold text-black'>Email</a>,
+          <a href='https://wa.me/393920034695' className='underline font-semibold text-black'>WhatsApp/Call</a>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
     </>
   )
 }
