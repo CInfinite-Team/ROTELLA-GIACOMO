@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import Image1 from './assets/writebook-01.webp'
+import HeroVideo from './assets/heroVideo.mp4'
 import Navbar from './components/sharedComponents/Navbar'
 import Footer from './components/sharedComponents/Footer'
 import { useSmoothScroll, useViewportAnimation, useTextSplitting } from './components/animations/ScrollAnimations'
@@ -25,24 +26,43 @@ function WorkBook() {
       
 
         {/* Main Content */}
-        <div className='flex flex-col order-2 lg:order-1 col-span-full lg:col-span-2 gap-10'>
+        <div className='flex flex-col order-2 lg:order-1 col-span-full lg:col-span-2  relative'>
           {/* Hero Section */}
-          <div className='flex flex-col gap-5 px-10 lg:px-[35px] xl:px-[70px]'>
-            <h1 className='text-4xl md:text-6xl font-bold mt-16 slide-up' ref={useViewportAnimation()}>
-              Your Outsourced Marketing Solution
-            </h1>
-            <p className='font-semibold text-2xl md:text-4xl slide-up stagger-1' ref={useViewportAnimation()}>
-              I help small business owners…
-            </p>
-            <p className='font-medium text-lg md:text-2xl text-gray-600 slide-up stagger-2' ref={useViewportAnimation()}>
-              I have experience in Luxury, Fashion, SaaS, Tech, Fitness,
-              Lifestyle, and Real Estate.
-            </p>
+          <div className='relative flex flex-col gap-5 mt-5 px-10 lg:px-[35px] xl:px-[70px] min-h-[70vh] overflow-hidden'>
+            {/* Video Background */}
+            <div className='absolute left-4 inset-0 w-[97%] h-full -z-10 overflow-hidden max-w-full'>
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className='w-full h-full object-cover'
+              >
+                <source src={HeroVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              {/* Dark overlay for better text readability */}
+              <div className='absolute inset-0 bg-black/60'></div>
+            </div>
+            
+            {/* Hero Content */}
+            <div className='relative z-10 flex flex-col gap-5 justify-center min-h-[70vh]'>
+              <h1 className='text-4xl md:text-6xl font-bold mt-16 slide-up text-white' ref={useViewportAnimation()}>
+                Your Outsourced Marketing Solution
+              </h1>
+              <p className='font-semibold text-2xl md:text-4xl slide-up stagger-1 text-white' ref={useViewportAnimation()}>
+                I help small business owners…
+              </p>
+              <p className='font-medium text-lg md:text-2xl text-white/90 slide-up stagger-2' ref={useViewportAnimation()}>
+                I have experience in Luxury, Fashion, SaaS, Tech, Fitness,
+                Lifestyle, and Real Estate.
+              </p>
+            </div>
           </div>
 
           {/* Services Section */}
           <div className='flex flex-col gap-5 px-10'>
-            <h2 className='text-lg md:text-3xl text-center font-bold mt-16 fade-in' ref={useViewportAnimation()}>
+            <h2 className='text-lg md:text-3xl text-center font-bold mt-10 fade-in' ref={useViewportAnimation()}>
               These are some of my services:
             </h2>
             <h3 className='text-lg md:text-2xl text-center font-semibold slide-left' ref={useViewportAnimation()}>
