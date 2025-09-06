@@ -30,7 +30,7 @@ function WorkBook() {
           {/* Hero Section */}
           <div className='relative flex flex-col gap-5 mt-5 px-10 lg:px-[35px] xl:px-[70px] min-h-[70vh] overflow-hidden'>
             {/* Video Background */}
-            <div className='absolute left-4 inset-0 w-[97%] h-full -z-10 overflow-hidden max-w-full'>
+            <div className='absolute left-1 right-0 md:left-3 lg:left-4 inset-0 w-[97%] h-full -z-10 overflow-hidden max-w-full'>
               <video
                 autoPlay
                 muted
