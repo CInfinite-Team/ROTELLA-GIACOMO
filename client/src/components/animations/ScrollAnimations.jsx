@@ -179,7 +179,7 @@ export function useTextSplitting() {
       const span = document.createElement('span');
       span.textContent = char;
       span.style.display = 'inline-block';
-      span.style.opacity = '0';
+      span.style.opacity = '100';
       span.style.transform = 'translateY(20px)';
       span.style.transition = `opacity 0.5s ease, transform 0.5s ease`;
       span.style.transitionDelay = `${index * 0.03}s`;

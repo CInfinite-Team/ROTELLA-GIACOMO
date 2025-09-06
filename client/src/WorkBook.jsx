@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image1 from './assets/writebook-01.webp'
 import HeroVideo from './assets/heroVideo.mp4'
 import Navbar from './components/sharedComponents/Navbar'
@@ -9,16 +9,39 @@ import './components/animations/animations.css'
 import { PopupButton } from "react-calendly";
 import FAQ from './components/sharedComponents/Faq'
 import BrandCarousel from './components/sharedComponents/BrandCarousel'
+import { ChevronUp } from 'lucide-react'
 
 function WorkBook() {
+  const [showBackToTop, setShowBackToTop] = useState(false)
+
   // Apply smooth scrolling to the entire page
   useSmoothScroll();
+  
   useEffect(() => {
     const cleanup = initParallax()
     return () => {
       if (typeof cleanup === 'function') cleanup()
     }
   }, [])
+
+  // Show/hide back to top button based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      setShowBackToTop(scrollTop > 300)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
   return (
     <>
       <Navbar />
@@ -46,7 +69,7 @@ function WorkBook() {
             </div>
             
             {/* Hero Content */}
-            <div className='relative z-10 flex flex-col gap-5 justify-center min-h-[70vh]'>
+            <div className='relative z-1 flex flex-col gap-5 justify-center min-h-[70vh]'>
               <h1 className='text-4xl md:text-6xl font-bold mt-16 slide-up text-white' ref={useViewportAnimation()}>
                 Your Outsourced Marketing Solution
               </h1>
@@ -223,6 +246,17 @@ function WorkBook() {
         </div>
         
       </div>
+
+      {/* Back to Top Button - Only visible on small to medium screens */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 bg-black hover:bg-gray-800 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 lg:hidden sm:block"
+          aria-label="Back to top"
+        >
+         <ChevronUp/>
+        </button>
+      )}
     </>
   )
 }
