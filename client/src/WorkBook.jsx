@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Image1 from './assets/writebook-01.webp'
+import Image1 from './assets/Service1.jpg'
+import Image2 from './assets/Service2.jpg'
+import Image3 from './assets/Service3.jpg'
+import Image4 from './assets/Service4.jpg'
+
 import HeroVideo from './assets/heroVideo.mp4'
 import Navbar from './components/sharedComponents/Navbar'
 import Footer from './components/sharedComponents/Footer'
@@ -83,27 +87,86 @@ function WorkBook() {
             </div>
           </div>
 
-          {/* Services Section */}
-          <div className='flex flex-col gap-5 px-10'>
-            <h2 className='text-lg md:text-3xl text-center font-bold mt-10 fade-in' ref={useViewportAnimation()}>
-              These are some of my services:
+          {/* Services Section - Premium Grid Layout */}
+          <div className='px-10 lg:px-[35px] xl:px-[70px] mt-16'>
+            <h2 className='text-3xl md:text-5xl text-center font-bold mb-16 fade-in' ref={useViewportAnimation()}>
+              These are some of my services
             </h2>
-            <h3 className='text-lg md:text-2xl text-center font-semibold slide-left' ref={useViewportAnimation()}>
-              Service 1
-            </h3>
-            <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.06" ref={useViewportAnimation()} alt='' />
-            <h3 className='text-lg md:text-2xl text-center font-semibold slide-right' ref={useViewportAnimation()}>
-              Service 2
-            </h3>
-            <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.08" ref={useViewportAnimation()} alt='' />
-            <h3 className='text-lg md:text-2xl text-center font-semibold slide-left' ref={useViewportAnimation()}>
-              Service 3
-            </h3>
-            <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.05" ref={useViewportAnimation()} alt='' />
-            <h3 className='text-lg md:text-2xl text-center font-semibold slide-right' ref={useViewportAnimation()}>
-              Service 4
-            </h3>
-            <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.07" ref={useViewportAnimation()} alt='' />
+            
+            {/* Premium Grid Layout */}
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12'>
+              {/* Service 1 - SEO */}
+              <div className='relative overflow-hidden rounded-2xl shadow-2xl'>
+                <div className='aspect-[4/3] overflow-hidden relative'>
+                  <img 
+                    src={Image1} 
+                    className='absolute inset-0 w-full h-full object-cover' 
+                    data-parallax="0.06" 
+                    ref={useViewportAnimation()} 
+                    alt='SEO Service' 
+                  />
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent'></div>
+                </div>
+                <div className='absolute bottom-0 left-0 right-0 p-6 text-white'>
+                  <h3 className='text-2xl font-bold mb-2'>SEO</h3>
+                  <p className='text-sm opacity-90'>Search Engine Optimization</p>
+                </div>
+              </div>
+
+              {/* Service 2 - Branding Strategy */}
+              <div className='relative overflow-hidden rounded-2xl shadow-2xl'>
+                <div className='aspect-[4/3] overflow-hidden relative'>
+                  <img 
+                    src={Image2} 
+                    className='absolute inset-0 w-full h-full object-cover' 
+                    data-parallax="0.08" 
+                    ref={useViewportAnimation()} 
+                    alt='Branding Strategy Service' 
+                  />
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent'></div>
+                </div>
+                <div className='absolute bottom-0 left-0 right-0 p-6 text-white'>
+                  <h3 className='text-2xl font-bold mb-2'>Branding Strategy</h3>
+                  <p className='text-sm opacity-90'>Strategic Brand Development</p>
+                </div>
+              </div>
+
+              {/* Service 3 - Influencer Marketing */}
+              <div className='relative overflow-hidden rounded-2xl shadow-2xl'>
+                <div className='aspect-[4/3] overflow-hidden relative'>
+                  <img 
+                    src={Image3} 
+                    className='absolute inset-0 w-full h-full object-cover' 
+                    data-parallax="0.05" 
+                    ref={useViewportAnimation()} 
+                    alt='Influencer Marketing Service' 
+                  />
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent'></div>
+                </div>
+                <div className='absolute bottom-0 left-0 right-0 p-6 text-white'>
+                  <h3 className='text-2xl font-bold mb-2'>Influencer Marketing</h3>
+                  <p className='text-sm opacity-90'>Strategic Influencer Partnerships</p>
+                </div>
+              </div>
+
+              {/* Service 4 - Content Writing */}
+              <div className='relative overflow-hidden rounded-2xl shadow-2xl'>
+                <div className='aspect-[4/3] overflow-hidden relative'>
+                  <img 
+                    src={Image4} 
+                    className='absolute inset-0 w-full h-full object-cover' 
+                    data-parallax="0.07" 
+                    ref={useViewportAnimation()} 
+                    alt='Content Writing Service' 
+                  />
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent'></div>
+                </div>
+                <div className='absolute bottom-0 left-0 right-0 p-6 text-white'>
+                  <h3 className='text-2xl font-bold mb-2'>Content Writing</h3>
+                  <p className='text-sm opacity-90'>Strategic Content Creation</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div className='px-10 lg:px-[35px] xl:px-[60px]'>
             <BrandCarousel />
