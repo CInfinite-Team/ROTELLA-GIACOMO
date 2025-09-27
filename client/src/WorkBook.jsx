@@ -44,7 +44,7 @@ function WorkBook() {
   }, [showCardPopup])
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className='grid grid-cols-3 2xl:pl-32 gap-4 w-full'>
       
 
@@ -171,7 +171,7 @@ function WorkBook() {
 
         {/* Right Sidebar (Card) */}
         <div className='z-50 flex-col hidden lg:flex order-1 lg:order-2 mt-6 lg:mt-0 col-span-full lg:col-span-1 px-5 lg:px-0 gap-4 lg:pr-[20px] xl:pr-[80px]'>
-          <div className='max-w-sm mx-auto lg:fixed top-0 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200  bg-[#f3efea]'>
+          <div className='max-w-sm mx-auto lg:sticky top-4 mt-4 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200  bg-[#f3efea]'>
             {/* Header */}
             <div className='flex items-center flex-wrap gap- justify-between py-[6px]  px-3'>
               <div className='flex items-center gap-2 p-3'>

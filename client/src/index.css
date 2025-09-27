@@ -12,6 +12,8 @@
 
 body{
     background-color: #eae0d5;
+    width:'100vw';
+    overflow-x: hidden;
 }
 
 /* Hide native cursor globally; we use a custom cursor */
@@ -34,4 +36,15 @@ html, body, #root, *:not(input):not(textarea):not([contenteditable="true"]) {
 .swiper-pagination-custom .swiper-pagination-bullet-active {
   background-color: #000000 !important; /* black */
  
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scroll 20s linear infinite;
+  width: max-content;
 }
