@@ -10,6 +10,7 @@ import { PopupButton } from "react-calendly";
 import FAQ from './components/sharedComponents/Faq'
 import BrandCarousel from './components/sharedComponents/BrandCarousel'
 import { ChevronUp } from 'lucide-react'
+import Arrow from './assets/Arrow.svg'
 import Giacomo from './assets/Giacomo.jpeg'
 function WorkBook2() {
   const [showCardPopup, setShowCardPopup] = useState(false)
@@ -116,6 +117,8 @@ function WorkBook2() {
                 My fractional marketing consulting package includes everything from strategy to execution:
               </p>
 
+                <img src={Arrow} alt="" className='rotate-[240deg] w-20 absolute right-0 -bottom-8 hidden lg:block' />
+
             </div>
 
             <p className='font-bold text-2xl text-center'>Website maintenance & optimization</p>
@@ -126,10 +129,12 @@ function WorkBook2() {
           </div>
 
           {/* Services Section */}
-          <div className='flex flex-col items-center gap-5 px-10 mt-10'>
+          <div className='flex flex-col relative items-center gap-5 px-10 mt-10'>
             <h2 className='text-lg md:text-4xl text-center font-bold mt-10 fade-in' ref={useViewportAnimation()}>
               What does the [KW] onboarding process look like?
             </h2>
+
+                <img src={Arrow} alt="" className='rotate-[240deg] w-20 absolute right-0 top-28 hidden lg:block' />
 
           <ol className='list-decimal space-y-5 mb-10'>
             <li className='text-lg md:text-2xl  font-semibold slide-left' ref={useViewportAnimation()}>
