@@ -235,8 +235,8 @@ of specialists.
         </div>
 
         {/* Right Sidebar (Card) */}
-        <div className='z-50 flex-col lg:bg-[#e0d0c2] hidden lg:flex order-1 lg:w-[50%]  lg:order-2 mt-6 lg:mt-0  px-5 pl-5 gap-4 lg:pr-[5px] xl:pr-[20px] '>
-          <div className=' mx-auto lg:sticky top-4 mt-4 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200  bg-[#f3efea]'>
+        <div className='z-50 flex-col  hidden lg:flex order-1 lg:w-[50%]  lg:order-2 mt-6 lg:mt-0  px-5 pl-5 gap-4 lg:pr-[5px] xl:pr-[20px] '>
+          <div className=' mx-auto lg:sticky top-4 mt-4 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200  bg-[#e0d0c2]'>
             {/* Header */}
             <div className='flex items-center flex-wrap gap- justify-between py-[6px]  px-3'>
               <div className='flex items-center w-full justify-center gap-2 p-3'>
