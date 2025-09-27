@@ -36,6 +36,31 @@ function WorkBook2() {
   }
 }, [showCardPopup]);
 
+ useEffect(() => {
+  
+    if (!document.querySelector('script[src*="calendly"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.body.appendChild(script);
+    } else {
+      window.Calendly && window.Calendly.initInlineWidgets();
+    }
+  
+}, []);
+ useEffect(() => {
+  if (showCardPopup) {
+    if (!document.querySelector('script[src*="calendly"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.body.appendChild(script);
+    } else {
+      window.Calendly && window.Calendly.initInlineWidgets();
+    }
+  }
+}, [showCardPopup]);
+
 
   // Toggle card popup
   const toggleCardPopup = () => {
@@ -253,7 +278,7 @@ of specialists.
               
               <div className='h-[250px] col-span-1'>
                 <div 
-                className="calendly-inline-widget lg:max-w-[240px]" 
+                className="calendly-inline-widget lg:max-w-[240px] 2xl:!max-w-96 2xl:!h-72" 
                 data-url="https://calendly.com/rgiacomo/30-min-meeting?hide_event_type_details=1&hide_gdpr_banner=1" 
                 style={{
                   minWidth: '260px',
@@ -266,7 +291,7 @@ of specialists.
                 <div className='w-fit h-fit '>
                   <div className='relative translate-x-16 xl:translate-x-11 w-fit h-fit'>
               <img src={Giacomo} alt="" className='rounded-full w-[70%] xl:w-[80%] aspect-square object-cover' />
-               <span className="absolute bottom-8 left-1 xl:left-5 flex size-3">
+               <span className="absolute bottom-8 left-1 xl:left-5 2xl:left-12 flex size-3">
                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
                  <span className="relative inline-flex size-3 rounded-full bg-[#0add0a]"></span>
                 </span>
