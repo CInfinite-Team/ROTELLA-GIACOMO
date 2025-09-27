@@ -68,6 +68,10 @@ function WorkBook2() {
     setShowCardPopup(!showCardPopup)
   }
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   // Close popup when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -94,7 +98,7 @@ function WorkBook2() {
             
             {/* Hero Content */}
             <div className='relative z-1 flex flex-col gap-5 justify-center mb-10'>
-              <h1 className='text-4xl md:text-5xl font-bold mt-16 slide-up !leading-snug' ref={useViewportAnimation()}>
+              <h1  className='text-4xl md:text-5xl font-bold mt-16 slide-up !leading-snug' ref={useViewportAnimation()}>
                 If you’re a <span className='text-[#911c28] '>small business </span>owner looking to level up your marketing, you’re in the right place.
               </h1>
               <p className='font-semibold text-2xl md:text-4xl slide-up stagger-1 !leading-tight mt-10 ' ref={useViewportAnimation()}>
@@ -451,6 +455,9 @@ of specialists.
   </div>
 )}
 
+    <button onClick={scrollToTop} className='fixed bottom-20 lg:bottom-10 z-50 right-6 lg:right-4 p-3 bg-black text-white rounded-full shadow-lg hover:bg-gray-800 transition'>
+        <ChevronUp className='w-6 h-6' />
+      </button>
     </>
   )
 }

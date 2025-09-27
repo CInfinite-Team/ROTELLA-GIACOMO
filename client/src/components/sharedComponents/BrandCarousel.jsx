@@ -165,7 +165,7 @@ const BrandCarousel = () => {
             slidesPerView: 2,
             spaceBetween: 14,
           },
-          1200: {
+          1900: {
             slidesPerView: 3,
             spaceBetween: 16,
           },
