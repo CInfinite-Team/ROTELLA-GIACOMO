@@ -24,18 +24,18 @@ function WorkBook2() {
       if (typeof cleanup === 'function') cleanup()
     }
   }, [])
- useEffect(() => {
-  if (showCardPopup) {
-    if (!document.querySelector('script[src*="calendly"]')) {
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      document.body.appendChild(script);
-    } else {
-      window.Calendly && window.Calendly.initInlineWidgets();
-    }
-  }
-}, [showCardPopup]);
+//  useEffect(() => {
+//   if (showCardPopup) {
+//     if (!document.querySelector('script[src*="calendly"]')) {
+//       const script = document.createElement('script');
+//       script.src = 'https://assets.calendly.com/assets/external/widget.js';
+//       script.async = true;
+//       document.body.appendChild(script);
+//     } else {
+//       window.Calendly && window.Calendly.initInlineWidgets();
+//     }
+//   }
+// }, [showCardPopup]);
 
  useEffect(() => {
   
@@ -49,18 +49,7 @@ function WorkBook2() {
     }
   
 }, []);
- useEffect(() => {
-  if (showCardPopup) {
-    if (!document.querySelector('script[src*="calendly"]')) {
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      document.body.appendChild(script);
-    } else {
-      window.Calendly && window.Calendly.initInlineWidgets();
-    }
-  }
-}, [showCardPopup]);
+
 
 
   // Toggle card popup
@@ -354,9 +343,9 @@ of specialists.
       </button>
 
       {/* Card Popup Modal */}
-    {showCardPopup && (
-  <div className="fixed inset-0 bg-black/40 lg:hidden backdrop-blur-sm z-50 flex items-center overflow-y-auto sm:items-center justify-center pb-4 sm:p-4">
-    <div 
+
+  <div className={`fixed  ${showCardPopup ? 'translate-x-0' : '-translate-x-full' } inset-0  bg-black/40 lg:hidden backdrop-blur-sm z-50 flex items-center overflow-y-auto sm:items-center justify-center pb-4 sm:p-4`}>
+    <div
       className="card-popup bg-white shadow-xl rounded-2xl overflow-hidden  max-w-sm w-full relative mx-2 scrollbar-hide animate-slideUp"
     >
       {/* Close Button */}
@@ -453,7 +442,7 @@ of specialists.
       </div>
     </div>
   </div>
-)}
+
 
     <button onClick={scrollToTop} className='fixed bottom-20 lg:bottom-10 z-50 right-6 lg:right-4 p-3 bg-black text-white rounded-full shadow-lg hover:bg-gray-800 transition'>
         <ChevronUp className='w-6 h-6' />
