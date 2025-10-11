@@ -48,15 +48,15 @@ const FAQ = () => {
         {faqData.map((faq, index) => (
           <div 
             key={index} 
-            className={`border border-gray-200 rounded-lg shadow-lg bg-[#f3ebe3]  overflow-hidden slide-up stagger-${index % 5 + 1}`}
+            className={`border border-gray-200 rounded-lg shadow-lg bg-red-800   overflow-hidden slide-up stagger-${index % 5 + 1}`}
             ref={useViewportAnimation()}
           >
             <button
               className="flex justify-between items-center w-full p-5 text-left  rounded-sm transition-colors"
               onClick={() => toggleFAQ(index)}
             >
-              <span className="font-semibold text-lg text-gray-800">{faq.question}</span>
-              <span className="text-2xl transition-transform duration-300" style={{ transform: activeIndex === index ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+              <span className="font-semibold text-lg text-white">{faq.question}</span>
+              <span className="text-2xl transition-transform duration-300 text-white" style={{ transform: activeIndex === index ? 'rotate(180deg)' : 'rotate(0deg)' }}>
                 <ChevronDown/>
               </span>
             </button>
@@ -65,7 +65,7 @@ const FAQ = () => {
               className="overflow-hidden transition-all duration-300 ease-in-out"
               style={{ maxHeight: activeIndex === index ? '500px' : '0px', opacity: activeIndex === index ? 1 : 0 }}
             >
-              <div className="p-5 bg-[#f3ebe3] text-gray-600">
+              <div className="p-5 bg-red-800 text-white">
                 {faq.answer}
               </div>
             </div>
