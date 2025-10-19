@@ -82,9 +82,12 @@ function WorkBook2() {
 
         {/* Main Content */}
         <div className='flex flex-col order-2 lg:order-1 w-full lg:w-[50%]  relative'>
+          <div className='flex items-end w-full sticky  translate-x-14  top-1/2'>
+           <img src={Arrow} alt="" className='rotate-[30deg] w-24 absolute right-0  hidden lg:block' />
+        </div>
           {/* Hero Section */}
           <div className='relative flex flex-col gap-5 mt-5 px-10 lg:px-[35px] xl:px-[70px] min-h-[70vh] overflow-hidden'>   
-            
+
             {/* Hero Content */}
             <div className='relative z-1 flex flex-col gap-5 justify-center mb-10'>
               <h1  className='text-4xl md:text-5xl font-bold mt-16 slide-up !leading-snug' ref={useViewportAnimation()}>
@@ -110,7 +113,6 @@ function WorkBook2() {
                 My fractional marketing consulting package includes everything from strategy to execution:
               </p>
 
-                <img src={Arrow} alt="" className='rotate-[240deg] w-20 absolute right-0 -bottom-8 hidden lg:block' />
 
             </div>
 
@@ -127,7 +129,6 @@ function WorkBook2() {
               What does the [KW] onboarding process look like?
             </h2>
 
-                <img src={Arrow} alt="" className='rotate-[240deg] w-20 absolute right-0 top-28 hidden lg:block' />
 
           <ol className='list-decimal space-y-5 mb-10'>
             <li className='text-lg md:text-2xl  font-semibold slide-left' ref={useViewportAnimation()}>
@@ -300,7 +301,7 @@ of specialists.
 
             {/* Button */}
             <div className='p-2'>
-            <button className='mt-2 w-full bg-black hover:bg-[#272727] duration-500 text-white font-semibold py-3 rounded-lg transition-colors scale-in ease-out-back' ref={useViewportAnimation()}>
+            {/* <button className='mt-2 w-full bg-black hover:bg-[#272727] duration-500 text-white font-semibold py-3 rounded-lg transition-colors scale-in ease-out-back' ref={useViewportAnimation()}>
              
               <PopupButton
             url="https://calendly.com/rgiacomo"
@@ -308,7 +309,7 @@ of specialists.
             text="Book a Call"
             className='w-full h-full'
           />
-            </button>
+            </button> */}
              <div className='text-sm text-gray-600 whitespace-nowrap flex-wrap leading-relaxed flex justify-center mt-2'> 
                   Or Write me: {'  '}
                   <a
@@ -426,14 +427,14 @@ of specialists.
 
       {/* Button */}
       <div className='p-4 border-t'>
-        <button className='w-full bg-black hover:bg-gray-800 text-white font-semibold py-3 rounded-lg transition-all'>
+        {/* <button className='w-full bg-black hover:bg-gray-800 text-white font-semibold py-3 rounded-lg transition-all'>
           <PopupButton
             url="https://calendly.com/rgiacomo"
             rootElement={document.getElementById("root")}
             text="Book a Call"
             className='w-full text-sm md:text-base h-4'
           />
-        </button>
+        </button> */}
         <div className='text-xs text-gray-600 flex justify-center gap-1 mt-2 flex-wrap'> 
           Or Write me: 
           <a href='mailto:rotellagiacomo@gmail.com' className='underline font-semibold text-black'>Email</a>,
