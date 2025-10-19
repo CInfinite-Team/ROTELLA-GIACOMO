@@ -138,7 +138,7 @@ const BrandCarousel = () => {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={16}
-        slidesPerView={4}
+        slidesPerView={1}
         navigation={{
           nextEl: '.swiper-button-next-custom',
           prevEl: '.swiper-button-prev-custom',
@@ -162,11 +162,11 @@ const BrandCarousel = () => {
             spaceBetween: 12,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 14,
           },
           1900: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 16,
           },
           
@@ -177,7 +177,7 @@ const BrandCarousel = () => {
           <SwiperSlide key={index}>
             <div
              
-              className="group relative bg-[#f4f4f4]  flex flex-col rounded-2xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl  w-60 h-[450px] mx-auto border border-gray-200"
+              className="group relative bg-[#f4f4f4]  flex flex-col rounded-2xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl  w-[70%] 2xl:w-full h-[450px] md:h-[560px] mx-auto border border-gray-200"
               onMouseEnter={() => setIsHovered(index)}
               onMouseLeave={() => setIsHovered(null)}
             >
@@ -188,11 +188,11 @@ const BrandCarousel = () => {
               </div>
 
               {/* Card Image/Logo Area */}
-              <div className="w-full h-80  flex items-center justify-center px-4 ">
+              <div className="w-full h-full lg:h-[82%]  flex items-center justify-center px-4 ">
                {brand.type === 'img' ? <img 
                   src={brand.logo} 
                   alt={`${brand.name} logo`}
-                  className="w-full h-full object-cover object-top  transition-all duration-300 "
+                  className="w-full h-full object-cover group-hover:scale-150 object-top  transition-all duration-300 "
                 />
                 :
                 <video 
@@ -201,12 +201,12 @@ const BrandCarousel = () => {
                   playsInline
                   loop 
                   muted
-                  className="w-full h-full object-cover object-top bg-black transition-all duration-300 "
+                  className={`w-full h-full object-cover group-hover:scale-150 ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
                 />}
               </div>
 
               {/* Card Footer with CTA */}
-              <div className="absolute bottom-0 flex justify-between gap-2 z-50 bg-[#f4f4f4] left-0 right-0 p-3">
+              <div className="absolute bottom-0 lg:hidden flex justify-between gap-2 z-50 bg-[#f4f4f4] left-0 right-0 p-3">
                  <PopupButton
                            url="https://calendly.com/rgiacomo"
                            rootElement={document.getElementById("root")}

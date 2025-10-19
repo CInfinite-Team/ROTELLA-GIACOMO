@@ -55,7 +55,7 @@ function CustomCursor() {
     <>
       <div
         ref={cursorRef}
-        className={`custom-cursor ${isHoveringClickable ? 'custom-cursor--hover' : ''}`}
+        className={`custom-cursor hidden lg:block ${isHoveringClickable ? 'custom-cursor--hover' : ''}`}
         aria-hidden
       />
     </>

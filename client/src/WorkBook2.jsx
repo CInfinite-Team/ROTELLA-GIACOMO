@@ -12,6 +12,7 @@ import BrandCarousel from './components/sharedComponents/BrandCarousel'
 import { ChevronUp } from 'lucide-react'
 import Arrow from './assets/Arrow.svg'
 import Giacomo from './assets/Giacomo.jpeg'
+import { Highlight } from './components/animations/hero-highlight'
 function WorkBook2() {
   const [showCardPopup, setShowCardPopup] = useState(false)
 
@@ -77,16 +78,16 @@ function WorkBook2() {
   return (
     <>
       {/* <Navbar /> */}
-      <div className='flex gap-10 bg-[#f4f4f4]   2xl:pl-32  w-full'>
+      <div className='flex gap-5 bg-[#f4f4f4]   2xl:pl-32  w-full'>
       
 
         {/* Main Content */}
         <div className='flex flex-col order-2 lg:order-1 w-full lg:w-[50%]  relative'>
-          <div className='flex items-end w-full sticky  translate-x-14  top-1/2'>
-           <img src={Arrow} alt="" className='rotate-[30deg] w-24 absolute right-0  hidden lg:block' />
+          <div className='flex items-end w-full sticky translate-x-9  xl:translate-x-10  top-1/2'>
+           <img src={Arrow} alt="" className='rotate-[30deg] w-16 xl:w-24 absolute right-0  hidden lg:block' />
         </div>
           {/* Hero Section */}
-          <div className='relative flex flex-col gap-5 mt-5 px-10 lg:px-[35px] xl:px-[70px] min-h-[70vh] overflow-hidden'>   
+          <div className='relative flex flex-col gap-5 mt-5 px-10 lg:px-[35px] xl:px-[64px] min-h-[70vh] overflow-hidden'>   
 
             {/* Hero Content */}
             <div className='relative z-1 flex flex-col gap-5 justify-center mb-10'>
@@ -110,43 +111,43 @@ function WorkBook2() {
               </p>
 
               <p className=' text-lg md:text-3xl  slide-up stagger-2' ref={useViewportAnimation()}>
-                My fractional marketing consulting package includes everything from strategy to execution:
+                My <Highlight className=' text-white leading-tight '> fractional marketing consulting package </Highlight> includes everything from strategy to execution:
               </p>
 
 
             </div>
 
-            <p className='font-bold text-2xl text-center'>Website maintenance & optimization</p>
-            <p className='font-bold text-2xl text-center'>Search engine optimization</p>
-            <p className='font-bold text-2xl text-center'>Social media management</p>
-            <p className='font-bold text-2xl text-center'>All other channels that are relevant to your business</p>
+            <p className='font-bold text-2xl text-center slide-left' ref={useViewportAnimation()} >Website maintenance & optimization</p>
+            <p className='font-bold text-2xl text-center slide-right' ref={useViewportAnimation()}>Search engine optimization</p>
+            <p className='font-bold text-2xl text-center slide-left' ref={useViewportAnimation()}>Social media management</p>
+            <p className='font-bold text-2xl text-center slide-right' ref={useViewportAnimation()}>All other channels that are relevant to your business</p>
 
           </div>
 
           {/* Services Section */}
-          <div className='flex flex-col relative items-center gap-5 px-10 mt-10'>
+          <div className='flex flex-col relative items-center gap-5  px-10 mt-10'>
             <h2 className='text-lg md:text-4xl text-center font-bold mt-10 fade-in' ref={useViewportAnimation()}>
-              What does the [KW] onboarding process look like?
+              What does the <Highlight  className=' text-white leading-tight '>[KW] onboarding process look like?</Highlight>
             </h2>
 
 
-          <ol className='list-decimal space-y-5 mb-10'>
+          <ol className='text-center space-y-5 font-medium mb-10'>
             <li className='text-lg md:text-2xl  font-semibold slide-left' ref={useViewportAnimation()}>
-              Intro call We learn your goals.
+              1. Intro call <br /> We learn your goals.
             </li>
             {/* <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.06" ref={useViewportAnimation()} alt='' /> */}
             <li className='text-lg md:text-2xl  font-semibold slide-right' ref={useViewportAnimation()}>
-              Proposal Scope, timeline, price.
+              2. Proposal <br/> Scope, timeline, price.
             </li>
             {/* <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.08" ref={useViewportAnimation()} alt='' /> */}
             <li className='text-lg md:text-2xl font-semibold slide-left' ref={useViewportAnimation()}>
-              Kickoff We start working.
+              3. Kickoff <br /> We start working.
             </li>
            
             </ol>
             {/* <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.07" ref={useViewportAnimation()} alt='' /> */}
           
-           <h3 className='text-lg md:text-4xl font-bold mb-3 text-center slide-up !leading-snug' ref={useViewportAnimation()}>
+           <h3 className='text-lg md:text-4xl font-bold mb-3 mt-10 text-center slide-up !leading-snug' ref={useViewportAnimation()}>
                 Why me?
               </h3>
               <h3 className='text-lg w-[60%] md:text-4xl font-bold mb-10 text-center slide-up !leading-snug' ref={useViewportAnimation()}>
@@ -156,7 +157,7 @@ of specialists.
               </h3>
           
           </div>
-          <div className='px-10 lg:px-[35px] xl:pl-[30px] xl:pr-0'>
+          <div className='px-2 mt-10 lg:ml-[35px] md:px-20 lg:px-0 xl:ml-[30px] lg:w-[85%] xl:pr-0'>
             <BrandCarousel />
           </div>
 
@@ -164,7 +165,7 @@ of specialists.
 
 
           {/* Portfolio / Brands Section */}
-          <div className='flex flex-col gap-5 px-[35px] xl:px-[70px]'>
+          <div className='flex flex-col gap-5 px-[35px] xl:px-[64px]'>
 {/*            
             <ul className='list-disc space-y-7'>
               <li className='text-2xl font-medium'>
@@ -226,26 +227,26 @@ of specialists.
 
         {/* Right Sidebar (Card) */}
         <div className='z-50 flex-col  hidden lg:flex order-1 lg:w-[50%]  lg:order-2 mt-6 lg:mt-0  px-5 pl-5 gap-4 lg:pr-[5px] xl:pr-[20px] '>
-          <div className=' mx-auto lg:sticky top-4 mt-4 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200  bg-[#e0d0c2]'>
+          <div className=' mx-auto lg:sticky top-4 mt-4 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200  bg-[#7c1621]'>
             {/* Header */}
             <div className='flex items-center flex-wrap gap- justify-between py-[6px]  px-3'>
               <div className='flex items-center w-full justify-center gap-2 p-3'>
                 {/* <div className='w-8 h-8 bg-black rounded-md'></div> */}
-                <h2 className='font-semibold text-center text-gray-800'>[KW] Package</h2>
+                <h2 className='font-semibold text-center text-white'>[KW] Package</h2>
               </div>
 
-              <div className='grid grid-cols-2 items-center'>
-              <span className='text-sm text-center w-full font-semibold text-green-600'>
-                €1,000 / month
+              <div className='flex flex-col w-full justify-items-center text-white items-center'>
+              <span className='text-xl mb-2 text-center w-full font-bold text-green-600'>
+                €1000 / month
               </span>
 
-              <span className='text-xs'>
-                  -Can be adapted to your budget
+              <span className='text-sm'>
+                  - Can be adapted to your budget
       <br />
-              -50% deposit to start · 50% on
+              - 50% deposit to start · 50% on
                 completion
 <br />
-              -No Commitment, Cancel at any time
+              -  No Commitment, Cancel at any time
               </span>
 
               </div>
@@ -255,17 +256,17 @@ of specialists.
             {/* Body */}
             <div className='space-y-4 px-6 pt-2'>
               <div>
-                <h3 className='font-semibold text-center text-gray-800 mb-1'>
+                <h3 className='font-semibold text-center text-white mb-1'>
                   Why me
                 </h3>
                 
-                <p className='text-sm text-center text-gray-600 mt-2'>
+                <p className='text-sm text-center text-white mt-2'>
                   One point of contact, full team of specialists.
                 </p>
               </div>
 
               <div>
-                <h3 className='font-semibold text-center text-red-800 mb-'>
+                <h3 className='font-bold text-lg underline underline-offset-4 text-center text-white '>
                   BOOK A CALL WITH ME
                 </h3>
                 
@@ -273,11 +274,11 @@ of specialists.
             </div>
             
               
-              <div className='grid grid-cols-2 mt-4 px-2'>
+              <div className='grid grid-cols-2 mt-8 px-2'>
               
               <div className='h-[250px] col-span-1'>
                 <div 
-                className="calendly-inline-widget lg:max-w-[240px] 2xl:!max-w-96 2xl:!h-72" 
+                className="calendly-inline-widget lg:max-w-[240px] 2xl:!max-w-96 2xl:!h-80" 
                 data-url="https://calendly.com/rgiacomo/30-min-meeting?hide_event_type_details=1&hide_gdpr_banner=1" 
                 style={{
                   minWidth: '260px',
@@ -290,10 +291,15 @@ of specialists.
                 <div className='w-fit h-fit '>
                   <div className='relative translate-x-16 xl:translate-x-11 w-fit h-fit'>
               <img src={Giacomo} alt="" className='rounded-full w-[70%] xl:w-[80%] aspect-square object-cover' />
-               <span className="absolute bottom-8 left-1 xl:left-5 2xl:left-12 flex size-3">
+              
+              <div className='flex items-center  text-center'>
+               <span className="relative  flex size-3">
                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
                  <span className="relative inline-flex size-3 rounded-full bg-[#0add0a]"></span>
                 </span>
+                <span className='text-lg font-semibold pl-2 2xl:text-3xl text-white'>I'm available to talk</span>
+                </div>
+
               </div>
               </div>
 </div>
@@ -310,20 +316,20 @@ of specialists.
             className='w-full h-full'
           />
             </button> */}
-             <div className='text-sm text-gray-600 whitespace-nowrap flex-wrap leading-relaxed flex justify-center mt-2'> 
-                  Or Write me: {'  '}
+             <div className='text-sm text-white whitespace-nowrap flex-wrap leading-relaxed flex justify-center mt-2'> 
+                  Or Write me at: {'  '}
                   <a
                     href='mailto:rotellagiacomo@gmail.com'
-                    className='underline pl-1 font-semibold text-black'
+                    className='underline pl-1 font-semibold text-white'
                   >
-                    Email
+                    giacomo@rotellagiacomo.com
                   </a>
-                  , or{' '}
+                  
                   <a
                     href='https://wa.me/393920034695'
-                    className='underline font-semibold text-black'
+                    className='underline font-semibold text-white'
                   >
-                    WhatsApp/Call
+                   <span className='font-normal'>, or {' '}</span>  +39 3920034695
                   </a></div>
             </div>
            
@@ -347,12 +353,12 @@ of specialists.
 
   <div className={`fixed  ${showCardPopup ? 'translate-x-0' : '-translate-x-full' } inset-0  bg-black/40 lg:hidden backdrop-blur-sm z-50 flex items-center overflow-y-auto sm:items-center justify-center pb-4 sm:p-4`}>
     <div
-      className="card-popup bg-white shadow-xl rounded-2xl overflow-hidden  max-w-sm w-full relative mx-2 scrollbar-hide animate-slideUp"
+      className="card-popup bg-[#911c28] shadow-xl rounded-2xl overflow-hidden  max-w-sm w-full relative mx-2 scrollbar-hide animate-slideUp"
     >
       {/* Close Button */}
       <button
         onClick={() => setShowCardPopup(false)}
-        className="absolute top-3 right-3 z-10 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full p-1 transition-colors duration-200"
+        className="absolute top-3 right-3 z-10  hover:bg-red-600 text-white rounded-full p-1 transition-colors duration-200"
         aria-label="Close popup"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -361,15 +367,15 @@ of specialists.
       </button>
 
       {/* Header */}
-       <div className='flex items-center flex-wrap gap- justify-between py-[6px]  px-3'>
+       <div className='flex items-center flex-wrap  justify-between py-[6px]  px-3'>
               <div className='flex items-center w-full justify-center gap-2 p-3'>
                 {/* <div className='w-8 h-8 bg-black rounded-md'></div> */}
-                <h2 className='font-semibold text-center text-gray-800'>[KW] Package</h2>
+                <h2 className='font-semibold text-center text-white'>[KW] Package</h2>
               </div>
 
-              <div className='grid grid-cols-2 items-center'>
-              <span className='text-sm text-center w-full font-semibold text-green-600'>
-                €1,000 / month
+              <div className='flex flex-col justify-center w-full gap-3 text-white items-center'>
+              <span className='text-center text-xl w-full font-bold text-green-600'>
+                €1000 / month
               </span>
 
               <span className='text-xs'>
@@ -386,19 +392,19 @@ of specialists.
             </div>
 
       {/* Body */}
-       <div className='space-y-4 px-6 pt-2'>
+       <div className='space-y-5  mt-2 px-6 pt-2'>
               <div>
-                <h3 className='font-semibold text-center text-gray-800 mb-1'>
+                <h3 className='font-semibold text-center text-white mb-1'>
                   Why me
                 </h3>
                 
-                <p className='text-sm text-center text-gray-600 mt-2'>
+                <p className='text-sm text-center text-white mt-2'>
                   One point of contact, full team of specialists.
                 </p>
               </div>
 
               <div>
-                <h3 className='font-semibold text-center text-red-800 mb-'>
+                <h3 className='font-semibold text-center text-white '>
                   BOOK A CALL WITH ME
                 </h3>
                 
@@ -424,6 +430,21 @@ of specialists.
               </div>
              
               </div>
+              <div className='relative w-full my-2 flex justify-center h-fit'>
+              
+              <div className='flex items-center justify-center text-center'>
+              <div className='relative w-16'>
+              <img src={Giacomo} alt="" className='rounded-full  aspect-square object-cover' />
+
+               <span className="absolute -left-1 bottom-2  flex size-3">
+                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
+                 <span className="relative inline-flex size-3 rounded-full bg-[#0add0a]"></span>
+                </span>
+                </div>
+                <span className='text-xl w-full  font-semibold pl-2 2xl:text-3xl text-white'>I'm available to talk</span>
+                </div>
+
+              </div>
 
       {/* Button */}
       <div className='p-4 border-t'>
@@ -435,17 +456,20 @@ of specialists.
             className='w-full text-sm md:text-base h-4'
           />
         </button> */}
-        <div className='text-xs text-gray-600 flex justify-center gap-1 mt-2 flex-wrap'> 
-          Or Write me: 
-          <a href='mailto:rotellagiacomo@gmail.com' className='underline font-semibold text-black'>Email</a>,
-          <a href='https://wa.me/393920034695' className='underline font-semibold text-black'>WhatsApp/Call</a>
+        <div className='text- text-white flex flex-col items-center gap- mt-1 flex-wrap'> 
+          Or Write me
+         
+          <a href='mailto:rotellagiacomo@gmail.com' className='underline font-semibold text-white'>giacomo@rotellagiacomo.com</a>
+          or
+         
+          <a href='https://wa.me/393920034695' className='underline font-semibold text-white'>+39 3920034695</a>
         </div>
       </div>
     </div>
   </div>
 
 
-    <button onClick={scrollToTop} className='fixed bottom-20 lg:bottom-10 z-50 right-6 lg:right-4 p-3 bg-black text-white rounded-full shadow-lg hover:bg-gray-800 transition'>
+    <button onClick={scrollToTop} className='fixed bottom-20 lg:bottom-10 z-40 lg:z-50 right-6 lg:right-4 p-3 bg-black text-white rounded-full shadow-lg hover:bg-gray-800 transition'>
         <ChevronUp className='w-6 h-6' />
       </button>
     </>
