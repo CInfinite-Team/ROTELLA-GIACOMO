@@ -15,12 +15,6 @@ import DogNBay from '../../assets/Brands/DogNBay.svg'
 import JackWills from '../../assets/Brands/JackWills.svg'
 import { PopupButton } from "react-calendly";
 
-// A simple placeholder for the brand logos.
-const LogoPlaceholder = ({ className = '', children }) => (
-  <div className={`w-20 h-20 rounded-full flex items-center justify-center bg-gray-200 ${className}`}>
-    {children}
-  </div>
-);
 
 
   const brands = [
@@ -99,52 +93,57 @@ const LogoPlaceholder = ({ className = '', children }) => (
 
   ]
 
-export default function HeroSection() {
+export default function Hero() {
   return (
-    <div className="bg-[#f4f4f4] min-h-screen lg:max-h-[860px] flex items-center justify-center">
-      <div className="relative w-full   p-8 lg:p-12 overflow-hidden">
+    <div className="bg-[#f4f4f4]  flex items-center justify-center">
+      <div className="relative w-full flex flex-col justify-center gap-10 items-center  min-h-screen p-4  overflow-hidden">
         
     
 
         <div className="flex flex-col w-full lg:flex-row justify-between items-center lg:items-start relative z-10">
           
           {/* Left Content Section */}
-          <div className="w-full lg:w-[60%] order-2 lg:order-1 text-center flex flex-col items-center lg:items-start lg:text-left">
-            <p className="text-sm tracking-widest text-gray-600 mb-3 ml-1 font-medium">ROTELLA GIACOMO</p>
-            <h1 className="text-xl md:text-5xl xl:text-6xl font-bold text-gray-800 !leading-tight ">
+          <div className="w-full   text-center flex flex-col items-center ">
+            <p className="font-semibold  md:text-lg tracking-widest text-gray-600 mb-4">ROTELLA GIACOMO</p>
+            <h1 className="text-xl md:text-4xl font-bold text-gray-800 !leading-tight ">
               Fractional Marketing Consultant{' '}
-              <br />
+              
               <span >for <span className="text-[#911c28]">Small Businesses</span></span>
             </h1>
 
-            <p className="mt-4 md:mt-5 text-lg md:text-3xl  text-gray-700 max-w-[500px] ">
+            <p className="mt-4 md:mt-8 text-base md:text-2xl  text-gray-700 max-w-[500px] ">
               The power of a full-service marketing agency at a{' '}
               <span className="text-[##911c28] font-semibold">fraction of the cost.</span>
             </p>
 
-                       <span className='text-2xl text-gray-700 font-medium flex gap-2 mt-4'>Starting from <p className="font-bold text-[#911c28]">$1000/month</p></span>
+            {/* Right Content Section */}
+          <div className="w-fit mt-5 md:mt-0  pb-4 lg:pb-0 flex flex-col items-center ">
+            <p className="text-2xl font-bold text-[#911c28] mb">$1000/month</p>
+           
+          </div>
 
-             <PopupButton
+           
+           <div className='flex gap-5 md:gap-10 mt-3 items-center justify-center '>
+            <PopupButton
             url="https://calendly.com/rgiacomo"
             rootElement={document.getElementById("root")}
-            text="BOOK A CALL WITH ME"
-            className="mt-4 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-base font-bold py-4 px-8 rounded-full shadow-lg transition-colors duration-300"
+            text="LET'S TALK"
+            className="mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-lg font-bold py-3 px-5 md:px-20 w-fit md:py-5 rounded-full shadow-lg transition-colors duration-300"
           />
+           <div className="w-[46vw] h-[46vw] md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl ">
+              <img 
+                src={Giacomo}
+                alt="Rotella Giacomo"
+                className="w-full h-full object-top object-cover"
+              />
+            </div>
+            </div> 
             
           
 
           </div>
 
-          {/* Right Content Section */}
-          <div className="w-fit mt-5 md:mt-0 order-1 lg:order-2 pb-4 lg:pb-0 flex flex-col items-center ">
-            <div className="w-64 h-64 md:w-96 md:h-96 xl:w-[450px] xl:h-[450px] rounded-full overflow-hidden shadow-2xl border-4 border-white">
-              <img 
-                src={Giacomo}
-                alt="Rotella Giacomo"
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-          </div>
+          
 
           
 
@@ -152,12 +151,12 @@ export default function HeroSection() {
 
 
       
-<div className="mt-16 w-full overflow-hidden ">
+<div className="mt- w-full overflow-hidden ">
   <div className="flex items-center  space-x-10  animate-scroll">
     {brands.concat(brands).map((brand, index) => (
       <div key={index} className="rounded-full flex-shrink-0">
         <img
-          className="w-48 h-48 p-3 object-contain rounded-full"
+          className="w-28 h-28 p-3 object-contain rounded-full"
           src={brand.logo}
           alt={brand.name}
         />

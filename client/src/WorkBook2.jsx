@@ -90,8 +90,8 @@ function WorkBook2() {
           <div className='relative flex flex-col gap-5 mt-5 px-10 lg:px-[35px] xl:px-[64px] min-h-[70vh] overflow-hidden'>   
 
             {/* Hero Content */}
-            <div className='relative z-1 flex flex-col gap-5 justify-center mb-10'>
-              <h1  className='text-4xl md:text-5xl font-bold mt-16 slide-up !leading-snug' ref={useViewportAnimation()}>
+            <div className='  relative z-1 flex flex-col gap-5 justify-center mb-10'>
+              <h1  className='text-3xl md:text-5xl font-bold mt-16 slide-up !leading-snug' ref={useViewportAnimation()}>
                 If you’re a <span className='text-[#911c28] '>small business </span>owner looking to level up your marketing, you’re in the right place.
               </h1>
               <p className='font-semibold text-2xl md:text-4xl slide-up stagger-1 !leading-tight mt-10 ' ref={useViewportAnimation()}>
@@ -147,7 +147,7 @@ function WorkBook2() {
             </ol>
             {/* <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.07" ref={useViewportAnimation()} alt='' /> */}
           
-           <h3 className='text-lg md:text-4xl font-bold mb-3 mt-10 text-center slide-up !leading-snug' ref={useViewportAnimation()}>
+           <h3 className='text-lg md:text-4xl text-[#911c28] font-bold mb-3 mt-10 text-center slide-up !leading-snug' ref={useViewportAnimation()}>
                 Why me?
               </h3>
               <h3 className='text-lg w-[60%] md:text-4xl font-bold mb-10 text-center slide-up !leading-snug' ref={useViewportAnimation()}>
@@ -232,15 +232,15 @@ of specialists.
             <div className='flex items-center flex-wrap gap- justify-between py-[6px]  px-3'>
               <div className='flex items-center w-full justify-center gap-2 p-3'>
                 {/* <div className='w-8 h-8 bg-black rounded-md'></div> */}
-                <h2 className='font-semibold text-center text-white'>[KW] Package</h2>
+                <h2 className='font-semibold text-xl text-center text-white'>[KW] Package</h2>
               </div>
 
               <div className='flex flex-col w-full justify-items-center text-white items-center'>
-              <span className='text-xl mb-2 text-center w-full font-bold text-green-600'>
+              <span className='text-xl mb-2 text-center w-full font-bold text-white '>
                 €1000 / month
               </span>
 
-              <span className='text-sm'>
+              <span className='text-sm font-medium'>
                   - Can be adapted to your budget
       <br />
               - 50% deposit to start · 50% on
@@ -260,7 +260,7 @@ of specialists.
                   Why me
                 </h3>
                 
-                <p className='text-sm text-center text-white mt-2'>
+                <p className='text-sm font-medium text-center text-white mt-2'>
                   One point of contact, full team of specialists.
                 </p>
               </div>
