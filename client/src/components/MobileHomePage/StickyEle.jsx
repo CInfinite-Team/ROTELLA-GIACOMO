@@ -15,7 +15,7 @@ function StickyEle() {
 
 <div className='relative'>
           <div className='relative '>
-             <div className="w-20 h-20 rounded-full  overflow-hidden shadow-2xl ">
+             <div className="w-14 h-14 md:w-20 md:h-20 rounded-full  overflow-hidden shadow-2xl ">
                         <img 
                           src={Giacomo}
                           alt="Rotella Giacomo"

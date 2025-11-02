@@ -128,7 +128,7 @@ function BrandsWorkedWith() {
       ]
 
   return (
-    <div className='min-h-screen bg-[#eae0d5] pt-16 '>
+    <div className='min-h-[75vh] bg-[#eae0d5] pt-10'>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={16}
@@ -171,7 +171,7 @@ function BrandsWorkedWith() {
           <SwiperSlide key={index} >
             <div
              
-              className="group relative bg-[#f4f4f4]  flex flex-col rounded-2xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl  w-[90%] md:w-[70%] 2xl:w-full h-[70vh] md:h-[560px] mx-auto border border-gray-200"
+              className="group relative bg-[#f4f4f4]  flex flex-col rounded-2xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl h-[75vh]   mx-auto border border-gray-200"
               onMouseEnter={() => setIsHovered(index)}
               onMouseLeave={() => setIsHovered(null)}
             >

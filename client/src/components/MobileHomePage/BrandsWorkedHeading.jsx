@@ -4,11 +4,12 @@ function BrandsWorkedHeading() {
   return (
     <div className='flex flex-col bg-[#eae0d5] min-h-screen items-center justify-center'>
 
-      <h2 className="text-4xl md:text-7xl font-bold text-center mb-8 text-gray-800">
+      <h2 className=" font-bold text-center mb-8 text-gray-800"
+      style={{ fontSize: "clamp(25px, 8vw, 57px)" }}>
         Brands I've worked with
       </h2>
 
-       <button> <ArrowBigDown size={200} fill='#911c28' color='#911c28' /></button>
+       <button> <ArrowBigDown size={150} fill='#911c28' color='#911c28' /></button>
 
     </div>
   )

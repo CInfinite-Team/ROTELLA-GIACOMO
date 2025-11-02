@@ -92,6 +92,22 @@ function HomeMobile() {
 
       {/* Show StickyEle on all slides except the first (Hero) */}
       {activeIndex !== 0 && <StickyEle />}
+
+
+          {/* <Hero />
+          <div className='px-5 md:px-10'>
+           <SmallBusiness />
+           <Fractional />
+           <Fractional2 />
+            <Services />
+            <OnBoarding />
+             <WhyMe />
+             <BrandsWorkedHeading />
+             <BrandsWorkedWith />
+             <StickyEle />
+             </div> */}
+
+
     </div>
   )
 }
