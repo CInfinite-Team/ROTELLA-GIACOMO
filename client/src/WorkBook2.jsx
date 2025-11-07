@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import Image1 from './assets/writebook-01.webp'
-import HeroVideo from './assets/heroVideo.mp4'
-import Navbar from './components/sharedComponents/Navbar'
+// import Image1 from './assets/writebook-01.webp'
+// import HeroVideo from './assets/heroVideo.mp4'
+// import Navbar from './components/sharedComponents/Navbar'
 import Footer from './components/sharedComponents/Footer'
-import { useSmoothScroll, useViewportAnimation, useTextSplitting } from './components/animations/ScrollAnimations'
+import { useSmoothScroll, useViewportAnimation, initLazyAnimationsObserver } from './components/animations/ScrollAnimations'
 import { initParallax } from './components/animations/Parallax'
 import './components/animations/animations.css'
-import { PopupButton } from "react-calendly";
+// import { PopupButton } from "react-calendly";
 import FAQ from './components/sharedComponents/Faq'
 import BrandCarousel from './components/sharedComponents/BrandCarousel'
 import { ChevronUp } from 'lucide-react'
-import Arrow from './assets/Arrow.svg'
+// import Arrow from './assets/Arrow.svg'
 import Giacomo from './assets/Giacomo.jpeg'
 import { Highlight } from './components/animations/hero-highlight'
 function WorkBook2() {
@@ -20,9 +20,11 @@ function WorkBook2() {
   useSmoothScroll();
   
   useEffect(() => {
-    const cleanup = initParallax()
+    const cleanupParallax = initParallax()
+    const cleanupLazy = initLazyAnimationsObserver({ threshold: 0.15, rootMargin: '0px 0px -12% 0px', once: false })
     return () => {
-      if (typeof cleanup === 'function') cleanup()
+      if (typeof cleanupParallax === 'function') cleanupParallax()
+      if (typeof cleanupLazy === 'function') cleanupLazy()
     }
   }, [])
 //  useEffect(() => {
@@ -83,22 +85,28 @@ function WorkBook2() {
 
         {/* Main Content */}
         <div className='flex flex-col order-2 lg:order-1 w-full lg:w-[50%]  relative'>
-          <div className='flex items-end w-full sticky translate-x-9  xl:translate-x-10  top-1/2'>
+          {/* <div className='flex items-end w-full sticky translate-x-9  xl:translate-x-10  top-1/2'>
            <img src={Arrow} alt="" className='rotate-[30deg] w-16 xl:w-24 absolute right-0  hidden lg:block' />
-        </div>
+        </div> */}
           {/* Hero Section */}
           <div className='relative flex flex-col gap-5 mt-5 px-10 lg:px-[35px] xl:px-[64px] min-h-[70vh] overflow-hidden'>   
 
             {/* Hero Content */}
             <div className='  relative z-1 flex flex-col gap-5 justify-center mb-10'>
-              <h1  className='text-3xl md:text-5xl font-bold mt-16 slide-up !leading-snug' ref={useViewportAnimation()}>
+              <h1  className='text-3xl md:text-5xl font-bold mt-16 slide-up !leading-snug'
+                data-lazy-animation="fade-up" data-lazy-animation-duration="1200" data-lazy-animation-easing="ease-out-quart"
+                ref={useViewportAnimation()}>
                 If you’re a <span className='text-[#911c28] '>small business </span>owner looking to level up your marketing, you’re in the right place.
               </h1>
-              <p className='font-semibold text-2xl md:text-4xl slide-up stagger-1 !leading-tight mt-10 ' ref={useViewportAnimation()}>
+              <p className='font-semibold text-2xl md:text-4xl slide-up stagger-1 !leading-tight mt-10 '
+                data-lazy-animation="fade-up" data-lazy-animation-delay="150" data-lazy-animation-duration="1200" data-lazy-animation-easing="ease-out-quart"
+                ref={useViewportAnimation()}>
                 What is a fractional marketing consultant?
               </p>
 
-              <p className=' text-lg md:text-3xl  slide-up stagger-2' ref={useViewportAnimation()}>
+              <p className=' text-lg md:text-3xl  slide-up stagger-2'
+                data-lazy-animation="fade-up" data-lazy-animation-delay="250" data-lazy-animation-duration="1200" data-lazy-animation-easing="ease-out-quart"
+                ref={useViewportAnimation()}>
                 As a fractional marketing consultant, my team and I work with you on a part-time and long-term basis to provide strategic guidance and hands-on execution.
               </p>
 
@@ -106,51 +114,75 @@ function WorkBook2() {
 
             <div className='relative z-1 flex flex-col gap-5 justify-center mb-10'>
              
-              <p className='font-semibold text-2xl md:text-4xl slide-up stagger-1 !leading-tight ' ref={useViewportAnimation()}>
+              <p className='font-semibold text-2xl md:text-4xl slide-up stagger-1 !leading-tight '
+                data-lazy-animation="fade-up" data-lazy-animation-delay="150" data-lazy-animation-duration="1200"
+                ref={useViewportAnimation()}>
                 What does the fractional marketing consultant package include?
               </p>
 
-              <p className=' text-lg md:text-3xl  slide-up stagger-2' ref={useViewportAnimation()}>
+              <p className=' text-lg md:text-3xl  slide-up stagger-2'
+                data-lazy-animation="fade-up" data-lazy-animation-delay="250" data-lazy-animation-duration="1200"
+                ref={useViewportAnimation()}>
                 My <Highlight className=' text-white leading-tight '> fractional marketing consulting package </Highlight> includes everything from strategy to execution:
               </p>
 
 
             </div>
 
-            <p className='font-bold text-2xl text-center slide-left' ref={useViewportAnimation()} >Website maintenance & optimization</p>
-            <p className='font-bold text-2xl text-center slide-right' ref={useViewportAnimation()}>Search engine optimization</p>
-            <p className='font-bold text-2xl text-center slide-left' ref={useViewportAnimation()}>Social media management</p>
-            <p className='font-bold text-2xl text-center slide-right' ref={useViewportAnimation()}>All other channels that are relevant to your business</p>
+            <p className='font-bold text-4xl mt-4 text-center slide-left'
+               data-lazy-animation="fade-left" data-lazy-animation-delay="100" data-lazy-animation-duration="1200"
+               ref={useViewportAnimation()} >Website maintenance & optimization</p>
+            <p className='font-bold text-4xl text-center slide-right'
+               data-lazy-animation="fade-right" data-lazy-animation-delay="150" data-lazy-animation-duration="1200"
+               ref={useViewportAnimation()}>Search engine optimization</p>
+            <p className='font-bold text-4xl text-center slide-left'
+               data-lazy-animation="fade-left" data-lazy-animation-delay="200" data-lazy-animation-duration="1200"
+               ref={useViewportAnimation()}>Social media management</p>
+            <p className='font-bold text-4xl mb-4 text-center slide-right'
+               data-lazy-animation="fade-right" data-lazy-animation-delay="250" data-lazy-animation-duration="1200"
+               ref={useViewportAnimation()}>All other channels that are relevant to your business</p>
 
           </div>
 
           {/* Services Section */}
           <div className='flex flex-col relative items-center gap-5  px-10 mt-10'>
-            <h2 className='text-lg md:text-4xl text-center font-bold mt-10 fade-in' ref={useViewportAnimation()}>
+            <h2 className='text-lg md:text-4xl text-center font-bold mt-10 fade-in'
+              data-lazy-animation="fade-up" data-lazy-animation-duration="1300" data-lazy-animation-easing="ease-out-quart"
+              ref={useViewportAnimation()}>
               What does the <Highlight  className=' text-white leading-tight '>[KW] onboarding process look like?</Highlight>
             </h2>
 
 
           <ol className='text-center space-y-5 font-medium mb-10'>
-            <li className='text-lg md:text-2xl  font-semibold slide-left' ref={useViewportAnimation()}>
+            <li className='text-lg md:text-2xl  font-semibold slide-left'
+                data-lazy-animation="zoom-in-left" data-lazy-animation-duration="1200"
+                ref={useViewportAnimation()}>
               1. Intro call <br /> We learn your goals.
             </li>
             {/* <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.06" ref={useViewportAnimation()} alt='' /> */}
-            <li className='text-lg md:text-2xl  font-semibold slide-right' ref={useViewportAnimation()}>
+            <li className='text-lg md:text-2xl  font-semibold slide-right'
+                data-lazy-animation="zoom-in-right" data-lazy-animation-duration="1200" data-lazy-animation-delay="150"
+                ref={useViewportAnimation()}>
               2. Proposal <br/> Scope, timeline, price.
             </li>
             {/* <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.08" ref={useViewportAnimation()} alt='' /> */}
-            <li className='text-lg md:text-2xl font-semibold slide-left' ref={useViewportAnimation()}>
+            <li className='text-lg md:text-2xl font-semibold slide-left'
+                data-lazy-animation="zoom-in-up" data-lazy-animation-duration="1200" data-lazy-animation-delay="250"
+                ref={useViewportAnimation()}>
               3. Kickoff <br /> We start working.
             </li>
            
             </ol>
             {/* <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.07" ref={useViewportAnimation()} alt='' /> */}
           
-           <h3 className='text-lg md:text-4xl text-[#911c28] font-bold mb-3 mt-10 text-center slide-up !leading-snug' ref={useViewportAnimation()}>
+          <h3 className='text-lg md:text-4xl text-[#911c28] font-bold mb-3 mt-10 text-center slide-up !leading-snug'
+              data-lazy-animation="fade-up" data-lazy-animation-duration="1100"
+              ref={useViewportAnimation()}>
                 Why me?
               </h3>
-              <h3 className='text-lg w-[60%] md:text-4xl font-bold mb-10 text-center slide-up !leading-snug' ref={useViewportAnimation()}>
+              <h3 className='text-lg w-[60%] md:text-4xl font-bold mb-10 text-center slide-up !leading-snug'
+                  data-lazy-animation="fade-up" data-lazy-animation-duration="1100" data-lazy-animation-delay="120"
+                  ref={useViewportAnimation()}>
                 One point of
 contact, full team
 of specialists.
@@ -164,78 +196,39 @@ of specialists.
              
 
 
-          {/* Portfolio / Brands Section */}
-          <div className='flex flex-col gap-5 px-[35px] xl:px-[64px]'>
-{/*            
-            <ul className='list-disc space-y-7'>
-              <li className='text-2xl font-medium'>
-                <span className='text-black font-bold'>WebsiteSetup</span>{' '}
-                <span className='text-gray-600'>
-                  SEO strategy, keyword research, link building, and top 10 Google rankings.
-                </span>
-              </li>
-              <li className='text-2xl font-medium'>
-                <span className='text-black font-bold'>Badger Maps</span>{' '}
-                <span className='text-gray-600'>
-                  Website optimization, SEO, content writing, PPC, email marketing.
-                </span>
-              </li>
-              <li className='text-2xl font-medium'>
-                <span className='text-black font-bold'>Gucci</span>{' '}
-                <span className='text-gray-600'>
-                  Part of the Gucci Media team in 2023–2024.
-                </span>
-              </li>
-              <li className='text-2xl font-medium'>
-                <span className='text-black font-bold'>Kukreja Real Estate</span>{' '}
-                <span className='text-gray-600'>
-                  Social media content and website development.
-                </span>
-              </li>
-              <li className='text-2xl font-medium'>
-                <span className='text-black font-bold'>AIX Summit</span>{' '}
-                <span className='text-gray-600'>
-                  Branding and website development.
-                </span>
-              </li>
-              <li className='text-2xl font-medium'>
-                <span className='text-black font-bold'>Kanan</span>{' '}
-                <span className='text-gray-600'>
-                  Website optimization, PPC, social media.
-                </span>
-              </li>
-              <li className='text-2xl font-medium'>
-                <span className='text-black font-bold'>Radiance Clinic</span>{' '}
-                <span className='text-gray-600'>Healthcare marketing projects.</span>
-              </li>
-              <li className='text-2xl font-medium'>
-                <span className='text-black font-bold'>Offbeat Lifestyle</span>{' '}
-                <span className='text-gray-600'>
-                  SEO strategy, content writing, and social media content.
-                </span>
-              </li>
-            </ul> */}
-          </div>
+      
           
           <FAQ />
           
-          {/* Brand Carousel Section - Added after FAQ */}
+         
         
           
           <Footer />
         </div>
 
         {/* Right Sidebar (Card) */}
-        <div className='z-50 flex-col  hidden lg:flex order-1 lg:w-[50%]  lg:order-2 mt-6 lg:mt-0  px-5 pl-5 gap-4 lg:pr-[5px] xl:pr-[20px] '>
-          <div className=' mx-auto lg:sticky top-4 mt-4 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200  bg-[#7c1621]'>
+        <div className='z-50 flex-col  hidden lg:flex order-1 bg-[#7c1621]  lg:w-[50%]  lg:order-2 mt-6 lg:mt-0  px-5 pl-5 gap-4 lg:pr-[5px] xl:pr-[20px] '>
+          <div 
+            className=' mx-auto lg:sticky top-4 mt-4 lg:mr-4 xl:mr-0 rounded-lg    bg-[#7c1621] slide-right'
+            data-lazy-animation="fade-right" 
+            data-lazy-animation-duration="1200" 
+            data-lazy-animation-easing="ease-out-quart"
+            ref={useViewportAnimation({ animationClass: 'animate-in', once: false })}
+          >
             {/* Header */}
             <div className='flex items-center flex-wrap gap- justify-between py-[6px]  px-3'>
-              <div className='flex items-center w-full justify-center gap-2 p-3'>
+              <div 
+                className='flex items-center w-full justify-center gap-2 p-3 fade-in'
+                ref={useViewportAnimation({ animationClass: 'animate-in stagger-1', once: false })}
+              >
                 {/* <div className='w-8 h-8 bg-black rounded-md'></div> */}
                 <h2 className='font-semibold text-xl text-center text-white'>[KW] Package</h2>
               </div>
 
-              <div className='flex flex-col w-full justify-items-center text-white items-center'>
+              <div 
+                className='flex flex-col w-full justify-items-center text-white items-center fade-in'
+                ref={useViewportAnimation({ animationClass: 'animate-in stagger-2', once: false })}
+              >
               <span className='text-xl mb-2 text-center w-full font-bold text-white '>
                 €1000 / month
               </span>
@@ -255,7 +248,10 @@ of specialists.
 
             {/* Body */}
             <div className='space-y-4 px-6 pt-2'>
-              <div>
+              <div
+                className='fade-in'
+                ref={useViewportAnimation({ animationClass: 'animate-in stagger-3', once: false })}
+              >
                 <h3 className='font-semibold text-center text-white mb-1'>
                   Why me
                 </h3>
@@ -265,7 +261,10 @@ of specialists.
                 </p>
               </div>
 
-              <div>
+              <div
+                className='fade-in'
+                ref={useViewportAnimation({ animationClass: 'animate-in stagger-4', once: false })}
+              >
                 <h3 className='font-bold text-lg underline underline-offset-4 text-center text-white '>
                   BOOK A CALL WITH ME
                 </h3>
@@ -287,7 +286,10 @@ of specialists.
                 }}
               />
               </div>
-              <div className='w-full  flex items-center justify-end'>
+              <div 
+                className='w-full  flex items-center justify-end fade-in'
+                ref={useViewportAnimation({ animationClass: 'animate-in stagger-5', once: false })}
+              >
                 <div className='w-fit h-fit '>
                   <div className='relative translate-x-16 xl:translate-x-11 w-fit h-fit'>
               <img src={Giacomo} alt="" className='rounded-full w-[70%] xl:w-[80%] aspect-square object-cover' />
@@ -306,7 +308,10 @@ of specialists.
               </div>
 
             {/* Button */}
-            <div className='p-2'>
+            <div 
+              className='p-2 fade-in'
+              ref={useViewportAnimation({ animationClass: 'animate-in stagger-6', once: false })}
+            >
             {/* <button className='mt-2 w-full bg-black hover:bg-[#272727] duration-500 text-white font-semibold py-3 rounded-lg transition-colors scale-in ease-out-back' ref={useViewportAnimation()}>
              
               <PopupButton

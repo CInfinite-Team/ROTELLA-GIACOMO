@@ -171,24 +171,24 @@ const BrandCarousel = () => {
           },
           
         }}
-        className="relative"
+        className="relative pt-10"
       >
         {brands.map((brand, index) => (
           <SwiperSlide key={index}>
             <div
              
-              className="group relative bg-[#f4f4f4]  flex flex-col rounded-2xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl  w-[70%] 2xl:w-full h-[450px] md:h-[560px] mx-auto border border-gray-200"
+              className="group relative bg-[#eae0d5]  flex flex-col rounded-2xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl  w-[70%] 2xl:w-full h-[450px] md:h-[560px] mx-auto border border-gray-200"
               onMouseEnter={() => setIsHovered(index)}
               onMouseLeave={() => setIsHovered(null)}
             >
               {/* Card Header */}
-              <div className="bg-[#f4f4f4] p-3 text-center ">
+              <div className=" bg-gradient-to-b from-[#eae0d5] via-[#eae0d5d8] to-[#eae0d500]  p-3 pb-5 absolute top-0 w-full text-center ">
                 <h3 className="font-bold text-sm text-gray-800 mb-1">{brand.name}</h3>
                 <p className="text-xs text-gray-600">{brand.category}</p>
               </div>
 
               {/* Card Image/Logo Area */}
-              <div className="w-full h-full lg:h-[82%]  flex items-center justify-center px-4 ">
+              <div className="w-full h-full   flex items-center justify-center ">
                {brand.type === 'img' ? <img 
                   src={brand.logo} 
                   alt={`${brand.name} logo`}
@@ -206,16 +206,16 @@ const BrandCarousel = () => {
               </div>
 
               {/* Card Footer with CTA */}
-              <div className="absolute bottom-0 lg:hidden flex justify-between gap-2 z-50 bg-[#f4f4f4] left-0 right-0 p-3">
+              <div className="absolute bottom-0  flex justify-between items-center gap-2 z-50 bg-gradient-to-t from-[#eae0d5] via-[#eae0d5d8] to-[#eae0d500] left-0 right-0 pt-5 p-3">
                  <PopupButton
                            url="https://calendly.com/rgiacomo"
                            rootElement={document.getElementById("root")}
                            text=" LET'S TALK"
-                           className="w-fit bg-red-800 hover:bg-red-900 text-white text-xs font-semibold py-2 px-3 rounded-lg transition-colors duration-200"
+                           className="w-fit h-fit bg-red-800 hover:bg-red-900 text-white text-xs font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
                          />
                   <div className='relative w-fit h-fit'>
-                <img src={Giacomo} className='bg-gray-400 w-10 h-10 rounded-full' alt="" />
-                <span className="absolute bottom-0 left-0 flex size-3">
+                <img src={Giacomo} className='bg-gray-400 w-16 object-cover object-top h-16 rounded-full' alt="" />
+                <span className="absolute bottom-2 left-0 flex size-3">
                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
                  <span className="relative inline-flex size-3 rounded-full bg-[#0add0a]"></span>
                 </span>

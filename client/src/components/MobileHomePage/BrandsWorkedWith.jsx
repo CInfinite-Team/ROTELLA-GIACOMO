@@ -176,13 +176,13 @@ function BrandsWorkedWith() {
               onMouseLeave={() => setIsHovered(null)}
             >
               {/* Card Header */}
-              <div className="bg-[#f4f4f4] p-3 text-center ">
+              <div className=" bg-gradient-to-b from-[#eae0d5] via-[#eae0d5d8] to-[#eae0d500]  p-3 pt-1 pb-6 absolute top-0 w-full  text-center ">
                 <h3 className="font-bold text-sm text-gray-800 mb-1">{brand.name}</h3>
                 <p className="text-xs text-gray-600">{brand.category}</p>
               </div>
 
               {/* Card Image/Logo Area */}
-              <div className="w-full h-full lg:h-[82%]  flex items-center justify-center px-4 ">
+              <div className="w-full h-full lg:h-[82%]  flex items-center justify-center  ">
                {brand.type === 'img' ? <img 
                   src={brand.logo} 
                   alt={`${brand.name} logo`}

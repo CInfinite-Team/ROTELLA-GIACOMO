@@ -27,21 +27,29 @@ export function useViewportAnimation(options = {}) {
     
     const defaultOptions = {
       threshold: 0.1,
-      rootMargin: '0px',
-      animationClass: 'animate-in',
-      once: true,
+      // Start a bit earlier for a smoother, more anticipated reveal
+      rootMargin: '0px 0px -10% 0px',
+      // Support multiple classes separated by spaces
+      animationClass: 'animate-in animate-in-slow',
+      once: false,
       ...options
     };
     
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          element.classList.add(defaultOptions.animationClass);
+          const classes = String(defaultOptions.animationClass).split(/\s+/).filter(Boolean);
+          if (classes.length) {
+            element.classList.add(...classes);
+          }
           if (defaultOptions.once) {
             observer.unobserve(element);
           }
         } else if (!defaultOptions.once) {
-          element.classList.remove(defaultOptions.animationClass);
+          const classes = String(defaultOptions.animationClass).split(/\s+/).filter(Boolean);
+          if (classes.length) {
+            element.classList.remove(...classes);
+          }
         }
       });
     }, {
@@ -208,4 +216,29 @@ export function useTextSplitting() {
   }, []);
   
   return ref;
+}
+
+// Init observer for demo-style lazy animations using data attributes
+// Adds 'on-screen' class to elements with [data-lazy-animation]
+export function initLazyAnimationsObserver({ threshold = 0.15, rootMargin = '0px 0px -10% 0px', once = true } = {}) {
+  const nodes = Array.from(document.querySelectorAll('[data-lazy-animation]'));
+  if (nodes.length === 0) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const el = entry.target;
+      if (entry.isIntersecting) {
+        el.classList.add('on-screen');
+        if (once) observer.unobserve(el);
+      } else if (!once) {
+        el.classList.remove('on-screen');
+      }
+    });
+  }, { threshold, rootMargin });
+
+  nodes.forEach((el) => observer.observe(el));
+
+  return () => {
+    observer.disconnect();
+  };
 }
