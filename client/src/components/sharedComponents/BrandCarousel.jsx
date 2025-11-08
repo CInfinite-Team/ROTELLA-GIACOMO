@@ -129,10 +129,10 @@ const BrandCarousel = () => {
   ]
 
   return (
-    <div className="w-full max-w-6xl mx-auto py-8" ref={useViewportAnimation()}>
-      <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
+    <div className="w-full  max-w-6xl mx-auto py-8" ref={useViewportAnimation()}>
+      {/* <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
         Some of the brands I've worked with
-      </h2>
+      </h2> */}
       
       {/* Swiper Carousel */}
       <Swiper
@@ -165,10 +165,10 @@ const BrandCarousel = () => {
             slidesPerView: 1,
             spaceBetween: 14,
           },
-          1900: {
-            slidesPerView: 2,
-            spaceBetween: 16,
-          },
+          // 1900: {
+          //   slidesPerView: 2,
+          //   spaceBetween: 16,
+          // },
           
         }}
         className="relative pt-10"
@@ -177,7 +177,7 @@ const BrandCarousel = () => {
           <SwiperSlide key={index}>
             <div
              
-              className="group relative bg-[#eae0d5]  flex flex-col rounded-2xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl  w-[70%] 2xl:w-full h-[450px] md:h-[560px] mx-auto border border-gray-200"
+              className="group relative bg-[#eae0d5]  flex flex-col rounded-2xl shadow-lg border-t border-t-[#e2cbb2] overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl  w-[70%] 2xl:w-[85%] 2xl:h-[90vh] h-[450px] md:h-[560px] mx-auto border border-gray-200"
               onMouseEnter={() => setIsHovered(index)}
               onMouseLeave={() => setIsHovered(null)}
             >
@@ -211,10 +211,10 @@ const BrandCarousel = () => {
                            url="https://calendly.com/rgiacomo"
                            rootElement={document.getElementById("root")}
                            text=" LET'S TALK"
-                           className="w-fit h-fit bg-red-800 hover:bg-red-900 text-white text-xs font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                           className="w-fit h-fit bg-red-800 hover:bg-red-900 text-white text-xs 2xl:text-xl font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
                          />
                   <div className='relative w-fit h-fit'>
-                <img src={Giacomo} className='bg-gray-400 w-16 object-cover object-top h-16 rounded-full' alt="" />
+                <img src={Giacomo} className='bg-gray-400 w-16 2xl:w-24 2xl:h-24 object-cover object-top h-16 rounded-full' alt="" />
                 <span className="absolute bottom-2 left-0 flex size-3">
                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
                  <span className="relative inline-flex size-3 rounded-full bg-[#0add0a]"></span>

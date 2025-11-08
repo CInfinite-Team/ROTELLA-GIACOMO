@@ -136,16 +136,16 @@ export default function HeroSection() {
         <div className="flex flex-col w-full lg:flex-row justify-between items-center lg:items-start relative z-10">
           
           {/* Left Content Section */}
-          <div className="w-full lg:w-[60%] order-2 lg:order-1 text-center flex flex-col items-center lg:items-start lg:text-left">
+          <div className="w-full lg:w-[60%] 2xl:gap-5]4 order-2 lg:order-1 text-center flex flex-col items-center lg:items-start lg:text-left">
             <p 
               ref={nameRef}
-              className="text-sm tracking-widest text-gray-600 mb-3 ml-1 font-medium slide-up"
+              className="text-sm 2xl:text-lg tracking-widest text-gray-600 mb-3 ml-1 font-medium slide-up"
             >
               ROTELLA GIACOMO
             </p>
             <h1 
               ref={headingRef}
-              className="text-xl md:text-5xl xl:text-6xl font-bold text-gray-800 !leading-tight slide-up"
+              className="text-xl md:text-5xl 2xl:text-6xl  font-bold text-gray-800 !leading-tight slide-up"
             >
               Fractional Marketing Consultant{' '}
               <br />
@@ -154,7 +154,7 @@ export default function HeroSection() {
 
             <p 
               ref={descriptionRef}
-              className="mt-4 md:mt-5 text-lg md:text-3xl  text-gray-700 max-w-[500px] slide-up"
+              className="mt-4 md:mt-5 text-lg md:text-2xl 2xl:text-4xl  text-gray-700 max-w-[500px] 2xl:max-w-[700px] slide-up"
             >
               The power of a full-service marketing agency at a{' '}
               <span className="text-[##911c28] font-semibold">fraction of the cost.</span>
@@ -162,7 +162,7 @@ export default function HeroSection() {
 
             <span 
               ref={priceRef}
-              className='text-2xl text-gray-700 font-medium flex gap-2 mt-4 slide-up'
+              className='text-xl 2xl:text-3xl 2xl:mt-6 text-gray-700 font-medium flex gap-2 mt-4 slide-up'
             >
               Starting from <p className="font-bold text-[#911c28]">$1000/month</p>
             </span>
@@ -172,7 +172,7 @@ export default function HeroSection() {
                 url="https://calendly.com/rgiacomo"
                 rootElement={document.getElementById("root")}
                 text="BOOK A CALL WITH ME"
-                className="mt-4 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-base font-bold py-4 px-8 rounded-full shadow-lg transition-colors duration-300"
+                className="mt-4 2xl:mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-base 2xl:text-2xl font-bold py-4 px-8 rounded-full shadow-lg transition-colors duration-300"
               />
             </div>
             
@@ -184,7 +184,7 @@ export default function HeroSection() {
           <div className="w-fit mt-5 md:mt-0 order-1 lg:order-2 pb-4 lg:pb-0 flex flex-col items-center ">
             <div 
               ref={imageRef}
-              className="w-64 h-64 md:w-96 md:h-96 xl:w-[450px] xl:h-[450px] rounded-full overflow-hidden shadow-2xl border-4 border-white slide-right"
+              className="w-64 h-64 md:w-96 md:h-96 xl:w-[400px] xl:h-[400px] 2xl:w-[500px] 2xl:h-[500px] rounded-full overflow-hidden shadow-2xl border-4 border-white slide-right"
             >
               <div ref={imageParallaxRef}>
                 <img 
@@ -202,12 +202,12 @@ export default function HeroSection() {
 
 
       
-<div className="mt-16 w-full overflow-hidden ">
+<div className="mt-10 w-full overflow-hidden ">
   <div className="flex items-center  space-x-10  animate-scroll">
     {brands.concat(brands).map((brand, index) => (
       <div key={index} className="rounded-full flex-shrink-0">
         <img
-          className="w-48 h-48 p-3 object-contain rounded-full"
+          className="w-44 h-44 2xl:h-56 2xl:mt-8 2xl:w-56 p-3 object-contain rounded-full"
           src={brand.logo}
           alt={brand.name}
         />

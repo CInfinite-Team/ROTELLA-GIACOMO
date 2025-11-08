@@ -171,7 +171,7 @@ function BrandsWorkedWith() {
           <SwiperSlide key={index} >
             <div
              
-              className="group relative bg-[#f4f4f4]  flex flex-col rounded-2xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl h-[75vh]   mx-auto border border-gray-200"
+              className="group relative bg-[#f4f4f4]  flex flex-col rounded-2xl shadow-lg border-t border-t-[#e2cbb2]  overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl h-[75vh]   mx-auto border border-gray-200"
               onMouseEnter={() => setIsHovered(index)}
               onMouseLeave={() => setIsHovered(null)}
             >

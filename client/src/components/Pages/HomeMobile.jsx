@@ -13,7 +13,7 @@ import OnBoarding from '../MobileHomePage/OnBoarding'
 import WhyMe from '../MobileHomePage/WhyMe'
 import BrandsWorkedHeading from '../MobileHomePage/BrandsWorkedHeading'
 import BrandsWorkedWith from '../MobileHomePage/BrandsWorkedWith'
-
+import Faq from '../sharedComponents/Faq' 
 function HomeMobile() {
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -42,7 +42,7 @@ function HomeMobile() {
         </SwiperSlide>
 
         <SwiperSlide className='overflow-hidden'>
-          <div className='px-5 md:px-10 pb-40'>
+          <div className=''>
             <SmallBusiness />
           </div>
         </SwiperSlide>
@@ -88,6 +88,13 @@ function HomeMobile() {
             <BrandsWorkedWith />
           </div>
         </SwiperSlide>
+
+        <SwiperSlide className='overflow-hidden'>
+          <div className='px-5 md:px-10'>
+            <Faq />
+          </div>
+        </SwiperSlide>
+
       </Swiper>
 
       {/* Show StickyEle on all slides except the first (Hero) */}

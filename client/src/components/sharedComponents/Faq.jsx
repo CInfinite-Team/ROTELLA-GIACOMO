@@ -39,12 +39,12 @@ const FAQ = () => {
   };
 
   return (
-    <div className="flex flex-col gap-5 px-[35px] xl:px-[70px] py-10 fade-in" ref={useViewportAnimation()}>
+    <div className="flex flex-col lg:gap-5 px-[35px] xl:px-[70px] py-10 fade-in" ref={useViewportAnimation()}>
       <h2 className="text-3xl text-center font-bold mt-8 mb-8" ref={useViewportAnimation()}>
         Frequently Asked Questions
       </h2>
       
-      <div className="space-y-4">
+      <div className=" space-y-2 lg:space-y-4">
         {faqData.map((faq, index) => (
           <div 
             key={index} 
@@ -55,7 +55,7 @@ const FAQ = () => {
               className="flex justify-between items-center w-full p-5 text-left  rounded-sm transition-colors"
               onClick={() => toggleFAQ(index)}
             >
-              <span className="font-semibold text-lg text-white">{faq.question}</span>
+              <span className="font-semibold text-xs lg:text-lg text-white">{faq.question}</span>
               <span className="text-2xl transition-transform duration-300 text-white" style={{ transform: activeIndex === index ? 'rotate(180deg)' : 'rotate(0deg)' }}>
                 <ChevronDown/>
               </span>
@@ -65,7 +65,7 @@ const FAQ = () => {
               className="overflow-hidden transition-all duration-300 ease-in-out"
               style={{ maxHeight: activeIndex === index ? '500px' : '0px', opacity: activeIndex === index ? 1 : 0 }}
             >
-              <div className="p-5 bg-red-800 text-white">
+              <div className="p-5 bg-red-800 text-xs lg:text-base text-white">
                 {faq.answer}
               </div>
             </div>
