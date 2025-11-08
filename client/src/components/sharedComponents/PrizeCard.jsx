@@ -1,4 +1,4 @@
-import React ,{useEffect} from 'react'
+import React ,{useEffect,useState} from 'react'
 import {  useViewportAnimation } from '../animations/ScrollAnimations'
 import Giacomo from '../../assets/Giacomo.jpeg'
 
@@ -28,19 +28,23 @@ function PrizeCard() {
                 >
                   {/* Header */}
                   <div className='flex items-center flex-wrap 2xl:pl-10 justify-between py-[6px]  px-3'>
+                   
+      
+                   <div className='flex justify-center w-full items-center'>
                     <div 
-                      className='flex items-center w-full gap-2 p-3 fade-in'
+                      className='flex flex-col w-full h-fit text-white items-start fade-in'
+                      ref={useViewportAnimation({ animationClass: 'animate-in stagger-2', once: false })}
+                    >
+                      
+                       <div 
+                      className='flex items-center w-full gap-2 mb-4 fade-in'
                       ref={useViewportAnimation({ animationClass: 'animate-in stagger-1', once: false })}
                     >
                       {/* <div className='w-8 h-8 bg-black rounded-md'></div> */}
                       <h2 className='font-semibold text-xl 2xl:text-3xl  text-white'>[KW] Package</h2>
                     </div>
-      
-                    <div 
-                      className='flex flex-col w-full text-white items-start fade-in'
-                      ref={useViewportAnimation({ animationClass: 'animate-in stagger-2', once: false })}
-                    >
-                    <span className='text-xl 2xl:text-3xl mb-2  w-full font-bold text-white '>
+
+                    <span className='text-xl 2xl:text-3xl mb-4  w-full font-bold text-white '>
                       €1000 / month
                     </span>
       
@@ -51,11 +55,28 @@ function PrizeCard() {
                     </ul>
       
                     </div>
+
+                       <div className='w-fit h-fit '>
+                        <div className='relative translate-x-16 xl:translate-x-11 w-fit h-fit'>
+                    <img src={Giacomo} alt="" className='rounded-full w-[70%] xl:w-[60%] aspect-square object-cover' />
+                    
+                    <div className='flex items-center   text-center'>
+                     <span className="relative  flex size-3">
+                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
+                       <span className="relative inline-flex size-3 rounded-full bg-[#0add0a]"></span>
+                      </span>
+                      <span className='text-lg font-semibold pl-2 2xl:text-3xl text-white'>I'm available to talk</span>
+                      </div>
+      
+                    </div>
+                    </div>
+
+                    </div>
       
                   </div>
       
                   {/* Body */}
-                  <div className='space-y-4 px-6 pt-2'>
+                  <div className='space-y-2 px-6 pt-2'>
                     <div
                       className='fade-in'
                       ref={useViewportAnimation({ animationClass: 'animate-in stagger-3', once: false })}
@@ -81,20 +102,20 @@ function PrizeCard() {
                   </div>
                   
                     
-                    <div className='grid grid-cols-2 mt-8 px-2'>
+                    <div className='flex justify-center mt-4 px-2'>
                     
                     <div className='h-[250px] col-span-1'>
                       <div 
                       className="calendly-inline-widget lg:max-w-[240px] 2xl:!max-w-96 2xl:!h-80" 
                       data-url="https://calendly.com/rgiacomo/30-min-meeting?hide_event_type_details=1&hide_gdpr_banner=1" 
                       style={{
-                        minWidth: '260px',
-                       maxWidth:'260px',
+                        minWidth: '560px',
+                       maxWidth:'600px',
                         height: '250px'
                       }}
                     />
                     </div>
-                    <div 
+                    {/* <div 
                       className='w-full  flex items-center justify-end fade-in'
                       ref={useViewportAnimation({ animationClass: 'animate-in stagger-5', once: false })}
                     >
@@ -112,7 +133,7 @@ function PrizeCard() {
       
                     </div>
                     </div>
-      </div>
+      </div> */}
                     </div>
       
                   {/* Button */}
@@ -129,7 +150,7 @@ function PrizeCard() {
                   className='w-full h-full'
                 />
                   </button> */}
-                   <div className='text-sm 2xl:text-lg text-white whitespace-nowrap flex-wrap leading-relaxed flex justify-center mt-2'> 
+                   <div className='text-sm 2xl:text-lg text-white whitespace-nowrap flex-wrap leading-relaxed flex justify-center mt-2 '> 
                         Or Write me at: {'  '}
                         <a
                           href='mailto:rotellagiacomo@gmail.com'
