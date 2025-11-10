@@ -1,7 +1,7 @@
 import React from 'react'
 import { useViewportAnimation } from '../animations/ScrollAnimations'
 
-function Fractional() {
+const Fractional = React.memo(function Fractional() {
   return (
     <div className='flex flex-col bg-[#eae0d5]  gap-5 min-h-[80vh]  items-center justify-center'>
        <p className='font-bold  slide-up stagger-1  !leading-tight 2xl:!text-7xl mt-10 ' ref={useViewportAnimation()}
@@ -18,6 +18,6 @@ function Fractional() {
       
     </div>
   )
-}
+})
 
 export default Fractional

@@ -1,21 +1,44 @@
-import React ,{useEffect,useState} from 'react'
+import React ,{useEffect, useRef, useCallback} from 'react'
 import {  useViewportAnimation } from '../animations/ScrollAnimations'
-import Giacomo from '../../assets/Giacomo.jpeg'
+// import Giacomo from '../../assets/Giacomo.webp'
+import { useCalendly } from '../../hooks/useCalendly'
 
 
-function PrizeCard() {
-     useEffect(() => {
-  
-    if (!document.querySelector('script[src*="calendly"]')) {
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      document.body.appendChild(script);
-    } else {
-      window.Calendly && window.Calendly.initInlineWidgets();
+const PrizeCard = React.memo(function PrizeCard() {
+  const calendlyContainerRef = useRef(null)
+  const { initCalendlyInlineWidgets } = useCalendly()
+
+  const ensureCalendly = useCallback(() => {
+    initCalendlyInlineWidgets()
+  }, [initCalendlyInlineWidgets])
+
+  useEffect(() => {
+    const node = calendlyContainerRef.current
+    if (!node) {
+      return
     }
-  
-}, []);
+
+    if (typeof IntersectionObserver === 'undefined') {
+      ensureCalendly()
+      return
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          ensureCalendly()
+          observer.disconnect()
+        }
+      })
+    }, { root: null, rootMargin: '0px 0px -15% 0px', threshold: 0.1 })
+
+    observer.observe(node)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [ensureCalendly])
+
   return (
     <>
        <div className='z-50 flex-col  flex bg-[#7c1621]   mt-6 lg:mt-0  px-5 pl-5 gap-4 lg:pr-[5px] xl:pr-[20px] '>
@@ -58,7 +81,7 @@ function PrizeCard() {
 
                        <div className='w-fit h-fit '>
                         <div className='relative translate-x-16 xl:translate-x-11 w-fit h-fit'>
-                    <img src={Giacomo} alt="" className='rounded-full 2xl:translate-x-12 w-[70%] xl:w-[60%] aspect-square object-cover object-top ' />
+                    <img src='/Giacomo.webp' alt="Rotella Giacomo" className='rounded-full 2xl:translate-x-12 w-[70%] xl:w-[60%] aspect-square object-cover object-top ' loading="lazy" decoding="async" width="180" height="180" />
                     
                     <div className='flex items-center   text-center'>
                      <span className="relative  flex size-3">
@@ -106,6 +129,7 @@ function PrizeCard() {
                     
                     <div className='h-[250px] 2xl:h-[350px] col-span-1'>
                       <div 
+                      ref={calendlyContainerRef}
                       className="calendly-inline-widget lg:max-w-[240px] 2xl:!max-w-96 2xl:!h-80" 
                       data-url="https://calendly.com/rgiacomo/30-min-meeting?hide_event_type_details=1&hide_gdpr_banner=1" 
                       style={{
@@ -121,7 +145,7 @@ function PrizeCard() {
                     >
                       <div className='w-fit h-fit '>
                         <div className='relative translate-x-16 xl:translate-x-11 w-fit h-fit'>
-                    <img src={Giacomo} alt="" className='rounded-full w-[70%] xl:w-[80%] aspect-square object-cover' />
+                    <img src='/Giacomo.webp' alt="" className='rounded-full w-[70%] xl:w-[80%] aspect-square object-cover' />
                     
                     <div className='flex items-center pl-4  text-center'>
                      <span className="relative  flex size-3">
@@ -171,6 +195,6 @@ function PrizeCard() {
               </div>
     </>
   )
-}
+})
 
 export default PrizeCard

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useViewportAnimation } from '../animations/ScrollAnimations'
 import { Highlight } from '../animations/hero-highlight'
-function OnBoarding() {
+const OnBoarding = React.memo(function OnBoarding() {
   return (
     <div className='flex bg-[#eae0d5]  flex-col min-h-screen items-center justify-center gap-4 md:gap-10'>
        <h2 className=' text-center font-bold mt-10 2xl:!text-7xl fade-in' ref={useViewportAnimation()}
@@ -29,6 +29,6 @@ function OnBoarding() {
                   </ol>
     </div>
   )
-}
+})
 
 export default OnBoarding

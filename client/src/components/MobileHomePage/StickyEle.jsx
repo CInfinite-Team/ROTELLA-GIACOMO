@@ -1,6 +1,6 @@
 import React from 'react'
 import { PopupButton } from "react-calendly";
-import Giacomo from '../../assets/Giacomo.jpeg'
+// import Giacomo from '../../assets/Giacomo.webp'
 
 function StickyEle() {
   return (
@@ -17,7 +17,7 @@ function StickyEle() {
           <div className='relative '>
              <div className="w-14 h-14 md:w-20 md:h-20 rounded-full  overflow-hidden shadow-2xl ">
                         <img 
-                          src={Giacomo}
+                          src='/Giacomo.webp'
                           alt="Rotella Giacomo"
                           className="w-full h-full object-top object-cover"
                         />

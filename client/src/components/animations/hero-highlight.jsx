@@ -1,7 +1,6 @@
 "use client";
 import { cn } from "../../libs/utils";
 import { useMotionValue, motion, useMotionTemplate } from "motion/react";
-import React from "react";
 import { useInView } from "react-intersection-observer";
 
 export const HeroHighlight = ({

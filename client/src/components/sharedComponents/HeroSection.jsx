@@ -1,5 +1,5 @@
-import React from 'react';
-import Giacomo from '../../assets/Giacomo.jpeg'
+import React, { useCallback, useMemo } from 'react';
+// import Giacomo from '../../assets/Giacomo.webp'
 // Import brand logos
 import BardeLogo from '../../assets/Brands/Barde.svg'
 import GucciLogo from '../../assets/Brands/GUCCI.svg'
@@ -13,8 +13,8 @@ import WebSiteSetup from '../../assets/Brands/WebSiteSetup.svg'
 import AIXSummit from '../../assets/Brands/AIXSummit.svg'
 import DogNBay from '../../assets/Brands/DogNBay.svg'
 import JackWills from '../../assets/Brands/JackWills.svg'
-import { PopupButton } from "react-calendly";
 import { useViewportAnimation, useParallax } from '../animations/ScrollAnimations';
+import { useCalendly } from '../../hooks/useCalendly';
 
 // A simple placeholder for the brand logos.
 const LogoPlaceholder = ({ className = '', children }) => (
@@ -100,7 +100,9 @@ const LogoPlaceholder = ({ className = '', children }) => (
 
   ]
 
-export default function HeroSection() {
+const duplicatedBrands = [...brands, ...brands];
+
+const HeroSection = React.memo(function HeroSection() {
   const nameRef = useViewportAnimation({ 
     animationClass: 'animate-in',
     once: false 
@@ -126,6 +128,14 @@ export default function HeroSection() {
     once: false 
   });
   const imageParallaxRef = useParallax({ speed: 0.15, axis: 'y', maxTranslate: 30 });
+  const { openCalendlyPopup } = useCalendly();
+
+  const handleBookCall = useCallback(() => {
+    openCalendlyPopup('https://calendly.com/rgiacomo');
+  }, [openCalendlyPopup]);
+
+  const brandItems = useMemo(() => duplicatedBrands, []);
+
 
   return (
     <div className="bg-[#f4f4f4] min-h-screen lg:max-h-[860px] flex items-center justify-center">
@@ -168,12 +178,13 @@ export default function HeroSection() {
             </span>
 
             <div ref={buttonRef} className="slide-up">
-              <PopupButton
-                url="https://calendly.com/rgiacomo"
-                rootElement={document.getElementById("root")}
-                text="BOOK A CALL WITH ME"
+              <button
+                type="button"
+                onClick={handleBookCall}
                 className="mt-4 2xl:mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-base 2xl:text-2xl font-bold py-4 px-8 rounded-full shadow-lg transition-colors duration-300"
-              />
+              >
+                BOOK A CALL WITH ME
+              </button>
             </div>
             
           
@@ -187,11 +198,19 @@ export default function HeroSection() {
               className="w-64 h-64 md:w-96 md:h-96 xl:w-[400px] xl:h-[400px] 2xl:w-[500px] 2xl:h-[500px] rounded-full overflow-hidden shadow-2xl border-4 border-white slide-right"
             >
               <div ref={imageParallaxRef}>
-                <img 
-                  src={Giacomo}
-                  alt="Rotella Giacomo"
-                  className="w-full h-full object-cover object-top"
-                />
+               <img
+  src='/Giacomo.webp'
+  srcSet='/Giacomo.webp 300w, /Giacomo.webp 400w, /Giacomo.webp 500w'
+  sizes="(max-width: 768px) 300px, (max-width: 1280px) 400px, 500px"
+  alt="Rotella Giacomo"
+  className="w-full h-full object-cover object-top"
+  loading="eager"
+  decoding="async"
+   fetchPriority="high"
+  width="500"
+  height="500"
+/>
+
               </div>
             </div>
           </div>
@@ -204,12 +223,16 @@ export default function HeroSection() {
       
 <div className="mt-10 w-full overflow-hidden ">
   <div className="flex items-center  space-x-10  animate-scroll">
-    {brands.concat(brands).map((brand, index) => (
+    {brandItems.map((brand, index) => (
       <div key={index} className="rounded-full flex-shrink-0">
         <img
           className="w-44 h-44 2xl:h-56 2xl:mt-8 2xl:w-56 p-3 object-contain rounded-full"
           src={brand.logo}
           alt={brand.name}
+          loading="lazy"
+          decoding="async"
+          width="176"
+          height="176"
         />
       </div>
     ))}
@@ -221,4 +244,6 @@ export default function HeroSection() {
       </div>
     </div>
   );
-}
+});
+
+export default HeroSection;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useViewportAnimation } from '../animations/ScrollAnimations'
-function WhyMe() {
+const WhyMe = React.memo(function WhyMe() {
   return (
     <div className='flex flex-col gap-5 md:gap-10 items-center bg-[#eae0d5]  justify-center min-h-screen'>
        <h3 className=' text-[#911c28] font-bold mb-3 mt-10 text-center slide-up !leading-snug' ref={useViewportAnimation()}
@@ -15,6 +15,6 @@ function WhyMe() {
                     </h3>
     </div>
   )
-}
+})
 
 export default WhyMe

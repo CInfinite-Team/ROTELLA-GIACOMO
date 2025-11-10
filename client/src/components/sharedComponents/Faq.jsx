@@ -1,42 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { useViewportAnimation } from '../../components/animations/ScrollAnimations';
 import {ChevronDown} from 'lucide-react';
-const FAQ = () => {
-  // FAQ data with questions and answers
-  const faqData = [
-    {
-      question: 'What marketing services do you offer?',
-      answer: 'I offer a comprehensive range of marketing services including social media management, content creation, SEO optimization, website maintenance, PPC campaigns, email marketing, and strategic planning tailored to your business needs.'
-    },
-    {
-      question: 'How much does your marketing service cost?',
-      answer: 'My standard marketing package starts at €1,000 per month, which includes end-to-end execution and strategy. Custom packages are available based on your specific requirements and business size.'
-    },
-    {
-      question: 'How long does it take to see results from marketing efforts?',
-      answer: 'Results vary depending on your industry, competition, and current market position. Typically, you can expect to see initial improvements within 1-2 months, with more significant results appearing after 3-6 months of consistent strategy implementation.'
-    },
-    {
-      question: 'Do you work with businesses in specific industries?',
-      answer: 'I have experience working with businesses across various industries including Luxury, Fashion, SaaS, Tech, Fitness, Lifestyle, and Real Estate. My approach is adaptable to different market segments and business models.'
-    },
-    {
-      question: 'What is your approach to social media marketing?',
-      answer: 'My approach to social media marketing involves creating a tailored strategy based on your target audience, developing engaging content, implementing consistent posting schedules, managing community engagement, and utilizing data analytics to continuously optimize performance.'
-    },
-    {
-      question: 'How do you measure marketing success?',
-      answer: 'I measure success through various KPIs including website traffic, conversion rates, engagement metrics, lead generation, ROI, and ultimately, business growth. Regular reporting and analytics reviews ensure we track progress and adjust strategies as needed.'
-    },
-  ];
+const FAQ_ITEMS = [
+  {
+    question: 'What marketing services do you offer?',
+    answer: 'I offer a comprehensive range of marketing services including social media management, content creation, SEO optimization, website maintenance, PPC campaigns, email marketing, and strategic planning tailored to your business needs.'
+  },
+  {
+    question: 'How much does your marketing service cost?',
+    answer: 'My standard marketing package starts at €1,000 per month, which includes end-to-end execution and strategy. Custom packages are available based on your specific requirements and business size.'
+  },
+  {
+    question: 'How long does it take to see results from marketing efforts?',
+    answer: 'Results vary depending on your industry, competition, and current market position. Typically, you can expect to see initial improvements within 1-2 months, with more significant results appearing after 3-6 months of consistent strategy implementation.'
+  },
+  {
+    question: 'Do you work with businesses in specific industries?',
+    answer: 'I have experience working with businesses across various industries including Luxury, Fashion, SaaS, Tech, Fitness, Lifestyle, and Real Estate. My approach is adaptable to different market segments and business models.'
+  },
+  {
+    question: 'What is your approach to social media marketing?',
+    answer: 'My approach to social media marketing involves creating a tailored strategy based on your target audience, developing engaging content, implementing consistent posting schedules, managing community engagement, and utilizing data analytics to continuously optimize performance.'
+  },
+  {
+    question: 'How do you measure marketing success?',
+    answer: 'I measure success through various KPIs including website traffic, conversion rates, engagement metrics, lead generation, ROI, and ultimately, business growth. Regular reporting and analytics reviews ensure we track progress and adjust strategies as needed.'
+  },
+]
 
-  // State to track which FAQ item is open
+const FAQ = React.memo(function FAQ() {
   const [activeIndex, setActiveIndex] = useState(null);
+  const items = useMemo(() => FAQ_ITEMS, []);
 
-  // Toggle function to open/close FAQ items
-  const toggleFAQ = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+  const toggleFAQ = useCallback((index) => {
+    setActiveIndex((current) => (current === index ? null : index));
+  }, []);
 
   return (
     <div className="flex flex-col lg:gap-5 px-[35px] xl:px-[70px] py-10 fade-in" ref={useViewportAnimation()}>
@@ -45,9 +43,9 @@ const FAQ = () => {
       </h2>
       
       <div className=" space-y-2 lg:space-y-4">
-        {faqData.map((faq, index) => (
+        {items.map((faq, index) => (
           <div 
-            key={index} 
+            key={faq.question} 
             className={`border border-gray-200 rounded-lg shadow-lg bg-red-800   overflow-hidden slide-up stagger-${index % 5 + 1}`}
             ref={useViewportAnimation()}
           >
@@ -74,6 +72,6 @@ const FAQ = () => {
       </div>
     </div>
   );
-};
+});
 
 export default FAQ;

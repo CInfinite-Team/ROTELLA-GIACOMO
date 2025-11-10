@@ -11,7 +11,7 @@ import FAQ from './components/sharedComponents/Faq'
 import BrandCarousel from './components/sharedComponents/BrandCarousel'
 import { ChevronUp } from 'lucide-react'
 // import Arrow from './assets/Arrow.svg'
-import Giacomo from './assets/Giacomo.jpeg'
+// import Giacomo from './assets/Giacomo.webp'
 import { Highlight } from './components/animations/hero-highlight'
 function WorkBook2() {
   const [showCardPopup, setShowCardPopup] = useState(false)
@@ -292,7 +292,7 @@ of specialists.
               >
                 <div className='w-fit h-fit '>
                   <div className='relative translate-x-16 xl:translate-x-11 w-fit h-fit'>
-              <img src={Giacomo} alt="" className='rounded-full w-[70%] xl:w-[80%] aspect-square object-cover' />
+              <img src='/Giacomo.webp' alt="" className='rounded-full w-[70%] xl:w-[80%] aspect-square object-cover' />
               
               <div className='flex items-center  text-center'>
                <span className="relative  flex size-3">
@@ -439,7 +439,7 @@ of specialists.
               
               <div className='flex items-center justify-center text-center'>
               <div className='relative w-16'>
-              <img src={Giacomo} alt="" className='rounded-full  aspect-square object-cover' />
+              <img src='/Giacomo.webp' alt="" className='rounded-full  aspect-square object-cover' />
 
                <span className="absolute -left-1 bottom-2  flex size-3">
                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>

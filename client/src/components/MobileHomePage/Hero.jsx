@@ -1,5 +1,5 @@
 import React from 'react';
-import Giacomo from '../../assets/Giacomo.jpeg'
+// import Giacomo from '../../assets/Giacomo.webp'
 // Import brand logos
 import BardeLogo from '../../assets/Brands/Barde.svg'
 import GucciLogo from '../../assets/Brands/GUCCI.svg'
@@ -132,7 +132,7 @@ export default function Hero() {
           />
            <div className="w-[46vw] h-[46vw] md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl ">
               <img 
-                src={Giacomo}
+                src='/Giacomo.webp'
                 alt="Rotella Giacomo"
                 className="w-full h-full object-top object-cover"
               />

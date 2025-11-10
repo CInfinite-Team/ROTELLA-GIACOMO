@@ -1,9 +1,8 @@
 import React from 'react'
 import { useViewportAnimation } from '../animations/ScrollAnimations'
 import { Highlight } from '../animations/hero-highlight'
-import { ArrowBigDown } from 'lucide-react'
 
-function Fractional2() {
+const Fractional2 = React.memo(function Fractional2() {
   return (
     
                 <div className='relative bg-[#eae0d5]  z-1 min-h-[80vh] flex flex-col gap-5 md:gap-8  justify-center mb-10'>
@@ -22,6 +21,6 @@ function Fractional2() {
     
                 </div>
   )
-}
+})
 
 export default Fractional2

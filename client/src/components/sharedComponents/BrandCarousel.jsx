@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 import { useViewportAnimation } from '../animations/ScrollAnimations'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import Giacomo from '../../assets/Giacomo.jpeg'
-import { PopupButton } from 'react-calendly'
+// import Giacomo from '../../assets/Giacomo.webp'
 import DoGBay from '../../assets/Brands/DoGBay.mp4'
 import Badgervid from '../../assets/Brands/Badgervid.mp4'
 import KukrejaVid from '../../assets/Brands/KukrejaVid.mp4'
@@ -25,108 +24,114 @@ import JackWIllsImg from '../../assets/Brands/JackWIllsImg.svg'
 // import OffbeatsLogo from '../../assets/Brands/OFFBEATS.svg'
 import SapniImg from '../../assets/Brands/SapniImg.svg'
 // import BadgerMap from '../../assets/Brands/BadgerMap.svg'
+import { useCalendly } from '../../hooks/useCalendly'
 
-const BrandCarousel = () => {
+const BRAND_ITEMS = [
+  {
+    logo: DoGBay,
+    name: 'Dog & Bay',
+    description: 'I developed a brand strategy for the eco-friendly quick-dry towels company, performing market research and leading marketing campaigns to build awareness and foster engagement.',
+    work: 'Brand strategy, social media management, and digital marketing campaigns.',
+    category: 'Luxury Fashion',
+    type: 'video'
+  },
+  {
+    logo: JackWIllsImg,
+    name: 'Jack Wills',
+    description: 'British heritage clothing brand known for its casual and stylish apparel.',
+    work: 'Social media marketing and influencer collaborations.',
+    category: 'Fashion',
+    type: 'img'
+  },
+  {
+    logo: RadianceVid,
+    name: 'Barde',
+    description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
+    work: 'Brand strategy, social media management, and digital marketing campaigns.',
+    category: 'Luxury Fashion',
+    type: 'video'
+  },
+  {
+    logo: GucciImage,
+    name: 'Gucci',
+    description: 'Italian luxury fashion house known for high-end fashion and accessories.',
+    work: 'Part of the Gucci Media team in 2023–2024, managing digital marketing initiatives.',
+    category: 'Luxury Fashion',
+    type: 'img'
+  },
+  {
+    logo: KananImg,
+    name: 'Kannan',
+    description: 'Professional services company focused on business optimization.',
+    work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.',
+    category: 'Professional Services',
+    type: 'img'
+  },
+  {
+    logo: KukrejaVid,
+    name: 'Kukreja Real Estate',
+    description: 'Premium real estate development and property management services.',
+    work: 'Social media content creation and website development for property marketing.',
+    category: 'Real Estate',
+    type: 'video'
+  },
+  {
+    logo: WebSiteSetupImg,
+    name: 'Kukreja Real Estate',
+    description: 'Premium real estate development and property management services.',
+    work: 'Social media content creation and website development for property marketing.',
+    category: 'Real Estate',
+    type: 'img'
+  },
+  {
+    logo: LondonLanesImg,
+    name: 'LANES LONDON',
+    description: 'Modern lifestyle brand offering contemporary products and services.',
+    work: 'Digital marketing strategy and brand positioning in competitive markets.',
+    category: 'Lifestyle',
+    type: 'img'
+  },
+  {
+    logo: OffBeattImg,
+    name: 'Offbeat Lifestyle',
+    description: 'Alternative lifestyle brand promoting unique and unconventional living.',
+    work: 'SEO strategy, content writing, and social media content development.',
+    category: 'Lifestyle',
+    type: 'img'
+  },
+  {
+    logo: AiSummitVid,
+    name: 'AI Summit',
+    description: 'Annual conference showcasing the latest advancements in artificial intelligence.',
+    work: 'Event promotion, social media strategy, and content creation.',
+    category: 'Technology',
+    type: 'video'
+  },
+  {
+    logo: SapniImg,
+    name: 'MIKALI SAPANI',
+    description: 'Innovative technology solutions and digital transformation services.',
+    work: 'Brand development and digital marketing for tech-forward audiences.',
+    category: 'Technology',
+    type: 'img'
+  },
+  {
+    logo: Badgervid,
+    name: 'BADGER MAPS',
+    description: 'Innovative technology solutions and digital transformation services.',
+    work: 'Brand development and digital marketing for tech-forward audiences.',
+    category: 'Technology',
+    type: 'video'
+  }
+]
+
+const BrandCarousel = React.memo(function BrandCarousel() {
   const [isHovered, setIsHovered] = useState(null)
-
-  const brands = [
-    {
-      logo: DoGBay,
-      name: 'Dog & Bay',
-      description: 'I developed a brand strategy for the eco-friendly quick-dry towels company, performing market research and leading marketing campaigns to build awareness and foster engagement.',
-      work: 'Brand strategy, social media management, and digital marketing campaigns.',
-      category: 'Luxury Fashion',
-      type: 'video'
-    },
-    {
-      logo: JackWIllsImg,
-      name: 'Jack Wills',
-      description: 'British heritage clothing brand known for its casual and stylish apparel.',
-      work: 'Social media marketing and influencer collaborations.',
-      category: 'Fashion',
-      type: 'img'
-    },
-    {
-      logo: RadianceVid,
-      name: 'Barde',
-      description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
-      work: 'Brand strategy, social media management, and digital marketing campaigns.',
-      category: 'Luxury Fashion',
-      type: 'video'
-    },
-    {
-      logo: GucciImage,
-      name: 'Gucci',
-      description: 'Italian luxury fashion house known for high-end fashion and accessories.',
-      work: 'Part of the Gucci Media team in 2023–2024, managing digital marketing initiatives.',
-      category: 'Luxury Fashion',
-      type: 'img'
-    },
-    {
-      logo: KananImg,
-      name: 'Kannan',
-      description: 'Professional services company focused on business optimization.',
-      work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.',
-      category: 'Professional Services',
-      type: 'img'
-    },
-    {
-      logo: KukrejaVid,
-      name: 'Kukreja Real Estate',
-      description: 'Premium real estate development and property management services.',
-      work: 'Social media content creation and website development for property marketing.',
-      category: 'Real Estate',
-      type: 'video'
-    },
-    {
-      logo: WebSiteSetupImg,
-      name: 'Kukreja Real Estate',
-      description: 'Premium real estate development and property management services.',
-      work: 'Social media content creation and website development for property marketing.',
-      category: 'Real Estate',
-      type: 'img'
-    },
-    {
-      logo: LondonLanesImg,
-      name: 'LANES LONDON',
-      description: 'Modern lifestyle brand offering contemporary products and services.',
-      work: 'Digital marketing strategy and brand positioning in competitive markets.',
-      category: 'Lifestyle',
-      type: 'img'
-    },
-    {
-      logo: OffBeattImg,
-      name: 'Offbeat Lifestyle',
-      description: 'Alternative lifestyle brand promoting unique and unconventional living.',
-      work: 'SEO strategy, content writing, and social media content development.',
-      category: 'Lifestyle',
-      type: 'img'
-    },
-    {
-      logo: AiSummitVid,
-      name: 'AI Summit',
-      description: 'Annual conference showcasing the latest advancements in artificial intelligence.',
-      work: 'Event promotion, social media strategy, and content creation.',
-      category: 'Technology',
-      type: 'video'
-    },
-    {
-      logo: SapniImg,
-      name: 'MIKALI SAPANI',
-      description: 'Innovative technology solutions and digital transformation services.',
-      work: 'Brand development and digital marketing for tech-forward audiences.',
-      category: 'Technology',
-      type: 'img'
-    },
-    {
-      logo: Badgervid,
-      name: 'BADGER MAPS',
-      description: 'Innovative technology solutions and digital transformation services.',
-      work: 'Brand development and digital marketing for tech-forward audiences.',
-      category: 'Technology',
-      type: 'video'
-    }
-  ]
+  const { openCalendlyPopup } = useCalendly()
+  const brands = useMemo(() => BRAND_ITEMS, [])
+  const handleCallClick = useCallback(() => {
+    openCalendlyPopup('https://calendly.com/rgiacomo')
+  }, [openCalendlyPopup])
 
   return (
     <div className="w-full  max-w-6xl mx-auto py-8" ref={useViewportAnimation()}>
@@ -189,32 +194,37 @@ const BrandCarousel = () => {
 
               {/* Card Image/Logo Area */}
               <div className="w-full h-full   flex items-center justify-center ">
-               {brand.type === 'img' ? <img 
+               {brand.type === 'img' ? (
+                 <img 
                   src={brand.logo} 
                   alt={`${brand.name} logo`}
                   className="w-full h-full object-cover group-hover:scale-150 object-top  transition-all duration-300 "
-                />
-                :
+                  loading="lazy"
+                  decoding="async"
+                 />
+                ) : (
                 <video 
                   src={brand.logo} 
                   autoPlay
                   playsInline
                   loop 
                   muted
+                  preload="metadata"
                   className={`w-full h-full object-cover group-hover:scale-150 ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
-                />}
+                />)}
               </div>
 
               {/* Card Footer with CTA */}
               <div className="absolute bottom-0  flex justify-between items-center gap-2 z-50 bg-gradient-to-t from-[#eae0d5] via-[#eae0d5d8] to-[#eae0d500] left-0 right-0 pt-5 p-3">
-                 <PopupButton
-                           url="https://calendly.com/rgiacomo"
-                           rootElement={document.getElementById("root")}
-                           text=" LET'S TALK"
+                 <button
+                           type="button"
+                           onClick={handleCallClick}
                            className="w-fit h-fit bg-red-800 hover:bg-red-900 text-white text-xs 2xl:text-xl font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
-                         />
+                         >
+                           LET'S TALK
+                         </button>
                   <div className='relative w-fit h-fit'>
-                <img src={Giacomo} className='bg-gray-400 w-16 2xl:w-24 2xl:h-24 object-cover object-top h-16 rounded-full' alt="" />
+                <img src='/Giacomo.webp' className='bg-gray-400 w-16 2xl:w-24 2xl:h-24 object-cover object-top h-16 rounded-full' alt="Rotella Giacomo" loading="lazy" decoding="async" width="96" height="96" />
                 <span className="absolute bottom-2 left-0 flex size-3">
                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
                  <span className="relative inline-flex size-3 rounded-full bg-[#0add0a]"></span>
@@ -258,6 +268,6 @@ const BrandCarousel = () => {
       </Swiper>
     </div>
   )
-}
+})
 
 export default BrandCarousel
