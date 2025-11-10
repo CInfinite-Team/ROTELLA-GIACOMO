@@ -48,7 +48,7 @@ function PrizeCard() {
                       €1000 / month
                     </span>
       
-                    <ul className=' 2xl:text-2xl font-medium list-disc '>
+                    <ul className=' 2xl:text-2xl pl-4 font-medium list-disc '>
                         <li>Can be adapted to your budget</li>
                         <li>50% deposit to start · 50% on completion</li>
                         <li>No Commitment, Cancel at any time</li>
@@ -58,7 +58,7 @@ function PrizeCard() {
 
                        <div className='w-fit h-fit '>
                         <div className='relative translate-x-16 xl:translate-x-11 w-fit h-fit'>
-                    <img src={Giacomo} alt="" className='rounded-full w-[70%] xl:w-[60%] aspect-square object-cover' />
+                    <img src={Giacomo} alt="" className='rounded-full 2xl:translate-x-12 w-[70%] xl:w-[60%] aspect-square object-cover object-top ' />
                     
                     <div className='flex items-center   text-center'>
                      <span className="relative  flex size-3">
@@ -104,7 +104,7 @@ function PrizeCard() {
                     
                     <div className='flex justify-center mt-4 px-2'>
                     
-                    <div className='h-[250px] col-span-1'>
+                    <div className='h-[250px] 2xl:h-[350px] col-span-1'>
                       <div 
                       className="calendly-inline-widget lg:max-w-[240px] 2xl:!max-w-96 2xl:!h-80" 
                       data-url="https://calendly.com/rgiacomo/30-min-meeting?hide_event_type_details=1&hide_gdpr_banner=1" 
