@@ -67,7 +67,8 @@ function Prize() {
                     <div className='w-full  flex items-center justify-end'>
                       <div className='w-fit h-fit '>
                         <div className='relative translate-x-16 xl:translate-x-11 w-fit h-fit'>
-                    <img src='/Giacomo.webp' alt="" className='rounded-full w-[70%] xl:w-[80%] aspect-square object-cover' />
+                    <img src='/Giacomo.webp' alt="Rotella Giacomo"  loading="lazy"
+                  decoding="async" className='rounded-full w-[70%] xl:w-[80%] aspect-square object-cover' />
                     
                     <div className='flex items-center  text-center'>
                      <span className="relative  flex size-3">

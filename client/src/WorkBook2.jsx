@@ -292,7 +292,8 @@ of specialists.
               >
                 <div className='w-fit h-fit '>
                   <div className='relative translate-x-16 xl:translate-x-11 w-fit h-fit'>
-              <img src='/Giacomo.webp' alt="" className='rounded-full w-[70%] xl:w-[80%] aspect-square object-cover' />
+              <img src='/Giacomo.webp' alt="Giacomo"  loading="lazy"
+                  decoding="async" className='rounded-full w-[70%] xl:w-[80%] aspect-square object-cover' />
               
               <div className='flex items-center  text-center'>
                <span className="relative  flex size-3">
@@ -439,7 +440,8 @@ of specialists.
               
               <div className='flex items-center justify-center text-center'>
               <div className='relative w-16'>
-              <img src='/Giacomo.webp' alt="" className='rounded-full  aspect-square object-cover' />
+              <img src='/Giacomo.webp' alt="Giacomo"  loading="lazy"
+                  decoding="async" className='rounded-full  aspect-square object-cover' />
 
                <span className="absolute -left-1 bottom-2  flex size-3">
                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>

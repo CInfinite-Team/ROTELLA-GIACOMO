@@ -94,7 +94,7 @@ function WorkBook() {
             </div>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden'>
+          <SwiperSlide className='overflow-hidden '>
             <div className='px-5 md:px-10'>
               <Suspense fallback={<div className='w-full' />}>
                 <Services />
@@ -127,7 +127,7 @@ function WorkBook() {
           </SwiperSlide>
 
           <SwiperSlide className='overflow-hidden'>
-            <div className='px-5 md:px-10'>
+            <div className='px-5 md:px-10 '>
               <Suspense fallback={<div className='w-full' />}>
                 <BrandCarousel />
               </Suspense>

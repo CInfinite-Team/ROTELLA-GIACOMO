@@ -186,6 +186,8 @@ function BrandsWorkedWith() {
                {brand.type === 'img' ? <img 
                   src={brand.logo} 
                   alt={`${brand.name} logo`}
+                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-150 object-top  transition-all duration-300 "
                 />
                 :
@@ -195,7 +197,8 @@ function BrandsWorkedWith() {
                   playsInline
                   loop 
                   muted
-                  className={`w-full h-full object-cover group-hover:scale-150 ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
+                  preload='none'
+                  className={`w-full h-full object-cover lazy-video group-hover:scale-150 ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
                 />}
               </div>
 

@@ -133,8 +133,15 @@ export default function Hero() {
            <div className="w-[46vw] h-[46vw] md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl ">
               <img 
                 src='/Giacomo.webp'
-                alt="Rotella Giacomo"
-                className="w-full h-full object-top object-cover"
+  srcSet='/Giacomo.webp 300w, /Giacomo.webp 400w'
+  sizes="(max-width: 768px) 300px, (max-width: 1280px) 400px"
+  alt="Rotella Giacomo"
+  className="w-full h-full object-cover object-top"
+  loading="eager"
+  decoding="async"
+   fetchPriority="high"
+  width="400"
+  height="400"
               />
             </div>
             </div> 
@@ -159,6 +166,8 @@ export default function Hero() {
           className="w-28 h-28 p-3 object-contain rounded-full"
           src={brand.logo}
           alt={brand.name}
+           loading="eager"
+                  decoding="async"
         />
       </div>
     ))}

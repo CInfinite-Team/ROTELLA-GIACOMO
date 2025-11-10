@@ -1,9 +1,31 @@
+import { useEffect } from 'react'
 import WorkBook from "./WorkBook"
 import CustomCursor from './components/CustomCursor.jsx'
 import HeroSection from './components/sharedComponents/HeroSection.jsx'
 import HomeMobile from './components/Pages/HomeMobile.jsx'
 import './components/animations/animations.css'
 function App() {
+
+   useEffect(() => {
+    const videos = document.querySelectorAll(".lazy-video");
+
+    if (videos.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          // Load the video when it enters viewport
+          video.src = video.dataset.src;
+          observer.unobserve(video);
+        }
+      });
+    });
+
+    videos.forEach((video) => observer.observe(video));
+
+    return () => observer.disconnect();
+  }, []);
 
 
   return (

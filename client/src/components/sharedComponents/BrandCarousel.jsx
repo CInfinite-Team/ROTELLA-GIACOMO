@@ -209,8 +209,8 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                   playsInline
                   loop 
                   muted
-                  preload="metadata"
-                  className={`w-full h-full object-cover group-hover:scale-150 ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
+                  preload="none"
+                  className={`w-full h-full object-cover lazy-video group-hover:scale-150 ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
                 />)}
               </div>
 
@@ -224,7 +224,8 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                            LET'S TALK
                          </button>
                   <div className='relative w-fit h-fit'>
-                <img src='/Giacomo.webp' className='bg-gray-400 w-16 2xl:w-24 2xl:h-24 object-cover object-top h-16 rounded-full' alt="Rotella Giacomo" loading="lazy" decoding="async" width="96" height="96" />
+                <img src='/Giacomo.webp'  loading="lazy"
+                  decoding="async" className='bg-gray-400 w-16 2xl:w-24 2xl:h-24 object-cover object-top h-16 rounded-full' alt="Rotella Giacomo"  width="96" height="96" />
                 <span className="absolute bottom-2 left-0 flex size-3">
                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
                  <span className="relative inline-flex size-3 rounded-full bg-[#0add0a]"></span>

@@ -19,6 +19,8 @@ function StickyEle() {
                         <img 
                           src='/Giacomo.webp'
                           alt="Rotella Giacomo"
+                           loading="lazy"
+                  decoding="async"
                           className="w-full h-full object-top object-cover"
                         />
                           

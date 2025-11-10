@@ -81,7 +81,8 @@ const PrizeCard = React.memo(function PrizeCard() {
 
                        <div className='w-fit h-fit '>
                         <div className='relative translate-x-16 xl:translate-x-11 w-fit h-fit'>
-                    <img src='/Giacomo.webp' alt="Rotella Giacomo" className='rounded-full 2xl:translate-x-12 w-[70%] xl:w-[60%] aspect-square object-cover object-top ' loading="lazy" decoding="async" width="180" height="180" />
+                    <img src='/Giacomo.webp'  loading="lazy"
+                  decoding="async" alt="Rotella Giacomo" className='rounded-full 2xl:translate-x-12 w-[70%] xl:w-[60%] aspect-square object-cover object-top '  width="180" height="180" />
                     
                     <div className='flex items-center   text-center'>
                      <span className="relative  flex size-3">

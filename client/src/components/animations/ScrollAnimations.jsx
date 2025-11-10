@@ -1,228 +1,182 @@
 import { useEffect, useRef } from 'react';
 
-// Custom hook for smooth scrolling
+/* -------------------- Smooth Scroll -------------------- */
 export function useSmoothScroll() {
   useEffect(() => {
-    // Save the original scroll behavior
     const html = document.documentElement;
-    const originalScrollBehavior = html.style.scrollBehavior;
-    
-    // Apply smooth scrolling
+    const original = html.style.scrollBehavior;
     html.style.scrollBehavior = 'smooth';
-    
-    // Restore original scroll behavior on cleanup
-    return () => {
-      html.style.scrollBehavior = originalScrollBehavior;
-    };
+    return () => (html.style.scrollBehavior = original);
   }, []);
 }
 
-// Custom hook for viewport detection and animations
+/* -------------------- Viewport Animation -------------------- */
 export function useViewportAnimation(options = {}) {
   const ref = useRef(null);
-  
+
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
-    
-    const defaultOptions = {
+
+    const opts = {
       threshold: 0.1,
-      // Start a bit earlier for a smoother, more anticipated reveal
       rootMargin: '0px 0px -10% 0px',
-      // Support multiple classes separated by spaces
       animationClass: 'animate-in animate-in-slow',
       once: false,
       ...options
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
+        const classes = String(opts.animationClass).split(/\s+/).filter(Boolean);
         if (entry.isIntersecting) {
-          const classes = String(defaultOptions.animationClass).split(/\s+/).filter(Boolean);
-          if (classes.length) {
-            element.classList.add(...classes);
-          }
-          if (defaultOptions.once) {
-            observer.unobserve(element);
-          }
-        } else if (!defaultOptions.once) {
-          const classes = String(defaultOptions.animationClass).split(/\s+/).filter(Boolean);
-          if (classes.length) {
-            element.classList.remove(...classes);
-          }
+          element.classList.add(...classes);
+          if (opts.once) observer.unobserve(element);
+        } else if (!opts.once) {
+          element.classList.remove(...classes);
         }
       });
-    }, {
-      threshold: defaultOptions.threshold,
-      rootMargin: defaultOptions.rootMargin
-    });
-    
+    }, opts);
+
     observer.observe(element);
-    
-    return () => {
-      if (element) observer.unobserve(element);
-    };
+    return () => observer.disconnect();
   }, [options]);
-  
+
   return ref;
 }
 
-// Parallax hook: apply to any element, preserving layout via transform only
+/* -------------------- Shared Parallax Manager -------------------- */
+const parallaxElements = new Set();
+let ticking = false;
+
+function updateParallaxAll() {
+  ticking = false;
+  const viewportH = window.innerHeight || document.documentElement.clientHeight;
+
+  parallaxElements.forEach(({ el, speed, axis, maxTranslate }) => {
+    const rect = el.getBoundingClientRect();
+    const progress = 1 - Math.min(Math.max((rect.top + rect.height) / (viewportH + rect.height), 0), 1);
+    const translateAmount = Math.max(
+      Math.min((progress - 0.5) * 2 * speed * maxTranslate, maxTranslate),
+      -maxTranslate
+    );
+    const tx = axis === 'x' ? translateAmount : 0;
+    const ty = axis === 'y' ? translateAmount : 0;
+    el.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
+    el.style.willChange = 'transform';
+  });
+}
+
+function requestParallaxUpdate() {
+  if (!ticking) {
+    requestAnimationFrame(updateParallaxAll);
+    ticking = true;
+  }
+}
+
+if (typeof window !== 'undefined') {
+  window.addEventListener('scroll', requestParallaxUpdate, { passive: true });
+  window.addEventListener('resize', requestParallaxUpdate);
+}
+
+/* -------------------- useParallax Hook -------------------- */
 export function useParallax({ speed = 0.2, axis = 'y', maxTranslate = 80 } = {}) {
   const ref = useRef(null);
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    const onScroll = () => {
-      const rect = el.getBoundingClientRect();
-      const viewportH = window.innerHeight || document.documentElement.clientHeight;
-      // progress: 0 at bottom entering, 1 at top leaving
-      const progress = 1 - Math.min(Math.max((rect.top + rect.height) / (viewportH + rect.height), 0), 1);
-      const translateAmount = Math.max(Math.min((progress - 0.5) * 2 * speed * maxTranslate, maxTranslate), -maxTranslate);
-      const tx = axis === 'x' ? translateAmount : 0;
-      const ty = axis === 'y' ? translateAmount : 0;
-      el.style.willChange = 'transform';
-      el.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
-    };
+    const data = { el, speed, axis, maxTranslate };
+    parallaxElements.add(data);
+    requestParallaxUpdate();
 
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
+      parallaxElements.delete(data);
     };
   }, [speed, axis, maxTranslate]);
 
   return ref;
 }
 
-// Zero-config initializer: binds parallax to any element with data-parallax
-export function initParallaxFromDataAttr() {
-  const elements = Array.from(document.querySelectorAll('[data-parallax]'));
-  if (elements.length === 0) return;
-
-  const computeAndApply = (el) => {
-    const axis = el.getAttribute('data-axis') || 'y';
-    const speedAttr = parseFloat(el.getAttribute('data-speed'));
-    const maxAttr = parseFloat(el.getAttribute('data-max'));
-    const speed = Number.isFinite(speedAttr) ? speedAttr : 0.2;
-    const maxTranslate = Number.isFinite(maxAttr) ? maxAttr : 80;
-
-    const rect = el.getBoundingClientRect();
-    const viewportH = window.innerHeight || document.documentElement.clientHeight;
-    const progress = 1 - Math.min(Math.max((rect.top + rect.height) / (viewportH + rect.height), 0), 1);
-    const translateAmount = Math.max(Math.min((progress - 0.5) * 2 * speed * maxTranslate, maxTranslate), -maxTranslate);
-    const tx = axis === 'x' ? translateAmount : 0;
-    const ty = axis === 'y' ? translateAmount : 0;
-    el.style.willChange = 'transform';
-    el.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
-  };
-
-  const onScroll = () => {
-    elements.forEach(computeAndApply);
-  };
-
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-
-  // Return cleanup to caller so they can unbind if needed
-  return () => {
-    window.removeEventListener('scroll', onScroll);
-    window.removeEventListener('resize', onScroll);
-  };
-}
-
-// Custom hook for sticky positioning
+/* -------------------- Sticky Position Hook -------------------- */
 export function useStickyPosition(options = {}) {
   const ref = useRef(null);
-  
+
   useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-    
-    const defaultOptions = {
-      topOffset: '0px',
-      zIndex: 10,
-      ...options
+    const el = ref.current;
+    if (!el) return;
+
+    const opts = { topOffset: '0px', zIndex: 10, ...options };
+    const original = {
+      position: el.style.position,
+      top: el.style.top,
+      zIndex: el.style.zIndex
     };
-    
-    const originalPosition = element.style.position;
-    const originalTop = element.style.top;
-    const originalZIndex = element.style.zIndex;
-    
-    element.style.position = 'sticky';
-    element.style.top = defaultOptions.topOffset;
-    element.style.zIndex = defaultOptions.zIndex;
-    
+
+    el.style.position = 'sticky';
+    el.style.top = opts.topOffset;
+    el.style.zIndex = opts.zIndex;
+
     return () => {
-      element.style.position = originalPosition;
-      element.style.top = originalTop;
-      element.style.zIndex = originalZIndex;
+      el.style.position = original.position;
+      el.style.top = original.top;
+      el.style.zIndex = original.zIndex;
     };
   }, [options]);
-  
+
   return ref;
 }
 
-// Custom hook for text splitting animation
+/* -------------------- Text Splitting Animation -------------------- */
 export function useTextSplitting() {
   const ref = useRef(null);
-  
+
   useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-    
-    // Get the text content
-    const text = element.textContent;
-    
-    // Clear the element
-    element.textContent = '';
-    
-    // Split the text into individual characters and wrap each in a span
-    const characters = text.split('');
-    characters.forEach((char, index) => {
+    const el = ref.current;
+    if (!el) return;
+
+    const text = el.textContent;
+    el.textContent = '';
+
+    text.split('').forEach((char, i) => {
       const span = document.createElement('span');
       span.textContent = char;
       span.style.display = 'inline-block';
-      span.style.opacity = '100';
+      span.style.opacity = '0';
       span.style.transform = 'translateY(20px)';
       span.style.transition = `opacity 0.5s ease, transform 0.5s ease`;
-      span.style.transitionDelay = `${index * 0.03}s`;
-      
-      element.appendChild(span);
+      span.style.transitionDelay = `${i * 0.03}s`;
+      el.appendChild(span);
     });
-    
-    // Create an observer to animate when in viewport
+
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          Array.from(element.children).forEach(span => {
+          Array.from(el.children).forEach((span) => {
             span.style.opacity = '1';
             span.style.transform = 'translateY(0)';
           });
-          observer.unobserve(element);
+          observer.unobserve(el);
         }
       });
     }, { threshold: 0.1 });
-    
-    observer.observe(element);
-    
-    return () => {
-      if (element) observer.unobserve(element);
-    };
+
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
-  
+
   return ref;
 }
 
-// Init observer for demo-style lazy animations using data attributes
-// Adds 'on-screen' class to elements with [data-lazy-animation]
-export function initLazyAnimationsObserver({ threshold = 0.15, rootMargin = '0px 0px -10% 0px', once = true } = {}) {
+/* -------------------- Lazy Animations Observer -------------------- */
+export function initLazyAnimationsObserver({
+  threshold = 0.15,
+  rootMargin = '0px 0px -10% 0px',
+  once = true
+} = {}) {
   const nodes = Array.from(document.querySelectorAll('[data-lazy-animation]'));
-  if (nodes.length === 0) return;
+  if (!nodes.length) return;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -237,8 +191,5 @@ export function initLazyAnimationsObserver({ threshold = 0.15, rootMargin = '0px
   }, { threshold, rootMargin });
 
   nodes.forEach((el) => observer.observe(el));
-
-  return () => {
-    observer.disconnect();
-  };
+  return () => observer.disconnect();
 }

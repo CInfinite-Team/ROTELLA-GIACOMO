@@ -229,8 +229,9 @@ const HeroSection = React.memo(function HeroSection() {
           className="w-44 h-44 2xl:h-56 2xl:mt-8 2xl:w-56 p-3 object-contain rounded-full"
           src={brand.logo}
           alt={brand.name}
-          loading="lazy"
           decoding="async"
+  fetchPriority="high"
+  loading="eager"
           width="176"
           height="176"
         />
