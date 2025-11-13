@@ -31,7 +31,7 @@ function BrandsWorkedWith() {
       const brands = [
         {
           logo: DoGBay,
-          name: 'Dog & Bay',
+          name: 'Dock & Bay',
           description: 'I developed a brand strategy for the eco-friendly quick-dry towels company, performing market research and leading marketing campaigns to build awareness and foster engagement.',
           work: 'Brand strategy, social media management, and digital marketing campaigns.',
           category: 'Luxury Fashion',

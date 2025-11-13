@@ -37,7 +37,7 @@ const FAQ = React.memo(function FAQ() {
   }, []);
 
   return (
-    <div className="flex flex-col lg:gap-5 px-[35px] xl:px-[70px] py-10 fade-in" ref={useViewportAnimation()}>
+    <div className="flex flex-col min-h-screen items-center justify-center lg:gap-5 px-[35px] xl:px-[70px] py-10 fade-in" ref={useViewportAnimation()}>
       <h2 className="text-3xl text-center font-bold mt-8 mb-8" ref={useViewportAnimation()}>
         Frequently Asked Questions
       </h2>

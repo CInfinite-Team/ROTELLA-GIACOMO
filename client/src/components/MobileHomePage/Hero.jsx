@@ -80,7 +80,7 @@ import { PopupButton } from "react-calendly";
     },
     {
       logo: DogNBay,
-      name: 'DOG N BAY',
+      name: 'Dock N BAY',
       description: 'Pet care and grooming services with a focus on quality and convenience.',
       work: 'Brand development, social media marketing, and customer engagement strategies.'
     },
@@ -118,7 +118,7 @@ export default function Hero() {
 
             {/* Right Content Section */}
           <div className="w-fit mt-5 md:mt-0  pb-4 lg:pb-0 flex flex-col items-center ">
-            <p className="text-2xl font-bold text-[#911c28] mb">$1000/month</p>
+            <p className="text-2xl font-bold text-[#911c28] mb">$500/month</p>
            
           </div>
 

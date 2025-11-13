@@ -14,6 +14,7 @@ import WhyMe from '../MobileHomePage/WhyMe'
 import BrandsWorkedHeading from '../MobileHomePage/BrandsWorkedHeading'
 import BrandsWorkedWith from '../MobileHomePage/BrandsWorkedWith'
 import Faq from '../sharedComponents/Faq' 
+import Footer from '../sharedComponents/Footer'
 function HomeMobile() {
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -26,7 +27,7 @@ function HomeMobile() {
         spaceBetween={0}
         slidesPerView={1}
         mousewheel={true}
-        speed={1000}
+        speed={2000}
         keyboard={{ enabled: true }}
         effect='creative'
         creativeEffect={{
@@ -92,6 +93,11 @@ function HomeMobile() {
         <SwiperSlide className='overflow-hidden'>
           <div className='px-5 md:px-10'>
             <Faq />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className='overflow-hidden'>
+          <div className='px-5 md:px-10'>
+            <Footer />
           </div>
         </SwiperSlide>
 

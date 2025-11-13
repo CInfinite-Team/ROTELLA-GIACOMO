@@ -17,6 +17,7 @@ const HeroSection = lazy(() => import('./components/sharedComponents/HeroSection
 const PrizeCard = lazy(() => import('./components/sharedComponents/PrizeCard'))
 const BrandCarousel = lazy(() => import('./components/sharedComponents/BrandCarousel'))
 const Faq = lazy(() => import('./components/sharedComponents/Faq'))
+const Footer = lazy(() => import('./components/sharedComponents/Footer'))
 
 function WorkBook() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -36,7 +37,7 @@ function WorkBook() {
 
 
   return (
-    <div className={` ${activeIndex === 0 ? '' : 'grid grid-cols-2'} relative  w-full h-full`}>
+    <div className={` ${activeIndex === 0 ? '' : 'flex 2xl:px-[10vw] lg:px-5 '} relative   w-full h-full`}>
       {!enableSwiper ? (
         <div style={{ width: '100%', height: '100dvh' }} className='overflow-hidden'>
           <Suspense fallback={<div className='w-full h-full' />}>
@@ -51,7 +52,7 @@ function WorkBook() {
           spaceBetween={0}
           slidesPerView={1}
           mousewheel={true}
-          speed={900}
+          speed={2000}
           keyboard={{ enabled: true }}
           effect='creative'
           creativeEffect={{
@@ -61,7 +62,7 @@ function WorkBook() {
           preloadImages={false}
           lazy={true}
           modules={[Mousewheel, EffectCreative, Keyboard]}
-          className='mobile-vertical-swiper'
+          className='mobile-vertical-swiper flex-1'
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         >
           <SwiperSlide className='overflow-hidden'>
@@ -141,10 +142,17 @@ function WorkBook() {
               </Suspense>
             </div>
           </SwiperSlide>
+          <SwiperSlide className='overflow-hidden'>
+            <div className='px-5 md:px-10'>
+              <Suspense fallback={<div className='w-full' />}>
+                <Footer />
+              </Suspense>
+            </div>
+          </SwiperSlide>
         </Swiper>
       )}
       {activeIndex !== 0 && (
-        <Suspense fallback={<div className='w-full' />}>
+        <Suspense fallback={<div className='' />}>
           <PrizeCard/>
         </Suspense>
       )}

@@ -29,10 +29,10 @@ import { useCalendly } from '../../hooks/useCalendly'
 const BRAND_ITEMS = [
   {
     logo: DoGBay,
-    name: 'Dog & Bay',
+    name: 'Dock & Bay',
     description: 'I developed a brand strategy for the eco-friendly quick-dry towels company, performing market research and leading marketing campaigns to build awareness and foster engagement.',
     work: 'Brand strategy, social media management, and digital marketing campaigns.',
-    category: 'Luxury Fashion',
+    category: 'Retail and Manufacturing',
     type: 'video'
   },
   {
@@ -40,15 +40,15 @@ const BRAND_ITEMS = [
     name: 'Jack Wills',
     description: 'British heritage clothing brand known for its casual and stylish apparel.',
     work: 'Social media marketing and influencer collaborations.',
-    category: 'Fashion',
+    category: 'Retail Apparel',
     type: 'img'
   },
   {
     logo: RadianceVid,
-    name: 'Barde',
+    name: 'RADIANCE CLINIC',
     description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
     work: 'Brand strategy, social media management, and digital marketing campaigns.',
-    category: 'Luxury Fashion',
+    category: 'Healthcare',
     type: 'video'
   },
   {
@@ -61,15 +61,15 @@ const BRAND_ITEMS = [
   },
   {
     logo: KananImg,
-    name: 'Kannan',
+    name: 'KANAN INTERNATIONAL',
     description: 'Professional services company focused on business optimization.',
     work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.',
-    category: 'Professional Services',
+    category: 'Education',
     type: 'img'
   },
   {
     logo: KukrejaVid,
-    name: 'Kukreja Real Estate',
+    name: 'Kukreja',
     description: 'Premium real estate development and property management services.',
     work: 'Social media content creation and website development for property marketing.',
     category: 'Real Estate',
@@ -77,10 +77,10 @@ const BRAND_ITEMS = [
   },
   {
     logo: WebSiteSetupImg,
-    name: 'Kukreja Real Estate',
+    name: 'WEBSITESETUP',
     description: 'Premium real estate development and property management services.',
     work: 'Social media content creation and website development for property marketing.',
-    category: 'Real Estate',
+    category: 'Free Online Resource',
     type: 'img'
   },
   {
@@ -88,12 +88,12 @@ const BRAND_ITEMS = [
     name: 'LANES LONDON',
     description: 'Modern lifestyle brand offering contemporary products and services.',
     work: 'Digital marketing strategy and brand positioning in competitive markets.',
-    category: 'Lifestyle',
+    category: 'Streetwear Fashion',
     type: 'img'
   },
   {
     logo: OffBeattImg,
-    name: 'Offbeat Lifestyle',
+    name: 'The OFFBEAT Site',
     description: 'Alternative lifestyle brand promoting unique and unconventional living.',
     work: 'SEO strategy, content writing, and social media content development.',
     category: 'Lifestyle',
@@ -101,7 +101,7 @@ const BRAND_ITEMS = [
   },
   {
     logo: AiSummitVid,
-    name: 'AI Summit',
+    name: 'AI X Summit',
     description: 'Annual conference showcasing the latest advancements in artificial intelligence.',
     work: 'Event promotion, social media strategy, and content creation.',
     category: 'Technology',
@@ -112,7 +112,7 @@ const BRAND_ITEMS = [
     name: 'MIKALI SAPANI',
     description: 'Innovative technology solutions and digital transformation services.',
     work: 'Brand development and digital marketing for tech-forward audiences.',
-    category: 'Technology',
+    category: 'Luxury Fashion',
     type: 'img'
   },
   {
@@ -120,7 +120,7 @@ const BRAND_ITEMS = [
     name: 'BADGER MAPS',
     description: 'Innovative technology solutions and digital transformation services.',
     work: 'Brand development and digital marketing for tech-forward audiences.',
-    category: 'Technology',
+    category: 'Saas',
     type: 'video'
   }
 ]
@@ -134,7 +134,8 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   }, [openCalendlyPopup])
 
   return (
-    <div className="w-full  max-w-6xl mx-auto py-8" ref={useViewportAnimation()}>
+    <div className='w-full relative h-screen'>
+    <div className="w-full  absolute top-1/2 -translate-y-1/2 max-w-6xl mx-auto py-8" ref={useViewportAnimation()}>
       {/* <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
         Some of the brands I've worked with
       </h2> */}
@@ -152,11 +153,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
           clickable: true,
           el: '.swiper-pagination-custom',
         }}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
+        autoplay={false}
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -170,10 +167,10 @@ const BrandCarousel = React.memo(function BrandCarousel() {
             slidesPerView: 1,
             spaceBetween: 14,
           },
-          // 1900: {
-          //   slidesPerView: 2,
-          //   spaceBetween: 16,
-          // },
+          1900: {
+            slidesPerView: 2,
+            spaceBetween: 16,
+          },
           
         }}
         className="relative pt-10"
@@ -181,14 +178,14 @@ const BrandCarousel = React.memo(function BrandCarousel() {
         {brands.map((brand, index) => (
           <SwiperSlide key={index}>
             <div
-             
-              className="group relative bg-[#eae0d5]  flex flex-col rounded-2xl shadow-lg border-t border-t-[#e2cbb2] overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl  w-[70%] 2xl:w-[85%] 2xl:h-[90vh] h-[450px] md:h-[560px] mx-auto border border-gray-200"
+            //  w-[70%] 2xl:w-[65%] 2xl:h-[90vh] h-[450px] md:h-[560px] lg:h-[80vh] lg:w-[400px] lg:
+              className="group relative  flex flex-col rounded-2xl shadow-lg border-t border-t-[#e2cbb2] overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl max-h-[80vh] aspect-[9/16] mx-auto border border-gray-200"
               onMouseEnter={() => setIsHovered(index)}
               onMouseLeave={() => setIsHovered(null)}
             >
               {/* Card Header */}
               <div className=" bg-gradient-to-b from-[#eae0d5] via-[#eae0d5d8] to-[#eae0d500]  p-3 pb-5 absolute top-0 w-full text-center ">
-                <h3 className="font-bold text-sm text-gray-800 mb-1">{brand.name}</h3>
+                <h3 className="font-bold text-sm uppercase text-gray-800 mb-1">{brand.name}</h3>
                 <p className="text-xs text-gray-600">{brand.category}</p>
               </div>
 
@@ -239,11 +236,11 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                   isHovered === index ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                <h3 className="font-bold text-sm mb-1">{brand.name}</h3>
-                <p className="text-xs text-blue-100 mb-2 leading-tight">
+                <h3 className="font-bold text-sm lg:text-2xl mb-1">{brand.name}</h3>
+                <p className="text-xs text-blue-100 lg:text-xl mb-2 leading-tight">
                   {brand.description}
                 </p>
-                <div className="text-xs text-blue-200">
+                <div className="text-xs lg:text-lg text-blue-200">
                   <span className="font-semibold">Work:</span> {brand.work}
                 </div>
               </div>
@@ -267,6 +264,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
         {/* Custom Pagination */}
         <div className="swiper-pagination-custom flex justify-center !text-black mt-6 space-x-2"></div>
       </Swiper>
+    </div>
     </div>
   )
 })
