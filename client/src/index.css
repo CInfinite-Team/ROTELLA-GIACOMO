@@ -13,6 +13,18 @@
   padding-left: 1.2em; /* Space for tick */
 }
 
+.Threeline {
+  max-lines: 4;
+
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Number of lines to clamp */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .tick-list li::before {
   content: "✔"; /* The tick symbol */
   position: absolute;

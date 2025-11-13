@@ -18,6 +18,7 @@ const PrizeCard = lazy(() => import('./components/sharedComponents/PrizeCard'))
 const BrandCarousel = lazy(() => import('./components/sharedComponents/BrandCarousel'))
 const Faq = lazy(() => import('./components/sharedComponents/Faq'))
 const Footer = lazy(() => import('./components/sharedComponents/Footer'))
+const Testimonials = lazy(() => import('./components/sharedComponents/Testimonials'))
 
 function WorkBook() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -131,6 +132,14 @@ function WorkBook() {
             <div className='px-5 md:px-10 '>
               <Suspense fallback={<div className='w-full' />}>
                 <BrandCarousel />
+              </Suspense>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide className='overflow-hidden'>
+            <div className='px-5 md:px-10 '>
+              <Suspense fallback={<div className='w-full' />}>
+                <Testimonials />
               </Suspense>
             </div>
           </SwiperSlide>

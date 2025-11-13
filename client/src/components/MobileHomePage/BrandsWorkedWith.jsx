@@ -128,7 +128,7 @@ function BrandsWorkedWith() {
       ]
 
   return (
-    <div className='min-h-[75vh] bg-[#eae0d5] pt-10'>
+    <div className='min-h-[75vh]  pt-10'>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={16}
