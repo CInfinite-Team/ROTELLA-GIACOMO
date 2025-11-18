@@ -11,10 +11,10 @@ const TestimonialCard = ({Client,Logo,Review,Name,Position}) => {
           <div
             onMouseOver={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
-            className={`flex flex-col rounded-lg bg-[#fdf9f5] p-6 sm:p-8 w-full max-w-[320px] min-h-[340px] justify-between mx-auto transition-transform duration-500 ${hover ? "scale-105" : ""}`}
+            className={`flex flex-col rounded-lg bg-[#fdf9f5] p-6 sm:p-8 w-full max-w-[320px] min-h-[400px] h-full justify-between mx-auto transition-transform duration-500 ${hover ? "scale-105" : ""}`}
           >
             <div className="flex items-start justify-between mb-5">
-            <img loading="lazy" decoding="async" width='auto' height='auto' src={Logo} alt="" className="w-28" />
+            <img loading="lazy" decoding="async" width='auto' height='auto' src={Logo} alt="" className="w-28 h-[120px]" />
             <div></div>
             {/* <img loading="lazy" decoding="async" width='auto' height='auto' src={Client} alt="" className="w-28 rounded-md" /> */}
             </div>

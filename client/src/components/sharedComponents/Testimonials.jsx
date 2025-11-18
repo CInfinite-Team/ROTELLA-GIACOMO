@@ -29,32 +29,34 @@ import TestimonialCard from './TestimonialCard'
 
 const BRAND_ITEMS = [
   {
-    logo: DoGBay,
-    name: 'Dock & Bay',
+    logo: Badgervid,
+    name: 'BADGER MAPS',
     description: 'When Giacomo gets involved in a project, you can instantly envision a fast outcome with the highest quality standards.',
     work: 'Brand strategy, social media management, and digital marketing campaigns.',
     category: 'Senior Marketing Associate & Operations Lead, Badger Maps',
     type: 'video'
   },
   {
-    logo: JackWIllsImg,
-    name: 'Jack Wills',
+    logo: GucciImage,
+    name: 'Gucci',
     description: 'Giacomo’s excellent coordination with teams and partners has streamlined processes and delivered major successes, including a Burj Khalifa projection and metro campaigns across Europe.',
     work: 'Social media marketing and influencer collaborations.',
     category: 'EMEA Media Strategist, Guccio Gucci S.P.A.',
     type: 'img'
   },
   {
-    logo: RadianceVid,
-    name: 'RADIANCE CLINIC',
+    // logo: RadianceVid,
+    // name: 'RADIANCE CLINIC',
+    logo: SapniImg,
+    name: 'MIKALI SAPANI',
     description: 'Working with Giacomo is such a joy, experiencing his immense creativity in bring your luxury brand to life in a  way that surpasses all your expectations.',
     work: 'Brand strategy, social media management, and digital marketing campaigns.',
     category: 'Founder, MIKALI SAPANI LIMITED',
     type: 'video'
   },
   {
-    logo: GucciImage,
-    name: 'Gucci',
+    logo: Badgervid,
+    name: 'BADGER MAPS',
     description: 'Giacomo Rotella did a fantastic job as a member of the Marketing team at Badger with his in-depth knowledge of content marketing, strategic messaging and branding.',
     work: 'Part of the Gucci Media team in 2023-2024, managing digital marketing initiatives.',
     category: 'CEO, Badger Maps',
