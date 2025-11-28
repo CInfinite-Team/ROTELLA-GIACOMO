@@ -210,11 +210,11 @@ function BrandsWorkedWith() {
                   isHovered === index ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                <h3 className="font-bold text-sm mb-1">{brand.name}</h3>
-                <p className="text-xs text-blue-100 mb-2 leading-tight">
+                <h3 className="font-bold text-xl lg:text-sm mb-1">{brand.name}</h3>
+                <p className="text-lg lg:text-xs text-blue-100 mb-2 leading-tight">
                   {brand.description}
                 </p>
-                <div className="text-xs text-blue-200">
+                <div className="md:text-lg lg:text-xs text-blue-200">
                   <span className="font-semibold">Work:</span> {brand.work}
                 </div>
               </div>
