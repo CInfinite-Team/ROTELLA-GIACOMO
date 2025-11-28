@@ -1,6 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { EffectFade, Autoplay } from 'swiper/modules'
+import {  Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 
@@ -31,10 +31,15 @@ const Services = React.memo(function Services() {
     <div className="bg-[#f5f5f5] min-h-screen flex items-center justify-center py-10">
 
       <Swiper
-        modules={[EffectFade, Autoplay]}
-        effect="fade"
-        fadeEffect={{ crossFade: true }}
-        autoplay={{ delay: 1000, disableOnInteraction: false }}
+        modules={[Autoplay]}
+        
+       
+         fadeEffect={{ crossFade: true }}
+  autoplay={{
+    delay: 2000,
+    disableOnInteraction: true,
+    pauseOnMouseEnter: true, // Add this line to pause autoplay on hover
+  }}
         speed={900}
         loop
         className="w-full"
