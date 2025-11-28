@@ -52,7 +52,7 @@ const Services = React.memo(function Services() {
 
               <img
                 src={s.img}
-                className='max-h-[500px] xl:max-h-[600px] 2xl:max-h-[50vh] lg:w-[95%] object-cover rounded-lg shadow-2xl '
+                className='max-h-[500px] xl:max-h-[600px] 2xl:max-h-[50vh] lg:w-[95%] object-cover rounded-lg shadow-lg'
                 alt={s.title}
               />
             </div>
