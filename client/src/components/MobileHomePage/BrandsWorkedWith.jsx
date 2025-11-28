@@ -28,104 +28,104 @@ function BrandsWorkedWith() {
 
      const [isHovered, setIsHovered] = useState(null)
     
-      const brands = [
-        {
-          logo: DoGBay,
-          name: 'Dock & Bay',
-          description: 'I developed a brand strategy for the eco-friendly quick-dry towels company, performing market research and leading marketing campaigns to build awareness and foster engagement.',
-          work: 'Brand strategy, social media management, and digital marketing campaigns.',
-          category: 'Luxury Fashion',
-          type: 'video'
-        },
-        {
-          logo: JackWIllsImg,
-          name: 'Jack Wills',
-          description: 'British heritage clothing brand known for its casual and stylish apparel.',
-          work: 'Social media marketing and influencer collaborations.',
-          category: 'Fashion',
-          type: 'img'
-        },
-        {
-          logo: RadianceVid,
-          name: 'Barde',
-          description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
-          work: 'Brand strategy, social media management, and digital marketing campaigns.',
-          category: 'Luxury Fashion',
-          type: 'video'
-        },
-        {
-          logo: GucciImage,
-          name: 'Gucci',
-          description: 'Italian luxury fashion house known for high-end fashion and accessories.',
-          work: 'Part of the Gucci Media team in 2023–2024, managing digital marketing initiatives.',
-          category: 'Luxury Fashion',
-          type: 'img'
-        },
-        {
-          logo: KananImg,
-          name: 'Kannan',
-          description: 'Professional services company focused on business optimization.',
-          work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.',
-          category: 'Professional Services',
-          type: 'img'
-        },
-        {
-          logo: KukrejaVid,
-          name: 'Kukreja Real Estate',
-          description: 'Premium real estate development and property management services.',
-          work: 'Social media content creation and website development for property marketing.',
-          category: 'Real Estate',
-          type: 'video'
-        },
-        {
-          logo: WebSiteSetupImg,
-          name: 'Kukreja Real Estate',
-          description: 'Premium real estate development and property management services.',
-          work: 'Social media content creation and website development for property marketing.',
-          category: 'Real Estate',
-          type: 'img'
-        },
-        {
-          logo: LondonLanesImg,
-          name: 'LANES LONDON',
-          description: 'Modern lifestyle brand offering contemporary products and services.',
-          work: 'Digital marketing strategy and brand positioning in competitive markets.',
-          category: 'Lifestyle',
-          type: 'img'
-        },
-        {
-          logo: OffBeattImg,
-          name: 'Offbeat Lifestyle',
-          description: 'Alternative lifestyle brand promoting unique and unconventional living.',
-          work: 'SEO strategy, content writing, and social media content development.',
-          category: 'Lifestyle',
-          type: 'img'
-        },
-        {
-          logo: AiSummitVid,
-          name: 'AI Summit',
-          description: 'Annual conference showcasing the latest advancements in artificial intelligence.',
-          work: 'Event promotion, social media strategy, and content creation.',
-          category: 'Technology',
-          type: 'video'
-        },
-        {
-          logo: SapniImg,
-          name: 'MIKALI SAPANI',
-          description: 'Innovative technology solutions and digital transformation services.',
-          work: 'Brand development and digital marketing for tech-forward audiences.',
-          category: 'Technology',
-          type: 'img'
-        },
-        {
-          logo: Badgervid,
-          name: 'BADGER MAPS',
-          description: 'Innovative technology solutions and digital transformation services.',
-          work: 'Brand development and digital marketing for tech-forward audiences.',
-          category: 'Technology',
-          type: 'video'
-        }
-      ]
+   const brands = [
+     {
+       logo: DoGBay,
+       name: 'Dock & Bay',
+       description: 'I developed a brand strategy for the eco-friendly quick-dry towels company, performing market research and leading marketing campaigns to build awareness and foster engagement.',
+       work: 'Brand strategy, social media management, and digital marketing campaigns.',
+       category: 'Retail and Manufacturing',
+       type: 'video'
+     },
+     {
+       logo: JackWIllsImg,
+       name: 'Jack Wills',
+       description: 'British heritage clothing brand known for its casual and stylish apparel.',
+       work: 'Social media marketing and influencer collaborations.',
+       category: 'Retail Apparel',
+       type: 'img'
+     },
+     {
+       logo: RadianceVid,
+       name: 'RADIANCE CLINIC',
+       description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
+       work: 'Brand strategy, social media management, and digital marketing campaigns.',
+       category: 'Healthcare',
+       type: 'video'
+     },
+     {
+       logo: GucciImage,
+       name: 'Gucci',
+       description: 'Italian luxury fashion house known for high-end fashion and accessories.',
+       work: 'Part of the Gucci Media team in 2023–2024, managing digital marketing initiatives.',
+       category: 'Luxury Fashion',
+       type: 'img'
+     },
+     {
+       logo: KananImg,
+       name: 'KANAN INTERNATIONAL',
+       description: 'Professional services company focused on business optimization.',
+       work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.',
+       category: 'Education',
+       type: 'img'
+     },
+     {
+       logo: KukrejaVid,
+       name: 'Kukreja',
+       description: 'Premium real estate development and property management services.',
+       work: 'Social media content creation and website development for property marketing.',
+       category: 'Real Estate',
+       type: 'video'
+     },
+     {
+       logo: WebSiteSetupImg,
+       name: 'WEBSITESETUP',
+       description: 'Premium real estate development and property management services.',
+       work: 'Social media content creation and website development for property marketing.',
+       category: 'Free Online Resource',
+       type: 'img'
+     },
+     {
+       logo: LondonLanesImg,
+       name: 'LANES LONDON',
+       description: 'Modern lifestyle brand offering contemporary products and services.',
+       work: 'Digital marketing strategy and brand positioning in competitive markets.',
+       category: 'Streetwear Fashion',
+       type: 'img'
+     },
+     {
+       logo: OffBeattImg,
+       name: 'The OFFBEAT Site',
+       description: 'Alternative lifestyle brand promoting unique and unconventional living.',
+       work: 'SEO strategy, content writing, and social media content development.',
+       category: 'Lifestyle',
+       type: 'img'
+     },
+     {
+       logo: AiSummitVid,
+       name: 'AI X Summit',
+       description: 'Annual conference showcasing the latest advancements in artificial intelligence.',
+       work: 'Event promotion, social media strategy, and content creation.',
+       category: 'Technology',
+       type: 'video'
+     },
+     {
+       logo: SapniImg,
+       name: 'MIKALI SAPANI',
+       description: 'Innovative technology solutions and digital transformation services.',
+       work: 'Brand development and digital marketing for tech-forward audiences.',
+       category: 'Luxury Fashion',
+       type: 'img'
+     },
+     {
+       logo: Badgervid,
+       name: 'BADGER MAPS',
+       description: 'Innovative technology solutions and digital transformation services.',
+       work: 'Brand development and digital marketing for tech-forward audiences.',
+       category: 'Saas',
+       type: 'video'
+     }
+   ]
 
   return (
     <div className='min-h-[75vh]  pt-10'>
