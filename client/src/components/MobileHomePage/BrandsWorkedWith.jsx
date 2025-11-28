@@ -197,8 +197,8 @@ function BrandsWorkedWith() {
                   playsInline
                   loop 
                   muted
-                  preload='none'
-                  className={`w-full h-full object-cover lazy-video group-hover:scale-150 ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
+                 
+                  className={`w-full h-full object-cover  group-hover:scale-150 ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
                 />}
               </div>
 
