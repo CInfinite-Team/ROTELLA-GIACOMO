@@ -16,7 +16,7 @@ const Fractional2 = React.memo(function Fractional2() {
                   </p>
     
                   <p className=' w-full font-semibold whitespace-nowrap  text-[#181818] slide-up stagger-2' ref={useViewportAnimation()}
-                   style={{ fontSize: "clamp(14px, 4vw, 40px)" }}>
+                   style={{ fontSize: "clamp(14px, 2.5vw, 40px)" }}>
                     My <Highlight className=' text-white leading-tight '> fractional marketing consulting
                       <br /> package </Highlight> includes everything from 
                       <br />strategy to execution
