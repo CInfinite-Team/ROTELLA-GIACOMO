@@ -148,7 +148,7 @@ const HeroSection = React.memo(function HeroSection() {
         <div className="flex flex-col w-full lg:flex-row justify-between items-center lg:items-start relative z-10">
           
           {/* Left Content Section */}
-          <div className="w-full lg:w-[60%] 2xl:gap-5]4 order-2 lg:order-1 text-center flex flex-col items-center lg:items-start lg:text-left">
+          <div className="w-full lg:w-[60%] 2xl:gap-5 order-2 lg:order-1 text-center flex flex-col items-center lg:items-start lg:text-left">
             <p 
               ref={nameRef}
               className="text-sm 2xl:text-lg tracking-widest text-gray-600 mb-3 ml-1 font-medium slide-up"
@@ -157,8 +157,8 @@ const HeroSection = React.memo(function HeroSection() {
             </p>
             <h1 
               ref={headingRef}
-              className="text-xl md:text-5xl 2xl:text-6xl  font-bold text-gray-800 !leading-tight slide-up"
-            >
+              className="text-xl md:text-5xl 2xl:text-6xl font-bold text-gray-800 !leading-tight slide-up"
+           style={{ fontSize: "clamp(40px, 3vw, 65px)" }} >
               Fractional Marketing Consultant{' '}
               <br />
               <span >for <span className="text-[#911c28]">Small Businesses</span></span>
@@ -166,15 +166,16 @@ const HeroSection = React.memo(function HeroSection() {
 
             <p 
               ref={descriptionRef}
-              className="mt-4 md:mt-5 text-lg md:text-2xl 2xl:text-4xl  text-gray-700 max-w-[500px] 2xl:max-w-[700px] slide-up"
-            >
-              The power of a full-service marketing agency at a{' '}
+              className="mt-4 md:mt-5 text-lg md:text-2xl 2xl:text-4xl whitespace-nowrap  text-gray-700 max-w-[500px] 2xl:max-w-[700px] slide-up"
+          style={{ fontSize: "clamp(20px, 2vw, 45px)" }}  >
+              The power of a full-service marketing
+              <br /> agency at a{' '}
               <span className="text-[##911c28] font-semibold">fraction of the cost.</span>
             </p>
 
            <span 
   ref={priceRef}
-  className='text-xl 2xl:text-3xl 2xl:mt-6 text-[#911c28] font-bold items-center flex gap-1 mt-4 slide-up'
+  className='text-xl 2xl:text-3xl 2xl:mt-6 text-[#911c28] font-bold items-center flex gap-1 mt-2 xl:mt-4 slide-up'
 >
   <p className="font-bold text-2xl 2xl:text-4xl text-[#911c28]">
     $
@@ -196,7 +197,7 @@ const HeroSection = React.memo(function HeroSection() {
               <button
                 type="button"
                 onClick={handleBookCall}
-                className="mt-4 cursor-pointer 2xl:mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-base 2xl:text-2xl font-bold py-4 px-8 rounded-full shadow-lg transition-colors duration-300"
+                className="mt-2 xl:mt-4 cursor-pointer 2xl:mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-base 2xl:text-2xl font-bold py-4 px-8 rounded-full shadow-lg transition-colors duration-300"
               >
                 BOOK A CALL WITH ME
               </button>
@@ -236,9 +237,9 @@ const HeroSection = React.memo(function HeroSection() {
 
 
       
-<div className="mt-10 w-full relative overflow-hidden ">
-  <div className='h-44 w-28  bg-gradient-to-r from-[#f5f5f5] via-[#f5f5f573] to-[#f5f5f500]  absolute top-0 z-50 left-[-1px]  ' />
-  <div className='h-44 w-28  bg-gradient-to-l from-[#f5f5f5] via-[#f5f5f573] to-[#f5f5f500]  absolute top-0 z-50 right-[-1px]  ' />
+<div className="mt-5 xl:mt-10 w-full relative overflow-hidden ">
+  <div className='h-44 w-28 2xl:h-64  bg-gradient-to-r from-[#f5f5f5] via-[#f5f5f573] to-[#f5f5f500]  absolute top-0 z-50 left-[-1px]  ' />
+  <div className='h-44 w-28 2xl:h-64 bg-gradient-to-l from-[#f5f5f5] via-[#f5f5f573] to-[#f5f5f500]  absolute top-0 z-50 right-[-1px]  ' />
   <div className="flex items-center  space-x-10  animate-scroll">
     {brandItems.map((brand, index) => (
       <div key={index} className=" flex-shrink-0">

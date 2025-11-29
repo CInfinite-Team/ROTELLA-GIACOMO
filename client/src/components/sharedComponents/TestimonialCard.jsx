@@ -11,22 +11,22 @@ const TestimonialCard = ({Client,Logo,Review,Name,Position}) => {
           <div
             onMouseOver={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
-            className={`flex flex-col rounded-lg bg-[#fdf9f5] p-6 sm:p-8 w-full max-w-[320px] min-h-[400px] h-full justify-between mx-auto transition-transform duration-500 ${hover ? "scale-105" : ""}`}
+            className={`flex flex-col rounded-lg bg-[#fdf9f5] p-4 sm:p-8 w-full max-w-[320px] md:min-h-[400px] h-full justify-between mx-auto transition-transform duration-500 ${hover ? "lg:scale-105" : ""}`}
           >
-            <div className="flex items-start justify-between mb-5">
-            <img loading="lazy" decoding="async" width='auto' height='auto' src={Logo} alt="" className="w-28 h-[120px]" />
+            <div className="flex items-start justify-between mb-2 lg:mb-5">
+            <img loading="lazy" decoding="async" width='auto' height='auto' src={Logo} alt="" className="w-24 h-[80px] md:w-28 md:h-[120px]" />
             <div></div>
             {/* <img loading="lazy" decoding="async" width='auto' height='auto' src={Client} alt="" className="w-28 rounded-md" /> */}
             </div>
 
             {/* <img loading="lazy" decoding="async" width='auto' height='auto' src={Comma} alt="" className="w-14 mb-5 rounded-md" /> */}
-            <div className="flex flex-col gap-4 mb-10">
-              <p className={`max-w-[260px] ${hover ? "" : "Threeline"} `}>“{Review}”</p>
+            <div className="flex flex-col gap-4 mb-4 lg:mb-10">
+              <p className={`max-w-[260px] text-sm md:text-base ${hover ? "" : "Threeline"} `}>“{Review}”</p>
             </div>
 
             <div className="flex flex-col">
-              <p className="font-bold text-lg">{Name}</p>
-              <p className="text-sm">{Position}</p>
+              <p className="font-bold md:text-lg">{Name}</p>
+              <p className="text-xs md:text-sm">{Position}</p>
             </div>
               
           </div>

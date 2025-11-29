@@ -83,7 +83,7 @@ const BlurText = ({
             initial={fromSnapshot}
             animate={inView ? animateKeyframes : fromSnapshot}
             transition={spanTransition}
-            style={{ fontSize: 'clamp(25px, 3vw, 47px)' }}
+            style={{ fontSize: 'clamp(22px, 3vw, 67px)' }}
             onAnimationComplete={index === elements.length - 1 ? onAnimationComplete : undefined}
           >
             {segment === ' ' ? '\u00A0' : segment}

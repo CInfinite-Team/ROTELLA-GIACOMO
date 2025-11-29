@@ -38,11 +38,12 @@ const FAQ = React.memo(function FAQ() {
 
   return (
     <div className="flex flex-col min-h-screen items-center justify-center lg:gap-5 px-[35px] xl:px-[70px] py-10 fade-in" ref={useViewportAnimation()}>
-      <h2 className="text-3xl text-center font-bold mt-8 mb-8" ref={useViewportAnimation()}>
+      <h2 className="whitespace-nowrap text-center font-bold mb-2 2xl:mb-4"
+      style={{ fontSize: "clamp(16px, 2.5vw, 60px)" }} ref={useViewportAnimation()}>
         Frequently Asked Questions
       </h2>
       
-      <div className=" space-y-2 lg:space-y-4">
+      <div className=" space-y-1 md:space-y-2 lg:space-y-4">
         {items.map((faq, index) => (
           <div 
             key={faq.question} 
@@ -50,10 +51,11 @@ const FAQ = React.memo(function FAQ() {
             ref={useViewportAnimation()}
           >
             <button
-              className="flex justify-between items-center w-full p-5 text-left  rounded-sm transition-colors"
+              className="flex justify-between items-center w-full p-2 xl:p-5 text-left  rounded-sm transition-colors"
               onClick={() => toggleFAQ(index)}
             >
-              <span className="font-semibold text-xs lg:text-lg text-white">{faq.question}</span>
+              <span className="font-semibold  text-white"
+              style={{ fontSize: "clamp(8px, 1vw, 22px)" }}>{faq.question}</span>
               <span className="text-2xl transition-transform duration-300 text-white" style={{ transform: activeIndex === index ? 'rotate(180deg)' : 'rotate(0deg)' }}>
                 <ChevronDown/>
               </span>
@@ -63,7 +65,8 @@ const FAQ = React.memo(function FAQ() {
               className="overflow-hidden transition-all duration-300 ease-in-out"
               style={{ maxHeight: activeIndex === index ? '500px' : '0px', opacity: activeIndex === index ? 1 : 0 }}
             >
-              <div className="p-5 bg-red-800 text-xs lg:text-base text-white">
+              <div className="p-2 lg:p-5 bg-red-800  text-white"
+               style={{ fontSize: "clamp(8px, 1vw, 22px)" }}>
                 {faq.answer}
               </div>
             </div>

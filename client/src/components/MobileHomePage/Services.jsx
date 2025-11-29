@@ -28,7 +28,7 @@ const Services = React.memo(function Services() {
   ]
 
   return (
-    <div className="bg-[#f5f5f5] min-h-screen flex items-center justify-center py-10">
+    <div className="bg-[#f5f5f5] min-h-screen flex items-center justify-center md:py-10">
 
       <Swiper
         modules={[Autoplay]}
@@ -50,16 +50,17 @@ const Services = React.memo(function Services() {
               <p
                 className='font-bold slide-left text-[#181818]'
                 ref={useViewportAnimation()}
-                style={{ fontSize: "clamp(20px, 3.5vw, 30px)" }}
+                style={{ fontSize: "clamp(16px, 3vw, 30px)" }}
               >
                 {s.title}
               </p>
-
+            <div className='max-h-[500px] xl:max-h-[600px] 2xl:max-h-[50vh] shadow-lg lg:w-[95%] '>
               <img
                 src={s.img}
-                className='max-h-[500px] xl:max-h-[600px] 2xl:max-h-[50vh] lg:w-[95%] object-cover rounded-lg shadow-lg'
+                className='object-cover w-full rounded-lg '
                 alt={s.title}
               />
+              </div>
             </div>
           </SwiperSlide>
         ))}
