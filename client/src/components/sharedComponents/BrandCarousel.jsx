@@ -30,7 +30,7 @@ const BRAND_ITEMS = [
   {
     logo: DoGBay,
     name: 'Dock & Bay',
-    description: 'I developed a brand strategy for the eco-friendly quick-dry towels company, performing market research and leading marketing campaigns to build awareness and foster engagement.',
+    // description: 'I developed a brand strategy for the eco-friendly quick-dry towels company, performing market research and leading marketing campaigns to build awareness and foster engagement.',
     work: 'Brand strategy, social media management, and digital marketing campaigns.',
     category: 'Retail and Manufacturing',
     type: 'video'
@@ -38,7 +38,7 @@ const BRAND_ITEMS = [
   {
     logo: JackWIllsImg,
     name: 'Jack Wills',
-    description: 'British heritage clothing brand known for its casual and stylish apparel.',
+    // description: 'British heritage clothing brand known for its casual and stylish apparel.',
     work: 'Social media marketing and influencer collaborations.',
     category: 'Retail Apparel',
     type: 'img'
@@ -46,7 +46,7 @@ const BRAND_ITEMS = [
   {
     logo: RadianceVid,
     name: 'RADIANCE CLINIC',
-    description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
+    // description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
     work: 'Brand strategy, social media management, and digital marketing campaigns.',
     category: 'Healthcare',
     type: 'video'
@@ -54,7 +54,7 @@ const BRAND_ITEMS = [
   {
     logo: GucciImage,
     name: 'Gucci',
-    description: 'Italian luxury fashion house known for high-end fashion and accessories.',
+    // description: 'Italian luxury fashion house known for high-end fashion and accessories.',
     work: 'Part of the Gucci Media team in 2023–2024, managing digital marketing initiatives.',
     category: 'Luxury Fashion',
     type: 'img'
@@ -62,7 +62,7 @@ const BRAND_ITEMS = [
   {
     logo: KananImg,
     name: 'KANAN INTERNATIONAL',
-    description: 'Professional services company focused on business optimization.',
+    // description: 'Professional services company focused on business optimization.',
     work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.',
     category: 'Education',
     type: 'img'
@@ -70,7 +70,7 @@ const BRAND_ITEMS = [
   {
     logo: KukrejaVid,
     name: 'Kukreja',
-    description: 'Premium real estate development and property management services.',
+    // description: 'Premium real estate development and property management services.',
     work: 'Social media content creation and website development for property marketing.',
     category: 'Real Estate',
     type: 'video'
@@ -78,7 +78,7 @@ const BRAND_ITEMS = [
   {
     logo: WebSiteSetupImg,
     name: 'WEBSITESETUP',
-    description: 'Premium real estate development and property management services.',
+    // description: 'Premium real estate development and property management services.',
     work: 'Social media content creation and website development for property marketing.',
     category: 'Free Online Resource',
     type: 'img'
@@ -86,7 +86,7 @@ const BRAND_ITEMS = [
   {
     logo: LondonLanesImg,
     name: 'LANES LONDON',
-    description: 'Modern lifestyle brand offering contemporary products and services.',
+    // description: 'Modern lifestyle brand offering contemporary products and services.',
     work: 'Digital marketing strategy and brand positioning in competitive markets.',
     category: 'Streetwear Fashion',
     type: 'img'
@@ -94,7 +94,7 @@ const BRAND_ITEMS = [
   {
     logo: OffBeattImg,
     name: 'The OFFBEAT Site',
-    description: 'Alternative lifestyle brand promoting unique and unconventional living.',
+    // description: 'Alternative lifestyle brand promoting unique and unconventional living.',
     work: 'SEO strategy, content writing, and social media content development.',
     category: 'Lifestyle',
     type: 'img'
@@ -102,7 +102,7 @@ const BRAND_ITEMS = [
   {
     logo: AiSummitVid,
     name: 'AI X Summit',
-    description: 'Annual conference showcasing the latest advancements in artificial intelligence.',
+    // description: 'Annual conference showcasing the latest advancements in artificial intelligence.',
     work: 'Event promotion, social media strategy, and content creation.',
     category: 'Technology',
     type: 'video'
@@ -110,7 +110,7 @@ const BRAND_ITEMS = [
   {
     logo: SapniImg,
     name: 'MIKALI SAPANI',
-    description: 'Innovative technology solutions and digital transformation services.',
+    // description: 'Innovative technology solutions and digital transformation services.',
     work: 'Brand development and digital marketing for tech-forward audiences.',
     category: 'Luxury Fashion',
     type: 'img'
@@ -118,7 +118,7 @@ const BRAND_ITEMS = [
   {
     logo: Badgervid,
     name: 'BADGER MAPS',
-    description: 'Innovative technology solutions and digital transformation services.',
+    // description: 'Innovative technology solutions and digital transformation services.',
     work: 'Brand development and digital marketing for tech-forward audiences.',
     category: 'Saas',
     type: 'video'
@@ -238,14 +238,14 @@ const BrandCarousel = React.memo(function BrandCarousel() {
               >
                 <h3 className="font-bold text-sm lg:text-2xl mb-1 xl:mb-5"
                  style={{ fontSize: "clamp(26px, 1.8vw, 37px)" }}>{brand.name}</h3>
-                <p className="text-xs text-blue-100 lg:text-xl mb-2 xl:mb-4 leading-"
-       style={{ fontSize: "clamp(22px, 1vw, 30px)" }}>
-                  {brand.description}
+                <p className="text-xs font-medium text-blue-100 lg:text-xl mb-2 xl:mb-4 leading-"
+       style={{ fontSize: "clamp(22px, 1.8vw, 30px)" }}>
+                  Work: {brand.work}
                 </p>
-                <div className="text-xs lg:text-lg text-blue-200"
+                {/* <div className="text-xs lg:text-lg text-blue-200"
                 style={{ fontSize: "clamp(20px, 1vw, 30px)" }}>
                   <span className="font-semibold">Work:</span> {brand.work}
-                </div>
+                </div> */}
               </div>
             </div>
           </SwiperSlide>

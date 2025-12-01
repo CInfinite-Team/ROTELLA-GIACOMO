@@ -34,7 +34,7 @@ const Services = React.memo(function Services() {
         modules={[Autoplay]}
         
        
-         fadeEffect={{ crossFade: true }}
+      
   autoplay={{
     delay: 2000,
     disableOnInteraction: true,

@@ -32,7 +32,7 @@ function BrandsWorkedWith() {
      {
        logo: DoGBay,
        name: 'Dock & Bay',
-       description: 'I developed a brand strategy for the eco-friendly quick-dry towels company, performing market research and leading marketing campaigns to build awareness and foster engagement.',
+      //  description: 'I developed a brand strategy for the eco-friendly quick-dry towels company, performing market research and leading marketing campaigns to build awareness and foster engagement.',
        work: 'Brand strategy, social media management, and digital marketing campaigns.',
        category: 'Retail and Manufacturing',
        type: 'video'
@@ -40,7 +40,7 @@ function BrandsWorkedWith() {
      {
        logo: JackWIllsImg,
        name: 'Jack Wills',
-       description: 'British heritage clothing brand known for its casual and stylish apparel.',
+      //  description: 'British heritage clothing brand known for its casual and stylish apparel.',
        work: 'Social media marketing and influencer collaborations.',
        category: 'Retail Apparel',
        type: 'img'
@@ -48,7 +48,7 @@ function BrandsWorkedWith() {
      {
        logo: RadianceVid,
        name: 'RADIANCE CLINIC',
-       description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
+      //  description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
        work: 'Brand strategy, social media management, and digital marketing campaigns.',
        category: 'Healthcare',
        type: 'video'
@@ -56,7 +56,7 @@ function BrandsWorkedWith() {
      {
        logo: GucciImage,
        name: 'Gucci',
-       description: 'Italian luxury fashion house known for high-end fashion and accessories.',
+      //  description: 'Italian luxury fashion house known for high-end fashion and accessories.',
        work: 'Part of the Gucci Media team in 2023–2024, managing digital marketing initiatives.',
        category: 'Luxury Fashion',
        type: 'img'
@@ -64,7 +64,7 @@ function BrandsWorkedWith() {
      {
        logo: KananImg,
        name: 'KANAN INTERNATIONAL',
-       description: 'Professional services company focused on business optimization.',
+      //  description: 'Professional services company focused on business optimization.',
        work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.',
        category: 'Education',
        type: 'img'
@@ -72,7 +72,7 @@ function BrandsWorkedWith() {
      {
        logo: KukrejaVid,
        name: 'Kukreja',
-       description: 'Premium real estate development and property management services.',
+      //  description: 'Premium real estate development and property management services.',
        work: 'Social media content creation and website development for property marketing.',
        category: 'Real Estate',
        type: 'video'
@@ -80,7 +80,7 @@ function BrandsWorkedWith() {
      {
        logo: WebSiteSetupImg,
        name: 'WEBSITESETUP',
-       description: 'Premium real estate development and property management services.',
+      //  description: 'Premium real estate development and property management services.',
        work: 'Social media content creation and website development for property marketing.',
        category: 'Free Online Resource',
        type: 'img'
@@ -88,7 +88,7 @@ function BrandsWorkedWith() {
      {
        logo: LondonLanesImg,
        name: 'LANES LONDON',
-       description: 'Modern lifestyle brand offering contemporary products and services.',
+      //  description: 'Modern lifestyle brand offering contemporary products and services.',
        work: 'Digital marketing strategy and brand positioning in competitive markets.',
        category: 'Streetwear Fashion',
        type: 'img'
@@ -96,7 +96,7 @@ function BrandsWorkedWith() {
      {
        logo: OffBeattImg,
        name: 'The OFFBEAT Site',
-       description: 'Alternative lifestyle brand promoting unique and unconventional living.',
+      //  description: 'Alternative lifestyle brand promoting unique and unconventional living.',
        work: 'SEO strategy, content writing, and social media content development.',
        category: 'Lifestyle',
        type: 'img'
@@ -104,7 +104,7 @@ function BrandsWorkedWith() {
      {
        logo: AiSummitVid,
        name: 'AI X Summit',
-       description: 'Annual conference showcasing the latest advancements in artificial intelligence.',
+      //  description: 'Annual conference showcasing the latest advancements in artificial intelligence.',
        work: 'Event promotion, social media strategy, and content creation.',
        category: 'Technology',
        type: 'video'
@@ -112,7 +112,7 @@ function BrandsWorkedWith() {
      {
        logo: SapniImg,
        name: 'MIKALI SAPANI',
-       description: 'Innovative technology solutions and digital transformation services.',
+      //  description: 'Innovative technology solutions and digital transformation services.',
        work: 'Brand development and digital marketing for tech-forward audiences.',
        category: 'Luxury Fashion',
        type: 'img'
@@ -120,7 +120,7 @@ function BrandsWorkedWith() {
      {
        logo: Badgervid,
        name: 'BADGER MAPS',
-       description: 'Innovative technology solutions and digital transformation services.',
+      //  description: 'Innovative technology solutions and digital transformation services.',
        work: 'Brand development and digital marketing for tech-forward audiences.',
        category: 'Saas',
        type: 'video'
@@ -210,13 +210,13 @@ function BrandsWorkedWith() {
                   isHovered === index ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                <h3 className="font-bold text-xl lg:text-sm mb-1">{brand.name}</h3>
-                <p className="text-lg lg:text-xs text-blue-100 mb-2 leading-tight">
-                  {brand.description}
+                <h3 className="font-bold text-xl md:text-3xl mb-1">{brand.name}</h3>
+                <p className="text-2xl md:text-3xl text-blue-100 mb-2 leading-tight">
+                 Work: {brand.work}
                 </p>
-                <div className="md:text-lg lg:text-xs text-blue-200">
+                {/* <div className="md:text-lg lg:text-xs text-blue-200">
                   <span className="font-semibold">Work:</span> {brand.work}
-                </div>
+                </div> */}
               </div>
             </div>
           </SwiperSlide>
