@@ -6,10 +6,25 @@
     <link rel="preload" as="image" href="/Giacomo.webp" fetchpriority="high" />
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-  rel="stylesheet"
-/>
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    />
+
+    <!-- Load font stylesheet asynchronously -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+ <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      />
+    </noscript>
 <style>
   
 *{
@@ -21,6 +36,40 @@ body{
     width:'100vw';
     overflow-x: hidden;
 }
+
+.tick-list {
+  list-style: none; /* Remove default bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.tick-list li {
+  position: relative;
+  padding-left: 1.2em; /* Space for tick */
+}
+
+.Threeline {
+  max-lines: 4;
+
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Number of lines to clamp */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tick-list li::before {
+  content: "✔"; /* The tick symbol */
+  position: absolute;
+  left: 0;
+  top: 0;
+  
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
 
 /* Hide native cursor globally; we use a custom cursor */
 
@@ -82,7 +131,7 @@ body{
 
 </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Giacomo Rotella</title>
   </head>
   <body>
     <div id="root"></div>
