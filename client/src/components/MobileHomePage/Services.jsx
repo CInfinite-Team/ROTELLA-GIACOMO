@@ -58,6 +58,9 @@ const Services = React.memo(function Services() {
             <div className='max-h-[500px]  xl:max-h-[600px] 2xl:max-h-[50vh] shadow-lg lg:w-[95%] '>
               <img
                 src={s.img}
+                loading='lazy'
+                decoding='async'
+                width='651' height='434'
                 className='object-cover w-full rounded-lg '
                 alt={s.title}
               />

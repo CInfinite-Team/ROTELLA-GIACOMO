@@ -25,7 +25,7 @@ const SmallBusiness = React.memo(function SmallBusiness() {
       
         </div>
 
-          <img src={Pic1} className=' shadow-xl max-h-[500px] xl:max-h-[600px] 2xl:max-h-[50vh] lg:w-[95%] object-cover rounded-lg ' alt='Small business marketing illustration' />
+          <img src={Pic1} className=' shadow-xl max-h-[500px] xl:max-h-[600px] 2xl:max-h-[50vh] lg:w-[95%] object-cover rounded-lg ' loading='lazy' decoding='async' width='663' height='442' alt='Small business marketing illustration' />
 
     </div>
   )
