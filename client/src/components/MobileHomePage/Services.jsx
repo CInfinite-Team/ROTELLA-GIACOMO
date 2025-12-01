@@ -32,13 +32,13 @@ const Services = React.memo(function Services() {
 
       <Swiper
         modules={[Autoplay]}
-        
+         spaceBetween={16}
+        slidesPerView={1}
        
       
   autoplay={{
     delay: 2000,
-    disableOnInteraction: true,
-    pauseOnMouseEnter: true, // Add this line to pause autoplay on hover
+    pauseOnMouseEnter: true,
   }}
         speed={900}
         loop
@@ -46,15 +46,16 @@ const Services = React.memo(function Services() {
       >
         {services.map((s, i) => (
           <SwiperSlide key={i}>
-            <div className='flex flex-col gap-5 '>
+            <div className='flex flex-col items-center gap-5 '>
               <p
-                className='font-bold slide-left text-[#181818]'
+                className='font-bold text-center text-[#181818]'
                 ref={useViewportAnimation()}
                 style={{ fontSize: "clamp(16px, 3vw, 30px)" }}
               >
                 {s.title}
+                <p className={`opacity-0 select-none sm:hidden ${s.title === 'All other channels that are relevant to your business' ? 'hidden' : ''} `}>{s.title}</p>
               </p>
-            <div className='max-h-[500px] xl:max-h-[600px] 2xl:max-h-[50vh] shadow-lg lg:w-[95%] '>
+            <div className='max-h-[500px]  xl:max-h-[600px] 2xl:max-h-[50vh] shadow-lg lg:w-[95%] '>
               <img
                 src={s.img}
                 className='object-cover w-full rounded-lg '
