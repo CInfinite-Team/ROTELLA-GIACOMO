@@ -5,7 +5,7 @@ const SmallBusiness = React.memo(function SmallBusiness() {
   return (
     <div className='min-h-screen bg-[#f5f5f5] gap-5 flex flex-col  justify-center items-start px-[4vw]'>
        <div>
-        <h1  className=' font-bold hidden sm:block slide-up md:whitespace-nowrap !leading-snug  ' ref={useViewportAnimation()}
+        <h1  className=' font-bold hidden sm:block slide-up text-center lg:text-left md:whitespace-nowrap !leading-snug  ' ref={useViewportAnimation()}
         style={{ fontSize: "clamp(17px, 1.7vw, 67px)" }}
   >
         If you’re a <span className='text-[#911c28] '>small business </span>owner looking to level up 

@@ -66,7 +66,7 @@ const BlurText = ({
   );
 
   return (
-    <p ref={ref} className={`blur-text ${className} flex flex-wrap`}>
+    <p ref={ref} className={`blur-text ${className} flex justify-center lg:justify-start flex-wrap`}>
       {elements.map((segment, index) => {
         const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
         const spanTransition = {
@@ -79,7 +79,7 @@ const BlurText = ({
         return (
           <motion.span
             key={index}
-            className="inline-block will-change-[transform,filter,opacity]"
+            className="inline-block  will-change-[transform,filter,opacity]"
             initial={fromSnapshot}
             animate={inView ? animateKeyframes : fromSnapshot}
             transition={spanTransition}
