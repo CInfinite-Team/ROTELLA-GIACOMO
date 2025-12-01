@@ -43,23 +43,23 @@ const PrizeCard = React.memo(function PrizeCard() {
     <>
        {/* <div className='z-50 flex-col  flex   mt-6 lg:mt-0  px-5 pl-5 gap-4  '> */}
                {/* Right Sidebar (Card) */}
-        <div className='z-50 flex-col hidden lg:flex items-center justify-center  pr-4 gap-4 '>
+        <div className='z-50 flex-col flex items-center justify-center  pr-4 gap-4 '>
           <div className='max-w-sm rounded-lg shadow-2xl   bg-[#fdfafa]'>
             {/* Header */}
-            <div className='flex items-center flex-wrap w-full justify-between py-[6px] px-3 '>
+            <div className='flex items-center flex-wrap w-full justify-center sm:justify-between px-2 py-[6px] sm:px-3 '>
               <div className='flex items-center gap-2 px-3'>
                 {/* <div className='w-8 h-8 bg-black rounded-md'></div> */}
-                <h2 className='font-bold text-lg 2xl:text-xl text-[#911c28] text-center '>[KW] Package</h2>
+                <h2 className='font-bold text-sm md:text-lg 2xl:text-xl text-[#911c28] text-center '>[KW] Package</h2>
               </div>
-              <span className=' text-center 2xl:text-lg font-bold pr-2 text-green-600'>
+              <span className=' text-center text-sm   md:text-base 2xl:text-lg font-bold pr-2 text-green-600'>
                 €500 / month
               </span>
             </div>
 
             {/* Body */}
-            <div className='space-y-4 px-6 pt-2'>
+            <div className='space-y-4 px-2 sm:px-6 pt-2'>
               <div>
-                <ul className='  pl-4 2xl:text-lg font-semibold tick-list space-y-2'>
+                <ul className=' pl-2 sm:pl-4 2xl:text-lg font-semibold tick-list space-y-2'>
                         <li>Can be adapted to your budget</li>
                         <li>50% deposit to start · 50% on completion</li>
                         <li>No Commitment, Cancel at any time</li>
@@ -67,12 +67,12 @@ const PrizeCard = React.memo(function PrizeCard() {
               </div>
 
               <div>
-                <h3 className='text-xl 2xl:text-2xl text-[#911c28] font-bold mb-1 mt-2 slide-up !leading-snug'
+                <h3 className=' pl-2 sm:pl-0 sm:text-xl 2xl:text-2xl text-[#911c28] font-bold mb-1 mt-2 slide-up !leading-snug'
                              data-lazy-animation="fade-up" data-lazy-animation-duration="1100"
                              ref={useViewportAnimation()}>
                                Why me?
                              </h3>
-                <h3 className=' font-semibold  slide-up !leading-snug'
+                <h3 className=' font-semibold text-sm sm:text-base pl-2 sm:pl-0 slide-up !leading-snug'
                                  data-lazy-animation="fade-up" data-lazy-animation-duration="1100" data-lazy-animation-delay="120"
                                  ref={useViewportAnimation()}>
                                One point of
@@ -120,7 +120,7 @@ const PrizeCard = React.memo(function PrizeCard() {
                 </span>
                       </div>
 
-                <p className='text-lg font-bold '>I'm available to talk</p>
+                <p className='text-xs sm:text-lg font-bold '>I'm available to talk</p>
 
               </div>
 
