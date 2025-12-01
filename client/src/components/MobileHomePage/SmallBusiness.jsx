@@ -10,14 +10,14 @@ const SmallBusiness = React.memo(function SmallBusiness() {
   >
         If you’re a <span className='text-[#911c28] '>small business </span>owner looking to level up 
         </h1>
-       <h1  className=' font-bold hidden sm:block  slide-up md:whitespace-nowrap !leading-snug  ' ref={useViewportAnimation()}
+       <h1  className=' font-bold hidden sm:block  text-center lg:text-left  slide-up md:whitespace-nowrap !leading-snug  ' ref={useViewportAnimation()}
         style={{ fontSize: "clamp(17px, 1.7vw, 67px)" }}
   >
         your marketing, you’re in the right place.
         </h1>
         </div>
        <div>
-        <h1  className=' font-bold sm:hidden slide-up md:whitespace-nowrap !leading-snug  ' ref={useViewportAnimation()}
+        <h1  className=' font-bold sm:hidden slide-up md:whitespace-nowrap !leading-snug  text-center lg:text-left   ' ref={useViewportAnimation()}
         style={{ fontSize: "clamp(17px, 1.7vw, 67px)" }}
   >
         If you’re a <span className='text-[#911c28] '>small business </span>owner looking to level up your marketing, you’re in the right place.
