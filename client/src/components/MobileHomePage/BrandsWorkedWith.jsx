@@ -171,12 +171,12 @@ function BrandsWorkedWith() {
           <SwiperSlide key={index} >
             <div
              
-              className="group relative bg-[#f4f4f4]  flex flex-col rounded-2xl shadow-lg border-t border-t-[#e2cbb2]  overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl h-[75vh]   mx-auto border border-gray-200"
+              className="group relative bg-[#f4f4f4]  flex flex-col    overflow-hidden cursor-pointer transition-all duration-300  h-[75vh] aspect-[7/16]  mx-auto "
               onMouseEnter={() => setIsHovered(index)}
               onMouseLeave={() => setIsHovered(null)}
             >
               {/* Card Header */}
-              <div className=" bg-gradient-to-b from-[#eae0d5] via-[#eae0d5d8] to-[#eae0d500]  p-3 pt-1 pb-6 absolute top-0 w-full  text-center ">
+              <div className="  p-3 pt-1 pb-6  top-0 w-full  text-center ">
                 <h3 className="font-bold text-sm text-gray-800 mb-1">{brand.name}</h3>
                 <p className="text-xs text-gray-600">{brand.category}</p>
               </div>

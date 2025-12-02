@@ -25,7 +25,6 @@ import JackWIllsImg from '../../assets/Brands/JackWIllsImg.svg'
 import SapniImg from '../../assets/Brands/SapniImg.svg'
 // import BadgerMap from '../../assets/Brands/BadgerMap.svg'
 import { useCalendly } from '../../hooks/useCalendly'
-
 const BRAND_ITEMS = [
   {
     logo: DoGBay,
@@ -164,7 +163,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
             spaceBetween: 12,
           },
           768: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 14,
           },
           1900: {
@@ -179,18 +178,18 @@ const BrandCarousel = React.memo(function BrandCarousel() {
           <SwiperSlide key={index}>
             <div
             //  w-[70%] 2xl:w-[65%] 2xl:h-[90vh] h-[450px] md:h-[560px] lg:h-[80vh] lg:w-[400px] lg:
-              className="group relative  flex flex-col rounded-2xl shadow-lg border-t border-t-[#e2cbb2] overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl max-h-[80vh] aspect-[9/16] mx-auto border border-gray-200"
+              className="group relative  flex flex-col  overflow-hidden cursor-pointer transition-all duration-300 w-auto max-h-[80vh] aspect-[7/16] mx-auto "
               onMouseEnter={() => setIsHovered(index)}
               onMouseLeave={() => setIsHovered(null)}
             >
               {/* Card Header */}
-              <div className=" bg-gradient-to-b from-[#eae0d5] via-[#eae0d5d8] to-[#eae0d500]  p-3 pb-5 absolute top-0 w-full text-center ">
+              <div className="  p-3 pb-5  top-0 w-full text-center ">
                 <h3 className="font-bold text-sm uppercase text-gray-800 mb-1">{brand.name}</h3>
                 <p className="text-xs text-gray-600">{brand.category}</p>
               </div>
 
               {/* Card Image/Logo Area */}
-              <div className="w-full h-full   flex items-center justify-center ">
+              <div className="w-full h-full relative rounded-2xl shadow-lg overflow-hidden flex items-center justify-center ">
                {brand.type === 'img' ? (
                  <img 
                   src={brand.logo} 
@@ -209,28 +208,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                   preload="none"
                   className={`w-full h-full object-cover lazy-video group-hover:scale-150 ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
                 />)}
-              </div>
-
-              {/* Card Footer with CTA */}
-              <div className="absolute bottom-0  flex justify-between items-center gap-2 z-50 bg-gradient-to-t from-[#eae0d5] via-[#eae0d5d8] to-[#eae0d500] left-0 right-0 pt-5 p-3">
-                 <button
-                           type="button"
-                           onClick={handleCallClick}
-                           className="w-fit h-fit bg-red-800 hover:bg-red-900 text-white text-xs 2xl:text-xl font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
-                         >
-                           LET'S TALK
-                         </button>
-                  <div className='relative w-fit h-fit'>
-                <img src='/Giacomo.webp'  loading="lazy"
-                  decoding="async" className='bg-gray-400 w-16 2xl:w-24 2xl:h-24 object-cover object-top h-16 rounded-full' alt="Rotella Giacomo"  width="96" height="96" />
-                <span className="absolute bottom-2 left-0 flex size-3">
-                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-                 <span className="relative inline-flex size-3 rounded-full bg-[#0add0a]"></span>
-                </span>
-                </div>
-              </div>
-
-              {/* Hover overlay */}
+                 {/* Hover overlay */}
               <div 
                 className={`absolute inset-0 bg-gradient-to-br from-black/90 to-black/80 text-white p-3 flex flex-col justify-center transition-all duration-300 ${
                   isHovered === index ? 'opacity-100' : 'opacity-0'
@@ -247,6 +225,28 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                   <span className="font-semibold">Work:</span> {brand.work}
                 </div> */}
               </div>
+              </div>
+
+              {/* Card Footer with CTA */}
+              <div className=" bottom-0  flex justify-between items-center gap-2 z-50 left-0 right-0 pt-5 p-3">
+                 <button
+                           type="button"
+                           onClick={handleCallClick}
+                           className="w-fit h-fit bg-red-800 hover:bg-red-900 text-white text-xs 2xl:text-xl font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                         >
+                           LET'S TALK
+                         </button>
+                  <div className='relative w-fit h-fit'>
+                <img src='/Giacomo.webp'  loading="lazy"
+                  decoding="async" className='bg-gray-400 w-14 2xl:w-24 2xl:h-24 object-cover object-top h-14 rounded-full' alt="Rotella Giacomo"  width="96" height="96" />
+                <span className="absolute bottom-2 left-0 flex size-3">
+                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
+                 <span className="relative inline-flex size-3 rounded-full bg-[#0add0a]"></span>
+                </span>
+                </div>
+              </div>
+
+             
             </div>
           </SwiperSlide>
         ))}
