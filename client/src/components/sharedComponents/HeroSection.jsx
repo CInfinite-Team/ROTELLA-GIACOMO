@@ -180,9 +180,9 @@ const HeroSection = React.memo(function HeroSection() {
   <p className="font-bold text-2xl 2xl:text-4xl text-[#911c28]">
     $
     <CountUp
-      start={0}
+      start={1000}
       end={500}
-      duration={4}
+      duration={6}
       separator=","
       enableScrollSpy
       scrollSpyOnce

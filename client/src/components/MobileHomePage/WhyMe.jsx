@@ -8,14 +8,15 @@ const WhyMe = React.memo(function WhyMe() {
        style={{ fontSize: "clamp(46px, 3.5vw, 87px)" }}>
                       Why me?
                     </h3>
+                    
                     <h3 className=' w-[80%] whitespace-nowrap text-center lg:text-left w-full font-bold mb-10  slide-up !leading-snug' ref={useViewportAnimation()}
-                    style={{ fontSize: "clamp(22px, 3vw, 67px)" }}>
-                      One point of
+                    style={{ fontSize: "clamp(22px, 2.8vw, 67px)" }}>
+                      1. One point of
       contact,
       <br /> full team
       of specialists. 
                      <BlurText
-  text="I treat my clients as if they"
+  text="2. I treat my clients as if they"
   delay={150}
   animateBy="words"
   direction="top"
