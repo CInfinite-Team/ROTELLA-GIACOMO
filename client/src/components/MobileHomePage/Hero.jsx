@@ -14,7 +14,7 @@ import AIXSummit from '../../assets/Brands/AIXSummit.svg'
 import DogNBay from '../../assets/Brands/DogNBay.svg'
 import JackWills from '../../assets/Brands/JackWills.svg'
 import { PopupButton } from "react-calendly";
-
+import CountUp from 'react-countup';
 
 
   const brands = [
@@ -118,7 +118,14 @@ export default function Hero() {
 
             {/* Right Content Section */}
           <div className="w-fit mt-5 md:mt-0  pb-4 lg:pb-0 flex flex-col items-center ">
-            <p className="text-2xl font-bold text-[#911c28] mb">$500/month</p>
+            <p className="text-2xl font-bold text-[#911c28] mb">$<CountUp
+      start={1000}
+      end={500}
+      duration={6}
+      separator=","
+      enableScrollSpy
+      scrollSpyOnce
+    />/month</p>
            
           </div>
 

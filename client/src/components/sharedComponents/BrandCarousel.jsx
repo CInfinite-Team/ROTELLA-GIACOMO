@@ -218,8 +218,8 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                   isHovered === index ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                <h3 className="font-bold text-sm lg:text-2xl text-center mb-1 xl:mb-5"
-                 style={{ fontSize: "clamp(26px, 1.8vw, 37px)" }}>{brand.name}</h3>
+                {/* <h3 className="font-bold text-sm lg:text-2xl text-center mb-1 xl:mb-5"
+                 style={{ fontSize: "clamp(26px, 1.8vw, 37px)" }}>{brand.name}</h3> */}
                 <p className="text-xs font-medium text-blue-100 text-center lg:text-xl mb-2 xl:mb-4 leading-"
        style={{ fontSize: "clamp(22px, 1.8vw, 30px)" }}>
                   Work: {brand.work}
