@@ -232,7 +232,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
               </div>
 
               {/* Card Footer with CTA */}
-              <div className=" bottom-0  flex justify-between items-center gap-2 z-50 left-0 right-0 pt-5 p-3">
+              {/* <div className=" bottom-0  flex justify-between items-center gap-2 z-50 left-0 right-0 pt-5 p-3">
                  <button
                            type="button"
                            onClick={handleCallClick}
@@ -248,7 +248,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                  <span className="relative inline-flex size-3 rounded-full bg-[#0add0a]"></span>
                 </span>
                 </div>
-              </div>
+              </div> */}
 
              
             </div>
