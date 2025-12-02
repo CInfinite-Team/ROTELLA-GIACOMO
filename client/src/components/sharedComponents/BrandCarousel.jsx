@@ -163,8 +163,12 @@ const BrandCarousel = React.memo(function BrandCarousel() {
             spaceBetween: 12,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 14,
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 16,
           },
           1900: {
             slidesPerView: 2,
