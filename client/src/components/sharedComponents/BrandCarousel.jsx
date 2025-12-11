@@ -7,20 +7,20 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 // import Giacomo from '../../assets/Giacomo.webp'
 import DoGBay from '../../assets/Brands/DoGBay.mp4'
-import Badgervid from '../../assets/Brands/Badgervid.mp4'
-import KukrejaVid from '../../assets/Brands/KukrejaVid.mp4'
-import AiSummitVid from '../../assets/Brands/AiSummitVid.mp4'
-import RadianceVid from '../../assets/Brands/RadianceVid.mp4'
+import BadgervidDesktop from '../../assets/Brands/BadgerMapVidDesktop.mp4'
+import KukrejaVidDesktop from '../../assets/Brands/KukrejaVidDesktop.mp4'
+import AiSummitVidDesktop from '../../assets/Brands/AiSummitVidDesktop.mp4'
+import RadianceVidDesktop from '../../assets/Brands/RadianceVidDesktop.mp4'
 // Import brand logos
 import GucciImage from '../../assets/Brands/GucciImage.svg'
-import WebSiteSetupImg from '../../assets/Brands/WebSiteSetupImg.svg'
+import WebSetupVidDesktop from '../../assets/Brands/WebSetupVidDesktop.mp4'
 // import BardeLogo from '../../assets/Brands/Barde.svg'
 // import GucciLogo from '../../assets/Brands/GUCCI.svg'
-import KananImg from '../../assets/Brands/KananImg.svg'
+import KananVidDesktop from '../../assets/Brands/KananVidDesktop.mp4'
 import OffBeattImg from '../../assets/Brands/OffBeattImg.svg'
 // import KukrejaLogo from '../../assets/Brands/Kukreja.svg'
 import LondonLanesImg from '../../assets/Brands/LondonLanesImg.svg'
-import JackWIllsImg from '../../assets/Brands/JackWIllsImg.svg'
+import JackWillsDesktop from '../../assets/Brands/JackWillsDesktop.png'
 // import OffbeatsLogo from '../../assets/Brands/OFFBEATS.svg'
 import SapniImg from '../../assets/Brands/SapniImg.svg'
 // import BadgerMap from '../../assets/Brands/BadgerMap.svg'
@@ -35,7 +35,7 @@ const BRAND_ITEMS = [
     type: 'video'
   },
   {
-    logo: JackWIllsImg,
+    logo: JackWillsDesktop,
     name: 'Jack Wills',
     // description: 'British heritage clothing brand known for its casual and stylish apparel.',
     work: 'Social media marketing and influencer collaborations.',
@@ -43,7 +43,7 @@ const BRAND_ITEMS = [
     type: 'img'
   },
   {
-    logo: RadianceVid,
+    logo: RadianceVidDesktop,
     name: 'RADIANCE CLINIC',
     // description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
     work: 'Brand strategy, social media management, and digital marketing campaigns.',
@@ -54,20 +54,20 @@ const BRAND_ITEMS = [
     logo: GucciImage,
     name: 'Gucci',
     // description: 'Italian luxury fashion house known for high-end fashion and accessories.',
-    work: 'Part of the Gucci Media team in 2023–2024, managing digital marketing initiatives.',
+    work: 'Part of the Gucci Media team in 2023-2024, managing digital marketing initiatives.',
     category: 'Luxury Fashion',
     type: 'img'
   },
   {
-    logo: KananImg,
+    logo: KananVidDesktop,
     name: 'KANAN INTERNATIONAL',
     // description: 'Professional services company focused on business optimization.',
     work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.',
     category: 'Education',
-    type: 'img'
+    type: 'video'
   },
   {
-    logo: KukrejaVid,
+    logo: KukrejaVidDesktop,
     name: 'Kukreja',
     // description: 'Premium real estate development and property management services.',
     work: 'Social media content creation and website development for property marketing.',
@@ -75,12 +75,12 @@ const BRAND_ITEMS = [
     type: 'video'
   },
   {
-    logo: WebSiteSetupImg,
+    logo: WebSetupVidDesktop,
     name: 'WEBSITESETUP',
     // description: 'Premium real estate development and property management services.',
     work: 'Social media content creation and website development for property marketing.',
     category: 'Free Online Resource',
-    type: 'img'
+    type: 'video'
   },
   {
     logo: LondonLanesImg,
@@ -99,7 +99,7 @@ const BRAND_ITEMS = [
     type: 'img'
   },
   {
-    logo: AiSummitVid,
+    logo: AiSummitVidDesktop,
     name: 'AI X Summit',
     // description: 'Annual conference showcasing the latest advancements in artificial intelligence.',
     work: 'Event promotion, social media strategy, and content creation.',
@@ -115,7 +115,7 @@ const BRAND_ITEMS = [
     type: 'img'
   },
   {
-    logo: Badgervid,
+    logo: BadgervidDesktop,
     name: 'BADGER MAPS',
     // description: 'Innovative technology solutions and digital transformation services.',
     work: 'Brand development and digital marketing for tech-forward audiences.',
@@ -166,23 +166,20 @@ const BrandCarousel = React.memo(function BrandCarousel() {
             slidesPerView: 1,
             spaceBetween: 14,
           },
-          1024: {
-            slidesPerView: 2,
-            spaceBetween: 16,
-          },
+       
           1900: {
             slidesPerView: 2,
             spaceBetween: 16,
           },
           
         }}
-        className="relative pt-10"
+        className="relative  xl:mt-auto pt-10"
       >
         {brands.map((brand, index) => (
           <SwiperSlide key={index}>
             <div
             //  w-[70%] 2xl:w-[65%] 2xl:h-[90vh] h-[450px] md:h-[560px] lg:h-[80vh] lg:w-[400px] lg:
-              className="group relative  flex flex-col  overflow-hidden cursor-pointer transition-all duration-300 w-auto max-h-[80vh] aspect-[7/16] mx-auto "
+              className="group relative  xl:mt-auto flex flex-col  overflow-hidden cursor-pointer transition-all duration-300 w-auto max-h-[80vh]  mx-auto "
               onMouseEnter={() => setIsHovered(index)}
               onMouseLeave={() => setIsHovered(null)}
             >
@@ -193,12 +190,12 @@ const BrandCarousel = React.memo(function BrandCarousel() {
               </div>
 
               {/* Card Image/Logo Area */}
-              <div className="w-full h-full relative rounded-2xl shadow-lg overflow-hidden flex items-center justify-center ">
+              <div className="w-full  relative rounded-2xl shadow-lg overflow-hidden flex items-center justify-center ">
                {brand.type === 'img' ? (
                  <img 
                   src={brand.logo} 
                   alt={`${brand.name} logo`}
-                  className="w-full h-full object-cover group-hover:scale-150 object-top  transition-all duration-300 "
+                  className="w-full h-full aspect-[17/12] object-cover group-hover:scale-150 object-top  transition-all duration-300 "
                   loading="lazy"
                   decoding="async"
                  />
@@ -210,7 +207,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                   loop 
                   muted
                   preload="none"
-                  className={`w-full h-full object-cover lazy-video group-hover:scale-150 ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
+                  className={`w-fit h-fit aspect-[17/12] object-cover lazy-video group-hover:scale-150 ${brand.name==='Dock & Bay' ? 'object-contain' :''} object-center bg-black transition-all duration-300 `}
                 />)}
                  {/* Hover overlay */}
               <div 

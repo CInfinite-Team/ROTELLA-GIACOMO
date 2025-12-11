@@ -13,10 +13,10 @@ import AiSummitVid from '../../assets/Brands/AiSummitVid.mp4'
 import RadianceVid from '../../assets/Brands/RadianceVid.mp4'
 // Import brand logos
 import GucciImage from '../../assets/Brands/GucciImage.svg'
-import WebSiteSetupImg from '../../assets/Brands/WebSiteSetupImg.svg'
+import WebSetupVid from '../../assets/Brands/WebSetupVid.mp4'
 // import BardeLogo from '../../assets/Brands/Barde.svg'
 // import GucciLogo from '../../assets/Brands/GUCCI.svg'
-import KananImg from '../../assets/Brands/KananImg.svg'
+import KananVid from '../../assets/Brands/KananVid.mp4'
 import OffBeattImg from '../../assets/Brands/OffBeattImg.svg'
 // import KukrejaLogo from '../../assets/Brands/Kukreja.svg'
 import LondonLanesImg from '../../assets/Brands/LondonLanesImg.svg'
@@ -62,12 +62,12 @@ function BrandsWorkedWith() {
        type: 'img'
      },
      {
-       logo: KananImg,
+       logo: KananVid,
        name: 'KANAN INTERNATIONAL',
       //  description: 'Professional services company focused on business optimization.',
        work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.',
        category: 'Education',
-       type: 'img'
+       type: 'video'
      },
      {
        logo: KukrejaVid,
@@ -78,12 +78,12 @@ function BrandsWorkedWith() {
        type: 'video'
      },
      {
-       logo: WebSiteSetupImg,
+       logo: WebSetupVid,
        name: 'WEBSITESETUP',
       //  description: 'Premium real estate development and property management services.',
        work: 'Social media content creation and website development for property marketing.',
        category: 'Free Online Resource',
-       type: 'img'
+       type: 'video'
      },
      {
        logo: LondonLanesImg,

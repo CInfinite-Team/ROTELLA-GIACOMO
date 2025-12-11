@@ -83,7 +83,7 @@ useEffect(() => {
                 position: "fixed",
                 top: `${pos.y}px`,
                 left: `${pos.x}px`,
-                transform: "translate(-8px, -8px)", // Adjust tip alignment
+                transform: "translate(0px, 0px)", // Adjust tip alignment
                 pointerEvents: "none",
                 zIndex: 9999,
                 transition: "transform 0.05s linear, opacity 0.2s ease",
