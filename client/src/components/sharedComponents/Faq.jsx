@@ -1,36 +1,39 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import React, { useState, useMemo, useCallback } from 'react';
+import { useCurrency } from '../../context/CurrencyContext';
 import { useViewportAnimation } from '../../components/animations/ScrollAnimations';
 import {ChevronDown} from 'lucide-react';
-const FAQ_ITEMS = [
-  {
-    question: 'What marketing services do you offer?',
-    answer: 'I offer a comprehensive range of marketing services including social media management, content creation, SEO optimization, website maintenance, PPC campaigns, email marketing, and strategic planning tailored to your business needs.'
-  },
-  {
-    question: 'How much does your marketing service cost?',
-    answer: 'My standard marketing package starts at €1,000 per month, which includes end-to-end execution and strategy. Custom packages are available based on your specific requirements and business size.'
-  },
-  {
-    question: 'How long does it take to see results from marketing efforts?',
-    answer: 'Results vary depending on your industry, competition, and current market position. Typically, you can expect to see initial improvements within 1-2 months, with more significant results appearing after 3-6 months of consistent strategy implementation.'
-  },
-  {
-    question: 'Do you work with businesses in specific industries?',
-    answer: 'I have experience working with businesses across various industries including Luxury, Fashion, SaaS, Tech, Fitness, Lifestyle, and Real Estate. My approach is adaptable to different market segments and business models.'
-  },
-  {
-    question: 'What is your approach to social media marketing?',
-    answer: 'My approach to social media marketing involves creating a tailored strategy based on your target audience, developing engaging content, implementing consistent posting schedules, managing community engagement, and utilizing data analytics to continuously optimize performance.'
-  },
-  {
-    question: 'How do you measure marketing success?',
-    answer: 'I measure success through various KPIs including website traffic, conversion rates, engagement metrics, lead generation, ROI, and ultimately, business growth. Regular reporting and analytics reviews ensure we track progress and adjust strategies as needed.'
-  },
-]
-
 const FAQ = React.memo(function FAQ() {
   const [activeIndex, setActiveIndex] = useState(null);
-  const items = useMemo(() => FAQ_ITEMS, []);
+  const { t } = useTranslation();
+  const { formatPrice } = useCurrency();
+
+  const items = useMemo(() => [
+    {
+      question: t('faq_q1'),
+      answer: t('faq_a1')
+    },
+    {
+      question: t('faq_q2'),
+      answer: t('faq_a2', { price: formatPrice(1000) })
+    },
+    {
+      question: t('faq_q3'),
+      answer: t('faq_a3')
+    },
+    {
+      question: t('faq_q4'),
+      answer: t('faq_a4')
+    },
+    {
+      question: t('faq_q5'),
+      answer: t('faq_a5')
+    },
+    {
+      question: t('faq_q6'),
+      answer: t('faq_a6')
+    },
+  ], [t, formatPrice]);
 
   const toggleFAQ = useCallback((index) => {
     setActiveIndex((current) => (current === index ? null : index));
@@ -40,7 +43,7 @@ const FAQ = React.memo(function FAQ() {
     <div className="flex flex-col min-h-screen items-center justify-center lg:gap-5 px-[35px] xl:px-[70px] py-10 fade-in" ref={useViewportAnimation()}>
       <h2 className="whitespace-nowrap text-center font-bold mb-2 2xl:mb-4"
       style={{ fontSize: "clamp(16px, 2.5vw, 60px)" }} ref={useViewportAnimation()}>
-        Frequently Asked Questions
+        {t('faq_title')}
       </h2>
       
       <div className=" space-y-1 md:space-y-2 lg:space-y-4">

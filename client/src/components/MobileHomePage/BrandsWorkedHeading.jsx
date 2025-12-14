@@ -2,15 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowBigDown } from 'lucide-react';
 
+import { useTranslation, Trans } from 'react-i18next';
 const BrandsWorkedHeading = React.memo(function BrandsWorkedHeading() {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col bg-[#f5f5f5] min-h-screen items-center justify-center">
       <h2
         className="font-bold text-center mb-2 md:mb-8 text-gray-800"
         style={{ fontSize: 'clamp(25px, 4vw, 77px)' }}
       >
-        Brands I've
-        <br /> worked with
+        <Trans i18nKey="brands_heading" />
       </h2>
 
       <motion.button

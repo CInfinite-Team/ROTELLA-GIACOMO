@@ -16,6 +16,8 @@ import JackWills from '../../assets/Brands/JackWills.svg'
 import { useViewportAnimation, useParallax } from '../animations/ScrollAnimations';
 import { useCalendly } from '../../hooks/useCalendly';
 import CountUp from 'react-countup';
+import { useTranslation, Trans } from 'react-i18next';
+import { useCurrency } from '../../context/CurrencyContext';
 
 
 // A simple placeholder for the brand logos.
@@ -139,6 +141,9 @@ const HeroSection = React.memo(function HeroSection() {
   const brandItems = useMemo(() => duplicatedBrands, []);
 
 
+  const { t } = useTranslation();
+  const { currency } = useCurrency(); // countup prefix logic
+
   return (
     <div className="bg-[#f5f5f5] min-h-screen lg:max-h-[860px] flex items-center justify-center">
       <div className="relative w-full   p-8 lg:p-12 overflow-hidden">
@@ -159,26 +164,26 @@ const HeroSection = React.memo(function HeroSection() {
               ref={headingRef}
               className="text-xl md:text-5xl 2xl:text-6xl font-bold text-gray-800 !leading-tight slide-up"
            style={{ fontSize: "clamp(40px, 3vw, 65px)" }} >
-              Fractional Marketing Consultant{' '}
+              {t('hero_role')}{' '}
               <br />
-              <span >for <span className="text-[#911c28]">Small Businesses</span></span>
+              <span >{t('hero_for')} <span className="text-[#911c28]">{t('hero_target')}</span></span>
             </h1>
 
             <p 
               ref={descriptionRef}
               className="mt-4 md:mt-5 text-lg md:text-2xl 2xl:text-4xl whitespace-nowrap  text-gray-700 max-w-[500px] 2xl:max-w-[700px] slide-up"
           style={{ fontSize: "clamp(20px, 2vw, 45px)" }}  >
-              The power of a full-service marketing
-              <br /> agency at a{' '}
-              <span className="text-[##911c28] font-semibold">fraction of the cost.</span>
+              {t('hero_multiline_1')}
+              <br /> {t('hero_multiline_2')}{' '}
+              <span className="text-[##911c28] font-semibold">{t('hero_multiline_3')}</span>
             </p>
 
-           <span 
+<span 
   ref={priceRef}
   className='text-xl 2xl:text-3xl 2xl:mt-6 text-[#911c28] font-bold items-center flex gap-1 mt-2 xl:mt-4 slide-up'
 >
   <p className="font-bold text-2xl 2xl:text-4xl text-[#911c28]">
-    $
+    {currency === 'EUR' ? '€' : '$'}
     <CountUp
       start={1000}
       end={500}
@@ -189,7 +194,7 @@ const HeroSection = React.memo(function HeroSection() {
     />
     
   </p>
-  / month
+  {t('hero_price_suffix')}
 </span>
 
 
@@ -199,7 +204,7 @@ const HeroSection = React.memo(function HeroSection() {
                 onClick={handleBookCall}
                 className="mt-2 xl:mt-4 cursor-pointer 2xl:mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-base 2xl:text-2xl font-bold py-4 px-8 rounded-full shadow-lg transition-colors duration-300"
               >
-                BOOK A CALL WITH ME
+                {t('hero_btn_book')}
               </button>
             </div>
             

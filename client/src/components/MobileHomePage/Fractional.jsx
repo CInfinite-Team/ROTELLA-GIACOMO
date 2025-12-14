@@ -1,52 +1,49 @@
 import React from 'react'
 import { useViewportAnimation } from '../animations/ScrollAnimations'
 
+import { useTranslation } from 'react-i18next';
+
 const Fractional = React.memo(function Fractional() {
+  const { t } = useTranslation();
   return (
     <div className='flex flex-col bg-[#f5f5f5]  gap-5 min-h-[80vh] lg:min-h-[100vh]  items-center justify-center'>
       
        <div className='w-full '><p className='font-bold whitespace-nowrap slide-up stagger-1  text-center lg:text-left !leading-tight ' ref={useViewportAnimation()}
              style={{ fontSize: "clamp(22px, 3vw, 57px)" }}
 >
-                      What is a fractional
+                      {t('fractional_title_part1')}
                     </p>
        <p className='font-bold whitespace-nowrap  slide-up stagger-1 text-center lg:text-left  !leading-tight   ' ref={useViewportAnimation()}
              style={{ fontSize: "clamp(22px, 3vw, 57px)" }}
 >
-                      marketing consultant?
+                      {t('fractional_title_part2')}
                     </p>
       </div>
 
       <div className='w-full hidden lg:block'>
                     <p className=' whitespace-nowrap font-semibold text-center lg:text-left  slide-up stagger-2 text-[#981818] 2xl:mt-4 ' ref={useViewportAnimation()}
                     style={{ fontSize: "clamp(12px, 2vw, 40px)" }}>
-                      As a fractional marketing consultant, 
+                      {t('fractional_desc_part1')} 
                     </p>
 
                     <p className=' whitespace-nowrap  font-semibold  text-center lg:text-left slide-up stagger-2 text-[#981818] 2xl:mt-4 ' ref={useViewportAnimation()}
                     style={{ fontSize: "clamp(12px, 2vw, 40px)" }}>
-                    my team and I work with you on a part-time           
+                    {t('fractional_desc_part2')}           
                      </p>
                     <p className=' whitespace-nowrap  font-semibold  text-center lg:text-left slide-up stagger-2 text-[#981818] 2xl:mt-4 ' ref={useViewportAnimation()}
                     style={{ fontSize: "clamp(12px, 2vw, 40px)" }}>
-                    and long-term basis to provide strategic
+                    {t('fractional_desc_part3')}
                         </p>
                     <p className=' whitespace-nowrap  font-semibold text-center lg:text-left slide-up stagger-2 text-[#981818] 2xl:mt-4 ' ref={useViewportAnimation()}
                     style={{ fontSize: "clamp(12px, 2vw, 40px)" }}>
-                    guidance and hands-on execution.
+                    {t('fractional_desc_part4')}
                         </p>
                     </div>
 
       <div className='w-full lg:hidden'>
                     <p className='  font-semibold text-center lg:text-left  slide-up stagger-2 text-[#981818] 2xl:mt-4 ' ref={useViewportAnimation()}
                     style={{ fontSize: "clamp(20px, 2vw, 40px)" }}>
-                      As a fractional marketing consultant, 
-                   
-                    my team and I work with you on a part-time           
-                    
-                    and long-term basis to provide strategic
-                        
-                    guidance and hands-on execution.
+                      {t('fractional_desc_full')}
                         </p>
                     </div>
 

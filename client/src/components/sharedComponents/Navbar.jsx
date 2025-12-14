@@ -1,7 +1,28 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { i18n } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const toggleLanguage = (lang) => {
+      const currentPath = location.pathname;
+      const pathSegments = currentPath.split('/');
+      // Replace language segment (which is index 1 usually: /en/home -> en is 1)
+      if (pathSegments.length > 1) {
+          pathSegments[1] = lang;
+      } else {
+        // Fallback if path is just /
+        pathSegments[0] = ''; // to make it /
+        pathSegments[1] = lang;
+      }
+      navigate(pathSegments.join('/'));
+  };
+
+  const currentLang = i18n.language;
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -30,6 +51,21 @@ function Navbar() {
             <a href="#" className="font-medium text-gray-500 hover:text-black">
               Services
             </a>
+            <div className="flex items-center gap-2 border-l pl-4 border-gray-300">
+                <button 
+                    onClick={() => toggleLanguage('en')} 
+                    className={`font-semibold text-sm ${currentLang === 'en' ? 'text-black' : 'text-gray-400 hover:text-gray-600'}`}
+                >
+                    EN
+                </button>
+                <span className="text-gray-300">|</span>
+                <button 
+                    onClick={() => toggleLanguage('it')} 
+                    className={`font-semibold text-sm ${currentLang === 'it' ? 'text-black' : 'text-gray-400 hover:text-gray-600'}`}
+                >
+                    IT
+                </button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -59,6 +95,21 @@ function Navbar() {
             <div className="w-6 h-6 bg-black rounded-md"></div>
             <span className="text-xl font-semibold text-gray-700">Giacomo Rotella</span>
           </div>
+            <div className="flex items-center gap-2 mr-4">
+                <button 
+                    onClick={() => toggleLanguage('en')} 
+                    className={`font-semibold text-sm ${currentLang === 'en' ? 'text-black' : 'text-gray-400'}`}
+                >
+                    EN
+                </button>
+                <span className="text-gray-300">|</span>
+                <button 
+                    onClick={() => toggleLanguage('it')} 
+                    className={`font-semibold text-sm ${currentLang === 'it' ? 'text-black' : 'text-gray-400'}`}
+                >
+                    IT
+                </button>
+            </div>
           <button
             onClick={toggleMobileMenu}
             className="w-8 h-8 flex items-center justify-center"

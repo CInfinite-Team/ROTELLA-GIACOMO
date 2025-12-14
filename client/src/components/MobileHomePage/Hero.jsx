@@ -15,6 +15,8 @@ import DogNBay from '../../assets/Brands/DogNBay.svg'
 import JackWills from '../../assets/Brands/JackWills.svg'
 import { PopupButton } from "react-calendly";
 import CountUp from 'react-countup';
+import { useTranslation, Trans } from 'react-i18next';
+import { useCurrency } from '../../context/CurrencyContext';
 
 
   const brands = [
@@ -94,6 +96,9 @@ import CountUp from 'react-countup';
   ]
 
 export default function Hero() {
+  const { t } = useTranslation();
+  const { formatPrice, currency } = useCurrency(); // Assuming currency context provides raw currency code like 'USD' or 'EUR' if needed for conditional rendering, though formatPrice handles the symbol.
+  
   return (
     <div className="bg-[#f4f4f4]  flex items-center justify-center">
       <div className="relative w-full flex flex-col justify-center gap-10 items-center  min-h-screen p-4  overflow-hidden">
@@ -106,26 +111,34 @@ export default function Hero() {
           <div className="w-full   text-center flex flex-col items-center ">
             <p className="font-semibold  md:text-lg tracking-widest text-gray-600 mb-4">ROTELLA GIACOMO</p>
             <h1 className="text-xl md:text-4xl font-bold text-gray-800 !leading-tight ">
-              Fractional Marketing Consultant{' '}
+              {t('hero_role')}{' '}
               
-              <span >for <span className="text-[#911c28]">Small Businesses</span></span>
+              <span >{t('hero_for')} <span className="text-[#911c28]">{t('hero_target')}</span></span>
             </h1>
 
             <p className="mt-4 md:mt-8 text-base md:text-2xl  text-gray-700 max-w-[500px] ">
-              The power of a full-service marketing agency at a{' '}
-              <span className="text-[##911c28] font-semibold">fraction of the cost.</span>
+              {t('hero_subtitle_pt1')}{' '}
+              <span className="text-[##911c28] font-semibold">{t('hero_subtitle_pt2')}</span>
             </p>
 
             {/* Right Content Section */}
           <div className="w-fit mt-5 md:mt-0  pb-4 lg:pb-0 flex flex-col items-center ">
-            <p className="text-2xl font-bold text-[#911c28] mb">$<CountUp
+             <p className="text-2xl font-bold text-[#911c28] mb">
+               {/* We need to handle the prefix manually if we want CountUp to work nicely, 
+                   or just use CountUp for the number and text for symbol, 
+                   but Context provides formatPrice which returns string. 
+                   Let's assume user wants animation on the number. 
+                   Check currency symbol from context or just conditional.
+               */}
+               {currency === 'EUR' ? '€' : '$'}
+               <CountUp
       start={1000}
       end={500}
       duration={6}
       separator=","
       enableScrollSpy
       scrollSpyOnce
-    />/month</p>
+    />{t('hero_price_suffix')}</p>
            
           </div>
 
@@ -134,7 +147,7 @@ export default function Hero() {
             <PopupButton
             url="https://calendly.com/rgiacomo"
             rootElement={document.getElementById("root")}
-            text="LET'S TALK"
+            text={t('lets_talk')}
             className="mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-lg font-bold py-3 px-5 md:px-20 w-fit md:py-5 rounded-full shadow-lg transition-colors duration-300"
           />
            <div className="w-[46vw] h-[46vw] md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl ">

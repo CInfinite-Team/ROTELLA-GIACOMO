@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useCallback } from 'react'
+import { useTranslation } from 'react-i18next';
 import { useViewportAnimation } from '../animations/ScrollAnimations'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
@@ -27,21 +28,26 @@ import SapniImg from '../../assets/Brands/Sapani.svg'
 import { useCalendly } from '../../hooks/useCalendly'
 import TestimonialCard from './TestimonialCard'
 
-const BRAND_ITEMS = [
+const Testimonials = React.memo(function BrandCarousel() {
+  const [isHovered, setIsHovered] = useState(null)
+  const { openCalendlyPopup } = useCalendly()
+  const { t } = useTranslation();
+
+  const brands = useMemo(() => [
   {
     logo: Badgervid,
     name: 'BADGER MAPS',
-    description: 'When Giacomo gets involved in a project, you can instantly envision a fast outcome with the highest quality standards.',
-    work: 'Brand strategy, social media management, and digital marketing campaigns.',
-    category: 'Senior Marketing Associate & Operations Lead, Badger Maps',
+    description: t('brand_badger_review'),
+    work: t('brand_badge_work'),
+    category: t('brand_badger_cat'),
     type: 'video'
   },
   {
     logo: GucciImage,
     name: 'Gucci',
-    description: 'Giacomo’s excellent coordination with teams and partners has streamlined processes and delivered major successes, including a Burj Khalifa projection and metro campaigns across Europe.',
-    work: 'Social media marketing and influencer collaborations.',
-    category: 'EMEA Media Strategist, Guccio Gucci S.P.A.',
+    description: t('brand_gucci_review'),
+    work: t('brand_gucci_work'),
+    category: t('brand_gucci_cat'),
     type: 'img'
   },
   {
@@ -49,89 +55,20 @@ const BRAND_ITEMS = [
     // name: 'RADIANCE CLINIC',
     logo: SapniImg,
     name: 'MIKALI SAPANI',
-    description: 'Working with Giacomo is such a joy, experiencing his immense creativity in bring your luxury brand to life in a  way that surpasses all your expectations.',
-    work: 'Brand strategy, social media management, and digital marketing campaigns.',
-    category: 'Founder, MIKALI SAPANI LIMITED',
+    description: t('brand_mikali_review'),
+    work: t('brand_mikali_work'),
+    category: t('brand_mikali_cat'),
     type: 'video'
   },
   {
     logo: Badgervid,
     name: 'BADGER MAPS',
-    description: 'Giacomo Rotella did a fantastic job as a member of the Marketing team at Badger with his in-depth knowledge of content marketing, strategic messaging and branding.',
-    work: 'Part of the Gucci Media team in 2023-2024, managing digital marketing initiatives.',
-    category: 'CEO, Badger Maps',
+    description: t('brand_badger_ceo_review'),
+    work: t('brand_badger_ceo_work'),
+    category: t('brand_badger_ceo_cat'),
     type: 'img'
-  },
-  // {
-  //   logo: KananImg,
-  //   name: 'KANAN INTERNATIONAL',
-  //   description: 'Professional services company focused on business optimization.',
-  //   work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.',
-  //   category: 'Education',
-  //   type: 'img'
-  // },
-  // {
-  //   logo: KukrejaVid,
-  //   name: 'Kukreja',
-  //   description: 'Premium real estate development and property management services.',
-  //   work: 'Social media content creation and website development for property marketing.',
-  //   category: 'Real Estate',
-  //   type: 'video'
-  // },
-  // {
-  //   logo: WebSiteSetupImg,
-  //   name: 'WEBSITESETUP',
-  //   description: 'Premium real estate development and property management services.',
-  //   work: 'Social media content creation and website development for property marketing.',
-  //   category: 'Free Online Resource',
-  //   type: 'img'
-  // },
-  // {
-  //   logo: LondonLanesImg,
-  //   name: 'LANES LONDON',
-  //   description: 'Modern lifestyle brand offering contemporary products and services.',
-  //   work: 'Digital marketing strategy and brand positioning in competitive markets.',
-  //   category: 'Streetwear Fashion',
-  //   type: 'img'
-  // },
-  // {
-  //   logo: OffBeattImg,
-  //   name: 'The OFFBEAT Site',
-  //   description: 'Alternative lifestyle brand promoting unique and unconventional living.',
-  //   work: 'SEO strategy, content writing, and social media content development.',
-  //   category: 'Lifestyle',
-  //   type: 'img'
-  // },
-  // {
-  //   logo: AiSummitVid,
-  //   name: 'AI X Summit',
-  //   description: 'Annual conference showcasing the latest advancements in artificial intelligence.',
-  //   work: 'Event promotion, social media strategy, and content creation.',
-  //   category: 'Technology',
-  //   type: 'video'
-  // },
-  // {
-  //   logo: SapniImg,
-  //   name: 'MIKALI SAPANI',
-  //   description: 'Innovative technology solutions and digital transformation services.',
-  //   work: 'Brand development and digital marketing for tech-forward audiences.',
-  //   category: 'Luxury Fashion',
-  //   type: 'img'
-  // },
-  // {
-  //   logo: Badgervid,
-  //   name: 'BADGER MAPS',
-  //   description: 'Innovative technology solutions and digital transformation services.',
-  //   work: 'Brand development and digital marketing for tech-forward audiences.',
-  //   category: 'Saas',
-  //   type: 'video'
-  // }
-]
-
-const Testimonials = React.memo(function BrandCarousel() {
-  const [isHovered, setIsHovered] = useState(null)
-  const { openCalendlyPopup } = useCalendly()
-  const brands = useMemo(() => BRAND_ITEMS, [])
+  }
+], [t])
   const handleCallClick = useCallback(() => {
     openCalendlyPopup('https://calendly.com/rgiacomo')
   }, [openCalendlyPopup])

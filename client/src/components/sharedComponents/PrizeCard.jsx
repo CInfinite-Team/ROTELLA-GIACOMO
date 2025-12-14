@@ -4,7 +4,12 @@ import {  useViewportAnimation } from '../animations/ScrollAnimations'
 import { useCalendly } from '../../hooks/useCalendly'
 import { PopupButton } from "react-calendly";
 
+import { useTranslation } from 'react-i18next';
+import { useCurrency } from '../../context/CurrencyContext';
+
 const PrizeCard = React.memo(function PrizeCard() {
+  const { t } = useTranslation();
+  const { formatPrice } = useCurrency();
   const calendlyContainerRef = useRef(null)
   const { initCalendlyInlineWidgets } = useCalendly()
 
@@ -49,10 +54,10 @@ const PrizeCard = React.memo(function PrizeCard() {
             <div className='flex items-center flex-wrap w-full justify-center sm:justify-between px-2 py-[6px] sm:px-3 '>
               <div className='flex items-center gap-2 px-3'>
                 {/* <div className='w-8 h-8 bg-black rounded-md'></div> */}
-                <h2 className='font-bold text-sm md:text-lg 2xl:text-xl text-[#911c28] text-center '>[KW] Package</h2>
+                <h2 className='font-bold text-sm md:text-lg 2xl:text-xl text-[#911c28] text-center '>{t('package_kw')}</h2>
               </div>
               <span className=' text-center text-sm   md:text-base 2xl:text-lg font-bold pr-2 text-green-600'>
-                €500 / month
+                {formatPrice(500)} / {t('prize_month')}
               </span>
             </div>
 
@@ -60,9 +65,9 @@ const PrizeCard = React.memo(function PrizeCard() {
             <div className='space-y-4 px-2 sm:px-6 pt-2'>
               <div>
                 <ul className=' pl-2 sm:pl-4 2xl:text-lg font-semibold tick-list space-y-2'>
-                        <li>Can be adapted to your budget</li>
-                        <li>50% deposit to start · 50% on completion</li>
-                        <li>No Commitment, Cancel at any time</li>
+                        <li>{t('budget_adapt')}</li>
+                        <li>{t('deposit_terms')}</li>
+                        <li>{t('no_commitment')}</li>
                     </ul>
               </div>
 
@@ -70,14 +75,12 @@ const PrizeCard = React.memo(function PrizeCard() {
                 <h3 className=' pl-2 sm:pl-0 sm:text-xl 2xl:text-2xl text-[#911c28] font-bold mb-1 mt-2 slide-up !leading-snug'
                              data-lazy-animation="fade-up" data-lazy-animation-duration="1100"
                              ref={useViewportAnimation()}>
-                               Why me?
+                               {t('why_me')}
                              </h3>
                 <h3 className=' font-semibold text-sm sm:text-base pl-2 sm:pl-0 slide-up !leading-snug'
                                  data-lazy-animation="fade-up" data-lazy-animation-duration="1100" data-lazy-animation-delay="120"
                                  ref={useViewportAnimation()}>
-                               One point of
-               contact, full team
-               of specialists.
+                               {t('one_point_contact')}
                              </h3>
                          
               </div>
@@ -89,8 +92,8 @@ const PrizeCard = React.memo(function PrizeCard() {
               <PopupButton
             url="https://calendly.com/rgiacomo"
             rootElement={document.getElementById("root")}
-            text="Book a Call"
-            className='w-full h-full bg-[#911c28] hover:bg-[#a73535] text-white  text-sm md:text-base mt-4 font-bold py-3 px-5 md:px-20 md:py-3 rounded-full shadow-lg transition-colors duration-300 '
+            text={t("hero_btn_book")}
+            className='w-full h-full bg-[#911c28] whitespace-nowrap hover:bg-[#a73535] text-white  text-sm md:text-base mt-4 font-bold py-3 px-5 md:px-20 md:py-3 rounded-full shadow-lg transition-colors duration-300 '
           />
            
 
@@ -120,7 +123,7 @@ const PrizeCard = React.memo(function PrizeCard() {
                 </span>
                       </div>
 
-                <p className='text-xs sm:text-lg font-bold '>I'm available to talk</p>
+                <p className='text-xs sm:text-lg font-bold '>{t('contact_availability')}</p>
 
               </div>
 
@@ -130,7 +133,7 @@ const PrizeCard = React.memo(function PrizeCard() {
            
           </div>
            <div className='text-sm text-[#911c28]  font-medium whitespace-nowrap flex-wrap leading-relaxed flex justify-center mt-2'> 
-                  Or write me at: {'  '}
+                  {t('or_write_me')} {'  '}
                   <a
                     href='mailto:rotellagiacomo@gmail.com'
                     className='underline cursor-pointer pl-1 font-semibold text-[#911c28] '

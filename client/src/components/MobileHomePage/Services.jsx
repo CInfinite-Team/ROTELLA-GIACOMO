@@ -6,23 +6,26 @@ import 'swiper/css/effect-fade'
 
 import { useViewportAnimation } from '../animations/ScrollAnimations'
 
+import { useTranslation } from 'react-i18next';
+
 const Services = React.memo(function Services() {
+  const { t } = useTranslation();
 
   const services = [
     {
-      title: "Website maintenance & optimization",
+      title: t('service_website'),
       img: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=870&auto=format&fit=crop"
     },
     {
-      title: "Search engine optimization",
+      title: t('service_seo'),
       img: "https://images.unsplash.com/photo-1709281847780-2b34c28853c0?q=80&w=870&auto=format&fit=crop"
     },
     {
-      title: "Social media management",
+      title: t('service_social'),
       img: "https://images.unsplash.com/photo-1615494488092-b13b68fe0eb5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "All other channels that are relevant to your business",
+      title: t('service_other'),
       img: "https://images.unsplash.com/photo-1557167668-6eb71e76b603?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ]
@@ -56,7 +59,7 @@ const Services = React.memo(function Services() {
                 style={{ fontSize: "clamp(16px, 3vw, 30px)" }}
               >
                 {s.title}
-                <p className={`opacity-0 select-none sm:hidden ${s.title === 'All other channels that are relevant to your business' ? 'hidden' : ''} `}>{s.title}</p>
+                <p className={`opacity-0 select-none sm:hidden ${s.title === t('service_other') ? 'hidden' : ''} `}>{s.title}</p>
               </p>
             <div className='max-h-[500px]  xl:max-h-[600px] 2xl:max-h-[50vh] shadow-lg lg:w-[95%] '>
               <img
