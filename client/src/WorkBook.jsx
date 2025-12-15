@@ -49,7 +49,7 @@ function WorkBook() {
         <Swiper
           style={{ width: '100%', height: '100dvh' }}
           direction='vertical'
-          simulateTouch={true}
+          simulateTouch={false}
           spaceBetween={0}
           slidesPerView={1}
           mousewheel={true}
