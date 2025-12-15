@@ -20,8 +20,18 @@ const Faq = lazy(() => import('./components/sharedComponents/Faq'))
 const Footer = lazy(() => import('./components/sharedComponents/Footer'))
 const Testimonials = lazy(() => import('./components/sharedComponents/Testimonials'))
 
+const SlideLayout = ({ children, padding = true }) => (
+  <div className='flex w-full h-full 2xl:px-[10vw] lg:px-5 bg-[#f5f5f5] '>
+    <div className={`flex-1 h-full overflow-hidden ${padding ? 'px-5 md:px-10' : ''}`}>
+      {children}
+    </div>
+    <Suspense fallback={<div className='' />}>
+      <PrizeCard />
+    </Suspense>
+  </div>
+)
+
 function WorkBook() {
-  const [activeIndex, setActiveIndex] = useState(0)
   // Delay mounting Swiper to improve FCP/LCP/TBT by rendering only first slide initially
   const [enableSwiper, setEnableSwiper] = useState(false)
 
@@ -38,7 +48,7 @@ function WorkBook() {
 
 
   return (
-    <div className={` ${activeIndex === 0 ? '' : 'flex 2xl:px-[10vw] lg:px-5 '} relative   w-full h-full`}>
+    <div className='relative w-full h-full'>
       {!enableSwiper ? (
         <div style={{ width: '100%', height: '100dvh' }} className='overflow-hidden'>
           <Suspense fallback={<div className='w-full h-full' />}>
@@ -64,7 +74,6 @@ function WorkBook() {
           lazy={true}
           modules={[Mousewheel, EffectCreative, Keyboard]}
           className='mobile-vertical-swiper flex-1'
-          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         >
           <SwiperSlide className='overflow-hidden'>
             <Suspense fallback={<div className='w-full h-full' />}>
@@ -73,117 +82,93 @@ function WorkBook() {
           </SwiperSlide>
 
           <SwiperSlide className='overflow-hidden'>
-            <div className=''>
+            <SlideLayout padding={false}>
               <Suspense fallback={<div className='w-full' />}>
                 <SmallBusiness />
               </Suspense>
-            </div>
+            </SlideLayout>
           </SwiperSlide>
 
           <SwiperSlide className='overflow-hidden'>
-            <div className='px-5 md:px-10'>
+            <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <Fractional />
               </Suspense>
-            </div>
+            </SlideLayout>
           </SwiperSlide>
 
           <SwiperSlide className='overflow-hidden'>
-            <div className='px-5 md:px-10'>
+            <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <Fractional2 />
               </Suspense>
-            </div>
+            </SlideLayout>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden '>
-            <div className='px-5 md:px-10'>
+          <SwiperSlide className='overflow-hidden'>
+            <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <Services />
               </Suspense>
-            </div>
+            </SlideLayout>
           </SwiperSlide>
 
           <SwiperSlide className='overflow-hidden'>
-            <div className='px-5 md:px-10'>
+            <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <OnBoarding />
               </Suspense>
-            </div>
+            </SlideLayout>
           </SwiperSlide>
 
           <SwiperSlide className='overflow-hidden'>
-            <div className='px-5 md:px-10'>
+            <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <WhyMe />
               </Suspense>
-            </div>
+            </SlideLayout>
           </SwiperSlide>
 
           <SwiperSlide className='overflow-hidden'>
-            <div className='px-5 md:px-10'>
+            <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <BrandsWorkedHeading />
               </Suspense>
-            </div>
+            </SlideLayout>
           </SwiperSlide>
 
           <SwiperSlide className='overflow-hidden'>
-            <div className='px-5 md:px-10 '>
+            <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <BrandCarousel />
               </Suspense>
-            </div>
+            </SlideLayout>
           </SwiperSlide>
 
           <SwiperSlide className='overflow-hidden'>
-            <div className='px-5 md:px-10 '>
+            <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <Testimonials />
               </Suspense>
-            </div>
+            </SlideLayout>
           </SwiperSlide>
 
           <SwiperSlide className='overflow-hidden'>
-            <div className='px-5 md:px-10'>
+            <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <Faq />
               </Suspense>
-            </div>
+            </SlideLayout>
           </SwiperSlide>
           <SwiperSlide className='overflow-hidden'>
-            <div className='px-5 md:px-10'>
+            <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <Footer />
               </Suspense>
-            </div>
+            </SlideLayout>
           </SwiperSlide>
         </Swiper>
       )}
-      {activeIndex !== 0 && (
-        <Suspense fallback={<div className='' />}>
-          <PrizeCard/>
-        </Suspense>
-      )}
-
-      {/* Show StickyEle on all slides except the first (Hero) */}
-      {/* {activeIndex !== 0 && <StickyEle />} */}
-
-
-          {/* <Hero />
-          <div className='px-5 md:px-10'>
-           <SmallBusiness />
-           <Fractional />
-           <Fractional2 />
-            <Services />
-            <OnBoarding />
-             <WhyMe />
-             <BrandsWorkedHeading />
-             <BrandsWorkedWith />
-             <StickyEle />
-             </div> */}
-
-
     </div>
   )
 }
