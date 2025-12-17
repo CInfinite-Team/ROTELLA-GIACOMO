@@ -16,6 +16,7 @@ const BrandsWorkedHeading = lazy(() => import('./components/MobileHomePage/Brand
 const HeroSection = lazy(() => import('./components/sharedComponents/HeroSection'))
 const PrizeCard = lazy(() => import('./components/sharedComponents/PrizeCard'))
 const BrandCarousel = lazy(() => import('./components/sharedComponents/BrandCarousel'))
+const FeaturedIn = lazy(() => import('./components/sharedComponents/FeaturedIn'))
 const Faq = lazy(() => import('./components/sharedComponents/Faq'))
 const Footer = lazy(() => import('./components/sharedComponents/Footer'))
 const Testimonials = lazy(() => import('./components/sharedComponents/Testimonials'))
@@ -149,6 +150,14 @@ function WorkBook() {
             <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <Testimonials />
+              </Suspense>
+            </SlideLayout>
+          </SwiperSlide>
+
+          <SwiperSlide className='overflow-hidden'>
+            <SlideLayout>
+              <Suspense fallback={<div className='w-full' />}>
+                <FeaturedIn />
               </Suspense>
             </SlideLayout>
           </SwiperSlide>
