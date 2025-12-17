@@ -4,6 +4,8 @@ import CustomCursor from './components/CustomCursor.jsx'
 import HeroSection from './components/sharedComponents/HeroSection.jsx'
 import HomeMobile from './components/Pages/HomeMobile.jsx'
 import './components/animations/animations.css'
+import LanguageSwitcher from './components/sharedComponents/LanguageSwitcher.jsx'
+
 function App() {
 
    useEffect(() => {
@@ -30,6 +32,7 @@ function App() {
 
   return (
     <>
+    <LanguageSwitcher />
     <div className="lg:hidden">
       <HomeMobile />
       </div>
