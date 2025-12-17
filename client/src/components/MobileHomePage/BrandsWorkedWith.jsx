@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
@@ -28,6 +28,10 @@ function BrandsWorkedWith() {
 
 
      const [isHovered, setIsHovered] = useState(null)
+     const [activeIndex, setActiveIndex] = useState(0)
+     const [isInView, setIsInView] = useState(false)
+     const carouselRef = useRef(null)
+     const videoRefs = useRef([])
      const { t } = useTranslation();
     
    const brands = useMemo(() => [
@@ -133,8 +137,44 @@ function BrandsWorkedWith() {
      }
    ], [t]);
 
+    // Track if carousel is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.5 } // 50% visibility required to auto-play
+    );
+
+    if (carouselRef.current) {
+      observer.observe(carouselRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Manage video playback
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (!video) return;
+
+      if (index === activeIndex && isInView) {
+        // Play active video if carousel is in view
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.log("Auto-play was prevented:", error);
+          });
+        }
+      } else {
+        // Pause all other videos or if carousel out of view
+        video.pause();
+      }
+    });
+  }, [activeIndex, isInView]);
+
   return (
-    <div className='min-h-[75vh]  pt-10'>
+    <div className='min-h-[75vh]  pt-10' ref={carouselRef}>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={16}
@@ -152,6 +192,7 @@ function BrandsWorkedWith() {
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -198,8 +239,8 @@ function BrandsWorkedWith() {
                 />
                 :
                 <video 
-                  src={brand.logo} 
-                  autoPlay
+                  ref={el => videoRefs.current[index] = el}
+                  src={brand.logo}
                   playsInline
                   loop 
                   muted
@@ -241,8 +282,7 @@ function BrandsWorkedWith() {
           </svg>
         </div>
         
-        {/* Custom Pagination */}
-        <div className="swiper-pagination-custom flex justify-center !text-black mt-6 space-x-2"></div>
+    <div className="swiper-pagination-custom flex justify-center !text-black mt-6 space-x-2"></div>
       </Swiper>
     </div>
   )

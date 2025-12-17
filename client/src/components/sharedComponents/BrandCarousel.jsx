@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react'
+import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useViewportAnimation } from '../animations/ScrollAnimations'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -26,8 +26,14 @@ import JackWillsDesktop from '../../assets/Brands/JackWillsDesktop.png'
 import SapniImg from '../../assets/Brands/SapniImg.svg'
 // import BadgerMap from '../../assets/Brands/BadgerMap.svg'
 import { useCalendly } from '../../hooks/useCalendly'
+
 const BrandCarousel = React.memo(function BrandCarousel() {
   const [isHovered, setIsHovered] = useState(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isInView, setIsInView] = useState(false)
+  const carouselRef = useRef(null)
+  const videoRefs = useRef([])
+  
   const { openCalendlyPopup } = useCalendly()
   const { t } = useTranslation();
 
@@ -63,7 +69,6 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   {
     logo: KananVidDesktop,
     name: 'KANAN INTERNATIONAL',
-   
     work: t('brand_social_website_creation'), 
     category: t('brand_education'),
     type: 'video'
@@ -118,12 +123,52 @@ const BrandCarousel = React.memo(function BrandCarousel() {
     type: 'video'
   }
 ], [t])
+
+  // Track if carousel is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.5 } // 50% visibility required to auto-play
+    );
+
+    if (carouselRef.current) {
+      observer.observe(carouselRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Manage video playback
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (!video) return;
+
+      if (index === activeIndex && isInView) {
+        // Play active video if carousel is in view
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.log("Auto-play was prevented:", error);
+          });
+        }
+      } else {
+        // Pause all other videos or if carousel out of view
+        video.pause();
+        // Optional: Reset time to 0 if you want them to restart when coming back
+        // video.currentTime = 0; 
+      }
+    });
+  }, [activeIndex, isInView]);
+
+
   const handleCallClick = useCallback(() => {
     openCalendlyPopup('https://calendly.com/rgiacomo')
   }, [openCalendlyPopup])
 
   return (
-    <div className='w-full relative h-screen'>
+    <div className='w-full relative h-screen' ref={carouselRef}>
     <div className="w-full  absolute top-1/2 -translate-y-1/2 max-w-6xl mx-auto py-8" ref={useViewportAnimation()}>
       {/* <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
         Some of the brands I've worked with
@@ -143,6 +188,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
           el: '.swiper-pagination-custom',
         }}
         autoplay={false}
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -185,19 +231,19 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                  <img 
                   src={brand.logo} 
                   alt={`${brand.name} logo`}
-                  className="w-full h-full aspect-[17/12] object-cover group-hover:scale-150 object-top  transition-all duration-300 "
+                  className="w-full h-full object-cover group-hover:scale-150 object-top  transition-all duration-300 "
                   loading="lazy"
                   decoding="async"
                  />
                 ) : (
                 <video 
+                  ref={el => videoRefs.current[index] = el}
                   src={brand.logo} 
-                  autoPlay
                   playsInline
                   loop 
                   muted
                   preload="none"
-                  className={`w-fit h-fit aspect-[17/12] object-cover lazy-video group-hover:scale-150 ${brand.name==='Dock & Bay' ? 'object-contain' :''} object-center bg-black transition-all duration-300 `}
+                  className={`w-fit h-fit  object-contain lazy-video group-hover:scale-150 ${brand.name==='Dock & Bay' ? 'object-contain' :''} object-start bg-black transition-all duration-300 `}
                 />)}
                  {/* Hover overlay */}
               <div 

@@ -1,12 +1,39 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import {  Autoplay,Navigation } from 'swiper/modules'
+import { Autoplay, Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 
 import { useViewportAnimation } from '../animations/ScrollAnimations'
-
 import { useTranslation } from 'react-i18next';
+
+const ServiceItem = ({ s, t }) => {
+  const titleRef = useViewportAnimation({ animationClass: 'animate-in stagger-2' });
+  const imgRef = useViewportAnimation({ animationClass: 'animate-in stagger-4' });
+
+  return (
+    <div className='flex flex-col items-center gap-5 '>
+      <div
+        className='font-bold text-center text-[#181818] relative fade-in slide-up'
+        ref={titleRef}
+        style={{ fontSize: "clamp(16px, 3vw, 30px)" }}
+      >
+        {s.title}
+        <p className={`opacity-0 select-none sm:hidden ${s.title === t('service_other') ? 'hidden' : ''} `}>{s.title}</p>
+      </div>
+      <div ref={imgRef} className='max-h-[500px]  xl:max-h-[600px] 2xl:max-h-[50vh] shadow-lg lg:w-[95%] fade-in-blur'>
+        <img
+          src={s.img}
+          loading='lazy'
+          decoding='async'
+          width='651' height='434'
+          className='object-cover w-full rounded-lg '
+          alt={s.title}
+        />
+      </div>
+    </div>
+  )
+}
 
 const Services = React.memo(function Services() {
   const { t } = useTranslation();
@@ -34,44 +61,25 @@ const Services = React.memo(function Services() {
     <div className="bg-[#f5f5f5] min-h-screen flex items-center justify-center md:py-10">
 
       <Swiper
-        modules={[Autoplay,Navigation]}
-         spaceBetween={16}
+        modules={[Autoplay, Navigation]}
+        spaceBetween={16}
         slidesPerView={1}
-       
-       navigation={{
+
+        navigation={{
           nextEl: '.services-next',
           prevEl: '.services-prev'
         }}
-  autoplay={{
-    delay: 2000,
-    pauseOnMouseEnter: true,
-  }}
+        autoplay={{
+          delay: 2000,
+          pauseOnMouseEnter: true,
+        }}
         speed={900}
         loop
         className="w-full relative"
       >
         {services.map((s, i) => (
           <SwiperSlide key={i}>
-            <div className='flex flex-col items-center gap-5 '>
-              <p
-                className='font-bold text-center text-[#181818]'
-                ref={useViewportAnimation()}
-                style={{ fontSize: "clamp(16px, 3vw, 30px)" }}
-              >
-                {s.title}
-                <p className={`opacity-0 select-none sm:hidden ${s.title === t('service_other') ? 'hidden' : ''} `}>{s.title}</p>
-              </p>
-            <div className='max-h-[500px]  xl:max-h-[600px] 2xl:max-h-[50vh] shadow-lg lg:w-[95%] '>
-              <img
-                src={s.img}
-                loading='lazy'
-                decoding='async'
-                width='651' height='434'
-                className='object-cover w-full rounded-lg '
-                alt={s.title}
-              />
-              </div>
-            </div>
+            <ServiceItem s={s} t={t} />
           </SwiperSlide>
         ))}
         <div className="services-prev absolute left-0 top-1/2 transform  lg:-translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-10 cursor-pointer">
@@ -79,14 +87,14 @@ const Services = React.memo(function Services() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </div>
-        
+
         <div className="services-next absolute right-0 top-1/2 transform lg:-translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-10 cursor-pointer">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </div>
       </Swiper>
-      
+
     </div>
   )
 })
