@@ -9,7 +9,7 @@ function LanguageHandler() {
 
   useEffect(() => {
     // Extract language from valid paths
-    const validLangs = ['en', 'it'];
+    const validLangs = ['en', 'it', 'de', 'fr', 'es'];
     const pathSegments = pathname.split('/');
     const currentLang = pathSegments[1];
 
@@ -19,8 +19,7 @@ function LanguageHandler() {
       }
     } else if (currentLang === '') {
         // Root path "/"
-        // Perform Geo-check or default to /en
-        // Logic will be handled by the Root redirect component, but just in case
+        // Logic will be handled by the Root redirect component
     }
   }, [pathname]);
 
@@ -35,12 +34,18 @@ function RootRedirect() {
         const checkLocation = async () => {
              try {
                 // Simple fetch to determine location
-                // Using ipapi.co as planned
                 const response = await fetch('https://ipapi.co/json/');
                 const data = await response.json();
+                const code = data.country_code;
                 
-                if (data.country_code === 'IT') {
+                if (code === 'IT') {
                     navigate('/it', { replace: true });
+                } else if (['DE', 'AT', 'CH'].includes(code)) {
+                    navigate('/de', { replace: true });
+                } else if (['FR', 'BE'].includes(code)) {
+                    navigate('/fr', { replace: true });
+                } else if (['ES', 'MX', 'AR', 'CO', 'PE', 'VE', 'CL', 'EC', 'GT', 'CU', 'BO', 'DO', 'HN', 'PY', 'SV', 'NI', 'CR', 'PA', 'UY', 'GQ'].includes(code)) {
+                    navigate('/es', { replace: true });
                 } else {
                     navigate('/en', { replace: true });
                 }
@@ -65,6 +70,9 @@ export default function AppRouter() {
         <Route path="/" element={<RootRedirect />} />
         <Route path="/en/*" element={<App />} />
         <Route path="/it/*" element={<App />} />
+        <Route path="/de/*" element={<App />} />
+        <Route path="/fr/*" element={<App />} />
+        <Route path="/es/*" element={<App />} />
       </Routes>
     </>
   );

@@ -18,8 +18,15 @@ function App() {
       fetch('https://ipapi.co/json/')
         .then(response => response.json())
         .then(data => {
-          if (data.country_code === 'IT') {
+          const code = data.country_code;
+          if (code === 'IT') {
             i18n.changeLanguage('it');
+          } else if (['DE', 'AT', 'CH'].includes(code)) {
+            i18n.changeLanguage('de');
+          } else if (['FR', 'BE'].includes(code)) {
+            i18n.changeLanguage('fr');
+          } else if (['ES', 'MX', 'AR', 'CO', 'PE', 'VE', 'CL', 'EC', 'GT', 'CU', 'BO', 'DO', 'HN', 'PY', 'SV', 'NI', 'CR', 'PA', 'UY', 'GQ'].includes(code)) {
+            i18n.changeLanguage('es');
           }
           sessionStorage.setItem('hasCheckedLocation', 'true');
         })
