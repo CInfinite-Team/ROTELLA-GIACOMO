@@ -15,7 +15,7 @@ import BrandsWorkedHeading from '../MobileHomePage/BrandsWorkedHeading'
 import BrandsWorkedWith from '../MobileHomePage/BrandsWorkedWith'
 import Faq from '../sharedComponents/Faq' 
 import Footer from '../sharedComponents/Footer'
-
+import FeaturedIn from '../sharedComponents/FeaturedIn'
 import Testimonials from '../sharedComponents/Testimonials'
 
 function HomeMobile() {
@@ -99,6 +99,11 @@ function HomeMobile() {
           </div>
         </SwiperSlide>
 
+        <SwiperSlide className='overflow-hidden'>
+          <div className='px-5 md:px-10 h-full'>
+            <FeaturedIn />
+          </div>
+        </SwiperSlide>
         <SwiperSlide className='overflow-hidden'>
           <div className='px-5 md:px-10'>
             <Faq />
