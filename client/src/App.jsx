@@ -5,10 +5,31 @@ import HeroSection from './components/sharedComponents/HeroSection.jsx'
 import HomeMobile from './components/Pages/HomeMobile.jsx'
 import './components/animations/animations.css'
 import LanguageSwitcher from './components/sharedComponents/LanguageSwitcher.jsx'
+import { useTranslation } from 'react-i18next';
 
 function App() {
+   const { i18n } = useTranslation();
 
    useEffect(() => {
+    // Check if we've already checked location this session
+    const hasCheckedLocation = sessionStorage.getItem('hasCheckedLocation');
+    
+    if (!hasCheckedLocation) {
+      fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+          if (data.country_code === 'IT') {
+            i18n.changeLanguage('it');
+          }
+          sessionStorage.setItem('hasCheckedLocation', 'true');
+        })
+        .catch(error => {
+          console.error('Error fetching location:', error);
+          // Mark as checked even on error to prevent constant retries
+          sessionStorage.setItem('hasCheckedLocation', 'true');
+        });
+    }
+
     const videos = document.querySelectorAll(".lazy-video");
 
     if (videos.length === 0) return;
@@ -27,7 +48,7 @@ function App() {
     videos.forEach((video) => observer.observe(video));
 
     return () => observer.disconnect();
-  }, []);
+  }, [i18n]);
 
 
   return (
