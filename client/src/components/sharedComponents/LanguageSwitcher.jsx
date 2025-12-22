@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from 'motion/react';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -34,24 +35,34 @@ const LanguageSwitcher = () => {
 
     return (
         <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+            <AnimatePresence>
              {isOpen && (
-                <div className="mb-2 bg-white/80 backdrop-blur-md border border-white/40 rounded-lg shadow-lg overflow-hidden flex flex-col items-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="mb-3 bg-black text-white border border-gray-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col items-center origin-bottom"
+                >
                     {languages.map((lang) => (
                          (lang.code !== i18n.language) && (
                             <button
                                 key={lang.code}
                                 onClick={() => changeLanguage(lang.code)}
-                                className="w-12 h-10 text-sm font-bold text-gray-800 hover:bg-white/50 transition-colors"
+                                className="w-12 h-10 text-xs font-bold hover:bg-white/20 transition-colors flex items-center justify-center tracking-wider"
                             >
                                 {lang.label}
                             </button>
                          )
                     ))}
-                </div>
+                </motion.div>
             )}
+            </AnimatePresence>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center justify-center w-12 h-12 text-sm font-bold text-gray-800 transition-transform duration-300 bg-white/80 backdrop-blur-md border border-white/40 rounded-full shadow-lg hover:scale-110 active:scale-95"
+                className={`flex items-center justify-center w-12 h-12 text-xs font-bold transition-all duration-300 rounded-full shadow-2xl tracking-wider
+                    ${isOpen ? 'bg-white text-black scale-110' : 'bg-black text-white hover:scale-110 active:scale-95 border border-gray-800'}
+                `}
                 aria-label="Switch Language"
             >
                 {i18n.language.toUpperCase()}
