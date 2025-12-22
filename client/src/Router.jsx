@@ -26,12 +26,18 @@ function LanguageHandler() {
   return null;
 }
 
+import Loading from './components/sharedComponents/Loading';
+
 function RootRedirect() {
     // This component handles the "/" path logic
     const navigate = useNavigate();
 
     useEffect(() => {
         const checkLocation = async () => {
+             // Artificial delay to show loading screen for demo/smoothness if strictly needed,
+             // otherwise purely functional.
+             // await new Promise(r => setTimeout(r, 800)); 
+             
              try {
                 // Simple fetch to determine location
                 const response = await fetch('https://ipapi.co/json/');
@@ -59,7 +65,7 @@ function RootRedirect() {
         checkLocation();
     }, [navigate]);
 
-    return <div>Loading...</div>; // Or a spinner
+    return <Loading />;
 }
 
 export default function AppRouter() {
