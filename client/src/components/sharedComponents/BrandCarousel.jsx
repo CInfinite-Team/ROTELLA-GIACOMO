@@ -41,70 +41,70 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   {
     logo: DoGBay,
     name: 'Dock & Bay',
-    work: t('brand_badge_work'),
+    work: t('brand_dock_bay_work'),
     category: t('brand_retail_manufacturing'),
     type: 'video'
   },
   {
     logo: JackWillsDesktop,
     name: 'Jack Wills',
-    work: t('brand_gucci_work'), 
+    work: t('brand_jack_wills_work'), 
     category: t('brand_retail_apparel'),
     type: 'img'
   },
   {
     logo: RadianceVidDesktop,
     name: 'RADIANCE CLINIC',
-    work: t('brand_mikali_work'), 
+    work: t('brand_radiance_work'), 
     category: t('brand_healthcare'),
     type: 'video'
   },
   {
     logo: GucciImage,
     name: 'Gucci',
-    work: t('brand_badger_ceo_work'),
+    work: t('brand_gucci_specific_work'),
     category: t('brand_luxury_fashion'),
     type: 'img'
   },
   {
     logo: KananVidDesktop,
     name: 'KANAN INTERNATIONAL',
-    work: t('brand_social_website_creation'), 
+    work: t('brand_kanan_work'), 
     category: t('brand_education'),
     type: 'video'
   },
   {
     logo: KukrejaVidDesktop,
     name: 'Kukreja',
-    work: t('brand_social_website_creation'),
+    work: t('brand_kukreja_work'),
     category: t('brand_real_estate'),
     type: 'video'
   },
   {
     logo: WebSetupVidDesktop,
     name: 'WEBSITESETUP',
-    work: t('brand_social_website_creation'),
+    work: t('brand_websitesetup_work'),
     category: t('brand_free_resource'),
     type: 'video'
   },
   {
     logo: LondonLanesImg,
     name: 'LANES LONDON',
-    work: t('brand_digital_strategy'),
+    work: t('brand_lanes_work'),
     category: t('brand_streetwear'),
     type: 'img'
   },
   {
     logo: OffBeattImg,
     name: 'The OFFBEAT Site',
-    work: t('brand_seo_content'),
+    work: t('brand_offbeat_work'),
     category: t('brand_lifestyle'),
     type: 'img'
   },
   {
     logo: AiSummitVidDesktop,
     name: 'AI X Summit',
-    work: t('brand_event_promo'),
+    work: t('brand_ai_summit_work'),
     category: t('brand_technology'),
     type: 'video'
   },
@@ -226,12 +226,12 @@ const BrandCarousel = React.memo(function BrandCarousel() {
               </div>
 
               {/* Card Image/Logo Area */}
-              <div className="w-full  relative rounded-2xl shadow-lg overflow-hidden flex items-center justify-center ">
+              <div className="w-full relative rounded-2xl shadow-lg overflow-hidden flex items-center justify-center aspect-[9/16] lg:aspect-[14/9] bg-black">
                {brand.type === 'img' ? (
                  <img 
                   src={brand.logo} 
                   alt={`${brand.name} logo`}
-                  className="w-full h-full object-cover group-hover:scale-150 object-top  transition-all duration-300 "
+                  className="w-full h-full object-cover md:object-contain md:object-center lg:aspect-[9/16] group-hover:scale-150 object-top transition-all duration-300"
                   loading="lazy"
                   decoding="async"
                  />
@@ -243,7 +243,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                   loop 
                   muted
                   preload="none"
-                  className={`w-fit h-fit  object-contain lazy-video group-hover:scale-150 ${brand.name==='Dock & Bay' ? 'object-contain' :''} object-start bg-black transition-all duration-300 `}
+                  className={`w-full h-full object-contain lg:object-cover lazy-video group-hover:scale-150 object-center bg-black transition-all duration-300 `}
                 />)}
                  {/* Hover overlay */}
               <div 
@@ -289,13 +289,13 @@ const BrandCarousel = React.memo(function BrandCarousel() {
         ))}
         
         {/* Custom Navigation Buttons */}
-        <div className="swiper-button-prev-custom absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-10 cursor-pointer">
+        <div className="swiper-button-prev-custom absolute left-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-10 cursor-pointer">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </div>
         
-        <div className="swiper-button-next-custom absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-10 cursor-pointer">
+        <div className="swiper-button-next-custom absolute right-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-10 cursor-pointer">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>

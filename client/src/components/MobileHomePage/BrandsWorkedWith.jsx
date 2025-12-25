@@ -39,7 +39,7 @@ function BrandsWorkedWith() {
        logo: DoGBay,
        name: 'Dock & Bay',
       //  description: 'I developed a brand strategy for the eco-friendly quick-dry towels company, performing market research and leading marketing campaigns to build awareness and foster engagement.',
-       work: t('brand_badge_work'), // Reusing similar work desc if matches, or use generic
+       work: t('brand_dock_bay_work'), // Reusing similar work desc if matches, or use generic
        category: t('brand_retail_manufacturing'),
        type: 'video'
      },
@@ -47,7 +47,7 @@ function BrandsWorkedWith() {
        logo: JackWIllsImg,
        name: 'Jack Wills',
       //  description: 'British heritage clothing brand known for its casual and stylish apparel.',
-       work: t('brand_jackwills_work'), // New key for Jack Wills specific work
+       work: t('brand_jack_wills_work'), // New key for Jack Wills specific work
        category: t('brand_retail_apparel'),
        type: 'img'
      },
@@ -55,7 +55,7 @@ function BrandsWorkedWith() {
        logo: RadianceVid,
        name: 'RADIANCE CLINIC',
       //  description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
-       work: t('brand_mikali_work'),
+       work: t('brand_radiance_work'),
        category: t('brand_healthcare'),
        type: 'video'
      },
@@ -63,7 +63,7 @@ function BrandsWorkedWith() {
        logo: GucciImage,
        name: 'Gucci',
       //  description: 'Italian luxury fashion house known for high-end fashion and accessories.',
-       work: t('brand_gucci_work'), // "Part of Gucci Media team..."
+       work: t('brand_gucci_specific_work'), // "Part of Gucci Media team..."
        category: t('brand_luxury_fashion'),
        type: 'img'
      },
@@ -82,7 +82,7 @@ function BrandsWorkedWith() {
        logo: KukrejaVid,
        name: 'Kukreja',
       //  description: 'Premium real estate development and property management services.',
-       work: t('brand_social_website_creation'), // New key
+       work: t('brand_kukreja_work'), // New key
        category: t('brand_real_estate'),
        type: 'video'
      },
@@ -90,7 +90,7 @@ function BrandsWorkedWith() {
        logo: WebSetupVid,
        name: 'WEBSITESETUP',
       //  description: 'Premium real estate development and property management services.',
-       work: t('brand_social_website_creation'),
+       work: t('brand_websitesetup_work'),
        category: t('brand_free_resource'),
        type: 'video'
      },
@@ -99,7 +99,7 @@ function BrandsWorkedWith() {
        logo: LondonLanesImg,
        name: 'LANES LONDON',
       //  description: 'Modern lifestyle brand offering contemporary products and services.',
-       work: t('brand_digital_strategy'), // New Key
+       work: t('brand_lanes_work'), // New Key
        category: t('brand_streetwear'),
        type: 'img'
      },
@@ -107,7 +107,7 @@ function BrandsWorkedWith() {
        logo: OffBeattImg,
        name: 'The OFFBEAT Site',
       //  description: 'Alternative lifestyle brand promoting unique and unconventional living.',
-       work: t('brand_seo_content'), // New Key
+       work: t('brand_offbeat_work'), // New Key
        category: t('brand_lifestyle'),
        type: 'img'
      },
@@ -115,7 +115,7 @@ function BrandsWorkedWith() {
        logo: AiSummitVid,
        name: 'AI X Summit',
       //  description: 'Annual conference showcasing the latest advancements in artificial intelligence.',
-       work: t('brand_event_promo'), // New Key
+       work: t('brand_ai_summit_work'), // New Key
        category: t('brand_technology'),
        type: 'video'
      },
@@ -174,10 +174,10 @@ function BrandsWorkedWith() {
   }, [activeIndex, isInView]);
 
   return (
-    <div className='min-h-[75vh]  pt-10' ref={carouselRef}>
+    <div className='h-[100dvh] w-full sm:min-h-[75vh] sm:pt-10 sm:h-auto' ref={carouselRef}>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={16}
+        spaceBetween={0}
         slidesPerView={1}
         navigation={{
           nextEl: '.swiper-button-next-custom',
@@ -187,16 +187,12 @@ function BrandsWorkedWith() {
           clickable: true,
           el: '.swiper-pagination-custom',
         }}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
+        autoplay={false}
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         breakpoints={{
           320: {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 0,
           },
           640: {
             slidesPerView: 1,
@@ -212,15 +208,16 @@ function BrandsWorkedWith() {
           },
           
         }}
-        className="relative"
+        className="relative h-full sm:h-auto"
       >
         {brands.map((brand, index) => (
           <SwiperSlide key={index} >
             <div
              
-              className="group relative bg-[#f4f4f4]  flex flex-col    overflow-hidden cursor-pointer transition-all duration-300  h-[75vh] aspect-[7/16]  mx-auto "
+              className="group relative bg-[#f4f4f4]  flex flex-col    overflow-hidden cursor-pointer transition-all duration-300  h-full w-full sm:h-[75vh] sm:aspect-[7/16] sm:mx-auto"
               onMouseEnter={() => setIsHovered(index)}
               onMouseLeave={() => setIsHovered(null)}
+              onClick={() => setIsHovered(isHovered === index ? null : index)}
             >
               {/* Card Header */}
               <div className="  p-3 pt-1 pb-6  top-0 w-full  text-center ">
@@ -235,7 +232,7 @@ function BrandsWorkedWith() {
                   alt={`${brand.name} logo`}
                    loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-150 object-top  transition-all duration-300 "
+                  className="w-full h-full object-cover sm:object-contain group-hover:scale-150 object-top  transition-all duration-300 "
                 />
                 :
                 <video 
@@ -245,7 +242,7 @@ function BrandsWorkedWith() {
                   loop 
                   muted
                  
-                  className={`w-full h-full object-cover  group-hover:scale-150 ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
+                  className={`w-full h-full object-cover sm:object-contain  group-hover:scale-150 ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
                 />}
               </div>
 
@@ -270,13 +267,13 @@ function BrandsWorkedWith() {
         ))}
         
         {/* Custom Navigation Buttons */}
-        <div className="swiper-button-prev-custom absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-10 cursor-pointer">
+        <div className="swiper-button-prev-custom absolute left-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-10 cursor-pointer">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </div>
         
-        <div className="swiper-button-next-custom absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-10 cursor-pointer">
+        <div className="swiper-button-next-custom absolute right-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-10 cursor-pointer">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>

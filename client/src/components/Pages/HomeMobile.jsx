@@ -17,6 +17,7 @@ import Faq from '../sharedComponents/Faq'
 import Footer from '../sharedComponents/Footer'
 import FeaturedIn from '../sharedComponents/FeaturedIn'
 import Testimonials from '../sharedComponents/Testimonials'
+import BrandCarousel from '../sharedComponents/BrandCarousel'
 
 function HomeMobile() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -88,8 +89,13 @@ function HomeMobile() {
         </SwiperSlide>
 
         <SwiperSlide className='overflow-hidden'>
-          <div className='px-5 md:px-10'>
-            <BrandsWorkedWith />
+          <div className='w-full h-full sm:px-5 md:px-10'>
+             <div className="block sm:hidden h-full w-full">
+               <BrandsWorkedWith />
+             </div>
+             <div className="hidden sm:block h-full w-full">
+              <BrandCarousel />
+             </div>
           </div>
         </SwiperSlide>
 
