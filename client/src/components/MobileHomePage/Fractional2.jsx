@@ -17,12 +17,12 @@ const Fractional2 = React.memo(function Fractional2() {
                     <br /> {t('fractional2_title_part3')}
                   </p>
     
-                  <p className=' w-full lg:block hidden font-semibold whitespace-nowrap text-center lg:text-left text-[#181818] slide-up stagger-2' ref={useViewportAnimation()}
+                  <p className=' w-full xl:block hidden font-semibold whitespace-nowrap text-center lg:text-left text-[#181818] slide-up stagger-2' ref={useViewportAnimation()}
                    style={{ fontSize: "clamp(14px, 2.5vw, 40px)" }}>
                     <Trans i18nKey="fractional2_desc_full" components={{ 1: <Highlight className=' text-white leading-tight ' /> }} />
                   </p>
                              
-                  <p className=' lg:hidden w-full font-semibold  text-center lg:text-left text-[#181818] slide-up stagger-2' ref={useViewportAnimation()}
+                  <p className=' xl:hidden w-full font-semibold  text-center lg:text-left text-[#181818] slide-up stagger-2' ref={useViewportAnimation()}
                    style={{ fontSize: "clamp(20px, 2.5vw, 40px)" }}>
                     <Trans i18nKey="fractional2_desc_mobile" components={{ 1: <Highlight className=' text-white leading-tight ' /> }} />
                   </p>

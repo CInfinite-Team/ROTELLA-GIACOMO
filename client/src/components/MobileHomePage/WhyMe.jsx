@@ -11,7 +11,7 @@ const WhyMe = React.memo(function WhyMe() {
                       {t('whyme_title')}
                     </h3>
                     
-                    <div className={` w-[80%] ${i18n.language === 'fr' ? 'whitespace-normal' : 'whitespace-nowrap'} text-center lg:text-left w-full font-bold mb-10  slide-up !leading-snug`} ref={useViewportAnimation()}
+                    <div className={` w-[80%] ${i18n.language === 'fr' || i18n.language === 'es' ? 'whitespace-normal' : 'whitespace-nowrap'} text-center lg:text-left w-full font-bold mb-10  slide-up !leading-snug`} ref={useViewportAnimation()}
                     style={{ fontSize: "clamp(22px, 2.8vw, 67px)" }}>
                      <Trans i18nKey="whyme_point1" />
                      <BlurText
