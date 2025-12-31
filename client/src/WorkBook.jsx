@@ -22,8 +22,8 @@ const Footer = lazy(() => import('./components/sharedComponents/Footer'))
 const Testimonials = lazy(() => import('./components/sharedComponents/Testimonials'))
 
 const SlideLayout = ({ children, padding = true }) => (
-  <div className='flex w-full h-full 2xl:px-[10vw] lg:px-5 bg-[#f5f5f5] '>
-    <div className={`flex-1 h-full overflow-hidden ${padding ? 'px-5 md:px-10' : ''}`}>
+  <div className='flex w-full h-full  lg:px-5 bg-[#f5f5f5] '>
+    <div className={`flex-1 h-full overflow-hidden ${padding ? 'px-5 md:px-10 2xl:pl-[10vw]' : '2xl:px-5 '}`}>
       {children}
     </div>
     <Suspense fallback={<div className='' />}>
@@ -106,9 +106,9 @@ function WorkBook() {
             </SlideLayout>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden'>
-            <SlideLayout>
-              <Suspense fallback={<div className='w-full' />}>
+          <SwiperSlide className='overflow-hidden '>
+            <SlideLayout padding={false}>
+              <Suspense fallback={<div className='w-full ' />}>
                 <Services />
               </Suspense>
             </SlideLayout>

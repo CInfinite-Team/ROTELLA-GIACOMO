@@ -7,19 +7,19 @@ const SmallBusiness = React.memo(function SmallBusiness() {
   return (
     <div className='min-h-screen bg-[#f5f5f5] gap-5 flex flex-col  justify-center items-start px-[4vw]'>
        <div>
-        <h1  className=' font-bold hidden sm:block slide-up text-center lg:text-left md:whitespace-nowrap !leading-snug  ' ref={useViewportAnimation()}
-        style={{ fontSize: "clamp(17px, 1.7vw, 67px)" }}
+        <h1  className=' font-bold hidden xl:block slide-up text-center lg:text-left md:whitespace-nowrap !leading-snug  ' ref={useViewportAnimation()}
+        style={{ fontSize: "clamp(17px, 2vw, 67px)" }}
   >
         <Trans i18nKey="small_business_text_part1" components={{ 1: <span className='text-[#911c28] ' /> }} />
         </h1>
-       <h1  className=' font-bold hidden sm:block  text-center lg:text-left  slide-up md:whitespace-nowrap !leading-snug  ' ref={useViewportAnimation()}
-        style={{ fontSize: "clamp(17px, 1.7vw, 67px)" }}
+       <h1  className=' font-bold hidden xl:block  text-center lg:text-left  slide-up md:whitespace-nowrap !leading-snug  ' ref={useViewportAnimation()}
+        style={{ fontSize: "clamp(17px, 2vw, 67px)" }}
   >
         {t("small_business_text_part2")}
         </h1>
         </div>
        <div>
-        <h1  className=' font-bold sm:hidden slide-up md:whitespace-nowrap !leading-snug  text-center lg:text-left   ' ref={useViewportAnimation()}
+        <h1  className=' font-bold xl:hidden slide-up !leading-snug  text-center lg:text-left   ' ref={useViewportAnimation()}
         style={{ fontSize: "clamp(17px, 1.7vw, 67px)" }}
   >
         <Trans i18nKey="small_business_text_full" components={{ 1: <span className='text-[#911c28] ' /> }} />

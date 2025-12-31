@@ -38,7 +38,7 @@ const FeaturedIn = () => {
       </motion.div>
       
       <div className='w-full max-w-7xl mx-auto px-5 md:px-10'>
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-12 items-center justify-items-center'>
+        <div className='grid grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-12 items-center justify-items-center'>
           {logos.map((logo, index) => (
             <motion.div 
               key={index}
@@ -46,7 +46,7 @@ const FeaturedIn = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className='w-full h-20 md:h-76 flex items-center justify-center p-2 md:p-4 grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100'
+              className='w-full h-20 md:h-76 flex items-center justify-center p-2 md:p-4  transition-all duration-300 opacity-70 hover:opacity-100'
             >
               <img 
                 src={logo.src} 

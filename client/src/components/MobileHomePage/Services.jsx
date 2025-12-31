@@ -21,7 +21,7 @@ const ServiceItem = ({ s, t }) => {
         {s.title}
         <p className={`opacity-0 select-none sm:hidden ${s.title === t('service_other') ? 'hidden' : ''} `}>{s.title}</p>
       </div>
-      <div ref={imgRef} className='max-h-[500px]  xl:max-h-[600px] 2xl:max-h-[50vh] shadow-lg lg:w-[95%] fade-in-blur'>
+      <div ref={imgRef} className='max-h-max 2xl:max-h-max shadow-lg lg:w-full fade-in-blur'>
         <img
           src={s.img}
           loading='lazy'
