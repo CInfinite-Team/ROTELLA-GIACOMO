@@ -21,7 +21,7 @@ const Fractional = React.memo(function Fractional() {
                     </p>
       </div>
 
-      <div className='w-full hidden lg:block'>
+      <div className='w-full hidden xl:block'>
                     <p className=' whitespace-nowrap font-semibold text-center lg:text-left  slide-up stagger-2 text-[#981818] 2xl:mt-4 ' ref={useViewportAnimation()}
                     style={{ fontSize: "clamp(12px, 2vw, 40px)" }}>
                       {t('fractional_desc_part1')} 
@@ -45,7 +45,7 @@ const Fractional = React.memo(function Fractional() {
                         </p>}
                     </div>
 
-      <div className='w-full lg:hidden'>
+      <div className='w-full xl:hidden'>
                     <p className='  font-semibold text-center lg:text-left  slide-up stagger-2 text-[#981818] 2xl:mt-4 ' ref={useViewportAnimation()}
                     style={{ fontSize: "clamp(20px, 2vw, 40px)" }}>
                       {t('fractional_desc_full')}

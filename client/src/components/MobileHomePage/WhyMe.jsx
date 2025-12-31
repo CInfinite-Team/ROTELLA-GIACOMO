@@ -3,7 +3,7 @@ import { useViewportAnimation } from '../animations/ScrollAnimations'
 import  { useTranslation, Trans } from 'react-i18next';
 import BlurText from '../animations/BlurText'
 const WhyMe = React.memo(function WhyMe() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <div className='flex flex-col  bg-[#f5f5f5] gap-5 justify-center min-h-screen'>
       <h3 className=' text-[#911c28] font-bold  text-center lg:text-left slide-up !leading-snug' ref={useViewportAnimation()}
@@ -11,7 +11,7 @@ const WhyMe = React.memo(function WhyMe() {
                       {t('whyme_title')}
                     </h3>
                     
-                    <div className=' w-[80%] whitespace-nowrap text-center lg:text-left w-full font-bold mb-10  slide-up !leading-snug' ref={useViewportAnimation()}
+                    <div className={` w-[80%] ${i18n.language === 'fr' ? 'whitespace-normal' : 'whitespace-nowrap'} text-center lg:text-left w-full font-bold mb-10  slide-up !leading-snug`} ref={useViewportAnimation()}
                     style={{ fontSize: "clamp(22px, 2.8vw, 67px)" }}>
                      <Trans i18nKey="whyme_point1" />
                      <BlurText
