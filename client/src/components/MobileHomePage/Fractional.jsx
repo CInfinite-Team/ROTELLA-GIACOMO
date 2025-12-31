@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 const Fractional = React.memo(function Fractional() {
   const { t } = useTranslation();
+  const part5Ref = useViewportAnimation();
   return (
     <div className='flex flex-col bg-[#f5f5f5]  gap-5 min-h-[80vh] lg:min-h-[100vh]  items-center justify-center'>
       
@@ -38,7 +39,7 @@ const Fractional = React.memo(function Fractional() {
                     style={{ fontSize: "clamp(12px, 2vw, 40px)" }}>
                     {t('fractional_desc_part4')} 
                         </p>
-                    {t('fractional_desc_part5') && <p className=' whitespace-normal lg:max-w-[88%] xl:max-w-[70%] font-semibold text-center lg:text-left slide-up stagger-2 text-[#981818] 2xl:mt-4 ' ref={useViewportAnimation()}
+                    {t('fractional_desc_part5', { defaultValue: "" })  && <p className=' whitespace-normal lg:max-w-[88%] xl:max-w-[70%] font-semibold text-center lg:text-left slide-up stagger-2 text-[#981818] 2xl:mt-4 ' ref={part5Ref}
                     style={{ fontSize: "clamp(12px, 2vw, 40px)" }}>
                     {t('fractional_desc_part5')} 
                         </p>}
