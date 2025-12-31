@@ -232,7 +232,7 @@ function BrandsWorkedWith() {
                   alt={`${brand.name} logo`}
                    loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover sm:object-contain group-hover:scale-150 object-top  transition-all duration-300 "
+                  className="w-full h-full object-cover sm:object-contain  object-top  transition-all duration-300 "
                 />
                 :
                 <video 
@@ -242,7 +242,7 @@ function BrandsWorkedWith() {
                   loop 
                   muted
                  
-                  className={`w-full h-full object-cover sm:object-contain  group-hover:scale-150 ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
+                  className={`w-full h-full object-cover sm:object-contain   ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
                 />}
               </div>
 
