@@ -66,7 +66,7 @@ useEffect(() => {
     <>
       {/* Hide system cursor globally */}
       <style>{`
-        * { cursor: none  }
+        * { cursor: none !important  }
       `}</style>
 
       {isVisible && (

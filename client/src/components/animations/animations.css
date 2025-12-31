@@ -375,3 +375,13 @@ body.dark .custom-cursor { background: #ffffff; }
             mask: none !important;
   }
 }
+
+/* Fix for text selection in Swiper/Animations */
+.select-text {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+.cursor-text {
+  cursor: text !important;
+}

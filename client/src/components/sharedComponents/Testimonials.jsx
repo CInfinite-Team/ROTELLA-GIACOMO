@@ -85,6 +85,8 @@ const Testimonials = React.memo(function BrandCarousel() {
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={16}
         slidesPerView={1}
+        noSwipingSelector=".select-text"
+        simulateTouch={false}
         navigation={{
           nextEl: '.swiper-button-next-custom',
           prevEl: '.swiper-button-prev-custom',

@@ -21,12 +21,12 @@ const TestimonialCard = ({Client,Logo,Review,Name,Position}) => {
 
             {/* <img loading="lazy" decoding="async" width='auto' height='auto' src={Comma} alt="" className="w-14 mb-5 rounded-md" /> */}
             <div className="flex flex-col gap-4 mb-4 lg:mb-10">
-              <p className={`max-w-[260px] text-sm md:text-base ${hover ? "" : "Threeline"} `}>“{Review}”</p>
+              <p className={`select-text cursor-text max-w-[260px] text-sm md:text-base ${hover ? "" : "Threeline"} `}>“{Review}”</p>
             </div>
 
             <div className="flex flex-col">
-              <p className="font-bold md:text-lg">{Name}</p>
-              <p className="text-xs md:text-sm">{Position}</p>
+              <p className="font-bold md:text-lg select-text cursor-text">{Name}</p>
+              <p className="text-xs md:text-sm select-text cursor-text">{Position}</p>
             </div>
               
           </div>
