@@ -242,10 +242,12 @@ const HeroSection = React.memo(function HeroSection() {
 
 
       
-<div className="mt-3 xl:mt-[clamp(12px,4vh,40px)] w-full relative overflow-hidden ">
-  <div className='h-44 w-28 2xl:h-64  bg-gradient-to-r from-[#f5f5f5] via-[#f5f5f573] to-[#f5f5f500]  absolute top-0 z-50 left-[-1px]  ' />
-  <div className='h-44 w-28 2xl:h-64 bg-gradient-to-l from-[#f5f5f5] via-[#f5f5f573] to-[#f5f5f500]  absolute top-0 z-50 right-[-1px]  ' />
-  <div className="flex items-center  space-x-10  animate-scroll">
+<div className="mt-3 xl:mt-[clamp(12px,4vh,40px)] w-full relative overflow-hidden" 
+     style={{ 
+       WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+       maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' 
+     }}>
+  <div className="flex items-center space-x-10 animate-scroll">
     {brandItems.map((brand, index) => (
       <div key={index} className=" flex-shrink-0">
         <img
