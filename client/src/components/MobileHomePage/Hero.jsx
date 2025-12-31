@@ -183,7 +183,7 @@ export default function Hero() {
     {brands.concat(brands).map((brand, index) => (
       <div key={index} className="rounded-full flex-shrink-0">
         <img
-          className="w-28 h-28 p-3 object-contain rounded-full"
+          className="w-[clamp(60px,15vh,112px)] h-[clamp(60px,15vh,112px)] p-3 object-contain rounded-full"
           src={brand.logo}
           alt={brand.name}
            loading="eager"

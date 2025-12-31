@@ -160,23 +160,23 @@ const HeroSection = React.memo(function HeroSection() {
             >
               ROTELLA GIACOMO
             </p>
-            <h1 
-              ref={headingRef}
-              className="text-xl md:text-5xl 2xl:text-6xl font-bold text-gray-800 !leading-tight slide-up"
-           style={{ fontSize: "clamp(40px, 3vw, 65px)" }} >
-              {t('hero_role')}{' '}
-              <br />
-              <span >{t('hero_for')} <span className="text-[#911c28]">{t('hero_target')}</span></span>
-            </h1>
+              <h1 
+                ref={headingRef}
+                className="text-xl md:text-5xl 2xl:text-6xl font-bold text-gray-800 !leading-tight slide-up"
+             style={{ fontSize: "clamp(32px, min(3.5vw, 7.5vh), 65px)" }} >
+                {t('hero_role')}{' '}
+                <br />
+                <span >{t('hero_for')} <span className="text-[#911c28]">{t('hero_target')}</span></span>
+              </h1>
 
-            <p 
-              ref={descriptionRef}
-              className="mt-4 md:mt-5 text-lg md:text-2xl 2xl:text-4xl whitespace-nowrap  text-gray-700 max-w-[500px] 2xl:max-w-[700px] slide-up"
-          style={{ fontSize: "clamp(20px, 2vw, 45px)" }}  >
-              {t('hero_multiline_1')}
-              <br /> {t('hero_multiline_2')}{' '}
-              <span className="text-[##911c28] font-semibold">{t('hero_multiline_3')}</span>
-            </p>
+              <p 
+                ref={descriptionRef}
+                className="mt-2 md:mt-3 text-lg md:text-2xl 2xl:text-4xl whitespace-nowrap text-gray-700 max-w-[500px] 2xl:max-w-[700px] slide-up"
+            style={{ fontSize: "clamp(18px, min(2vw, 4.5vh), 40px)" }}  >
+                {t('hero_multiline_1')}
+                <br /> {t('hero_multiline_2')}{' '}
+                <span className="text-[#911c28] font-semibold">{t('hero_multiline_3')}</span>
+              </p>
 
 <span 
   ref={priceRef}
@@ -216,7 +216,7 @@ const HeroSection = React.memo(function HeroSection() {
           <div className="w-fit mt-5 md:mt-0 order-1 lg:order-2 pb-4 lg:pb-0 flex flex-col items-center ">
             <div 
               ref={imageRef}
-              className="w-64 h-64 md:w-96 md:h-96 xl:w-[400px] xl:h-[400px] 2xl:w-[500px] 2xl:h-[500px] rounded-full overflow-hidden shadow-2xl border-4 border-[#911c28] slide-right"
+              className="w-[min(400px,90vw,50vh)] h-[min(400px,90vw,50vh)] 2xl:w-[min(600px,90vw,55vh)] 2xl:h-[min(600px,90vw,55vh)] rounded-full overflow-hidden shadow-2xl border-4 border-[#911c28] slide-right"
             >
               <div ref={imageParallaxRef}>
                <img
@@ -242,14 +242,14 @@ const HeroSection = React.memo(function HeroSection() {
 
 
       
-<div className="mt-5 xl:mt-10 w-full relative overflow-hidden ">
+<div className="mt-3 xl:mt-[clamp(12px,4vh,40px)] w-full relative overflow-hidden ">
   <div className='h-44 w-28 2xl:h-64  bg-gradient-to-r from-[#f5f5f5] via-[#f5f5f573] to-[#f5f5f500]  absolute top-0 z-50 left-[-1px]  ' />
   <div className='h-44 w-28 2xl:h-64 bg-gradient-to-l from-[#f5f5f5] via-[#f5f5f573] to-[#f5f5f500]  absolute top-0 z-50 right-[-1px]  ' />
   <div className="flex items-center  space-x-10  animate-scroll">
     {brandItems.map((brand, index) => (
       <div key={index} className=" flex-shrink-0">
         <img
-          className="w-36    2xl:mt-8 2xl:w-56 p-3 object-center object-contain "
+          className="w-[min(144px,25vw,18vh)] 2xl:w-[min(174px,30vw,25vh)] p-3 object-center object-contain "
           src={brand.logo}
           alt={brand.name}
           decoding="async"
