@@ -251,11 +251,12 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                   isHovered === index ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                {/* <h3 className="font-bold text-sm lg:text-2xl text-center mb-1 xl:mb-5"
-                 style={{ fontSize: "clamp(26px, 1.8vw, 37px)" }}>{brand.name}</h3> */}
-                <p className="text-xs font-medium text-blue-100 text-center lg:text-xl mb-2 xl:mb-4 leading-"
-       style={{ fontSize: "clamp(22px, 1.8vw, 30px)" }}>
-                  {t('brand_work_label')} {brand.work}
+                <h3 className="font-bold text-sm lg:text-2xl text-center mb-1 xl:mb-5"
+                 style={{ fontSize: "clamp(26px, 1.8vw, 37px)" }}>{brand.name}</h3>
+                <p className=" font-medium text-blue-100 text-center  mb-2 xl:mb-4 leading-normal "
+       style={{ fontSize: "clamp(22px, 2vw, 68px)" }}>
+        {/* {t('brand_work_label')} {brand.work} */}
+                 Digital marketing strategy and student acquisition campaigns. Digital marketing strategy and student acquisition campaigns.Digital marketing strategy and student acquisition campaigns.Digital marketing strategy and student.
                 </p>
                 {/* <div className="text-xs lg:text-lg text-blue-200"
                 style={{ fontSize: "clamp(20px, 1vw, 30px)" }}>
