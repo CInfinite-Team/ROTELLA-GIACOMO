@@ -231,7 +231,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                  <img 
                   src={brand.logo} 
                   alt={`${brand.name} logo`}
-                  className="w-full h-full object-cover md:object-contain md:object-center lg:aspect-[9/16] group-hover:scale-150 object-top transition-all duration-300"
+                  className="w-full h-full object-cover md:object-contain md:object-center lg:aspect-[9/16] object-top transition-all duration-300"
                   loading="lazy"
                   decoding="async"
                  />
@@ -243,7 +243,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                   loop 
                   muted
                   preload="none"
-                  className={`w-full h-full object-contain lg:object-cover lazy-video group-hover:scale-150 object-center bg-black transition-all duration-300 `}
+                  className={`w-full h-full object-contain lg:object-cover lazy-video object-center bg-black transition-all duration-300 `}
                 />)}
                  {/* Hover overlay */}
               <div 
