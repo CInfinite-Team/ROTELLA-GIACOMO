@@ -239,7 +239,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                  <img 
                   src={brand.logo} 
                   alt={`${brand.name} logo`}
-                  className="w-full h-full object-cover md:object-contain group-hover:scale-150 md:object-center lg:aspect-[9/16] object-top transition-all duration-300"
+                  className={`w-full h-full ${brand.name=='RISIN VENTURES' ? '!object-cover' : ''} object-cover md:object-contain group-hover:scale-150 md:object-center lg:aspect-[9/16] object-top transition-all duration-300`}
                   loading="lazy"
                   decoding="async"
                  />
