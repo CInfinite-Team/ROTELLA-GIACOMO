@@ -7,6 +7,8 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 // import Giacomo from '../../assets/Giacomo.webp'
 import { PopupButton } from 'react-calendly'
+import RisinVenture from '../../assets/Brands/RisinVenture.png'
+
 import DoGBay from '../../assets/Brands/DoGBay.mp4'
 import Badgervid from '../../assets/Brands/Badgervid.mp4'
 import KukrejaVid from '../../assets/Brands/KukrejaVid.mp4'
@@ -57,7 +59,7 @@ function BrandsWorkedWith() {
        type: 'img'
      },
      {
-       logo: '', 
+       logo: RisinVenture, 
        name: 'RISIN VENTURES',
        work: t('brand_risin_work'),
        category: t('brand_venture_capital'),

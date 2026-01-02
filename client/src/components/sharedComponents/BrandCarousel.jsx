@@ -8,6 +8,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 // import Giacomo from '../../assets/Giacomo.webp'
 import DoGBay from '../../assets/Brands/DoGBay.mp4'
+import RisinVenture from '../../assets/Brands/RisinVenture.png'
 import BadgervidDesktop from '../../assets/Brands/BadgerMapVidDesktop.mp4'
 import KukrejaVidDesktop from '../../assets/Brands/KukrejaVidDesktop.mp4'
 import AiSummitVidDesktop from '../../assets/Brands/AiSummitVidDesktop.mp4'
@@ -60,7 +61,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
     type: 'img'
   },
   {
-    logo: '', // No asset found, using empty string for now
+    logo: RisinVenture,
     name: 'RISIN VENTURES',
     work: t('brand_risin_work'),
     category: t('brand_venture_capital'),
