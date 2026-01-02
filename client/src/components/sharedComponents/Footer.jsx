@@ -4,7 +4,7 @@ import { useTranslation, Trans } from 'react-i18next';
 function Footer() {
   const { t } = useTranslation();
   return (
-     <footer className='text-sm md:text-xl pb-10 h-screen flex flex-col items-start gap-5 justify-center lg:px-[100px]'>
+     <footer className='text-sm md:text-xl pb-10 h-screen flex flex-col items-center lg:items-start gap-5 justify-center lg:px-[100px]'>
        <p className='text-center lg:text-left'>
          <Trans i18nKey="footer_luxury_text" components={{ 1: <a href="https://www.luxury-method.com/" target='_blank' className='underline font-semibold pl-1' /> }} />
        </p>
