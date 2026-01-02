@@ -2,6 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 // import Giacomo from '../../assets/Giacomo.webp'
 // Import brand logos
 import BardeLogo from '../../assets/Brands/Barde.svg'
+import Risin from '../../assets/Brands/Risin.png'
 import GucciLogo from '../../assets/Brands/GUCCI.svg'
 import KannanLogo from '../../assets/Brands/Kannan.svg'
 import KukrejaLogo from '../../assets/Brands/Kukreja.svg'
@@ -42,7 +43,7 @@ const LogoPlaceholder = ({ className = '', children }) => (
       name: 'GUCCI',
     },
     {
-      logo: '', 
+      logo: Risin, 
       name: 'RISIN VENTURES',
     },
     {
