@@ -39,7 +39,7 @@ function RootRedirect() {
         const checkLocation = async () => {
              // Artificial delay to show loading screen for demo/smoothness if strictly needed,
              // otherwise purely functional.
-             // await new Promise(r => setTimeout(r, 800)); 
+             await new Promise(r => setTimeout(r, 1000)); 
              
              try {
                 // Simple fetch to determine location
