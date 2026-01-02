@@ -37,6 +37,30 @@ const ServiceItem = ({ s, t }) => {
 
 const Services = React.memo(function Services() {
   const { t } = useTranslation();
+  const [swiperInstance, setSwiperInstance] = React.useState(null);
+  const sectionRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (!swiperInstance || !sectionRef.current) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Reset to first slide and start autoplay
+          swiperInstance.slideToLoop(0, 0);
+          swiperInstance.autoplay.start();
+        } else {
+          // Stop autoplay when not in view to preserve resources and allow reset on re-entry
+          swiperInstance.autoplay.stop();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(sectionRef.current);
+    return () => {
+      if (observer) observer.disconnect();
+    };
+  }, [swiperInstance]);
 
   const services = [
     {
@@ -58,9 +82,10 @@ const Services = React.memo(function Services() {
   ]
 
   return (
-    <div className="bg-[#f5f5f5] min-h-screen flex items-center justify-center md:py-10">
+    <div ref={sectionRef} className="bg-[#f5f5f5] min-h-screen flex items-center justify-center md:py-10">
 
       <Swiper
+        onSwiper={setSwiperInstance}
         modules={[Autoplay, Navigation]}
         spaceBetween={16}
         slidesPerView={1}

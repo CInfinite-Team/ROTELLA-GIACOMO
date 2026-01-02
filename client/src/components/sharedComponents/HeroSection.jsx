@@ -50,7 +50,7 @@ const LogoPlaceholder = ({ className = '', children }) => (
       name: 'KUKREJA INFRASTRUCTURES',
     },
     {
-      logo: '', 
+      logo: BardeLogo, 
       name: 'RADIANCE CLINIC',
     },
     {
