@@ -77,7 +77,7 @@ const FAQ = React.memo(function FAQ() {
 
   return (
     <div className="flex flex-col bg-[#F5F5F5] min-h-screen items-center justify-center lg:gap-5 sm:px-[15px] xl:px-[70px] py-4 sm:py-10 fade-in" ref={useViewportAnimation()}>
-      <div className="w-full max-w-4xl mx-auto flex flex-col items-center relative">
+      <div className="w-full max-w-4xl mx-auto flex flex-col items-center">
         <h2 className="whitespace-nowrap text-center font-bold mb-4 sm:mb-6"
         style={{ fontSize: "clamp(20px, 3vw, 60px)" }} ref={useViewportAnimation()}>
           {t('faq_title')}
@@ -101,8 +101,8 @@ const FAQ = React.memo(function FAQ() {
           ))}
         </div>
 
-        <div className="w-full flex items-center ">
-          <div className="flex-1 overflow-hidden min-h-[300px] sm:min-h-[400px] pr-12 sm:pr-16 lg:pr-20">
+        <div className="relative w-full flex items-center ">
+          <div className="flex-1 overflow-hidden  pr-12 sm:pr-16 lg:pr-20">
             <motion.div 
               className="space-y-1 md:space-y-2 lg:space-y-4"
               initial={false}
@@ -151,7 +151,7 @@ const FAQ = React.memo(function FAQ() {
           </div>
 
           {/* Navigation Buttons Fixed Relative to the Container Height */}
-          <div className='absolute right-0 top-[220px] sm:top-[280px] lg:top-[320px] flex flex-col gap-3 z-10'>
+          <div className='absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-10'>
             <button 
               onClick={handlePrev}
               disabled={startIndex === 0}
