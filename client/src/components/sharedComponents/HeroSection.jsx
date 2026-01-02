@@ -137,13 +137,14 @@ const HeroSection = React.memo(function HeroSection() {
             <p 
               ref={nameRef}
               className="text-sm 2xl:text-lg tracking-widest text-gray-600 mb-3 ml-1 font-medium slide-up"
+              style={{ fontSize: "clamp(10px, min(1vw, 2vh), 18px)" }}
             >
               ROTELLA GIACOMO
             </p>
               <h1 
                 ref={headingRef}
                 className="text-xl md:text-5xl 2xl:text-6xl font-bold text-gray-800 !leading-tight slide-up"
-             style={{ fontSize: "clamp(32px, min(3.5vw, 7.5vh), 65px)" }} >
+             style={{ fontSize: "clamp(20px, min(3.5vw, 6vh), 65px)" }} >
                 {t('hero_role')}{' '}
                 <br />
                 <span >{t('hero_for')} <span className="text-[#911c28]">{t('hero_target')}</span></span>
@@ -152,7 +153,7 @@ const HeroSection = React.memo(function HeroSection() {
               <p 
                 ref={descriptionRef}
                 className="mt-2 md:mt-3 text-lg md:text-2xl 2xl:text-4xl whitespace-nowrap text-gray-700 max-w-[500px] 2xl:max-w-[700px] slide-up"
-            style={{ fontSize: "clamp(18px, min(2vw, 4.5vh), 40px)" }}  >
+            style={{ fontSize: "clamp(14px, min(2vw, 3.5vh), 40px)" }}  >
                 {t('hero_multiline_1')}
                 <br /> {t('hero_multiline_2')}{' '}
                 <span className="text-[#911c28] font-semibold">{t('hero_multiline_3')}</span>
@@ -161,8 +162,9 @@ const HeroSection = React.memo(function HeroSection() {
 <span 
   ref={priceRef}
   className='text-xl 2xl:text-3xl 2xl:mt-6 text-[#911c28] font-bold items-center flex gap-1 mt-2 xl:mt-4 slide-up'
+  style={{ fontSize: "clamp(14px, min(1.5vw, 3vh), 28px)" }}
 >
-  <p className="font-bold text-2xl 2xl:text-4xl text-[#911c28]">
+  <p className="font-bold text-2xl 2xl:text-4xl text-[#911c28]" style={{ fontSize: "clamp(18px, min(2vw, 4vh), 36px)" }}>
     {symbol}
     <CountUp
       start={discountPrice}
@@ -183,6 +185,7 @@ const HeroSection = React.memo(function HeroSection() {
                 type="button"
                 onClick={handleBookCall}
                 className="mt-2 xl:mt-4 cursor-pointer 2xl:mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-base 2xl:text-2xl font-bold py-4 px-8 rounded-full shadow-lg transition-colors duration-300"
+                style={{ fontSize: "clamp(12px, min(1.2vw, 2.5vh), 24px)", padding: "clamp(8px, min(1vw, 2vh), 16px) clamp(16px, min(2vw, 4vh), 32px)" }}
               >
                 {t('hero_btn_book')}
               </button>
