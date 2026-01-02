@@ -5,6 +5,7 @@ import HeroSection from './components/sharedComponents/HeroSection.jsx'
 import HomeMobile from './components/Pages/HomeMobile.jsx'
 import './components/animations/animations.css'
 import LanguageSwitcher from './components/sharedComponents/LanguageSwitcher.jsx'
+import CookieConsent from './components/sharedComponents/CookieConsent.jsx'
 import { useTranslation } from 'react-i18next';
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
 
   return (
     <>
+    <CookieConsent />
     <LanguageSwitcher />
     <div className="lg:hidden">
       <HomeMobile />

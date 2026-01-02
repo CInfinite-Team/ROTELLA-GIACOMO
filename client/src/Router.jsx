@@ -27,6 +27,9 @@ function LanguageHandler() {
 }
 
 import Loading from './components/sharedComponents/Loading';
+import PrivacyPolicy from './components/Pages/PrivacyPolicy';
+import CookiePolicy from './components/Pages/CookiePolicy';
+import TermsAndConditions from './components/Pages/TermsAndConditions';
 
 function RootRedirect() {
     // This component handles the "/" path logic
@@ -74,10 +77,35 @@ export default function AppRouter() {
       <LanguageHandler />
       <Routes>
         <Route path="/" element={<RootRedirect />} />
+        
+        {/* English routes - specific routes BEFORE wildcard */}
+        <Route path="/en/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/en/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/en/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/en/*" element={<App />} />
+        
+        {/* Italian routes - specific routes BEFORE wildcard */}
+        <Route path="/it/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/it/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/it/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/it/*" element={<App />} />
+        
+        {/* German routes - specific routes BEFORE wildcard */}
+        <Route path="/de/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/de/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/de/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/de/*" element={<App />} />
+        
+        {/* French routes - specific routes BEFORE wildcard */}
+        <Route path="/fr/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/fr/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/fr/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/fr/*" element={<App />} />
+        
+        {/* Spanish routes - specific routes BEFORE wildcard */}
+        <Route path="/es/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/es/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/es/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/es/*" element={<App />} />
       </Routes>
     </>
