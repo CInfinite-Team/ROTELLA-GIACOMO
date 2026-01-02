@@ -7,7 +7,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 // import Giacomo from '../../assets/Giacomo.webp'
 import { PopupButton } from 'react-calendly'
-import RisinVenture from '../../assets/Brands/RisinVenture.png'
+import RisinVenture from '../../assets/Brands/RisinVenturesMob.png'
 
 import DoGBay from '../../assets/Brands/DoGBay.mp4'
 import Badgervid from '../../assets/Brands/Badgervid.mp4'

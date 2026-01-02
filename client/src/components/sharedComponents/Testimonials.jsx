@@ -74,7 +74,7 @@ const Testimonials = React.memo(function BrandCarousel() {
   }, [openCalendlyPopup])
 
   return (
-    <div className='w-full relative h-screen'>
+    <div className='w-full relative bg-[#F5F5F5] h-screen'>
     <div className="w-full  absolute top-1/2 -translate-y-1/2 max-w-6xl mx-auto py-8" ref={useViewportAnimation()}>
       {/* <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
         Some of the brands I've worked with

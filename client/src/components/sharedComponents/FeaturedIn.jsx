@@ -25,7 +25,7 @@ const FeaturedIn = () => {
   ]
 
   return (
-    <div className='w-full h-full flex flex-col justify-center items-center py-4 md:py-20'>
+    <div className='w-full bg-[#F5F5F5] h-full flex flex-col justify-center items-center py-4 md:py-20'>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

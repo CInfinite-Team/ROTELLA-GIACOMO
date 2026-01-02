@@ -76,13 +76,13 @@ function WorkBook() {
           modules={[Mousewheel, EffectCreative, Keyboard]}
           className='mobile-vertical-swiper flex-1'
         >
-          <SwiperSlide className='overflow-hidden'>
+          <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
             <Suspense fallback={<div className='w-full h-full' />}>
               <HeroSection />
             </Suspense>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden'>
+          <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
             <SlideLayout padding={false}>
               <Suspense fallback={<div className='w-full' />}>
                 <SmallBusiness />
@@ -90,7 +90,7 @@ function WorkBook() {
             </SlideLayout>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden'>
+          <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
             <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <Fractional />
@@ -98,7 +98,7 @@ function WorkBook() {
             </SlideLayout>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden'>
+          <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
             <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <Fractional2 />
@@ -106,7 +106,7 @@ function WorkBook() {
             </SlideLayout>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden '>
+          <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
             <SlideLayout padding={false}>
               <Suspense fallback={<div className='w-full ' />}>
                 <Services />
@@ -114,7 +114,7 @@ function WorkBook() {
             </SlideLayout>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden'>
+          <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
             <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <OnBoarding />
@@ -122,7 +122,7 @@ function WorkBook() {
             </SlideLayout>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden'>
+          <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
             <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <WhyMe />
@@ -130,7 +130,7 @@ function WorkBook() {
             </SlideLayout>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden'>
+          <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
             <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <BrandsWorkedHeading />
@@ -138,7 +138,7 @@ function WorkBook() {
             </SlideLayout>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden'>
+          <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
             <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <BrandCarousel />
@@ -146,7 +146,7 @@ function WorkBook() {
             </SlideLayout>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden'>
+          <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
             <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <Testimonials />
@@ -154,7 +154,7 @@ function WorkBook() {
             </SlideLayout>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden'>
+          <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
             <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <FeaturedIn />
@@ -162,14 +162,14 @@ function WorkBook() {
             </SlideLayout>
           </SwiperSlide>
 
-          <SwiperSlide className='overflow-hidden'>
+          <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
             <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <Faq />
               </Suspense>
             </SlideLayout>
           </SwiperSlide>
-          <SwiperSlide className='overflow-hidden'>
+          <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
             <SlideLayout>
               <Suspense fallback={<div className='w-full' />}>
                 <Footer />

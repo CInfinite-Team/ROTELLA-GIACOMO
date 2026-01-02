@@ -42,53 +42,53 @@ function HomeMobile() {
         className='mobile-vertical-swiper'
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
       >
-        <SwiperSlide className='overflow-hidden'>
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <Hero />
         </SwiperSlide>
 
-        <SwiperSlide className='overflow-hidden'>
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <div className=''>
             <SmallBusiness />
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className='overflow-hidden'>
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <div className='px-5 md:px-10'>
             <Fractional />
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className='overflow-hidden'>
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <div className='px-5 md:px-10'>
             <Fractional2 />
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className='overflow-hidden'>
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <div className='px-5 md:px-10'>
             <Services />
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className='overflow-hidden'>
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <div className='px-5 md:px-10'>
             <OnBoarding />
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className='overflow-hidden'>
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <div className='px-5 md:px-10'>
             <WhyMe />
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className='overflow-hidden'>
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <div className='px-5 md:px-10'>
             <BrandsWorkedHeading />
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className='overflow-hidden'>
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <div className='w-full h-full sm:px-5 md:px-10'>
              <div className="block sm:hidden h-full w-full">
                <BrandsWorkedWith />
@@ -99,23 +99,23 @@ function HomeMobile() {
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className='overflow-hidden'>
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <div className='px-5 md:px-10'>
             <Testimonials />
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className='overflow-hidden'>
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5] '>
           <div className='px-5 md:px-10 h-full'>
             <FeaturedIn />
           </div>
         </SwiperSlide>
-        <SwiperSlide className='overflow-hidden'>
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <div className='px-5 md:px-10'>
             <Faq />
           </div>
         </SwiperSlide>
-        <SwiperSlide className='overflow-hidden'>
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <div className='px-5 md:px-10'>
             <Footer />
           </div>
