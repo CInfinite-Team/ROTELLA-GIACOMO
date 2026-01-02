@@ -60,13 +60,22 @@ function WorkBook() {
             simulateTouch={false}
             spaceBetween={0}
             slidesPerView={1}
-            mousewheel={true}
-            speed={2000}
+            mousewheel={{
+              sensitivity: 1,
+              releaseOnEdges: true,
+            }}
+            speed={1000}
             keyboard={{ enabled: true }}
             effect='creative'
             creativeEffect={{
-              prev: { translate: [0, '-100%', -200] },
-              next: { translate: [0, '100%', 0] },
+              prev: { 
+                translate: [0, '-100%', -200],
+                opacity: 0,
+              },
+              next: { 
+                translate: [0, '100%', 0],
+                opacity: 0,
+              },
             }}
             preloadImages={false}
             lazy={true}
