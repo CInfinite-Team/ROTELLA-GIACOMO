@@ -144,7 +144,7 @@ export default function Hero() {
             text={t('lets_talk')}
             className="mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-lg font-bold py-3 px-5 md:px-20 w-fit md:py-5 rounded-full shadow-lg transition-colors duration-300"
           />
-           <div className="w-[46vw] h-[46vw] md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl ">
+           <div className="w-[46vw] h-[46vw] md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl flex-shrink-0">
               <img 
                 src='/Giacomo.webp'
   srcSet='/Giacomo.webp 300w, /Giacomo.webp 400w'

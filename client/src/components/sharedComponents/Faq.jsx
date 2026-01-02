@@ -77,7 +77,7 @@ const FAQ = React.memo(function FAQ() {
 
   return (
     <div className="flex flex-col bg-[#F5F5F5] min-h-screen items-center justify-center lg:gap-5 sm:px-[15px] xl:px-[70px] py-4 sm:py-10 fade-in" ref={useViewportAnimation()}>
-      <div className="w-full max-w-4xl mx-auto flex flex-col items-center">
+      <div className="w-full max-w-4xl mx-auto flex flex-col items-center relative">
         <h2 className="whitespace-nowrap text-center font-bold mb-4 sm:mb-6"
         style={{ fontSize: "clamp(20px, 3vw, 60px)" }} ref={useViewportAnimation()}>
           {t('faq_title')}
@@ -89,7 +89,7 @@ const FAQ = React.memo(function FAQ() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-6 py-2 rounded-lg font-bold transition-all duration-300 ${
+              className={`px-6 py-2 rounded-lg cursor-pointer font-bold transition-all duration-300 ${
                 selectedCategory === cat
                   ? 'bg-red-800 text-white shadow-lg scale-105'
                   : 'border-2 border-red-800 text-red-800 hover:bg-red-50'
@@ -101,31 +101,8 @@ const FAQ = React.memo(function FAQ() {
           ))}
         </div>
 
-        <div className="relative w-full flex items-center gap-2 sm:gap-6">
-          {/* Up Arrow */}
-          <div className='flex flex-col -translate-y-1/2 gap-2'>
-            <button 
-            onClick={handlePrev}
-            disabled={startIndex === 0}
-            className={`p-2 rounded-full w-fit border-2 border-red-800 text-red-800 transition-all ${
-              startIndex === 0 ? 'opacity-20 cursor-not-allowed' : 'hover:bg-red-800 hover:text-white cursor-pointer'
-            }`}
-          >
-            <ChevronUp  className=' w-4 h-4 sm:w-6 sm:h-6' />
-          </button>
-
-           <button 
-            onClick={handleNext}
-            disabled={startIndex + itemsPerView >= filteredItems.length}
-            className={`p-2 rounded-full w-fit border-2 border-red-800 text-red-800 transition-all ${
-              startIndex + itemsPerView >= filteredItems.length ? 'opacity-20 cursor-not-allowed' : 'hover:bg-red-800 hover:text-white cursor-pointer'
-            }`}
-          >
-            <ChevronDown className=' w-4 h-4 sm:w-6 sm:h-6' />
-          </button>
-          </div>
-
-          <div className="flex-1 overflow-hidden min-h-[300px] sm:min-h-[400px]">
+        <div className="w-full flex items-center ">
+          <div className="flex-1 overflow-hidden min-h-[300px] sm:min-h-[400px] pr-12 sm:pr-16 lg:pr-20">
             <motion.div 
               className="space-y-1 md:space-y-2 lg:space-y-4"
               initial={false}
@@ -143,14 +120,14 @@ const FAQ = React.memo(function FAQ() {
                     className={`border border-gray-200 rounded-lg shadow-lg bg-red-800 overflow-hidden`}
                   >
                     <button
-                      className="flex justify-between items-center w-full p-3 sm:p-4 xl:p-5 text-left rounded-sm transition-colors"
+                      className="flex justify-between items-center w-full p-3 sm:p-4 xl:p-5 text-left rounded-sm transition-colors cursor-pointer"
                       onClick={() => toggleFAQ(startIndex + index)}
                     >
                       <span className="font-semibold text-white pr-4"
                       style={{ fontSize: "clamp(12px, 1.2vw, 22px)" }}>{faq.question}</span>
                       <span className="text-2xl transition-transform duration-300 text-white flex-shrink-0" 
                         style={{ transform: activeIndex === (startIndex + index) ? 'rotate(180deg)' : 'rotate(0deg)' }}>
-                        <ChevronDown size={20} />
+                         <ChevronDown size={20} className="cursor-pointer" />
                       </span>
                     </button>
                     
@@ -173,8 +150,28 @@ const FAQ = React.memo(function FAQ() {
             </motion.div>
           </div>
 
-          {/* Down Arrow */}
-         
+          {/* Navigation Buttons Fixed Relative to the Container Height */}
+          <div className='absolute right-0 top-[220px] sm:top-[280px] lg:top-[320px] flex flex-col gap-3 z-10'>
+            <button 
+              onClick={handlePrev}
+              disabled={startIndex === 0}
+              className={`p-2 rounded-full w-fit border-2 border-red-800 text-red-800 transition-all ${
+                startIndex === 0 ? 'opacity-20 cursor-not-allowed' : 'hover:bg-red-800 hover:text-white cursor-pointer'
+              }`}
+            >
+              <ChevronUp className='w-4 h-4 sm:w-6 sm:h-6 cursor-pointer' />
+            </button>
+
+            <button 
+              onClick={handleNext}
+              disabled={startIndex + itemsPerView >= filteredItems.length}
+              className={`p-2 rounded-full w-fit border-2 border-red-800 text-red-800 transition-all ${
+                startIndex + itemsPerView >= filteredItems.length ? 'opacity-20 cursor-not-allowed' : 'hover:bg-red-800 hover:text-white cursor-pointer'
+              }`}
+            >
+              <ChevronDown className='w-4 h-4 sm:w-6 sm:h-6 cursor-pointer' />
+            </button>
+          </div>
         </div>
 
         {/* Page Indicator */}

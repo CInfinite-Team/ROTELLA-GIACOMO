@@ -193,10 +193,10 @@ const HeroSection = React.memo(function HeroSection() {
           </div>
 
           {/* Right Content Section */}
-          <div className="w-fit mt-5 md:mt-0 order-1 lg:order-2 pb-4 lg:pb-0 flex flex-col items-center ">
+          <div className="w-fit mt-5 md:mt-0 order-1 lg:order-2 pb-4 lg:pb-0 flex flex-col items-center flex-shrink-0">
             <div 
               ref={imageRef}
-              className="w-[min(400px,90vw,50vh)] h-[min(400px,90vw,50vh)] 2xl:w-[min(600px,90vw,55vh)] 2xl:h-[min(600px,90vw,55vh)] rounded-full overflow-hidden shadow-2xl border-4 border-[#911c28] slide-right"
+              className="w-[min(400px,90vw,50vh)] h-[min(400px,90vw,50vh)] 2xl:w-[min(600px,90vw,55vh)] 2xl:h-[min(600px,90vw,55vh)] rounded-full overflow-hidden shadow-2xl border-4 border-[#911c28] slide-right flex-shrink-0"
             >
               <div ref={imageParallaxRef}>
                <img

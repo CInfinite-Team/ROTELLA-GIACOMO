@@ -141,21 +141,31 @@ useEffect(() => {
 
           {/* Hand cursor for clickable items */}
           {cursorType === "pointer" && (
-            <div
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
               style={{
                 position: "fixed",
-                cursor:"pointer !important",
-                top: pos.y,
-                display:"none",
-                left: pos.x,
-                // transform: "translate(-8px, -8px) rotate(-80deg)",
-                zIndex: 9999,
+                top: `${pos.y}px`,
+                left: `${pos.x}px`,
+                transform: "translate(-6px, -2px)",
                 pointerEvents: "none",
-                fontSize: "22px",
+                zIndex: 9999,
                 transition: "transform 0.05s linear",
               }}
-            />
-             
+            >
+              <path
+                d="M10 11V6C10 4.89543 10.8954 4 12 4C13.1046 4 14 4.89543 14 6V11M14 11V10C14 8.89543 14.8954 8 16 8C17.1046 8 18 8.89543 18 10V11M18 11V10.5C18 9.39543 18.8954 8.5 20 8.5C21.1046 8.5 22 9.39543 22 10.5V11M10 11V9C10 7.89543 9.10457 7 8 7C6.89543 7 6 7.89543 6 9V17C6 19.2091 7.79086 21 10 21H16C18.2091 21 20 19.2091 20 17V11M10 11H14H18"
+                stroke="#333"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="white"
+              />
+            </svg>
           )}
 
           {/* Text selection cursor */}

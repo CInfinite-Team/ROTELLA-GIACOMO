@@ -99,9 +99,9 @@ const PrizeCard = React.memo(function PrizeCard() {
 
               <div className='flex flex-row-reverse mt-4 items-center gap-7 justify-center px-3 '>
 
-                <div className='relative'>
-          <div className='relative '>
-             <div className="w-14 h-14 md:w-14 md:h-14 rounded-full  overflow-hidden shadow-2xl ">
+                <div className='relative flex-shrink-0'>
+          <div className='relative flex-shrink-0'>
+             <div className="w-14 h-14 md:w-14 md:h-14 rounded-full flex-shrink-0 overflow-hidden shadow-2xl ">
                         <img 
                           src='/Giacomo.webp'
                           alt="Rotella Giacomo"
