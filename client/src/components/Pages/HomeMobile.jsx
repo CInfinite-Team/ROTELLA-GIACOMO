@@ -21,6 +21,7 @@ import BrandCarousel from '../sharedComponents/BrandCarousel'
 
 function HomeMobile() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const totalSlides = 13 // Total number of slides
 
   return (
     <div className='lg:hidden relative'>
@@ -126,6 +127,13 @@ function HomeMobile() {
       {/* Show StickyEle on all slides except the first (Hero) */}
       {activeIndex !== 0 && <StickyEle />}
 
+      {/* Progress Bar */}
+      <div className="fixed top-0 left-0 w-full h-1 bg-gray-300 z-50">
+        <div 
+          className="h-full bg-[#911c28] transition-all duration-500 ease-out"
+          style={{ width: `${((activeIndex + 1) / totalSlides) * 100}%` }}
+        />
+      </div>
 
           {/* <Hero />
           <div className='px-5 md:px-10'>

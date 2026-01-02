@@ -31,6 +31,7 @@ function WorkBook() {
   // Delay mounting Swiper to improve FCP/LCP/TBT by rendering only first slide initially
   const [enableSwiper, setEnableSwiper] = useState(false)
   const [activeIndex, setActiveIndex] = useState(0)
+  const totalSlides = 13 // Total number of slides
 
   useEffect(() => {
     const enable = () => setEnableSwiper(true)
@@ -64,17 +65,17 @@ function WorkBook() {
               sensitivity: 1,
               releaseOnEdges: true,
             }}
-            speed={1000}
+            speed={1400}
             keyboard={{ enabled: true }}
             effect='creative'
             creativeEffect={{
               prev: { 
                 translate: [0, '-100%', -200],
-                opacity: 0,
+                
               },
               next: { 
                 translate: [0, '100%', 0],
-                opacity: 0,
+               
               },
             }}
             preloadImages={false}
@@ -193,6 +194,14 @@ function WorkBook() {
             <PrizeCard />
           </Suspense>
         </div>
+      </div>
+
+      {/* Progress Bar */}
+      <div className="fixed top-0 left-0 w-full h-1 bg-gray-300 z-50">
+        <div 
+          className="h-full bg-[#911c28] transition-all duration-1000 ease-out"
+          style={{ width: `${((activeIndex + 1) / totalSlides) * 100}%` }}
+        />
       </div>
     </div>
   )
