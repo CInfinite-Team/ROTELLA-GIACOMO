@@ -40,44 +40,44 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   const brands = useMemo(() => [
   {
     logo: DoGBay,
-    name: 'Dock & Bay',
+    name: 'DOCK & BAY',
     work: t('brand_dock_bay_work'),
     category: t('brand_retail_manufacturing'),
     type: 'video'
   },
   {
-    logo: JackWillsDesktop,
-    name: 'Jack Wills',
-    work: t('brand_jack_wills_work'), 
-    category: t('brand_retail_apparel'),
+    logo: BadgervidDesktop,
+    name: 'BADGER MAPS',
+    work: t('brand_badge_work'),
+    category: t('brand_saas'),
+    type: 'video'
+  },
+  {
+    logo: GucciImage,
+    name: 'GUCCI',
+    work: t('brand_gucci_specific_work'),
+    category: t('brand_luxury_fashion'),
     type: 'img'
+  },
+  {
+    logo: '', // No asset found, using empty string for now
+    name: 'RISIN VENTURES',
+    work: t('brand_risin_work'),
+    category: t('brand_venture_capital'),
+    type: 'img'
+  },
+  {
+    logo: KukrejaVidDesktop,
+    name: 'KUKREJA INFRASTRUCTURES',
+    work: t('brand_kukreja_work'),
+    category: t('brand_real_estate'),
+    type: 'video'
   },
   {
     logo: RadianceVidDesktop,
     name: 'RADIANCE CLINIC',
     work: t('brand_radiance_work'), 
     category: t('brand_healthcare'),
-    type: 'video'
-  },
-  {
-    logo: GucciImage,
-    name: 'Gucci',
-    work: t('brand_gucci_specific_work'),
-    category: t('brand_luxury_fashion'),
-    type: 'img'
-  },
-  {
-    logo: KananVidDesktop,
-    name: 'KANAN INTERNATIONAL',
-    work: t('brand_kanan_work'), 
-    category: t('brand_education'),
-    type: 'video'
-  },
-  {
-    logo: KukrejaVidDesktop,
-    name: 'Kukreja',
-    work: t('brand_kukreja_work'),
-    category: t('brand_real_estate'),
     type: 'video'
   },
   {
@@ -88,25 +88,25 @@ const BrandCarousel = React.memo(function BrandCarousel() {
     type: 'video'
   },
   {
-    logo: LondonLanesImg,
-    name: 'LANES LONDON',
-    work: t('brand_lanes_work'),
-    category: t('brand_streetwear'),
-    type: 'img'
-  },
-  {
-    logo: OffBeattImg,
-    name: 'The OFFBEAT Site',
-    work: t('brand_offbeat_work'),
-    category: t('brand_lifestyle'),
-    type: 'img'
-  },
-  {
     logo: AiSummitVidDesktop,
-    name: 'AI X Summit',
+    name: 'AIX SUMMIT',
     work: t('brand_ai_summit_work'),
     category: t('brand_technology'),
     type: 'video'
+  },
+  {
+    logo: KananVidDesktop,
+    name: 'KANAN INTERNATIONAL',
+    work: t('brand_kanan_work'), 
+    category: t('brand_education'),
+    type: 'video'
+  },
+  {
+    logo: OffBeattImg,
+    name: 'OFFBEAT STUDIOS',
+    work: t('brand_offbeat_work'),
+    category: t('brand_lifestyle'),
+    type: 'img'
   },
   {
     logo: SapniImg,
@@ -116,12 +116,19 @@ const BrandCarousel = React.memo(function BrandCarousel() {
     type: 'img'
   },
   {
-    logo: BadgervidDesktop,
-    name: 'BADGER MAPS',
-    work: t('brand_badge_work'),
-    category: t('brand_saas'),
-    type: 'video'
-  }
+    logo: LondonLanesImg,
+    name: 'LANES LONDON',
+    work: t('brand_lanes_work'),
+    category: t('brand_streetwear'),
+    type: 'img'
+  },
+  {
+    logo: JackWillsDesktop,
+    name: 'JACK WILLS',
+    work: t('brand_jack_wills_work'), 
+    category: t('brand_retail_apparel'),
+    type: 'img'
+  },
 ], [t])
 
   // Track if carousel is in view
@@ -254,9 +261,8 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                 <h3 className="font-bold text-sm lg:text-2xl text-center mb-1 xl:mb-5"
                  style={{ fontSize: "clamp(26px, 1.8vw, 37px)" }}>{brand.name}</h3>
                 <p className=" font-medium text-blue-100 text-center  mb-2 xl:mb-4 leading-normal "
-       style={{ fontSize: "clamp(22px, 2vw, 68px)" }}>
-        {/* {t('brand_work_label')} {brand.work} */}
-                 Digital marketing strategy and student acquisition campaigns. Digital marketing strategy and student acquisition campaigns.Digital marketing strategy and student acquisition campaigns.Digital marketing strategy and student.
+       style={{ fontSize: "clamp(20px, 1.9vw, 68px)" }}>
+        {t('brand_work_label')} {brand.work}
                 </p>
                 {/* <div className="text-xs lg:text-lg text-blue-200"
                 style={{ fontSize: "clamp(20px, 1vw, 30px)" }}>

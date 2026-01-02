@@ -37,103 +37,94 @@ function BrandsWorkedWith() {
    const brands = useMemo(() => [
      {
        logo: DoGBay,
-       name: 'Dock & Bay',
-      //  description: 'I developed a brand strategy for the eco-friendly quick-dry towels company, performing market research and leading marketing campaigns to build awareness and foster engagement.',
-       work: t('brand_dock_bay_work'), // Reusing similar work desc if matches, or use generic
+       name: 'DOCK & BAY',
+       work: t('brand_dock_bay_work'),
        category: t('brand_retail_manufacturing'),
        type: 'video'
      },
      {
-       logo: JackWIllsImg,
-       name: 'Jack Wills',
-      //  description: 'British heritage clothing brand known for its casual and stylish apparel.',
-       work: t('brand_jack_wills_work'), // New key for Jack Wills specific work
-       category: t('brand_retail_apparel'),
+       logo: Badgervid,
+       name: 'BADGER MAPS',
+       work: t('brand_badge_work'),
+       category: t('brand_saas'),
+       type: 'video'
+     },
+     {
+       logo: GucciImage,
+       name: 'GUCCI',
+       work: t('brand_gucci_specific_work'), 
+       category: t('brand_luxury_fashion'),
        type: 'img'
+     },
+     {
+       logo: '', 
+       name: 'RISIN VENTURES',
+       work: t('brand_risin_work'),
+       category: t('brand_venture_capital'),
+       type: 'img'
+     },
+     {
+       logo: KukrejaVid,
+       name: 'KUKREJA INFRASTRUCTURES',
+       work: t('brand_kukreja_work'),
+       category: t('brand_real_estate'),
+       type: 'video'
      },
      {
        logo: RadianceVid,
        name: 'RADIANCE CLINIC',
-      //  description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
        work: t('brand_radiance_work'),
        category: t('brand_healthcare'),
        type: 'video'
      },
      {
-       logo: GucciImage,
-       name: 'Gucci',
-      //  description: 'Italian luxury fashion house known for high-end fashion and accessories.',
-       work: t('brand_gucci_specific_work'), // "Part of Gucci Media team..."
-       category: t('brand_luxury_fashion'),
-       type: 'img'
-     },
-     {
-       logo: KananVid,
-       name: 'KANAN INTERNATIONAL',
-      //  description: 'Professional services company focused on business optimization.',
-       work: t('brand_kanan_work'), // New key for Kanan specific work
-       category: t('brand_education'),
-       type: 'video'
-     },
-     // ... I will cut short the list to the ones needing translation or map all.
-     // To be exhaustive, I should map all.
-     // { ... Kukreja ... }
-     {
-       logo: KukrejaVid,
-       name: 'Kukreja',
-      //  description: 'Premium real estate development and property management services.',
-       work: t('brand_kukreja_work'), // New key
-       category: t('brand_real_estate'),
-       type: 'video'
-     },
-     {
        logo: WebSetupVid,
        name: 'WEBSITESETUP',
-      //  description: 'Premium real estate development and property management services.',
        work: t('brand_websitesetup_work'),
        category: t('brand_free_resource'),
        type: 'video'
      },
-     // ... LANES LONDON
-     {
-       logo: LondonLanesImg,
-       name: 'LANES LONDON',
-      //  description: 'Modern lifestyle brand offering contemporary products and services.',
-       work: t('brand_lanes_work'), // New Key
-       category: t('brand_streetwear'),
-       type: 'img'
-     },
-     {
-       logo: OffBeattImg,
-       name: 'The OFFBEAT Site',
-      //  description: 'Alternative lifestyle brand promoting unique and unconventional living.',
-       work: t('brand_offbeat_work'), // New Key
-       category: t('brand_lifestyle'),
-       type: 'img'
-     },
      {
        logo: AiSummitVid,
-       name: 'AI X Summit',
-      //  description: 'Annual conference showcasing the latest advancements in artificial intelligence.',
-       work: t('brand_ai_summit_work'), // New Key
+       name: 'AIX SUMMIT',
+       work: t('brand_ai_summit_work'),
        category: t('brand_technology'),
        type: 'video'
      },
      {
+       logo: KananVid,
+       name: 'KANAN INTERNATIONAL',
+       work: t('brand_kanan_work'),
+       category: t('brand_education'),
+       type: 'video'
+     },
+     {
+       logo: OffBeattImg,
+       name: 'OFFBEAT STUDIOS',
+       work: t('brand_offbeat_work'),
+       category: t('brand_lifestyle'),
+       type: 'img'
+     },
+     {
        logo: SapniImg,
        name: 'MIKALI SAPANI',
-      //  description: 'Innovative technology solutions and digital transformation services.',
        work: t('brand_mikali_work'),
        category: t('brand_luxury_fashion'),
        type: 'img'
      },
      {
-       logo: Badgervid,
-       name: 'BADGER MAPS',
-      //  description: 'Innovative technology solutions and digital transformation services.',
-       work: t('brand_badge_work'),
-       category: t('brand_saas'),
-       type: 'video'
+       logo: LondonLanesImg,
+       name: 'LANES LONDON',
+       work: t('brand_lanes_work'),
+       category: t('brand_streetwear'),
+       type: 'img'
+     },
+     {
+       logo: JackWIllsImg,
+       name: 'JACK WILLS',
+       work: t('brand_jack_wills_work'),
+       category: t('brand_retail_apparel'),
+       type: 'img'
      }
    ], [t]);
 
@@ -256,8 +247,7 @@ function BrandsWorkedWith() {
               >
                 <h3 className="font-bold text-xl md:text-3xl text-center mb-1">{brand.name}</h3>
                  <p className="text-2xl md:text-3xl text-center text-blue-100 mb-2 leading-tight">
-                  {/* {t('brand_work_label')} {brand.work} */}
-                 Digital marketing strategy and student acquisition campaigns. Digital marketing strategy and student acquisition campaigns.Digital marketing strategy and student acquisition campaigns.Digital marketing strategy and.
+                  {t('brand_work_label')} {brand.work}
                  </p>
                 {/* <div className="md:text-lg lg:text-xs text-blue-200">
                   <span className="font-semibold">Work:</span> {brand.work}

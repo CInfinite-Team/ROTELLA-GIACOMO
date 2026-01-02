@@ -30,78 +30,57 @@ const LogoPlaceholder = ({ className = '', children }) => (
 
   const brands = [
     {
-      logo: BardeLogo,
-      name: 'Barde',
-      description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
-      work: 'Brand strategy, social media management, and digital marketing campaigns.'
-    },
-    {
-      logo: GucciLogo,
-      name: 'Gucci',
-      description: 'Italian luxury fashion house known for high-end fashion and accessories.',
-      work: 'Part of the Gucci Media team in 2023–2024, managing digital marketing initiatives.'
-    },
-    {
-      logo: KannanLogo,
-      name: 'Kannan',
-      description: 'Professional services company focused on business optimization.',
-      work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.'
-    },
-    {
-      logo: KukrejaLogo,
-      name: 'Kukreja Real Estate',
-      description: 'Premium real estate development and property management services.',
-      work: 'Social media content creation and website development for property marketing.'
-    },
-    {
-      logo: LanesLogo,
-      name: 'LANES LONDON',
-      description: 'Modern lifestyle brand offering contemporary products and services.',
-      work: 'Digital marketing strategy and brand positioning in competitive markets.'
-    },
-    {
-      logo: OffbeatsLogo,
-      name: 'Offbeat Lifestyle',
-      description: 'Alternative lifestyle brand promoting unique and unconventional living.',
-      work: 'SEO strategy, content writing, and social media content development.'
-    },
-    {
-      logo: SapaniLogo,
-      name: 'MIKALI SAPANI',
-      description: 'Innovative technology solutions and digital transformation services.',
-      work: 'Brand development and digital marketing for tech-forward audiences.'
+      logo: DogNBay,
+      name: 'DOCK & BAY',
     },
     {
       logo: BadgerMap,
       name: 'BADGER MAPS',
-      description: 'Innovative technology solutions and digital transformation services.',
-      work: 'Brand development and digital marketing for tech-forward audiences.'
+    },
+    {
+      logo: GucciLogo,
+      name: 'GUCCI',
+    },
+    {
+      logo: '', 
+      name: 'RISIN VENTURES',
+    },
+    {
+      logo: KukrejaLogo,
+      name: 'KUKREJA INFRASTRUCTURES',
+    },
+    {
+      logo: '', 
+      name: 'RADIANCE CLINIC',
     },
     {
       logo: WebSiteSetup,
-      name: 'WEBSITE SETUP',
-      description: 'Comprehensive website development and digital presence solutions.',
-      work: 'Website design, development, and digital marketing integration.'
+      name: 'WEBSITESETUP',
     },
     {
       logo: AIXSummit,
       name: 'AIX SUMMIT',
-      description: 'Leading conference on AI and digital transformation.',
-      work: 'Event promotion, speaker coordination, and digital marketing.'
     },
     {
-      logo: DogNBay,
-      name: 'Dock N BAY',
-      description: 'Pet care and grooming services with a focus on quality and convenience.',
-      work: 'Brand development, social media marketing, and customer engagement strategies.'
+      logo: KannanLogo,
+      name: 'KANAN INTERNATIONAL',
+    },
+    {
+      logo: OffbeatsLogo,
+      name: 'OFFBEAT STUDIOS',
+    },
+    {
+      logo: SapaniLogo,
+      name: 'MIKALI SAPANI',
+    },
+    {
+      logo: LanesLogo,
+      name: 'LANES LONDON',
     },
     {
       logo: JackWills,
-      name: 'Jack Wills',
-      description: 'British fashion retailer known for its casualwear and accessories.',
-      work: 'Brand development, social media marketing, and customer engagement strategies.'
+      name: 'JACK WILLS',
     }
-
   ]
 
 const duplicatedBrands = [...brands, ...brands];
