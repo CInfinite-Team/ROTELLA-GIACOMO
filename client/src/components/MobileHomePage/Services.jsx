@@ -12,7 +12,7 @@ const ServiceItem = ({ s, t }) => {
   const imgRef = useViewportAnimation({ animationClass: 'animate-in stagger-4' });
 
   return (
-    <div className='flex flex-col items-center gap-5 '>
+    <div className='flex flex-col items-center gap-5  '>
       <div
         className='font-bold text-center text-[#181818] relative fade-in slide-up'
         ref={titleRef}
@@ -21,13 +21,13 @@ const ServiceItem = ({ s, t }) => {
         {s.title}
         <p className={`opacity-0 select-none sm:hidden ${s.title === t('service_other') ? 'hidden' : ''} `}>{s.title}</p>
       </div>
-      <div ref={imgRef} className='max-h-max 2xl:max-h-max shadow-lg lg:w-full fade-in-blur'>
+      <div ref={imgRef} className='max-h-[60vh] sm:max-h-[70vh] lg:aspect-video 2xl:max-h-none shadow-xl w-full max-w-[90vw] fade-in-blur overflow-hidden rounded-xl'>
         <img
           src={s.img}
           loading='lazy'
           decoding='async'
           width='651' height='434'
-          className='object-cover w-full rounded-lg '
+          className='object-cover w-full h-full rounded-xl'
           alt={s.title}
         />
       </div>
@@ -82,7 +82,7 @@ const Services = React.memo(function Services() {
   ]
 
   return (
-    <div ref={sectionRef} className="bg-[#f5f5f5] min-h-screen flex items-center justify-center md:py-10">
+    <div ref={sectionRef} className="bg-[#f5f5f5] min-h-screen flex items-center justify-center pt-8 pb-16 px-4">
 
       <Swiper
         onSwiper={setSwiperInstance}
