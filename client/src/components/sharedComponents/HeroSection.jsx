@@ -122,7 +122,7 @@ const HeroSection = React.memo(function HeroSection() {
 
 
   const { t } = useTranslation();
-  const { currency } = useCurrency(); // countup prefix logic
+  const { currentPrice, discountPrice, symbol } = useCurrency(); 
 
   return (
     <div className="bg-[#f5f5f5] min-h-screen lg:max-h-[860px] flex items-center justify-center">
@@ -163,10 +163,10 @@ const HeroSection = React.memo(function HeroSection() {
   className='text-xl 2xl:text-3xl 2xl:mt-6 text-[#911c28] font-bold items-center flex gap-1 mt-2 xl:mt-4 slide-up'
 >
   <p className="font-bold text-2xl 2xl:text-4xl text-[#911c28]">
-    {currency === 'EUR' ? '€' : '$'}
+    {symbol}
     <CountUp
-      start={1000}
-      end={500}
+      start={discountPrice}
+      end={currentPrice}
       duration={6}
       separator=","
       enableScrollSpy

@@ -9,7 +9,7 @@ const FAQ = React.memo(function FAQ() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [startIndex, setStartIndex] = useState(0);
   const { t } = useTranslation();
-  const { formatPrice } = useCurrency();
+  const { formatPrice, currentPrice, discountPrice } = useCurrency();
 
   const categories = ['All', 'Fractional Marketing'];
 
@@ -22,7 +22,7 @@ const FAQ = React.memo(function FAQ() {
     {
       category: 'Fractional Marketing',
       question: t('faq_q2'),
-      answer: t('faq_a2', { price: formatPrice(1000) })
+      answer: t('faq_a2', { price: formatPrice(discountPrice) })
     },
     {
       category: 'Fractional Marketing',

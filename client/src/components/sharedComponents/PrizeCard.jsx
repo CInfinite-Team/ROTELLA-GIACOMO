@@ -9,7 +9,7 @@ import { useCurrency } from '../../context/CurrencyContext';
 
 const PrizeCard = React.memo(function PrizeCard() {
   const { t } = useTranslation();
-  const { formatPrice } = useCurrency();
+  const { formatPrice, currentPrice } = useCurrency();
   const calendlyContainerRef = useRef(null)
   const { initCalendlyInlineWidgets } = useCalendly()
 
@@ -57,7 +57,7 @@ const PrizeCard = React.memo(function PrizeCard() {
                 <h2 className='font-bold text-sm md:text-lg 2xl:text-xl text-[#911c28] text-center '>{t('package_kw')}</h2>
               </div>
               <span className=' text-center text-sm   md:text-base 2xl:text-lg font-bold pr-2 text-green-600'>
-                {formatPrice(500)} / {t('prize_month')}
+                {formatPrice(currentPrice)} / {t('prize_month')}
               </span>
             </div>
 

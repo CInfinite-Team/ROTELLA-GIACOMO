@@ -6,10 +6,10 @@ import { useCurrency } from '../../context/CurrencyContext';
 
 function Prize() {
   const { t } = useTranslation();
-  const { formatPrice } = useCurrency();
+  const { formatPrice, currentPrice } = useCurrency();
   return (
     <div>
-       <div className=' bg-[#eae0d5]  top-4 mt-4 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200  bg-[#7c1621]'>
+       <div className=' top-4 mt-4 lg:mr-4 xl:mr-0 rounded-lg shadow-lg border border-gray-200  bg-[#7c1621]'>
                   {/* Header */}
                   <div className='flex items-center flex-wrap gap- justify-between py-[6px]  px-3'>
                 <div className='flex items-center w-full justify-center gap-2 p-3'>
@@ -19,7 +19,7 @@ function Prize() {
       
               <div className='flex flex-col w-full justify-items-center text-white items-center'>
               <span className='text-xl mb-2 text-center w-full font-bold text-white '>
-                {formatPrice(1000)} / {t('prize_month')}
+                {formatPrice(currentPrice)} / {t('prize_month')}
               </span>
 
               <span className='text-sm font-medium'>

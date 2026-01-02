@@ -97,7 +97,7 @@ import { useCurrency } from '../../context/CurrencyContext';
 
 export default function Hero() {
   const { t } = useTranslation();
-  const { formatPrice, currency } = useCurrency(); // Assuming currency context provides raw currency code like 'USD' or 'EUR' if needed for conditional rendering, though formatPrice handles the symbol.
+  const { currentPrice, discountPrice, symbol } = useCurrency(); 
   
   return (
     <div className="bg-[#f4f4f4]  flex items-center justify-center">
@@ -124,16 +124,10 @@ export default function Hero() {
             {/* Right Content Section */}
           <div className="w-fit mt-5 md:mt-0  pb-4 lg:pb-0 flex flex-col items-center ">
              <p className="text-2xl font-bold text-[#911c28] mb">
-               {/* We need to handle the prefix manually if we want CountUp to work nicely, 
-                   or just use CountUp for the number and text for symbol, 
-                   but Context provides formatPrice which returns string. 
-                   Let's assume user wants animation on the number. 
-                   Check currency symbol from context or just conditional.
-               */}
-               {currency === 'EUR' ? '€' : '$'}
+               {symbol}
                <CountUp
-      start={1000}
-      end={500}
+      start={discountPrice}
+      end={currentPrice}
       duration={6}
       separator=","
       enableScrollSpy

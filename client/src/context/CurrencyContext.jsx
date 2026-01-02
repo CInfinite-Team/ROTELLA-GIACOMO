@@ -3,44 +3,115 @@ import { useLocation } from 'react-router-dom';
 
 const CurrencyContext = createContext();
 
+const CURRENCY_SYMBOLS = {
+  USD: '$',
+  EUR: '€',
+  GBP: '£',
+  INR: '₹',
+  AUD: 'A$',
+  CAD: 'C$',
+  JPY: '¥',
+  CNY: '¥',
+  AED: 'د.إ',
+  SAR: '﷼',
+  CHF: 'CHF',
+};
+
+const BASE_PRICE = 500; // USD
+const BASE_DISCOUNT = 1000; // USD
+const DEFAULT_CURRENCY = 'USD';
+
 export function CurrencyProvider({ children }) {
-  const [currency, setCurrency] = useState('USD');
-  const [symbol, setSymbol] = useState('$');
+  const [currency, setCurrency] = useState(DEFAULT_CURRENCY);
+  const [exchangeRate, setExchangeRate] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
-    // Determine currency based on URL path
-    const path = location.pathname;
-    if (path.startsWith('/it')) {
-      setCurrency('EUR');
-      setSymbol('€');
-    } else {
-      // Default to USD for /en and others
-      setCurrency('USD');
-      setSymbol('$');
+    const initializeCurrency = async () => {
+      try {
+        // 1. Get User's Currency from IP
+        let userCurrency = DEFAULT_CURRENCY;
+        const cachedCurrency = sessionStorage.getItem('userCurrency');
+        
+        if (cachedCurrency) {
+          userCurrency = cachedCurrency;
+        } else {
+          const ipResponse = await fetch('https://ipapi.co/json/');
+          const ipData = await ipResponse.json();
+          if (ipData.currency) {
+            userCurrency = ipData.currency;
+            sessionStorage.setItem('userCurrency', userCurrency);
+          }
+        }
+        setCurrency(userCurrency);
+
+        // 2. Get Real-Time Exchange Rates (Base USD)
+        // Using open.er-api.com which is free and doesn't require a key for basic usage
+        const rateResponse = await fetch('https://open.er-api.com/v6/latest/USD');
+        const rateData = await rateResponse.json();
+        
+        if (rateData.rates && rateData.rates[userCurrency]) {
+          setExchangeRate(rateData.rates[userCurrency]);
+        }
+      } catch (error) {
+        console.error('Error initializing currency data:', error);
+        // Fallback for language paths
+        const path = location.pathname;
+        if (path.startsWith('/it') || path.startsWith('/es') || path.startsWith('/fr') || path.startsWith('/de')) {
+          setCurrency('EUR');
+          // Rough fallback rate if API fails
+          setExchangeRate(0.92);
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    initializeCurrency();
+  }, [location.pathname]);
+
+  // Rounding helper for "cleaner" prices (e.g. 462.53 -> 460 or 465)
+  const cleanPrice = (amount) => {
+    if (amount > 1000) {
+      return Math.round(amount / 100) * 100; // Round to nearest 100 for large numbers like INR
     }
-  }, [location]);
+    return Math.round(amount / 5) * 5; // Round to nearest 5 for smaller numbers like EUR/GBP
+  };
+
+  const currentPrice = cleanPrice(BASE_PRICE * exchangeRate);
+  const discountPrice = cleanPrice(BASE_DISCOUNT * exchangeRate);
+  const symbol = CURRENCY_SYMBOLS[currency] || currency;
 
   const formatPrice = (amount) => {
-    // Simple conversion logic (placeholder)
-    // Assuming base price is USD. 
-    // If USD -> EUR : amount * 0.95 (approx)
-    // If EUR -> USD : amount * 1.05
-    
-    // HOWEVER, for this specific request, the user likely wants fixed prices like 500€ vs 500$ 
-    // or specific psychological pricing. 
-    // I will return the generic formatting for now.
-    
-    return `${symbol}${amount}`; 
+    return `${symbol}${amount.toLocaleString()}`;
+  };
+
+  const getRawPrice = (type = 'current') => {
+    return type === 'discount' ? discountPrice : currentPrice;
+  };
+
+  const value = {
+    currency,
+    symbol,
+    currentPrice,
+    discountPrice,
+    formatPrice,
+    getRawPrice,
+    isLoading
   };
 
   return (
-    <CurrencyContext.Provider value={{ currency, symbol, formatPrice }}>
+    <CurrencyContext.Provider value={value}>
       {children}
     </CurrencyContext.Provider>
   );
 }
 
 export function useCurrency() {
-  return useContext(CurrencyContext);
+  const context = useContext(CurrencyContext);
+  if (!context) {
+    throw new Error('useCurrency must be used within a CurrencyProvider');
+  }
+  return context;
 }
