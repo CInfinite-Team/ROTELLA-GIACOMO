@@ -263,7 +263,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                  style={{ fontSize: "clamp(26px, 1.8vw, 37px)" }}>{brand.name}</h3>
                 <p className=" font-medium text-blue-100 text-center  mb-2 xl:mb-4 leading-normal "
        style={{ fontSize: "clamp(20px, 1.9vw, 68px)" }}>
-        {t('brand_work_label')} {brand.work}
+         {brand.work}
                 </p>
                 {/* <div className="text-xs lg:text-lg text-blue-200"
                 style={{ fontSize: "clamp(20px, 1vw, 30px)" }}>
