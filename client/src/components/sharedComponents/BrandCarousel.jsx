@@ -177,7 +177,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
 
   return (
     <div className='w-full relative h-screen' ref={carouselRef}>
-    <div className="w-full  absolute top-1/2 -translate-y-1/2 max-w-6xl mx-auto py-8" ref={useViewportAnimation()}>
+    <div className="w-full  absolute top-1/2 -translate-y-1/2 max-w-6xl mx-auto py-8 md:px-14" ref={useViewportAnimation()}>
       {/* <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
         Some of the brands I've worked with
       </h2> */}
@@ -239,7 +239,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                  <img 
                   src={brand.logo} 
                   alt={`${brand.name} logo`}
-                  className={`w-full h-full ${brand.name=='RISIN VENTURES' ? '!object-cover' : ''} object-cover md:object-contain group-hover:scale-150 md:object-center lg:aspect-[9/16] object-top transition-all duration-300`}
+                  className={`w-full h-full   object-cover md:object-contain group-hover:scale-150 md:object-center lg:aspect-[9/16] object-top transition-all duration-300`}
                   loading="lazy"
                   decoding="async"
                  />
@@ -296,22 +296,22 @@ const BrandCarousel = React.memo(function BrandCarousel() {
           </SwiperSlide>
         ))}
         
-        {/* Custom Navigation Buttons */}
-        <div className="swiper-button-prev-custom hidden md:block absolute left-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-10 cursor-pointer">
-          <svg className="w-5 h-5 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </div>
-        
-        <div className="swiper-button-next-custom hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-10 cursor-pointer">
-          <svg className="w-5 h-5 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
-        
         {/* Custom Pagination */}
         <div className="swiper-pagination-custom flex justify-center !text-black mt-6 space-x-2"></div>
       </Swiper>
+      
+      {/* Custom Navigation Buttons */}
+      <div className="swiper-button-prev-custom hidden md:block absolute left-4 xl:left-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
+        <svg className="w-5 h-5 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </div>
+      
+      <div className="swiper-button-next-custom hidden md:block absolute right-4 xl:right-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
+        <svg className="w-5 h-5 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
     </div>
     </div>
   )
