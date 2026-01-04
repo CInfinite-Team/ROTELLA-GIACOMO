@@ -1,0 +1,19 @@
+<svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Static Circle Ring -->
+    <circle cx="70" cy="70" r="60" stroke="#911c28" stroke-width="2" stroke-linecap="round" />
+    
+    <!-- RG Text -->
+    <!-- Using text element to ensure exact font match with Loading.jsx -->
+    <!-- Note: Requires Montserrat font to be available in the context where this SVG is used -->
+    <text
+        x="50%"
+        y="52%" 
+        text-anchor="middle" 
+        dominant-baseline="middle" 
+        font-size="42" 
+        font-weight="700"
+        font-family="'Montserrat', sans-serif"
+        fill="#911c28"
+        letter-spacing="0.05em"
+    >RG</text>
+</svg>
