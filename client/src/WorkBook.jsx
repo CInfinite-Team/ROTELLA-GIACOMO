@@ -22,7 +22,7 @@ const Footer = lazy(() => import('./components/sharedComponents/Footer'))
 const Testimonials = lazy(() => import('./components/sharedComponents/Testimonials'))
 
 const SlideLayout = ({ children, padding = true }) => (
-  <div className={`flex-1 h-full overflow-hidden lg:pr-[450px] ${padding ? 'px-5 md:px-10 2xl:pl-[10vw]' : '2xl:px-5 '}`}>
+  <div className={`flex-1 h-full overflow-hidden lg:pr-[450px] 2xl:pr-[30vw] ${padding ? 'px-5 md:px-10 2xl:pl-[10vw]' : '2xl:px-5 '}`}>
     {children}
   </div>
 )
