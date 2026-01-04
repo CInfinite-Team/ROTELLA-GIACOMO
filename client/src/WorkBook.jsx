@@ -22,7 +22,7 @@ const Footer = lazy(() => import('./components/sharedComponents/Footer'))
 const Testimonials = lazy(() => import('./components/sharedComponents/Testimonials'))
 
 const SlideLayout = ({ children, padding = true }) => (
-  <div className={`flex-1 h-full overflow-hidden ${padding ? 'px-5 md:px-10 2xl:pl-[10vw]' : '2xl:px-5 '}`}>
+  <div className={`flex-1 h-full overflow-hidden lg:pr-[450px] ${padding ? 'px-5 md:px-10 2xl:pl-[10vw]' : '2xl:px-5 '}`}>
     {children}
   </div>
 )
@@ -84,7 +84,7 @@ function WorkBook() {
             modules={[Mousewheel, EffectCreative, Keyboard]}
             className='mobile-vertical-swiper flex-1'
           >
-            <SwiperSlide className={`overflow-hidden bg-[#F5F5F5]  ${activeIndex !== 0 ? 'w-0 !opacity-0 transition-all duration-500  pointer-events-none' : ' opacity-0 lg:px-5'} `}>
+            <SwiperSlide className={`overflow-hidden bg-[#F5F5F5]  ${activeIndex !== 0 ? 'w-0 !opacity-0 transition-all duration-500  pointer-events-none' : ' opacity-100'} `}>
               <Suspense fallback={<div className='w-full h-full' />}>
                 <HeroSection />
               </Suspense>
@@ -188,7 +188,7 @@ function WorkBook() {
         )}
       </div>
 
-      <div className={`hidden lg:flex items-center justify-center transition-all duration-700 ease-in-out ${activeIndex === 0 ? 'w-0 opacity-0 pointer-events-none' : ' opacity-100 lg:px-5'}`}>
+      <div className={`hidden lg:flex items-center justify-center absolute right-0 top-0 h-full w-[450px] z-50 transition-opacity  ease-in ${activeIndex === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <div className="">
           <Suspense fallback={<div className='' />}>
             <PrizeCard />
