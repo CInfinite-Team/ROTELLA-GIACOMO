@@ -4,6 +4,9 @@ import { Autoplay, Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import image from '../../assets/pics/image.png'
+import image2 from '../../assets/pics/image2.png'
+import image3 from '../../assets/pics/image3.png'
+import image4 from '../../assets/pics/image4.png'
 import { useViewportAnimation } from '../animations/ScrollAnimations'
 import { useTranslation } from 'react-i18next';
 
@@ -69,15 +72,15 @@ const Services = React.memo(function Services() {
     },
     {
       title: t('service_seo'),
-      img: "https://images.unsplash.com/photo-1709281847780-2b34c28853c0?q=80&w=870&auto=format&fit=crop"
+      img: image3
     },
     {
       title: t('service_social'),
-      img: "https://images.unsplash.com/photo-1615494488092-b13b68fe0eb5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      img: image2
     },
     {
       title: t('service_other'),
-      img: "https://images.unsplash.com/photo-1557167668-6eb71e76b603?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      img: image4
     }
   ]
 
