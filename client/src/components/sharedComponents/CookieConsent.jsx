@@ -96,12 +96,12 @@ const CookieConsent = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowDetails(false)}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[150]"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[9998]"
             />
           )}
 
           {/* Main Container */}
-          <div className="fixed bottom-4 left-4 right-4 md:bottom-8 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-full md:max-w-2xl z-[151]">
+          <div className="fixed bottom-4 left-4 right-4 md:bottom-8 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-full md:max-w-2xl z-[9999]">
             <motion.div
               initial={{ y: 50, opacity: 0, scale: 0.95 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
