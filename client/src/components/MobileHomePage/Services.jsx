@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
-
+import image from '../../assets/pics/image.png'
 import { useViewportAnimation } from '../animations/ScrollAnimations'
 import { useTranslation } from 'react-i18next';
 
@@ -14,7 +14,7 @@ const ServiceItem = ({ s, t }) => {
   return (
     <div className='flex flex-col items-center gap-5  '>
       <div
-        className='font-bold text-center text-[#181818] relative fade-in slide-up'
+        className='font-bold text-center text-[#181818] relative fade-in slide-up h-[100px] flex items-center justify-center'
         ref={titleRef}
         style={{ fontSize: "clamp(16px, 3vw, 30px)" }}
       >
@@ -65,7 +65,7 @@ const Services = React.memo(function Services() {
   const services = [
     {
       title: t('service_website'),
-      img: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=870&auto=format&fit=crop"
+      img: image
     },
     {
       title: t('service_seo'),
@@ -84,6 +84,7 @@ const Services = React.memo(function Services() {
   return (
     <div ref={sectionRef} className="bg-[#f5f5f5]  relative min-h-screen flex items-center justify-center pt-8 pb-16 px-4 md:px-20">
 
+      <div className="relative w-full max-w-7xl mx-auto">
       <Swiper
         onSwiper={setSwiperInstance}
         modules={[Autoplay, Navigation]}
@@ -108,16 +109,17 @@ const Services = React.memo(function Services() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className=" hidden lg:block services-prev absolute left-4 xl:left-4 top-1/2 transform  -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
+      <div className=" hidden lg:block services-prev absolute left-4 lg:-left-10 top-[55%] transform  -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
         <svg className="w-5 h-5 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </div>
 
-      <div className="hidden lg:block services-next absolute right-4 xl:right-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
+      <div className="hidden lg:block services-next absolute right-4 lg:-right-10 top-[55%] transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
         <svg className="w-5 h-5 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
+      </div>
       </div>
 
     </div>

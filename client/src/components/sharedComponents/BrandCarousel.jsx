@@ -196,6 +196,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
           el: '.swiper-pagination-custom',
         }}
         autoplay={false}
+        loop
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         breakpoints={{
           320: {
@@ -259,10 +260,11 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                   isHovered === index ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                <h3 className="font-bold text-sm lg:text-2xl text-center mb-1 xl:mb-5"
+                <h3 className="font-bold text-sm lg:text-2xl text-center mb-1"
                  style={{ fontSize: "clamp(26px, 1.8vw, 37px)" }}>{brand.name}</h3>
+                 <p className="font-medium text-blue-200 text-center mb-1 xl:mb-3  uppercase tracking-wider text-xs lg:text-sm">{brand.category}</p>
                 <p className=" font-medium text-blue-100 text-center  mb-2 xl:mb-4 leading-normal "
-       style={{ fontSize: "clamp(20px, 1.9vw, 68px)" }}>
+       style={{ fontSize: "clamp(19px, 1.8vw, 68px)" }}>
          {brand.work}
                 </p>
                 {/* <div className="text-xs lg:text-lg text-blue-200"

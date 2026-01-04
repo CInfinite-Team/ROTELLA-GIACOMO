@@ -51,6 +51,14 @@ const Testimonials = React.memo(function BrandCarousel() {
     type: 'img'
   },
   {
+    logo: Badgervid,
+    name: 'BADGER MAPS',
+    description: t('brand_badger_ceo_review'),
+    work: t('brand_badger_ceo_work'),
+    category: t('brand_badger_ceo_cat'),
+    type: 'img'
+  },
+  {
     // logo: RadianceVid,
     // name: 'RADIANCE CLINIC',
     logo: SapniImg,
@@ -60,14 +68,7 @@ const Testimonials = React.memo(function BrandCarousel() {
     category: t('brand_mikali_cat'),
     type: 'video'
   },
-  {
-    logo: Badgervid,
-    name: 'BADGER MAPS',
-    description: t('brand_badger_ceo_review'),
-    work: t('brand_badger_ceo_work'),
-    category: t('brand_badger_ceo_cat'),
-    type: 'img'
-  }
+  
 ], [t])
   const handleCallClick = useCallback(() => {
     openCalendlyPopup('https://calendly.com/rgiacomo')
@@ -95,6 +96,7 @@ const Testimonials = React.memo(function BrandCarousel() {
           clickable: true,
           el: '.swiper-pagination-custom',
         }}
+        loop
         autoplay={false}
         breakpoints={{
           320: {

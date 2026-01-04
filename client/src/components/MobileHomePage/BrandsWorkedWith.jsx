@@ -181,6 +181,7 @@ function BrandsWorkedWith() {
           el: '.swiper-pagination-custom',
         }}
         autoplay={false}
+        loop
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         breakpoints={{
           320: {
@@ -247,7 +248,10 @@ function BrandsWorkedWith() {
                   isHovered === index ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                <h3 className="font-bold text-xl md:text-3xl text-center mb-1">{brand.name}</h3>
+                <h3 className="font-bold text-xl md:text-3xl text-center ">{brand.name}</h3>
+                 <p className="font-medium text-blue-200 text-center mb-1.5 md:mb-3 uppercase tracking-wider text-xs md:text-sm">
+                   {brand.category}
+                 </p>
                  <p className="text-lg md:text-3xl text-center text-blue-100 mb-2 leading-tight">
                    {brand.work}
                  </p>
