@@ -32,6 +32,24 @@ function WorkBook() {
   const [enableSwiper, setEnableSwiper] = useState(false)
   const [activeIndex, setActiveIndex] = useState(0)
   const totalSlides = 13 // Total number of slides
+  const [swiperInstance, setSwiperInstance] = useState(null);
+
+  useEffect(() => {
+    const handleScrollToTop = () => {
+      if (swiperInstance) {
+        swiperInstance.slideTo(0);
+      }
+    };
+
+    window.addEventListener('scrollToTop', handleScrollToTop);
+    return () => {
+      window.removeEventListener('scrollToTop', handleScrollToTop);
+    };
+  }, [swiperInstance]);
+
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent('toggleBackToTop', { detail: activeIndex > 0 }));
+  }, [activeIndex]);
 
   useEffect(() => {
     const enable = () => setEnableSwiper(true)
@@ -81,6 +99,7 @@ function WorkBook() {
             preloadImages={false}
             lazy={true}
             onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+            onSwiper={setSwiperInstance}
             modules={[Mousewheel, EffectCreative, Keyboard]}
             className='mobile-vertical-swiper flex-1'
           >

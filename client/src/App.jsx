@@ -6,6 +6,7 @@ import HomeMobile from './components/Pages/HomeMobile.jsx'
 import './components/animations/animations.css'
 import LanguageSwitcher from './components/sharedComponents/LanguageSwitcher.jsx'
 import CookieConsent from './components/sharedComponents/CookieConsent.jsx'
+import BackToTop from './components/sharedComponents/BackToTop.jsx'
 import { useTranslation } from 'react-i18next';
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
   return (
     <>
     <CookieConsent />
+    <BackToTop />
     <LanguageSwitcher />
     <div className="lg:hidden">
       <HomeMobile />

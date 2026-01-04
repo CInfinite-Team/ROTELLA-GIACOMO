@@ -19,9 +19,28 @@ import FeaturedIn from '../sharedComponents/FeaturedIn'
 import Testimonials from '../sharedComponents/Testimonials'
 import BrandCarousel from '../sharedComponents/BrandCarousel'
 
+import { useEffect } from 'react';
 function HomeMobile() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [swiperInstance, setSwiperInstance] = useState(null);
   const totalSlides = 13 // Total number of slides
+
+  useEffect(() => {
+    const handleScrollToTop = () => {
+      if (swiperInstance) {
+        swiperInstance.slideTo(0);
+      }
+    };
+
+    window.addEventListener('scrollToTop', handleScrollToTop);
+    return () => {
+      window.removeEventListener('scrollToTop', handleScrollToTop);
+    };
+  }, [swiperInstance]);
+
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent('toggleBackToTop', { detail: activeIndex > 0 }));
+  }, [activeIndex]);
 
   return (
     <div className='lg:hidden relative'>
@@ -42,6 +61,7 @@ function HomeMobile() {
         modules={[Mousewheel, EffectCreative, Keyboard]}
         className='mobile-vertical-swiper'
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        onSwiper={setSwiperInstance}
       >
         <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <Hero />
