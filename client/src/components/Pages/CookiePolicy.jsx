@@ -1,19 +1,21 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import LanguageSwitcher from '../sharedComponents/LanguageSwitcher';
+import CookieConsent from '../sharedComponents/CookieConsent';
 
 const CookiePolicy = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language || 'en';
 
   const handleResetCookies = () => {
-    localStorage.removeItem('cookieConsent');
-    localStorage.removeItem('cookieConsentDate');
-    window.location.reload();
+    window.dispatchEvent(new Event('openCookieSettings'));
   };
 
   return (
     <div className="min-h-screen bg-[#f5f5f5] py-12 px-4 sm:px-6 lg:px-8">
+    <LanguageSwitcher/>
+    <CookieConsent />
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8 md:p-12">
         <Link to={`/${currentLang}`} className="text-[#911c28] hover:text-[#a73535] font-semibold mb-6 inline-block">
           ← {t('back_to_home', 'Back to Home')}

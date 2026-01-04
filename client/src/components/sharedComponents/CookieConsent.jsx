@@ -35,6 +35,14 @@ const CookieConsent = () => {
       setPreferences(savedPreferences);
       applyConsent(savedPreferences);
     }
+
+    const handleOpenSettings = () => {
+      setShowBanner(true);
+      setShowDetails(true);
+    };
+
+    window.addEventListener('openCookieSettings', handleOpenSettings);
+    return () => window.removeEventListener('openCookieSettings', handleOpenSettings);
   }, []);
 
   const applyConsent = (prefs) => {

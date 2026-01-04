@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import LanguageSwitcher from '../sharedComponents/LanguageSwitcher';
 
 const PrivacyPolicy = () => {
   const { t, i18n } = useTranslation();
@@ -8,6 +9,7 @@ const PrivacyPolicy = () => {
 
   return (
     <div className="min-h-screen bg-[#f5f5f5] py-12 px-4 sm:px-6 lg:px-8">
+    <LanguageSwitcher/>
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8 md:p-12">
         <Link to={`/${currentLang}`} className="text-[#911c28] hover:text-[#a73535] font-semibold mb-6 inline-block">
           ← {t('back_to_home', 'Back to Home')}
