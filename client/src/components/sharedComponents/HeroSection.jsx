@@ -2,7 +2,9 @@ import React, { useCallback, useMemo } from 'react';
 // import Giacomo from '../../assets/Giacomo.webp'
 // Import brand logos
 import BardeLogo from '../../assets/Brands/Barde.svg'
-import Risin from '../../assets/Brands/Risin.png'
+import Biota from '../../assets/Brands/Biota.svg'
+import Top10 from '../../assets/Brands/Top10.svg'
+import Risin from '../../assets/Brands/Risin.svg'
 import GucciLogo from '../../assets/Brands/GUCCI.svg'
 import KannanLogo from '../../assets/Brands/Kannan.svg'
 import KukrejaLogo from '../../assets/Brands/Kukreja.svg'
@@ -30,22 +32,13 @@ const LogoPlaceholder = ({ className = '', children }) => (
 
 
   const brands = [
-    {
-      logo: DogNBay,
-      name: 'DOCK & BAY',
-    },
-    {
-      logo: BadgerMap,
-      name: 'BADGER MAPS',
-    },
+   
+   
     {
       logo: GucciLogo,
       name: 'GUCCI',
     },
-    {
-      logo: Risin, 
-      name: 'RISIN VENTURES',
-    },
+   
     {
       logo: KukrejaLogo,
       name: 'KUKREJA INFRASTRUCTURES',
@@ -54,10 +47,7 @@ const LogoPlaceholder = ({ className = '', children }) => (
       logo: BardeLogo, 
       name: 'RADIANCE CLINIC',
     },
-    {
-      logo: WebSiteSetup,
-      name: 'WEBSITESETUP',
-    },
+    
     {
       logo: AIXSummit,
       name: 'AIX SUMMIT',
@@ -65,6 +55,38 @@ const LogoPlaceholder = ({ className = '', children }) => (
     {
       logo: KannanLogo,
       name: 'KANAN INTERNATIONAL',
+    },
+     {
+      logo: JackWills,
+      name: 'JACK WILLS',
+    },
+    {
+      logo: WebSiteSetup,
+      name: 'WEBSITESETUP',
+    },
+     {
+      logo: LanesLogo,
+      name: 'LANES LONDON',
+    },
+     {
+      logo: Risin, 
+      name: 'RISIN VENTURES',
+    },
+     {
+      logo: BadgerMap,
+      name: 'BADGER MAPS',
+    },
+      {
+      logo: DogNBay,
+      name: 'DOCK & BAY',
+    },
+    {
+      logo: Top10,
+      name: 'Top 10 London',
+    },
+    {
+      logo: Biota,
+      name: 'BIOTA',
     },
     {
       logo: OffbeatsLogo,
@@ -74,14 +96,8 @@ const LogoPlaceholder = ({ className = '', children }) => (
       logo: SapaniLogo,
       name: 'MIKALI SAPANI',
     },
-    {
-      logo: LanesLogo,
-      name: 'LANES LONDON',
-    },
-    {
-      logo: JackWills,
-      name: 'JACK WILLS',
-    }
+  
+   
   ]
 
 const duplicatedBrands = [...brands, ...brands];
@@ -133,10 +149,10 @@ const HeroSection = React.memo(function HeroSection() {
         <div className="flex flex-col w-full lg:flex-row justify-between items-center lg:items-start relative z-10">
           
           {/* Left Content Section */}
-          <div className="w-full lg:w-[60%] 2xl:gap-5 order-2 lg:order-1 text-center flex flex-col items-center lg:items-start lg:text-left">
+          <div className="w-full lg:w-[60%] order-2 lg:order-1 text-center flex flex-col items-center lg:items-start lg:text-left">
             <p 
               ref={nameRef}
-              className="text-sm 2xl:text-lg tracking-widest text-gray-600 mb-3 ml-1 font-medium slide-up"
+              className="text-sm 2xl:text-lg tracking-widest text-gray-600 mb-[clamp(4px,1vh,12px)] ml-1 font-medium slide-up"
               style={{ fontSize: "clamp(10px, min(1vw, 2vh), 18px)" }}
             >
               ROTELLA GIACOMO
@@ -152,7 +168,7 @@ const HeroSection = React.memo(function HeroSection() {
 
               <p 
                 ref={descriptionRef}
-                className="mt-2 md:mt-3 text-lg md:text-2xl 2xl:text-4xl whitespace-nowrap text-gray-700 max-w-[500px] 2xl:max-w-[700px] slide-up"
+                className="mt-[clamp(4px,1vh,12px)] text-lg md:text-2xl 2xl:text-4xl whitespace-nowrap text-gray-700 max-w-[500px] 2xl:max-w-[700px] slide-up"
             style={{ fontSize: "clamp(14px, min(2vw, 3.5vh), 40px)" }}  >
                 {t('hero_multiline_1')}
                 <br /> {t('hero_multiline_2')}{' '}
@@ -161,7 +177,7 @@ const HeroSection = React.memo(function HeroSection() {
 
 <span 
   ref={priceRef}
-  className='text-xl 2xl:text-3xl 2xl:mt-6 text-[#911c28] font-bold items-center flex gap-1 mt-2 xl:mt-4 slide-up'
+  className='text-xl 2xl:text-3xl 2xl:mt-[clamp(8px,1.5vh,24px)] text-[#911c28] font-bold items-center flex gap-1 mt-[clamp(4px,1vh,16px)] slide-up'
   style={{ fontSize: "clamp(14px, min(1.5vw, 3vh), 28px)" }}
 >
   <p className="font-bold text-2xl 2xl:text-4xl text-[#911c28]" style={{ fontSize: "clamp(18px, min(2vw, 4vh), 36px)" }}>
@@ -184,7 +200,7 @@ const HeroSection = React.memo(function HeroSection() {
               <button
                 type="button"
                 onClick={handleBookCall}
-                className="mt-2 xl:mt-4 cursor-pointer 2xl:mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-base 2xl:text-2xl font-bold py-4 px-8 rounded-full shadow-lg transition-colors duration-300"
+                className="mt-[clamp(8px,2vh,32px)] cursor-pointer bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-base 2xl:text-2xl font-bold py-4 px-8 rounded-full shadow-lg transition-colors duration-300"
                 style={{ fontSize: "clamp(12px, min(1.2vw, 2.5vh), 24px)", padding: "clamp(8px, min(1vw, 2vh), 16px) clamp(16px, min(2vw, 4vh), 32px)" }}
               >
                 {t('hero_btn_book')}
@@ -234,7 +250,7 @@ const HeroSection = React.memo(function HeroSection() {
     {brandItems.map((brand, index) => (
       <div key={index} className=" flex-shrink-0">
         <img
-          className="w-[min(144px,25vw,18vh)] 2xl:w-[min(174px,30vw,25vh)] p-3 object-center object-contain "
+          className="w-[min(260px,40vw,30vh)] 2xl:w-[min(320px,45vw,40vh)] p-3 object-center object-contain "
           src={brand.logo}
           alt={brand.name}
           decoding="async"
