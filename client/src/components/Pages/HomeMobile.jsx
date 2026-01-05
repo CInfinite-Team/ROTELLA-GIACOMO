@@ -51,7 +51,7 @@ function HomeMobile() {
         spaceBetween={0}
         slidesPerView={1}
         mousewheel={true}
-        speed={2000}
+        speed={1500}
         keyboard={{ enabled: true }}
         effect='creative'
         creativeEffect={{

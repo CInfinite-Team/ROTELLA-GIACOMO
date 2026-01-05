@@ -15,14 +15,14 @@ const ServiceItem = ({ s, t }) => {
   const imgRef = useViewportAnimation({ animationClass: 'animate-in stagger-4' });
 
   return (
-    <div className='flex flex-col items-center gap-5  '>
+    <div className='flex flex-col items-center justify-center lg:justify-start gap-5  '>
       <div
         className='font-bold text-center text-[#181818] relative fade-in slide-up h-[100px] flex items-center justify-center'
         ref={titleRef}
         style={{ fontSize: "clamp(16px, 3vw, 30px)" }}
       >
         {s.title}
-        <p className={`opacity-0 select-none sm:hidden ${s.title === t('service_other') ? 'hidden' : ''} `}>{s.title}</p>
+        {/* <p className={`opacity-0 select-none hidden lg:block ${s.title === t('service_other') ? 'hidden' : ''} `}>{s.title}</p> */}
       </div>
       <div ref={imgRef} className='max-h-[60vh] sm:max-h-[70vh] lg:aspect-video 2xl:max-h-[80vh] shadow-xl w-full max-w-[90vw] fade-in-blur overflow-hidden rounded-xl'>
         <img
