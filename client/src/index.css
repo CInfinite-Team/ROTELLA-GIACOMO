@@ -11,3 +11,11 @@
     background-color: #000000;
     color: #ffffff;
 }
+
+img{
+     image-rendering: -webkit-optimize-contrast;
+     image-rendering: crisp-edges;
+  image-resolution: 300dpi;
+  object-fit: contain;
+     
+}

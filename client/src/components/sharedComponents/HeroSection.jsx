@@ -250,7 +250,7 @@ const HeroSection = React.memo(function HeroSection() {
     {brandItems.map((brand, index) => (
       <div key={index} className=" flex-shrink-0">
         <img
-          className="w-[min(260px,40vw,30vh)] 2xl:w-[min(320px,45vw,40vh)] p-3 object-center object-contain "
+          className="w-[min(260px,40vw,30vh)]  2xl:w-[min(320px,45vw,40vh)] p-3 object-center object-contain "
           src={brand.logo}
           alt={brand.name}
           decoding="async"
