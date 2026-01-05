@@ -76,7 +76,7 @@ const LanguageSwitcher = () => {
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 cursor-pointer bg-[#000000] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 border border-white/20"
+                className="flex items-center justify-center w-10 h-10 cursor-pointer bg-[#25d366] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 border border-white/20"
                 aria-label="Contact on WhatsApp"
             >
                 <svg 
