@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react'
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { useViewportAnimation } from '../animations/ScrollAnimations'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
@@ -56,7 +56,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   {
     logo: GucciImage,
     name: 'GUCCI',
-    work: t('brand_gucci_specific_work'),
+    work: <Trans i18nKey="brand_gucci_specific_work" components={{ 1: <a href="https://www.luxury-method.com/" target='_blank' rel="noopener noreferrer" className='underline ' /> }} />,
     category: t('brand_luxury_fashion'),
     type: 'img'
   },
@@ -112,7 +112,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   {
     logo: SapniImg,
     name: 'MIKALI SAPANI',
-    work: t('brand_mikali_work'),
+    work: <Trans i18nKey="brand_mikali_work" components={{ 1: <a href="https://www.luxury-method.com/" target='_blank' rel="noopener noreferrer" className='underline font-semibold' /> }} />,
     category: t('brand_luxury_fashion'),
     type: 'img'
   },
