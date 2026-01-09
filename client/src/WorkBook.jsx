@@ -10,6 +10,7 @@ const Fractional2 = lazy(() => import('./components/MobileHomePage/Fractional2')
 // import StickyEle from '../MobileHomePage/StickyEle'
 const Services = lazy(() => import('./components/MobileHomePage/Services'))
 const OnBoarding = lazy(() => import('./components/MobileHomePage/OnBoarding'))
+const About = lazy(() => import('./components/MobileHomePage/About'))
 const WhyMe = lazy(() => import('./components/MobileHomePage/WhyMe'))
 const BrandsWorkedHeading = lazy(() => import('./components/MobileHomePage/BrandsWorkedHeading'))
 // import BrandsWorkedWith from '../MobileHomePage/BrandsWorkedWith'
@@ -110,6 +111,31 @@ function WorkBook() {
             </SwiperSlide>
 
             <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
+              <SlideLayout>
+                <Suspense fallback={<div className='w-full' />}>
+                  <About />
+                </Suspense>
+              </SlideLayout>
+            </SwiperSlide>
+
+             <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
+              <SlideLayout>
+                <Suspense fallback={<div className='w-full' />}>
+                  <BrandsWorkedHeading />
+                </Suspense>
+              </SlideLayout>
+            </SwiperSlide>
+
+            
+            <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
+              <SlideLayout>
+                <Suspense fallback={<div className='w-full' />}>
+                  <BrandCarousel />
+                </Suspense>
+              </SlideLayout>
+            </SwiperSlide>
+
+            <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
               <SlideLayout padding={false}>
                 <Suspense fallback={<div className='w-full' />}>
                   <SmallBusiness />
@@ -157,21 +183,8 @@ function WorkBook() {
               </SlideLayout>
             </SwiperSlide>
 
-            <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
-              <SlideLayout>
-                <Suspense fallback={<div className='w-full' />}>
-                  <BrandsWorkedHeading />
-                </Suspense>
-              </SlideLayout>
-            </SwiperSlide>
+           
 
-            <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
-              <SlideLayout>
-                <Suspense fallback={<div className='w-full' />}>
-                  <BrandCarousel />
-                </Suspense>
-              </SlideLayout>
-            </SwiperSlide>
 
             <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
               <SlideLayout>

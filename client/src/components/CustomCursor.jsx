@@ -85,7 +85,7 @@ useEffect(() => {
                 left: `${pos.x}px`,
                 transform: "translate(0px, 0px)", // Adjust tip alignment
                 pointerEvents: "none",
-                zIndex: 9999,
+                zIndex: 2147483647,
                 transition: "transform 0.05s linear, opacity 0.2s ease",
               }}
             >
@@ -153,7 +153,7 @@ useEffect(() => {
                 left: `${pos.x}px`,
                 transform: "translate(-6px, -2px)",
                 pointerEvents: "none",
-                zIndex: 9999,
+                zIndex: 2147483647,
                 transition: "transform 0.05s linear",
               }}
             >
@@ -180,7 +180,7 @@ useEffect(() => {
                 width: "2px",
                 height: "20px",
                 backgroundColor: "#333",
-                zIndex: 9999,
+                zIndex: 2147483647,
                 pointerEvents: "none",
               }}
             />
@@ -198,7 +198,7 @@ useEffect(() => {
                 height: "15px",
                 borderTop: "2px solid #333",
                 borderLeft: "2px solid #333",
-                zIndex: 9999,
+                zIndex: 2147483647,
                 pointerEvents: "none",
               }}
             />

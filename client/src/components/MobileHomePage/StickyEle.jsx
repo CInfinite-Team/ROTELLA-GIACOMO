@@ -15,7 +15,7 @@ function StickyEle() {
             url="https://calendly.com/rgiacomo"
             rootElement={document.getElementById("root")}
             text="LET'S TALK"
-            className=" bg-[#911c28] hover:bg-[#a73535] text-white text-xs md:text-lg font-bold py-2 px-5 md:px-20 w-fit md:py-5 rounded-full shadow-lg transition-colors duration-300"
+            className=" bg-[#911c28] hover:bg-[#a73535] text-white text-xs md:text-lg font-bold py-2 px-5 md:px-20 w-[116px] md:py-5 rounded-full shadow-lg transition-colors duration-300"
           />
 
 

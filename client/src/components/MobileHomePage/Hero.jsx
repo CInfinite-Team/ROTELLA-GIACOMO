@@ -138,12 +138,35 @@ export default function Hero() {
 
            
            <div className='flex gap-5 md:gap-10 mt-3 items-center justify-center '>
-            <PopupButton
-            url="https://calendly.com/rgiacomo"
-            rootElement={document.getElementById("root")}
-            text={t('lets_talk')}
-            className="mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-lg font-bold py-3 px-5 md:px-20 w-fit md:py-5 rounded-full shadow-lg transition-colors duration-300"
-          />
+             <div className="flex flex-col items-center">
+              <PopupButton
+                url="https://calendly.com/rgiacomo"
+                rootElement={document.getElementById("root")}
+                text={t('lets_talk')}
+                className="mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-lg font-bold py-3 px-5 md:px-20 w-fit md:py-5 rounded-full shadow-lg transition-colors duration-300"
+              />
+              <div className="mt-5 flex items-center justify-center gap-3">
+                <div className="flex -space-x-2">
+                  {brands.slice(5, 9).map((brand, i) => (
+                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-[#f7efe8] flex items-center justify-center overflow-hidden">
+                      <img 
+                        src={brand.logo} 
+                        alt={brand.name}
+                        className="w-full h-full object-cover p-[2px]" 
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-col text-left">
+                  <span className="font-bold text-gray-800 text-sm leading-none">
+                    {t('hero_credibility_stat')}
+                  </span>
+                  <span className="text-xs text-gray-600 leading-tight">
+                    {t('hero_credibility_text')}
+                  </span>
+                </div>
+              </div>
+            </div>
            <div className="w-[46vw] h-[46vw] md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl flex-shrink-0">
               <img 
                 src='/Giacomo.webp'

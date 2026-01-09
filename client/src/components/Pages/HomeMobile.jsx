@@ -4,6 +4,7 @@ import { EffectCreative, Mousewheel, Keyboard } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import Hero from '../MobileHomePage/Hero'
+import About from '../MobileHomePage/About'
 import SmallBusiness from '../MobileHomePage/SmallBusiness'
 import Fractional from '../MobileHomePage/Fractional'
 import Fractional2 from '../MobileHomePage/Fractional2'
@@ -23,7 +24,7 @@ import { useEffect } from 'react';
 function HomeMobile() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [swiperInstance, setSwiperInstance] = useState(null);
-  const totalSlides = 13 // Total number of slides
+  const totalSlides = 14 // Total number of slides
 
   useEffect(() => {
     const handleScrollToTop = () => {
@@ -68,6 +69,29 @@ function HomeMobile() {
         </SwiperSlide>
 
         <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
+          <div className='px-5 md:px-10'>
+            <About />
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
+          <div className='px-5 md:px-10'>
+            <BrandsWorkedHeading />
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
+          <div className='w-full h-full sm:px-5 md:px-10'>
+             <div className="block sm:hidden h-full w-full">
+               <BrandsWorkedWith />
+             </div>
+             <div className="hidden sm:block h-full w-full">
+              <BrandCarousel />
+             </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <div className=''>
             <SmallBusiness />
           </div>
@@ -103,22 +127,7 @@ function HomeMobile() {
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
-          <div className='px-5 md:px-10'>
-            <BrandsWorkedHeading />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
-          <div className='w-full h-full sm:px-5 md:px-10'>
-             <div className="block sm:hidden h-full w-full">
-               <BrandsWorkedWith />
-             </div>
-             <div className="hidden sm:block h-full w-full">
-              <BrandCarousel />
-             </div>
-          </div>
-        </SwiperSlide>
+        
 
         <SwiperSlide className='overflow-hidden bg-[#F5F5F5]'>
           <div className='px-5 md:px-10'>

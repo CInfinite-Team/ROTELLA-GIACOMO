@@ -49,88 +49,54 @@ const PrizeCard = React.memo(function PrizeCard() {
        {/* <div className='z-50 flex-col  flex   mt-6 lg:mt-0  px-5 pl-5 gap-4  '> */}
                {/* Right Sidebar (Card) */}
         <div className='z-50 flex-col flex items-center justify-center  pr-4 gap-4 '>
-          <div className='max-w-sm rounded-lg shadow-2xl   bg-[#fdfafa]'>
-            {/* Header */}
-            <div className='flex items-center flex-wrap w-full justify-center sm:justify-between px-2 py-[6px] sm:px-3 '>
-              <div className='flex items-center gap-2 px-3'>
-                {/* <div className='w-8 h-8 bg-black rounded-md'></div> */}
-                <h2 className='font-bold text-sm md:text-lg 2xl:text-xl text-[#911c28] text-center '>{t('package_kw')}</h2>
+          <div className='max-w-sm w-full rounded-2xl shadow-xl bg-white p-4 md:p-6 border border-gray-100'>
+            {/* Header / Price Section */}
+            <div className='flex flex-col items-start w-full mb-3'>
+              <div className='flex items-baseline gap-1'>
+                <h2 className='font-extrabold text-gray-900 tracking-tight' style={{ fontSize: "clamp(24px, min(4vw, 5vh), 40px)" }}>
+                  {formatPrice(currentPrice)}<span className='text-gray-500 font-medium' style={{ fontSize: "clamp(12px, min(1.5vw, 2vh), 14px)" }}>{t('hero_price_suffix')}</span>
+                </h2>
               </div>
-              <span className=' text-center text-sm   md:text-base 2xl:text-lg font-bold pr-2 text-green-600'>
-                {formatPrice(currentPrice)} / {t('prize_month')}
-              </span>
+              <span className='text-gray-500 font-medium my-2' style={{ fontSize: "clamp(12px, min(1.5vw, 2vh), 13px)" }}> {t('hero_price_comparison')}</span>
+              
+              <p className='text-gray-600 leading-snug font-medium' style={{ fontSize: "clamp(12px, min(1.5vw, 2vh), 16px)" }}>
+                {t('prize_card_description')} <span className='font-bold text-[#911c28]'>{t('hero_target')}</span>
+              </p>
             </div>
 
-            {/* Body */}
-            <div className='space-y-4 px-2 sm:px-6 pt-2'>
-              <div>
-                <ul className=' pl-2 sm:pl-4 2xl:text-lg font-semibold tick-list space-y-2'>
-                        <li>{t('budget_adapt')}</li>
-                        <li>{t('deposit_terms')}</li>
-                        <li>{t('no_commitment')}</li>
-                    </ul>
-              </div>
-
-              <div>
-                <h3 className=' pl-2 sm:pl-0 sm:text-xl 2xl:text-2xl text-[#911c28] font-bold mb-1 mt-2 slide-up !leading-snug'
-                             data-lazy-animation="fade-up" data-lazy-animation-duration="1100"
-                             ref={useViewportAnimation()}>
-                               {t('why_me')}
-                             </h3>
-                <h3 className=' font-semibold text-sm sm:text-base pl-2 sm:pl-0 slide-up !leading-snug'
-                                 data-lazy-animation="fade-up" data-lazy-animation-duration="1100" data-lazy-animation-delay="120"
-                                 ref={useViewportAnimation()}>
-                               {t('one_point_contact')}
-                             </h3>
-                         
+            {/* List Points */}
+            <div className='space-y-3 mb-4'>
+              <ul className='space-y-2'>
+                {[1, 2, 3, 4, 5].map((num) => (
+                  <li key={num} className='flex items-start gap-2 text-gray-700' style={{ fontSize: "clamp(12px, min(1.5vw, 2vh), 16px)" }}>
+                    <div className='flex-shrink-0 w-4 h-4 rounded-full bg-[#f3e6e8] flex items-center justify-center mt-0.5'>
+                      <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 3L4.5 8.5L2 6" stroke="#911c28" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                    <span className="leading-tight">{t(`prize_point_${num}`)}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              {/* Comparison Text */}
+              <div className='pt-1'>
+                 {/* <p className="text-[10px] md:text-xs text-gray-400 font-medium italic leading-tight">
+                    {t('hero_price_comparison')}
+                  </p> */}
               </div>
             </div>
 
             {/* Button */}
-            <div className='p-2 px-5 '>
-             
+            <div className='w-full'>
               <PopupButton
-            url="https://calendly.com/rgiacomo"
-            rootElement={document.getElementById("root")}
-            text={t("hero_btn_book")}
-            className='w-full h-full bg-[#911c28] whitespace-nowrap hover:bg-[#a73535] text-white  text-sm md:text-base mt-4 font-bold py-3 px-5 md:px-20 md:py-3 rounded-full shadow-lg transition-colors duration-300 '
-          />
-           
-
-              <div className='flex flex-row-reverse mt-4 items-center gap-7 justify-center px-3 '>
-
-                <div className='relative flex-shrink-0'>
-          <div className='relative flex-shrink-0'>
-             <div className="w-14 h-14 md:w-14 md:h-14 rounded-full flex-shrink-0 overflow-hidden shadow-2xl ">
-                        <img 
-                          src='/Giacomo.webp'
-                          alt="Rotella Giacomo"
-                           loading="lazy"
-                  decoding="async"
-                          className="w-full h-full object-top object-cover"
-                        />
-                          
-              
-               </div>
-               <span className="absolute bottom-2 right-2 flex size-[65%] z-[-1] ">
-                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#6704a0] opacity-100"></span>
-                 <span className="relative inline-flex size-[65%] rounded-full bg-[#a29ae9]"></span>
-                </span>
-                </div>
-                <span className="absolute bottom-1 left-[-1]  flex size-3">
-                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-                 <span className="relative inline-flex size-3 rounded-full bg-[#0add0a]"></span>
-                </span>
-                      </div>
-
-                <p className='text-xs sm:text-lg font-bold '>{t('contact_availability')}</p>
-
-              </div>
-
-            
+                url="https://calendly.com/rgiacomo"
+                rootElement={document.getElementById("root")}
+                text={t("hero_btn_book")}
+                className='w-full bg-[#911c28] hover:bg-[#a73535] text-white font-bold py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300'
+                styles={{ fontSize: "clamp(14px, min(2vw, 2.5vh), 18px)" }}
+              />
             </div>
-            
-           
           </div>
            <div className='text-sm text-[#911c28]  font-medium whitespace-nowrap flex-wrap leading-relaxed flex justify-center mt-2'> 
                   {t('or_write_me')} {'  '}

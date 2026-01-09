@@ -151,20 +151,22 @@ function BrandsWorkedWith() {
     videoRefs.current.forEach((video, index) => {
       if (!video) return;
 
-      if (index === activeIndex && isInView) {
-        // Play active video if carousel is in view
+      // Play if it's the active slide, in view, and "hovered" (expanded)
+      const shouldPlay = index === activeIndex && isInView && isHovered === index;
+
+      if (shouldPlay) {
+        video.currentTime = 0; // Start from beginning
         const playPromise = video.play();
         if (playPromise !== undefined) {
           playPromise.catch(error => {
-            console.log("Auto-play was prevented:", error);
+            // console.log("Auto-play was prevented:", error);
           });
         }
       } else {
-        // Pause all other videos or if carousel out of view
         video.pause();
       }
     });
-  }, [activeIndex, isInView]);
+  }, [activeIndex, isInView, isHovered]);
 
   return (
     <div className='h-[100dvh] w-full sm:min-h-[75vh] sm:pt-10 sm:h-auto' ref={carouselRef}>
@@ -207,58 +209,58 @@ function BrandsWorkedWith() {
         {brands.map((brand, index) => (
           <SwiperSlide key={index} >
             <div
-             
-              className="group relative bg-[#f4f4f4]  flex flex-col    overflow-hidden cursor-pointer transition-all duration-300  h-full w-full sm:h-[75vh] sm:aspect-[7/16] sm:mx-auto"
-              onMouseEnter={() => setIsHovered(index)}
-              onMouseLeave={() => setIsHovered(null)}
-              onClick={() => setIsHovered(isHovered === index ? null : index)}
+              className={`group relative bg-[#00050f] flex flex-col overflow-hidden cursor-pointer transition-all duration-300 h-full w-full sm:h-[75vh] sm:aspect-[9/16] sm:mx-auto rounded-none sm:rounded-2xl`}
             >
-              {/* Card Header */}
-              <div className="  p-3 pt-1 pb-6  top-0 w-full  text-center ">
-                <h3 className="font-bold text-sm text-gray-800 mb-1">{brand.name}</h3>
-                <p className="text-xs text-gray-600">{brand.category}</p>
-              </div>
-
-              {/* Card Image/Logo Area */}
-              <div className="w-full h-full lg:h-[82%]  flex items-center justify-center  ">
-               {brand.type === 'img' ? <img 
-                  src={brand.logo} 
-                  alt={`${brand.name} logo`}
-                   loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover sm:object-contain  object-top  transition-all duration-300 "
-                />
-                :
-                <video 
-                  ref={el => videoRefs.current[index] = el}
-                  src={brand.logo}
-                  playsInline
-                  loop 
-                  muted
-                 
-                  className={`w-full h-full object-cover sm:object-contain   ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'}  bg-black transition-all duration-300 `}
-                />}
-              </div>
-
-          
-
-              {/* Hover overlay */}
+              
+              {/* Top Media Section (Expands on Hover) */}
               <div 
-                className={`absolute inset-0 bg-gradient-to-br from-black/90 to-black/80 text-white p-3 flex flex-col justify-center transition-all duration-300 ${
-                  isHovered === index ? 'opacity-100' : 'opacity-0'
-                }`}
+                className={`w-full relative bg-black transition-all duration-500 ease-in-out ${isHovered === index ? 'h-full' : 'h-[50%]'}`}
+                onClick={() => setIsHovered(isHovered === index ? null : index)}
+                onMouseEnter={() => setIsHovered(index)}
+                onMouseLeave={() => setIsHovered(null)}
               >
-                <h3 className="font-bold text-xl md:text-3xl text-center ">{brand.name}</h3>
-                 <p className="font-medium text-blue-200 text-center mb-1.5 md:mb-3 uppercase tracking-wider text-xs md:text-sm">
-                   {brand.category}
-                 </p>
-                 <p className="text-lg md:text-3xl text-center text-blue-100 mb-2 leading-tight">
-                   {brand.work}
-                 </p>
-                {/* <div className="md:text-lg lg:text-xs text-blue-200">
-                  <span className="font-semibold">Work:</span> {brand.work}
-                </div> */}
+               {brand.type === 'img' ? (
+                  <img 
+                    src={brand.logo} 
+                    alt={`${brand.name} logo`}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover object-top"
+                  />
+               ) : (
+                  <video 
+                    ref={el => videoRefs.current[index] = el}
+                    src={brand.logo}
+                    playsInline
+                    loop 
+                    muted
+                     preload="metadata"
+                    onLoadedMetadata={(e) => e.target.currentTime = 1}
+                    className={`w-full h-full object-cover ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'} bg-black`}
+                  />
+               )}
               </div>
+
+              {/* Bottom Info Section (Collapses on Hover) */}
+              <div className={`w-full bg-[#00050f] p-5 flex flex-col text-left transition-all duration-500 ease-in-out overflow-hidden ${isHovered === index ? 'h-0 opacity-0 p-0' : ' opacity-100'}`}>
+                  <h3 className="font-bold text-xl uppercase mb-1 text-white leading-tight">{brand.name}</h3>
+                  <p className="text-gray-400 text-[10px] font-medium tracking-wider uppercase mb-3">{brand.category}</p>
+                  
+                  <div className="text-gray-300 leading-relaxed line-clamp-3 mb-4 text-xs">
+                    {brand.work}
+                  </div>
+
+                  <div className="flex gap-3 mt-auto mb-1">
+                    <button className="flex-1 py-2.5 rounded-full bg-white text-[#0b1120] font-bold text-[10px] hover:bg-gray-200 transition-colors text-center shadow-lg uppercase tracking-wide">
+                        {t('visit_project')}
+                    </button>
+                    {/* Placeholder click handler for demo */}
+                    <button onClick={() => window.open('https://calendly.com/rgiacomo', '_blank')} className="flex-1 py-2.5 rounded-full border border-white text-white font-bold text-[10px] hover:bg-white hover:text-[#0b1120] transition-colors text-center shadow-lg uppercase tracking-wide">
+                        {t('hero_btn_book')}
+                    </button>
+                  </div>
+              </div>
+
             </div>
           </SwiperSlide>
         ))}

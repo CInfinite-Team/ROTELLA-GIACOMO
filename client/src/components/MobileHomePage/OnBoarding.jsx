@@ -5,30 +5,32 @@ import { Highlight } from '../animations/hero-highlight'
 const OnBoarding = React.memo(function OnBoarding() {
   const { t } = useTranslation();
   return (
-    <div className='flex bg-[#f5f5f5]  flex-col min-h-screen  justify-center gap-4 md:gap-10'>
-       <h2 className='  font-bold  whitespace-nowrap fade-in text-center lg:text-left' ref={useViewportAnimation()}
-       style={{ fontSize: "clamp(24px, 3.5vw, 87px)" }}>
-                    <Trans i18nKey="onboarding_title" components={{ 1: <Highlight className=' text-white leading-tight ' /> }} />
-                  </h2>
+    <div className='flex bg-[#f5f5f5]  min-h-screen w-full px-4 py-10 md:py-20'>
+      <div className='flex flex-col gap-4 md:gap-6 w-full max-w-screen-xl mx-auto my-auto'>
+       <h2 className='font-bold fade-in text-center lg:text-left text-gray-900 max-w-2xl 2xl:max-w-4xl' ref={useViewportAnimation()}
+       style={{ fontSize: "clamp(24px, min(3.5vw, 7vh), 87px)", lineHeight: "1.1" }}>
+         <Trans i18nKey="onboarding_title" components={{ 1: <Highlight className='text-white leading-tight' /> }} />
+       </h2>
       
-      
-                <ol className=' space-y-1 2xl:space-y-10 font-medium mb-10'>
-                  <li className=' font-semibold slide-left  text-center lg:text-left text-[#181818] ' ref={useViewportAnimation()}
-                   style={{ fontSize: "clamp(20px, 2.5vw, 40px)" }}>
+                <ol className='space-y-4 md:space-y-8 font-medium  max-w-3xl 2xl:max-w-4xl'>
+                  <li className='font-semibold slide-left text-center lg:text-left text-[#181818]' ref={useViewportAnimation()}
+                   style={{ fontSize: "clamp(18px, min(2vw, 4vh), 32px)" }}>
                     {t('onboarding_step1')}
                   </li>
-                  {/* <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.06" ref={useViewportAnimation()} alt='' /> */}
-                  <li className=' font-semibold slide-right text-center lg:text-left text-[#181818] ' ref={useViewportAnimation()}
-                   style={{ fontSize: "clamp(20px, 2.5vw, 40px)" }}>
+                  <li className='font-semibold slide-right text-center lg:text-left text-[#181818]' ref={useViewportAnimation()}
+                   style={{ fontSize: "clamp(18px, min(2vw, 4vh), 32px)" }}>
                     {t('onboarding_step2')}
                   </li>
-                  {/* <img src={Image1} className='object-cover w-full shadow-xl scale-in' data-parallax="0.08" ref={useViewportAnimation()} alt='' /> */}
-                  <li className=' font-semibold slide-left text-center lg:text-left  text-[#181818] ' ref={useViewportAnimation()}
-                   style={{ fontSize: "clamp(20px, 2.5vw, 40px)" }}>
+                  <li className='font-semibold slide-left text-center lg:text-left text-[#181818]' ref={useViewportAnimation()}
+                   style={{ fontSize: "clamp(18px, min(2vw, 4vh), 32px)" }}>
                     {t('onboarding_step3')}
                   </li>
-                 
-                  </ol>
+                </ol>
+
+                <p className='text-center lg:text-left text-gray-600 font-medium fade-in inline-block w-full max-w-3xl' ref={useViewportAnimation()} style={{ fontSize: "clamp(16px, min(1.2vw, 2.5vh), 20px)" }}>
+                  {t('onboarding_footer')}
+                </p>
+      </div>
     </div>
   )
 })

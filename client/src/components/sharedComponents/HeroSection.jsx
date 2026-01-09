@@ -141,6 +141,7 @@ const HeroSection = React.memo(function HeroSection() {
   const { currentPrice, discountPrice, symbol } = useCurrency(); 
 
   return (
+
     <div className="bg-[#f5f5f5] min-h-screen lg:max-h-[860px] flex items-center justify-center">
       <div className="relative w-full   p-8 lg:p-12 overflow-hidden">
         
@@ -152,7 +153,7 @@ const HeroSection = React.memo(function HeroSection() {
           <div className="w-full lg:w-[60%] order-2 lg:order-1 text-center flex flex-col items-center lg:items-start lg:text-left">
             <p 
               ref={nameRef}
-              className="text-sm 2xl:text-lg tracking-widest text-gray-600 mb-[clamp(4px,1vh,12px)] ml-1 font-medium slide-up"
+                className="text-sm 2xl:text-lg tracking-widest text-gray-600 mb-[clamp(4px,1vh,12px)] ml-1 font-medium slide-up"
               style={{ fontSize: "clamp(10px, min(1vw, 2vh), 18px)" }}
             >
               ROTELLA GIACOMO
@@ -196,7 +197,7 @@ const HeroSection = React.memo(function HeroSection() {
 </span>
 
 
-            <div ref={buttonRef} className="slide-up cursor-pointer">
+            <div ref={buttonRef} className="slide-up flex flex-col items-center lg:items-start">
               <button
                 type="button"
                 onClick={handleBookCall}
@@ -205,6 +206,27 @@ const HeroSection = React.memo(function HeroSection() {
               >
                 {t('hero_btn_book')}
               </button>
+              <div className="mt-6 flex items-center gap-3">
+                <div className="flex -space-x-3">
+                  {brands.slice(5, 9).map((brand, i) => (
+                    <div key={i} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white bg-[#f7efe8] flex items-center justify-center overflow-hidden">
+                      <img 
+                        src={brand.logo} 
+                        alt={brand.name}
+                        className="w-full h-full object-cover p-[2px] " 
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-col text-left">
+                  <span className="font-bold text-gray-800 text-sm md:text-base leading-none">
+                    {t('hero_credibility_stat')}
+                  </span>
+                  <span className="text-xs md:text-sm text-gray-600 leading-tight">
+                    {t('hero_credibility_text')}
+                  </span>
+                </div>
+              </div>
             </div>
             
           
@@ -215,7 +237,7 @@ const HeroSection = React.memo(function HeroSection() {
           <div className="w-fit mt-5 md:mt-0 order-1 lg:order-2 pb-4 lg:pb-0 flex flex-col items-center flex-shrink-0">
             <div 
               ref={imageRef}
-              className="w-[min(400px,90vw,50vh)] h-[min(400px,90vw,50vh)] 2xl:w-[min(600px,90vw,55vh)] 2xl:h-[min(600px,90vw,55vh)] rounded-full overflow-hidden shadow-2xl border-4 border-[#911c28] slide-right flex-shrink-0"
+              className="w-[min(400px,90vw,50vh)] h-[min(400px,90vw,50vh)] 2xl:w-[min(600px,90vw,55vh)] 2xl:h-[min(600px,90vw,55vh)] rounded-3xl overflow-hidden shadow-2xl border-4 border-[#911c28] slide-right flex-shrink-0"
             >
               <div ref={imageParallaxRef}>
                <img

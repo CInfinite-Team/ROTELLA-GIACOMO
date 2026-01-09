@@ -7,18 +7,25 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 // import Giacomo from '../../assets/Giacomo.webp'
-import DoGBay from '../../assets/Brands/DoGBay.mp4'
+import DoGBay from '../../assets/Brands/DoGBay.mp4' // Seems to be the only one, using for both for now
 import RisinVenture from '../../assets/Brands/RisinVenture.png'
+import RisinVentureMob from '../../assets/Brands/RisinVenturesMob.png'
 import BadgervidDesktop from '../../assets/Brands/BadgerMapVidDesktop.mp4'
+import Badgervid from '../../assets/Brands/Badgervid.mp4'
 import KukrejaVidDesktop from '../../assets/Brands/KukrejaVidDesktop.mp4'
+import KukrejaVid from '../../assets/Brands/KukrejaVid.mp4'
 import AiSummitVidDesktop from '../../assets/Brands/AiSummitVidDesktop.mp4'
+import AiSummitVid from '../../assets/Brands/AiSummitVid.mp4'
 import RadianceVidDesktop from '../../assets/Brands/RadianceVidDesktop.mp4'
+import RadianceVid from '../../assets/Brands/RadianceVid.mp4'
 // Import brand logos
 import GucciImage from '../../assets/Brands/GucciImage.svg'
 import WebSetupVidDesktop from '../../assets/Brands/WebSetupVidDesktop.mp4'
+import WebSetupVid from '../../assets/Brands/WebSetupVid.mp4'
 // import BardeLogo from '../../assets/Brands/Barde.svg'
 // import GucciLogo from '../../assets/Brands/GUCCI.svg'
 import KananVidDesktop from '../../assets/Brands/KananVidDesktop.mp4'
+import KananVid from '../../assets/Brands/KananVid.mp4'
 import OffBeattImg from '../../assets/Brands/OffBeattImg.png'
 // import KukrejaLogo from '../../assets/Brands/Kukreja.svg'
 import LondonLanesImg from '../../assets/Brands/LondonLanesImg.svg'
@@ -34,13 +41,17 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   const [isInView, setIsInView] = useState(false)
   const carouselRef = useRef(null)
   const videoRefs = useRef([])
+  const mobileVideoRefs = useRef([])
   
   const { openCalendlyPopup } = useCalendly()
   const { t } = useTranslation();
 
   const brands = useMemo(() => [
+
+
   {
     logo: DoGBay,
+    mobileLogo: DoGBay,
     name: 'DOCK & BAY',
     work: t('brand_dock_bay_work'),
     category: t('brand_retail_manufacturing'),
@@ -48,6 +59,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   },
   {
     logo: BadgervidDesktop,
+    mobileLogo: Badgervid,
     name: 'BADGER MAPS',
     work: t('brand_badge_work'),
     category: t('brand_saas'),
@@ -55,6 +67,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   },
   {
     logo: GucciImage,
+    mobileLogo: GucciImage,
     name: 'GUCCI',
     work: <Trans i18nKey="brand_gucci_specific_work" components={{ 1: <a href="https://www.luxury-method.com/" target='_blank' rel="noopener noreferrer" className='underline ' /> }} />,
     category: t('brand_luxury_fashion'),
@@ -62,6 +75,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   },
   {
     logo: RisinVenture,
+    mobileLogo: RisinVentureMob,
     name: 'RISIN VENTURES',
     work: t('brand_risin_work'),
     category: t('brand_venture_capital'),
@@ -69,6 +83,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   },
   {
     logo: KukrejaVidDesktop,
+    mobileLogo: KukrejaVid,
     name: 'KUKREJA INFRASTRUCTURES',
     work: t('brand_kukreja_work'),
     category: t('brand_real_estate'),
@@ -76,6 +91,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   },
   {
     logo: RadianceVidDesktop,
+    mobileLogo: RadianceVid,
     name: 'RADIANCE CLINIC',
     work: t('brand_radiance_work'), 
     category: t('brand_healthcare'),
@@ -83,6 +99,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   },
   {
     logo: WebSetupVidDesktop,
+    mobileLogo: WebSetupVid,
     name: 'WEBSITESETUP',
     work: t('brand_websitesetup_work'),
     category: t('brand_free_resource'),
@@ -90,6 +107,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   },
   {
     logo: AiSummitVidDesktop,
+    mobileLogo: AiSummitVid,
     name: 'AIX SUMMIT',
     work: t('brand_ai_summit_work'),
     category: t('brand_technology'),
@@ -97,6 +115,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   },
   {
     logo: KananVidDesktop,
+    mobileLogo: KananVid,
     name: 'KANAN INTERNATIONAL',
     work: t('brand_kanan_work'), 
     category: t('brand_education'),
@@ -104,6 +123,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   },
   {
     logo: OffBeattImg,
+    mobileLogo: OffBeattImg,
     name: 'OFFBEAT STUDIOS',
     work: t('brand_offbeat_work'),
     category: t('brand_lifestyle'),
@@ -111,6 +131,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   },
   {
     logo: SapniImg,
+    mobileLogo: SapniImg,
     name: 'MIKALI SAPANI',
     work: <Trans i18nKey="brand_mikali_work" components={{ 1: <a href="https://www.luxury-method.com/" target='_blank' rel="noopener noreferrer" className='underline font-semibold' /> }} />,
     category: t('brand_luxury_fashion'),
@@ -118,6 +139,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   },
   {
     logo: LondonLanesImg,
+    mobileLogo: LondonLanesImg,
     name: 'LANES LONDON',
     work: t('brand_lanes_work'),
     category: t('brand_streetwear'),
@@ -125,6 +147,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
   },
   {
     logo: JackWillsDesktop,
+    mobileLogo: JackWillsDesktop,
     name: 'JACK WILLS',
     work: t('brand_jack_wills_work'), 
     category: t('brand_retail_apparel'),
@@ -150,25 +173,32 @@ const BrandCarousel = React.memo(function BrandCarousel() {
 
   // Manage video playback
   useEffect(() => {
-    videoRefs.current.forEach((video, index) => {
-      if (!video) return;
+    const managePlayback = () => {
+        // Handle Desktop Videos
+        videoRefs.current.forEach((video, index) => {
+            if (!video) return;
+            const shouldPlay = index === activeIndex && isInView && isHovered === index;
+            
+            if (shouldPlay) {
+                video.currentTime = 0;
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {});
+                }
+            } else {
+                video.pause();
+            }
+        });
 
-      if (index === activeIndex && isInView) {
-        // Play active video if carousel is in view
-        const playPromise = video.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(error => {
-            console.log("Auto-play was prevented:", error);
-          });
-        }
-      } else {
-        // Pause all other videos or if carousel out of view
-        video.pause();
-        // Optional: Reset time to 0 if you want them to restart when coming back
-        // video.currentTime = 0; 
-      }
-    });
-  }, [activeIndex, isInView]);
+        // Handle Mobile Videos
+        mobileVideoRefs.current.forEach((video) => {
+            if (!video) return;
+            video.pause();
+        });
+    }
+
+    managePlayback();
+  }, [activeIndex, isInView, isHovered]);
 
 
   const handleCallClick = useCallback(() => {
@@ -225,8 +255,6 @@ const BrandCarousel = React.memo(function BrandCarousel() {
             <div
             //  w-[70%] 2xl:w-[65%] 2xl:h-[90vh] h-[450px] md:h-[560px] lg:h-[80vh] lg:w-[400px] lg:
               className="group relative  xl:mt-auto flex flex-col  overflow-hidden cursor-pointer transition-all duration-300 w-auto max-h-[80vh]  mx-auto "
-              onMouseEnter={() => setIsHovered(index)}
-              onMouseLeave={() => setIsHovered(null)}
             >
               {/* Card Header */}
               <div className="  p-3 pb-5  top-0 w-full text-center ">
@@ -235,43 +263,100 @@ const BrandCarousel = React.memo(function BrandCarousel() {
               </div>
 
               {/* Card Image/Logo Area */}
-              <div className="w-full relative rounded-2xl shadow-lg overflow-hidden flex items-center justify-center aspect-[9/16] lg:aspect-[14/9] bg-black">
-               {brand.type === 'img' ? (
-                 <img 
-                  src={brand.logo} 
-                  alt={`${brand.name} logo`}
-                  className={`w-full h-full   object-cover md:object-contain group-hover:scale-150 md:object-center lg:aspect-[9/16] object-top transition-all duration-300`}
-                  loading="lazy"
-                  decoding="async"
-                 />
-                ) : (
-                <video 
-                  ref={el => videoRefs.current[index] = el}
-                  src={brand.logo} 
-                  playsInline
-                  loop 
-                  muted
-                  preload="none"
-                  className={`w-full h-full object-contain lg:object-cover group-hover:scale-150 lazy-video object-center bg-black transition-all duration-300 `}
-                />)}
-                 {/* Hover overlay */}
-              <div 
-                className={`absolute inset-0 bg-gradient-to-br from-black/90 to-black/80 text-white p-3 flex flex-col justify-center transition-all duration-300 ${
-                  isHovered === index ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                <h3 className="font-bold text-sm lg:text-2xl text-center mb-1"
-                 style={{ fontSize: "clamp(26px, 1.8vw, 37px)" }}>{brand.name}</h3>
-                 <p className="font-medium text-blue-200 text-center mb-1 xl:mb-3  uppercase tracking-wider text-xs lg:text-sm">{brand.category}</p>
-                <p className=" font-medium text-blue-100 text-center  mb-2 xl:mb-4 leading-normal "
-       style={{ fontSize: "clamp(19px, 1.8vw, 68px)" }}>
-         {brand.work}
-                </p>
-                {/* <div className="text-xs lg:text-lg text-blue-200"
-                style={{ fontSize: "clamp(20px, 1vw, 30px)" }}>
-                  <span className="font-semibold">Work:</span> {brand.work}
-                </div> */}
-              </div>
+              {/* Card Image/Logo Area */}
+              <div className="w-full relative rounded-2xl shadow-lg overflow-hidden h-full flex flex-row bg-[#00050f] aspect-[9/16] lg:aspect-[14/9]">
+                
+                {/* Left Panel (Info) - Visible on Hover (Desktop) */}
+                <div 
+                  className={`hidden lg:flex flex-col justify-center p-8 lg:p-12 text-white h-full transition-all duration-500 ease-in-out absolute left-0 top-0 z-20 ${
+                    isHovered !== index ? 'w-[65%] opacity-100 translate-x-0' : 'w-[65%] opacity-0 -translate-x-10 pointer-events-none'
+                  }`}
+                >
+                    <h3 className="font-bold text-2xl xl:text-4xl uppercase mb-2 leading-tight">{brand.name}</h3>
+                    <p className="text-gray-400 text-sm xl:text-base mb-6 font-medium tracking-wider uppercase">{brand.category}</p>
+                    
+                    <div className="text-gray-300 text-sm xl:text-lg mb-8 leading-relaxed line-clamp-4 xl:line-clamp-6">
+                      {brand.work}
+                    </div>
+
+                    <div className="flex flex-wrap gap-4 mt-auto">
+                        {/* Placeholder for project link logic - can be refined later */}
+                        <button className="px-6 py-3 rounded-full bg-white text-[#0b1120] font-bold text-sm hover:bg-gray-200 transition-colors">
+                            {t('visit_project')}
+                        </button>
+                        <button onClick={handleCallClick} className="px-6 py-3 rounded-full border border-white text-white font-bold text-sm hover:bg-white hover:text-[#0b1120] transition-colors">
+                            {t('hero_btn_book')}
+                        </button>
+                    </div>
+                </div>
+
+                {/* Right Panel (Media) */}
+                <div 
+                    onMouseEnter={() => setIsHovered(index)}
+                    onMouseLeave={() => setIsHovered(null)}
+                    className={`relative w-full h-full transition-all duration-500 ease-in-out ${
+                        isHovered !== index ? 'lg:w-[35%] lg:translate-x-[185.71%]' : 'lg:w-full lg:translate-x-0'
+                    }`}
+                >
+                   {/* DESKTOP MEDIA (Visible on HOVER) */}
+                   <div className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${isHovered === index ? 'opacity-100' : 'opacity-0'}`}>
+                        {brand.type === 'img' ? (
+                            <img 
+                                src={brand.logo} 
+                                alt={`${brand.name} logo`}
+                                className="w-full h-full object-cover object-center"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        ) : (
+                            <video 
+                                ref={el => videoRefs.current[index] = el}
+                                src={brand.logo} 
+                                playsInline
+                                loop 
+                                autoPlay
+                                muted
+                                preload="metadata"
+                                className="w-full h-full object-cover object-center bg-black"
+                            />
+                        )}
+                   </div>
+
+                   {/* MOBILE MEDIA (Visible on DEFAULT / NO HOVER) */}
+                   <div className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${isHovered !== index ? 'opacity-100' : 'opacity-0'}`}>
+                        {brand.type === 'img' ? (
+                            <img 
+                                src={brand.mobileLogo} 
+                                alt={`${brand.name} mobile logo`}
+                                className="w-full h-full object-cover object-top scale-110"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        ) : (
+                            <video 
+                                ref={el => mobileVideoRefs.current[index] = el}
+                                src={brand.mobileLogo} 
+                                playsInline
+                                muted
+                                autoPlay={false}
+                                preload="metadata"
+                                onLoadedMetadata={(e) => e.target.currentTime = 1}
+                                className="w-full h-full object-cover object-top bg-black scale-110"
+                            />
+                        )}
+                   </div>
+                    
+                    {/* Dark Overlay for non-hover state readability if text overlap, or just aesthetic */}
+                     <div className={`absolute inset-0 bg-black/20 pointer-events-none transition-opacity duration-300 ${isHovered === index ? 'opacity-0' : 'opacity-0'}`}></div>
+                </div>
+
+                 {/* Mobile Overlay (kept for smaller screens) */}
+                 <div className={`lg:hidden absolute inset-0 bg-black/80 text-white p-6 flex flex-col justify-center text-center transition-opacity duration-300 ${isHovered === index ? 'opacity-100' : 'opacity-0'}`}>
+                     <h3 className="font-bold text-xl mb-1">{brand.name}</h3>
+                     <p className="text-blue-200 text-xs mb-3 uppercase">{brand.category}</p>
+                     <div className="text-sm text-gray-200">{brand.work}</div>
+                 </div>
+
               </div>
 
               {/* Card Footer with CTA */}
