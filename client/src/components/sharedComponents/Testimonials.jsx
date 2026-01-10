@@ -34,15 +34,8 @@ const Testimonials = React.memo(function BrandCarousel() {
   const { t } = useTranslation();
 
   const brands = useMemo(() => [
-  {
-    logo: Badgervid,
-    name: 'BADGER MAPS',
-    description: t('brand_badger_review'),
-    work: t('brand_badge_work'),
-    category: t('brand_badger_cat'),
-    type: 'video'
-  },
-  {
+  
+   {
     logo: GucciImage,
     name: 'Gucci',
     description: t('brand_gucci_review'),
@@ -50,6 +43,15 @@ const Testimonials = React.memo(function BrandCarousel() {
     category: t('brand_gucci_cat'),
     type: 'img'
   },
+    {
+    logo: Badgervid,
+    name: 'BADGER MAPS',
+    description: t('brand_badger_review'),
+    work: t('brand_badge_work'),
+    category: t('brand_badger_cat'),
+    type: 'video'
+  },
+ 
     {
     // logo: RadianceVid,
     // name: 'RADIANCE CLINIC',

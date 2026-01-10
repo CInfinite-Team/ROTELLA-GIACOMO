@@ -86,7 +86,7 @@
     "about_label": "ABOUT ME",
     "about_headline": "Fractional Marketing Consultant",
     "about_stat": "10+ Years Experience",
-    "about_body": "I help small businesses and startups grow by providing strategic guidance and hands-on execution.",
+    "about_body": "I help small businesses and startups grow by providing strategic guidance and hands-on execution. I help small businesses and startups grow by providing strategic guidance and hands-on execution. I help small businesses and startups grow by providing strategic guidance and hands-on execution.",
     "whyme_title": "Why me?",
     "whyme_point1": "1. One point of contact,<br/> full team of specialists.",
     "whyme_point2_part1": "2. I treat my clients as if they",
@@ -246,5 +246,8 @@
     "prize_point_3": "Billed monthly thereafter",
     "prize_point_4": "No long-term commitment",
     "prize_point_5": "Cancel anytime",
-    "visit_project": "VISIT PROJECT"
+    "visit_project": "VISIT PROJECT",
+    "footer_name": "ROTELLA GIACOMO",
+    "footer_vat": "P.IVA: 17906211002",
+    "footer_location": "Rome, Italy"
 }

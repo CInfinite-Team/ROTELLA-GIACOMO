@@ -34,6 +34,7 @@ import JackWillsDesktop from '../../assets/Brands/JackWillsDesktop.png'
 import SapniImg from '../../assets/Brands/SapniImg.svg'
 // import BadgerMap from '../../assets/Brands/BadgerMap.svg'
 import { useCalendly } from '../../hooks/useCalendly'
+import ClippedText from './ClippedText';
 
 const BrandCarousel = React.memo(function BrandCarousel() {
   const [isHovered, setIsHovered] = useState(null)
@@ -257,10 +258,10 @@ const BrandCarousel = React.memo(function BrandCarousel() {
               className="group relative  xl:mt-auto flex flex-col  overflow-hidden cursor-pointer transition-all duration-300 w-auto max-h-[80vh]  mx-auto "
             >
               {/* Card Header */}
-              <div className="  p-3 pb-5  top-0 w-full text-center ">
+              {/* <div className="  p-3 pb-5  top-0 w-full text-center ">
                 <h3 className="font-bold text-sm uppercase text-gray-800 mb-1">{brand.name}</h3>
                 <p className="text-xs text-gray-600">{brand.category}</p>
-              </div>
+              </div> */}
 
               {/* Card Image/Logo Area */}
               {/* Card Image/Logo Area */}
@@ -272,19 +273,21 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                     isHovered !== index ? 'w-[65%] opacity-100 translate-x-0' : 'w-[65%] opacity-0 -translate-x-10 pointer-events-none'
                   }`}
                 >
-                    <h3 className="font-bold text-2xl xl:text-4xl uppercase mb-2 leading-tight">{brand.name}</h3>
-                    <p className="text-gray-400 text-sm xl:text-base mb-6 font-medium tracking-wider uppercase">{brand.category}</p>
+                    <h3 className="font-bold uppercase mb-2 leading-tight" style={{ fontSize: "clamp(22px, 3vw, 40px)" }}>{brand.name}</h3>
+                    <p className="text-gray-400 font-medium tracking-wider uppercase mb-4" style={{ fontSize: "clamp(12px, 1.2vw, 16px)" }}>{brand.category}</p>
                     
-                    <div className="text-gray-300 text-sm xl:text-lg mb-8 leading-relaxed line-clamp-4 xl:line-clamp-6">
-                      {brand.work}
-                    </div>
+                    <ClippedText 
+                      text={brand.work} 
+                      className="mb-6"
+                      textClassName="text-gray-300 leading-relaxed line-clamp-4 xl:line-clamp-6 2xl:line-clamp-[8] "
+                     style={{ fontSize: "clamp(14px, min(1.6vw, 5vh), 56px)" }}
+                    />
 
-                    <div className="flex flex-wrap gap-4 mt-auto">
-                        {/* Placeholder for project link logic - can be refined later */}
-                        <button className="px-6 py-3 rounded-full bg-white text-[#0b1120] font-bold text-sm hover:bg-gray-200 transition-colors">
+                    <div className="flex flex-nowrap gap-2 xl:gap-4 mt-auto">
+                        <button className="px-4 xl:px-6 py-2 xl:py-3 rounded-full bg-white text-[#0b1120] font-bold text-[10px] xl:text-sm hover:bg-gray-200 transition-colors whitespace-nowrap">
                             {t('visit_project')}
                         </button>
-                        <button onClick={handleCallClick} className="px-6 py-3 rounded-full border border-white text-white font-bold text-sm hover:bg-white hover:text-[#0b1120] transition-colors">
+                        <button onClick={handleCallClick} className="px-4 xl:px-6 py-2 xl:py-3 rounded-full border border-white text-white font-bold text-[10px] xl:text-sm hover:bg-white hover:text-[#0b1120] transition-colors whitespace-nowrap">
                             {t('hero_btn_book')}
                         </button>
                     </div>

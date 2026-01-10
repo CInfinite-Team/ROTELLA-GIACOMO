@@ -14,7 +14,13 @@ function Footer() {
        <p className='font-bold mb-2 text-center lg:text-left'>{t('footer_contact_text')}</p>
         <a href='tel:+393920034695' className='underline mb-2 text-center lg:text-left flex items-center w-full justify-center lg:justify-start gap-2 font-semibold'><Phone size={20}/> +39 3920034695</a> 
         <a href='mailto:rotellagiacomo@gmail.com' className='underline text-center lg:text-left flex w-full items-center justify-center lg:justify-start gap-2 font-semibold'><Mail size={20}/>  rotellagiacomo@gmail.com</a> 
-</div>
+         
+         <div className='mt-4 text-xs md:text-sm text-gray-500 uppercase tracking-widest leading-relaxed text-center lg:text-left'>
+           <p className='font-bold text-gray-800'>{t('footer_name')}</p>
+           <p>{t('footer_vat')}</p>
+           <p>{t('footer_location')}</p>
+         </div>
+       </div>
          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 mt-2 mb-2 text-sm text-gray-600">
            <a href={`/${currentLang}/privacy-policy`} className="hover:underline hover:text-[#911c28] transition-colors">{t('privacy_policy')}</a>
            <span className="hidden lg:block">•</span>

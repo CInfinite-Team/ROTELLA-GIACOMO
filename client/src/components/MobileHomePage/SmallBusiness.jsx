@@ -6,7 +6,7 @@ const SmallBusiness = React.memo(function SmallBusiness() {
   const { t } = useTranslation();
   const part3Ref = useViewportAnimation();
   return (
-    <div className='min-h-screen bg-[#f5f5f5] gap-5 flex flex-col  justify-center items-start px-[4vw]'>
+    <div className='min-h-screen bg-[#f5f5f5] gap-5 flex flex-col  justify-center items-center lg:items-start px-[4vw]'>
        <div>
         <h1  className=' font-bold hidden xl:block slide-up text-center lg:text-left md:whitespace-nowrap !leading-snug  ' ref={useViewportAnimation()}
         style={{ fontSize: "clamp(17px, 2vw, 67px)" }}

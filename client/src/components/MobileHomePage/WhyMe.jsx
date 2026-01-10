@@ -21,6 +21,7 @@ const WhyMe = React.memo(function WhyMe() {
   direction="top"
  
   className="text-2xl whitespace-nowrap  !leading-snug"
+  style={{ fontSize: "clamp(22px, 2.8vw, 67px)" }}
 />
                      <BlurText
   text={t('whyme_point2_part2')}
@@ -29,6 +30,7 @@ const WhyMe = React.memo(function WhyMe() {
   direction="top"
  
   className="text-2xl whitespace-nowrap !leading-snug"
+  style={{ fontSize: "clamp(22px, 2.8vw, 67px)" }}
 />
                      
                     </div>

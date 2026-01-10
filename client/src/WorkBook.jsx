@@ -23,7 +23,7 @@ const Footer = lazy(() => import('./components/sharedComponents/Footer'))
 const Testimonials = lazy(() => import('./components/sharedComponents/Testimonials'))
 
 const SlideLayout = ({ children, padding = true }) => (
-  <div className={`flex-1 h-full overflow-hidden lg:pr-[450px] 2xl:pr-[30vw] ${padding ? 'px-5 md:px-10 2xl:pl-[10vw]' : '2xl:px-5 '}`}>
+  <div className={`flex-1 h-full overflow-hidden lg:pr-[35%] xl:pr-[32%] 2xl:pr-[30vw] ${padding ? 'px-5 md:px-10 2xl:pl-[10vw]' : '2xl:px-5 '}`}>
     {children}
   </div>
 )
@@ -84,7 +84,7 @@ function WorkBook() {
               sensitivity: 1,
               releaseOnEdges: true,
             }}
-            speed={1400}
+            speed={1200}
             keyboard={{ enabled: true }}
             effect='creative'
             creativeEffect={{
@@ -220,8 +220,8 @@ function WorkBook() {
         )}
       </div>
 
-      <div className={`hidden lg:flex items-center justify-center absolute right-0 top-0 h-full w-[450px] z-50 transition-opacity  ease-in ${activeIndex === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-        <div className="">
+      <div className={`hidden lg:flex items-center justify-center absolute right-0 top-0 h-full w-[35%] xl:w-[32%] 2xl:w-[30vw] min-w-[320px] max-w-[500px] z-50 transition-opacity ease-in ${activeIndex === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+        <div className="w-full h-full flex items-center justify-center p-4">
           <Suspense fallback={<div className='' />}>
             <PrizeCard />
           </Suspense>

@@ -8,6 +8,7 @@ import 'swiper/css/pagination'
 // import Giacomo from '../../assets/Giacomo.webp'
 import { PopupButton } from 'react-calendly'
 import RisinVenture from '../../assets/Brands/RisinVenturesMob.png'
+import ClippedText from '../sharedComponents/ClippedText';
 
 import DoGBay from '../../assets/Brands/DoGBay.mp4'
 import Badgervid from '../../assets/Brands/Badgervid.mp4'
@@ -243,12 +244,15 @@ function BrandsWorkedWith() {
 
               {/* Bottom Info Section (Collapses on Hover) */}
               <div className={`w-full bg-[#00050f] p-5 flex flex-col text-left transition-all duration-500 ease-in-out overflow-hidden ${isHovered === index ? 'h-0 opacity-0 p-0' : ' opacity-100'}`}>
-                  <h3 className="font-bold text-xl uppercase mb-1 text-white leading-tight">{brand.name}</h3>
+                  <h3 className="font-bold text-xl uppercase mb-1 text-white leading-tight" style={{ fontSize: "clamp(12px, min(6.5vw, 2.2vh), 16px)" }}>{brand.name}</h3>
                   <p className="text-gray-400 text-[10px] font-medium tracking-wider uppercase mb-3">{brand.category}</p>
                   
-                  <div className="text-gray-300 leading-relaxed line-clamp-3 mb-4 text-xs">
-                    {brand.work}
-                  </div>
+                  <ClippedText 
+                    text={brand.work}
+                    className="mb-4"
+                    textClassName="text-gray-300 leading-relaxed line-clamp-"
+                    style={{ fontSize: "clamp(12px, min(8.5vw, 2.2vh), 16px)" }}
+                  />
 
                   <div className="flex gap-3 mt-auto mb-1">
                     <button className="flex-1 py-2.5 rounded-full bg-white text-[#0b1120] font-bold text-[10px] hover:bg-gray-200 transition-colors text-center shadow-lg uppercase tracking-wide">
