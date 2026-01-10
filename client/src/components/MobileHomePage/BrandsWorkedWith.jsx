@@ -236,7 +236,7 @@ function BrandsWorkedWith() {
                     loop 
                     muted
                      preload="metadata"
-                    onLoadedMetadata={(e) => e.target.currentTime = 1}
+                    onLoadedMetadata={(e) => e.target.currentTime = 2}
                     className={`w-full h-full object-cover ${brand.name==='BADGER MAPS' ? 'object-center' :'object-top'} bg-black`}
                   />
                )}

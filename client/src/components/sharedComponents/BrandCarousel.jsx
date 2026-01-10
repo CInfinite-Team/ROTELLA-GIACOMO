@@ -343,7 +343,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                                 muted
                                 autoPlay={false}
                                 preload="metadata"
-                                onLoadedMetadata={(e) => e.target.currentTime = 1}
+                                onLoadedMetadata={(e) => e.target.currentTime = 2}
                                 className="w-full h-full object-cover object-top bg-black scale-110"
                             />
                         )}
