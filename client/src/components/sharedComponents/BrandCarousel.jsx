@@ -32,6 +32,7 @@ import LondonLanesImg from '../../assets/Brands/LondonLanesImg.svg'
 import JackWillsDesktop from '../../assets/Brands/JackWillsDesktop.png'
 // import OffbeatsLogo from '../../assets/Brands/OFFBEATS.svg'
 import SapniImg from '../../assets/Brands/SapniImg.svg'
+import PitchbookLogo from '../../assets/Brands/SapniImg.svg'
 // import BadgerMap from '../../assets/Brands/BadgerMap.svg'
 import { useCalendly } from '../../hooks/useCalendly'
 import ClippedText from './ClippedText';
@@ -152,6 +153,14 @@ const BrandCarousel = React.memo(function BrandCarousel() {
     name: 'JACK WILLS',
     work: t('brand_jack_wills_work'), 
     category: t('brand_retail_apparel'),
+    type: 'img'
+  },
+  {
+    logo: PitchbookLogo,
+    mobileLogo: PitchbookLogo,
+    name: 'PITCHBOOK',
+    work: t('brand_pitchbook_work'),
+    category: t('brand_financial_saas'),
     type: 'img'
   },
 ], [t])
@@ -288,7 +297,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                             {t('visit_project')}
                         </button>
                         <button onClick={handleCallClick} className="px-4 xl:px-6 py-2 xl:py-3 rounded-full border border-white text-white font-bold text-[10px] xl:text-sm hover:bg-white hover:text-[#0b1120] transition-colors whitespace-nowrap">
-                            {t('hero_btn_book')}
+                            {t('book_call_short')}
                         </button>
                     </div>
                 </div>

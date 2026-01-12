@@ -27,6 +27,7 @@ import LondonLanesImg from '../../assets/Brands/LondonLanesImg.svg'
 import JackWIllsImg from '../../assets/Brands/JackWIllsImg.svg'
 // import OffbeatsLogo from '../../assets/Brands/OFFBEATS.svg'
 import SapniImg from '../../assets/Brands/SapniImg.svg'
+import PitchbookLogo from '../../assets/Brands/SapniImg.svg'
 function BrandsWorkedWith() {
 
 
@@ -260,7 +261,7 @@ function BrandsWorkedWith() {
                     </button>
                     {/* Placeholder click handler for demo */}
                     <button onClick={() => window.open('https://calendly.com/rgiacomo', '_blank')} className="flex-1 py-2.5 rounded-full border border-white text-white font-bold text-[10px] hover:bg-white hover:text-[#0b1120] transition-colors text-center shadow-lg uppercase tracking-wide">
-                        {t('hero_btn_book')}
+                        {t('book_call_short')}
                     </button>
                   </div>
               </div>

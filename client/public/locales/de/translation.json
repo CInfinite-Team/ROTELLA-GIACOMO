@@ -12,6 +12,7 @@
     "budget_adapt": "An Ihr Budget anpassbar",
     "hero_role": "Fractional Marketing Consultant",
     "hero_btn_book": "Kostenloses Gespräch buchen",
+    "book_call_short": "Gespräch buchen",
     "hero_for": "für",
     "hero_target": "Kleinunternehmen",
     "hero_subtitle_pt1": "Die Kraft einer Full-Service-Marketingagentur zu einem",
@@ -239,5 +240,7 @@
     "visit_project": "PROJEKT BESUCHEN",
     "footer_name": "ROTELLA GIACOMO",
     "footer_vat": "P.IVA: 17906211002",
-    "footer_location": "Rom, Italien"
+    "footer_location": "Rom, Italien",
+    "brand_pitchbook_work": "Ich habe eine kundenorientierte Strategie und eine Produkt-Roadmap für PitchBook entwickelt und Lösungen empfohlen, um die Expansion des Unternehmens nach San Francisco zu unterstützen und langfristige Kundenbeziehungen zu stärken.",
+    "brand_financial_saas": "Finanzdaten & SaaS"
 }

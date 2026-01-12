@@ -12,6 +12,7 @@
     "budget_adapt": "Può essere adattato al tuo budget",
     "hero_role": "Consulente di Marketing Frazionato",
     "hero_btn_book": "Prenota una chiamata gratuita",
+    "book_call_short": "Prenota ora",
     "hero_for": "per",
     "hero_target": "Piccole Imprese",
     "hero_subtitle_pt1": "La potenza di un'agenzia di marketing a servizio completo a una",
@@ -249,5 +250,7 @@
     "visit_project": "VISITA IL PROGETTO",
     "footer_name": "ROTELLA GIACOMO",
     "footer_vat": "P.IVA: 17906211002",
-    "footer_location": "Roma, Italia"
+    "footer_location": "Roma, Italia",
+    "brand_pitchbook_work": "Ho sviluppato una strategia centrata sul cliente e una roadmap di prodotto per PitchBook, raccomandando soluzioni per supportare l'espansione dell'azienda a San Francisco e rafforzare le relazioni a lungo termine con i clienti.",
+    "brand_financial_saas": "Dati Finanziari e SaaS"
 }
