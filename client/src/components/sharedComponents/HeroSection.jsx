@@ -5,6 +5,7 @@ import BardeLogo from '../../assets/Brands/Barde.svg'
 import Biota from '../../assets/Brands/Biota.svg'
 import Top10 from '../../assets/Brands/Top10.svg'
 import Risin from '../../assets/Brands/Risin.svg'
+import PitchBook from '../../assets/Brands/PitchBook.svg'
 import GucciLogo from '../../assets/Brands/GUCCI.svg'
 import KannanLogo from '../../assets/Brands/Kannan.svg'
 import KukrejaLogo from '../../assets/Brands/Kukreja.svg'
@@ -52,18 +53,17 @@ const LogoPlaceholder = ({ className = '', children }) => (
       logo: AIXSummit,
       name: 'AIX SUMMIT',
     },
+      {
+      logo: Top10,
+      name: 'Top 10 London',
+    },
+    
     {
       logo: KannanLogo,
       name: 'KANAN INTERNATIONAL',
     },
-     {
-      logo: JackWills,
-      name: 'JACK WILLS',
-    },
-    {
-      logo: WebSiteSetup,
-      name: 'WEBSITESETUP',
-    },
+    
+   
      {
       logo: LanesLogo,
       name: 'LANES LONDON',
@@ -80,10 +80,7 @@ const LogoPlaceholder = ({ className = '', children }) => (
       logo: DogNBay,
       name: 'DOCK & BAY',
     },
-    {
-      logo: Top10,
-      name: 'Top 10 London',
-    },
+   
     {
       logo: Biota,
       name: 'BIOTA',
@@ -96,8 +93,18 @@ const LogoPlaceholder = ({ className = '', children }) => (
       logo: SapaniLogo,
       name: 'MIKALI SAPANI',
     },
-  
-   
+  {
+      logo: PitchBook,
+      name: 'Pitch Book',
+    },
+     {
+      logo: JackWills,
+      name: 'JACK WILLS',
+    },
+    {
+      logo: WebSiteSetup,
+      name: 'WEBSITESETUP',
+    }
   ]
 
 const duplicatedBrands = [...brands, ...brands];
