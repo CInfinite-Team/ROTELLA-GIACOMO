@@ -33,24 +33,6 @@ import { useCurrency } from '../../context/CurrencyContext';
       work: 'Part of the Gucci Media team in 2023–2024, managing digital marketing initiatives.'
     },
     {
-      logo: KannanLogo,
-      name: 'Kannan',
-      description: 'Professional services company focused on business optimization.',
-      work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.'
-    },
-    {
-      logo: KukrejaLogo,
-      name: 'Kukreja Real Estate',
-      description: 'Premium real estate development and property management services.',
-      work: 'Social media content creation and website development for property marketing.'
-    },
-    {
-      logo: LanesLogo,
-      name: 'LANES LONDON',
-      description: 'Modern lifestyle brand offering contemporary products and services.',
-      work: 'Digital marketing strategy and brand positioning in competitive markets.'
-    },
-    {
       logo: OffbeatsLogo,
       name: 'Offbeat Lifestyle',
       description: 'Alternative lifestyle brand promoting unique and unconventional living.',
@@ -62,12 +44,46 @@ import { useCurrency } from '../../context/CurrencyContext';
       description: 'Innovative technology solutions and digital transformation services.',
       work: 'Brand development and digital marketing for tech-forward audiences.'
     },
+   
+    {
+      logo: KukrejaLogo,
+      name: 'Kukreja Real Estate',
+      description: 'Premium real estate development and property management services.',
+      work: 'Social media content creation and website development for property marketing.'
+    },
+     {
+      logo: KannanLogo,
+      name: 'Kannan',
+      description: 'Professional services company focused on business optimization.',
+      work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.'
+    },
+     {
+      logo: BardeLogo,
+      name: 'Barde',
+      description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
+      work: 'Brand strategy, social media management, and digital marketing campaigns.'
+    },
+    {
+      logo: LanesLogo,
+      name: 'LANES LONDON',
+      description: 'Modern lifestyle brand offering contemporary products and services.',
+      work: 'Digital marketing strategy and brand positioning in competitive markets.'
+    },
+     {
+      logo: DogNBay,
+      name: 'Dock N BAY',
+      description: 'Pet care and grooming services with a focus on quality and convenience.',
+      work: 'Brand development, social media marketing, and customer engagement strategies.'
+    },
     {
       logo: BadgerMap,
       name: 'BADGER MAPS',
       description: 'Innovative technology solutions and digital transformation services.',
       work: 'Brand development and digital marketing for tech-forward audiences.'
     },
+    
+    
+   
     {
       logo: WebSiteSetup,
       name: 'WEBSITE SETUP',
@@ -80,12 +96,7 @@ import { useCurrency } from '../../context/CurrencyContext';
       description: 'Leading conference on AI and digital transformation.',
       work: 'Event promotion, speaker coordination, and digital marketing.'
     },
-    {
-      logo: DogNBay,
-      name: 'Dock N BAY',
-      description: 'Pet care and grooming services with a focus on quality and convenience.',
-      work: 'Brand development, social media marketing, and customer engagement strategies.'
-    },
+    
     {
       logo: JackWills,
       name: 'Jack Wills',
