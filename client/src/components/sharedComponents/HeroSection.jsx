@@ -244,15 +244,15 @@ const HeroSection = React.memo(function HeroSection() {
           <div className="w-fit mt-5 md:mt-0 order-1 lg:order-2 pb-4 lg:pb-0 flex flex-col items-center flex-shrink-0">
             <div 
               ref={imageRef}
-              className="w-[min(400px,90vw,50vh)] h-[min(400px,90vw,50vh)] 2xl:w-[min(600px,90vw,55vh)] 2xl:h-[min(600px,90vw,55vh)] rounded-3xl overflow-hidden shadow-2xl border-4 border-[#911c28] slide-right flex-shrink-0"
+              className="w-[min(400px,90vw,50vh)] h-[min(400px,90vw,50vh)] 2xl:w-[min(600px,90vw,55vh)] 2xl:h-[min(600px,90vw,55vh)] rounded-3xl overflow-hidden shadow-2xl  slide-right flex-shrink-0"
             >
-              <div ref={imageParallaxRef}>
+              <div ref={imageParallaxRef} className='border-4 border-[#911c28] rounded-3xl overflow-hidden'>
                <img
   src='/Giacomo.webp'
   srcSet='/Giacomo.webp 300w, /Giacomo.webp 400w, /Giacomo.webp 500w'
   sizes="(max-width: 768px) 300px, (max-width: 1280px) 400px, 500px"
   alt="Rotella Giacomo"
-  className="w-full h-full object-cover object-top"
+  className="w-full h-full object-cover object-bottom"
   loading="eager"
   decoding="async"
    fetchPriority="high"
