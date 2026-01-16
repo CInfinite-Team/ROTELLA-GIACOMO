@@ -63,6 +63,10 @@ import { useCurrency } from '../../context/CurrencyContext';
       name: 'KANAN INTERNATIONAL',
     },
     
+     {
+      logo: DogNBay,
+      name: 'DOCK & BAY',
+    },
    
      {
       logo: LanesLogo,
@@ -72,14 +76,12 @@ import { useCurrency } from '../../context/CurrencyContext';
       logo: Risin, 
       name: 'RISIN VENTURES',
     },
+    
      {
       logo: BadgerMap,
       name: 'BADGER MAPS',
     },
-      {
-      logo: DogNBay,
-      name: 'DOCK & BAY',
-    },
+     
    
     {
       logo: Biota,
@@ -220,7 +222,7 @@ const HeroSection = React.memo(function HeroSection() {
                       <img 
                         src={brand.logo} 
                         alt={brand.name}
-                        className="w-full h-full object-cover p-[2px] " 
+                        className="w-full h-full object-cover object-top p-[2px] " 
                       />
                     </div>
                   ))}
@@ -270,7 +272,7 @@ const HeroSection = React.memo(function HeroSection() {
 
 
       
-<div className="mt-3 xl:mt-[clamp(12px,4vh,40px)] w-full relative overflow-hidden" 
+<div className="mt-[clamp(12px,6vh,40px)] w-full relative overflow-hidden" 
      style={{ 
        WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
        maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' 

@@ -133,7 +133,7 @@ export default function Hero() {
             </p>
 
             {/* Right Content Section */}
-          <div className="w-fit mt-5 md:mt-0  pb-4 lg:pb-0 flex flex-col items-center ">
+          <div className="w-fit mt-3 md:mt-0  pb-4 lg:pb-0 flex flex-col items-center ">
              <p className="text-[clamp(1.25rem,3.5vmin,2rem)] font-bold text-[#911c28] mb">
                {symbol}
                <CountUp
