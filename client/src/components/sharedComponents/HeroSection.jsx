@@ -25,11 +25,11 @@ import { useCurrency } from '../../context/CurrencyContext';
 
 
 // A simple placeholder for the brand logos.
-const LogoPlaceholder = ({ className = '', children }) => (
-  <div className={`w-20 h-20 rounded-full flex items-center justify-center bg-gray-200 ${className}`}>
-    {children}
-  </div>
-);
+// const LogoPlaceholder = ({ className = '', children }) => (
+//   <div className={`w-20 h-20 rounded-full flex items-center justify-center bg-gray-200 ${className}`}>
+//     {children}
+//   </div>
+// );
 
 
   const brands = [
@@ -277,9 +277,9 @@ const HeroSection = React.memo(function HeroSection() {
      }}>
   <div className="flex items-center space-x-10 animate-scroll">
     {brandItems.map((brand, index) => (
-      <div key={index} className=" flex-shrink-0">
+      <div key={index} className="flex-shrink-0">
         <img
-          className="w-[min(260px,40vw,30vh)]  2xl:w-[min(320px,45vw,40vh)] p-3 object-center object-contain "
+          className="h-12 md:h-16 2xl:h-20 w-auto px-4 object-center object-contain "
           src={brand.logo}
           alt={brand.name}
           decoding="async"

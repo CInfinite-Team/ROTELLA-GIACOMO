@@ -112,7 +112,7 @@ export default function Hero() {
   
   return (
     <div className="bg-[#f4f4f4]  flex items-center justify-center">
-      <div className="relative w-full flex flex-col justify-center gap-10 items-center  min-h-screen p-4  overflow-hidden">
+      <div className="relative w-full flex flex-col justify-center gap-[clamp(10px,9vh,60px)] items-center  min-h-screen p-4  overflow-hidden">
         
     
 
@@ -120,21 +120,21 @@ export default function Hero() {
           
           {/* Left Content Section */}
           <div className="w-full   text-center flex flex-col items-center ">
-            <p className="font-semibold  md:text-lg tracking-widest text-gray-600 mb-4">ROTELLA GIACOMO</p>
-            <h1 className="text-xl md:text-4xl font-bold text-gray-800 !leading-tight ">
+            <p className="font-semibold text-[clamp(10px,2vmin,14px)] md:text-lg tracking-widest text-gray-600 mb-4">ROTELLA GIACOMO</p>
+            <h1 className="text-[clamp(1.25rem,4vmin,2.25rem)] md:text-4xl font-bold text-gray-800 !leading-tight ">
               {t('hero_role')}{' '}
               
               <span >{t('hero_for')} <span className="text-[#911c28]">{t('hero_target')}</span></span>
             </h1>
 
-            <p className="mt-4 md:mt-8 text-base md:text-2xl  text-gray-700 max-w-[500px] ">
+            <p className="mt-4 md:mt-8 text-[clamp(0.875rem,2.5vmin,1.5rem)] md:text-2xl  text-gray-700 max-w-[500px] ">
               {t('hero_subtitle_pt1')}{' '}
               <span className="text-[##911c28] font-semibold">{t('hero_subtitle_pt2')}</span>
             </p>
 
             {/* Right Content Section */}
           <div className="w-fit mt-5 md:mt-0  pb-4 lg:pb-0 flex flex-col items-center ">
-             <p className="text-2xl font-bold text-[#911c28] mb">
+             <p className="text-[clamp(1.25rem,3.5vmin,2rem)] font-bold text-[#911c28] mb">
                {symbol}
                <CountUp
       start={discountPrice}
@@ -154,12 +154,12 @@ export default function Hero() {
                 url="https://calendly.com/rgiacomo"
                 rootElement={document.getElementById("root")}
                 text={t('lets_talk')}
-                className="mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-sm md:text-lg font-bold py-3 px-5 md:px-20 w-fit md:py-5 rounded-full shadow-lg transition-colors duration-300"
+                className="mt-8 bg-[#911c28] hover:bg-[#a73535] text-white text-[clamp(12px,2vmin,16px)] md:text-lg font-bold py-[clamp(12px,2vmin,20px)] px-5 md:px-20 w-fit md:py-5 rounded-full shadow-lg transition-colors duration-300"
               />
-              <div className="mt-5 flex items-center justify-center gap-3">
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
                 <div className="flex -space-x-2">
                   {brands.slice(5, 9).map((brand, i) => (
-                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-[#f7efe8] flex items-center justify-center overflow-hidden">
+                    <div key={i} className="w-[clamp(1.5rem,4vmin,2rem)] h-[clamp(1.5rem,4vmin,2rem)] rounded-full border-2 border-white bg-[#f7efe8] flex items-center justify-center overflow-hidden">
                       <img 
                         src={brand.logo} 
                         alt={brand.name}
@@ -178,7 +178,7 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-           <div className="w-[46vw] h-[46vw] md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl flex-shrink-0">
+           <div className="w-[clamp(160px,35vmin,320px)] h-[clamp(160px,35vmin,320px)] md:w-80 md:h-80 overflow-hidden shadow-2xl border-4 border-[#911c28] rounded-xl flex-shrink-0">
               <img 
                 src='/Giacomo.webp'
   srcSet='/Giacomo.webp 300w, /Giacomo.webp 400w'
@@ -209,9 +209,9 @@ export default function Hero() {
 <div className="mt- w-full overflow-hidden ">
   <div className="flex items-center  space-x-10  animate-scroll">
     {brands.concat(brands).map((brand, index) => (
-      <div key={index} className="rounded-full flex-shrink-0">
+      <div key={index} className="flex-shrink-0">
         <img
-          className="w-[clamp(60px,15vh,112px)] h-[clamp(60px,15vh,112px)] p-3 object-contain rounded-full"
+          className="h-[clamp(1rem,6vh,3rem)] w-auto px-3 object-contain "
           src={brand.logo}
           alt={brand.name}
            loading="eager"
