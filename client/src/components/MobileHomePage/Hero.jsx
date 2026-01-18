@@ -2,6 +2,10 @@ import React from 'react';
 // import Giacomo from '../../assets/Giacomo.webp'
 // Import brand logos
 import BardeLogo from '../../assets/Brands/Barde.svg'
+import Biota from '../../assets/Brands/Biota.svg'
+import Top10 from '../../assets/Brands/Top10.svg'
+import Risin from '../../assets/Brands/Risin.svg'
+import PitchBook from '../../assets/Brands/PitchBook.svg'
 import GucciLogo from '../../assets/Brands/GUCCI.svg'
 import KannanLogo from '../../assets/Brands/Kannan.svg'
 import KukrejaLogo from '../../assets/Brands/Kukreja.svg'
@@ -19,91 +23,83 @@ import { useTranslation, Trans } from 'react-i18next';
 import { useCurrency } from '../../context/CurrencyContext';
 
 
+
+
   const brands = [
-    {
-      logo: BardeLogo,
-      name: 'Barde',
-      description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
-      work: 'Brand strategy, social media management, and digital marketing campaigns.'
-    },
+   
+   
     {
       logo: GucciLogo,
-      name: 'Gucci',
-      description: 'Italian luxury fashion house known for high-end fashion and accessories.',
-      work: 'Part of the Gucci Media team in 2023–2024, managing digital marketing initiatives.'
-    },
-    {
-      logo: OffbeatsLogo,
-      name: 'Offbeat Lifestyle',
-      description: 'Alternative lifestyle brand promoting unique and unconventional living.',
-      work: 'SEO strategy, content writing, and social media content development.'
-    },
-    {
-      logo: SapaniLogo,
-      name: 'MIKALI SAPANI',
-      description: 'Innovative technology solutions and digital transformation services.',
-      work: 'Brand development and digital marketing for tech-forward audiences.'
+      name: 'GUCCI',
     },
    
     {
       logo: KukrejaLogo,
-      name: 'Kukreja Real Estate',
-      description: 'Premium real estate development and property management services.',
-      work: 'Social media content creation and website development for property marketing.'
-    },
-     {
-      logo: KannanLogo,
-      name: 'Kannan',
-      description: 'Professional services company focused on business optimization.',
-      work: 'Website optimization, PPC campaigns, and comprehensive social media strategy.'
-    },
-     {
-      logo: BardeLogo,
-      name: 'Barde',
-      description: 'Luxury fashion brand specializing in premium accessories and lifestyle products.',
-      work: 'Brand strategy, social media management, and digital marketing campaigns.'
+      name: 'KUKREJA INFRASTRUCTURES',
     },
     {
-      logo: LanesLogo,
-      name: 'LANES LONDON',
-      description: 'Modern lifestyle brand offering contemporary products and services.',
-      work: 'Digital marketing strategy and brand positioning in competitive markets.'
-    },
-     {
-      logo: DogNBay,
-      name: 'Dock N BAY',
-      description: 'Pet care and grooming services with a focus on quality and convenience.',
-      work: 'Brand development, social media marketing, and customer engagement strategies.'
-    },
-    {
-      logo: BadgerMap,
-      name: 'BADGER MAPS',
-      description: 'Innovative technology solutions and digital transformation services.',
-      work: 'Brand development and digital marketing for tech-forward audiences.'
+      logo: BardeLogo, 
+      name: 'RADIANCE CLINIC',
     },
     
-    
-   
-    {
-      logo: WebSiteSetup,
-      name: 'WEBSITE SETUP',
-      description: 'Comprehensive website development and digital presence solutions.',
-      work: 'Website design, development, and digital marketing integration.'
-    },
     {
       logo: AIXSummit,
       name: 'AIX SUMMIT',
-      description: 'Leading conference on AI and digital transformation.',
-      work: 'Event promotion, speaker coordination, and digital marketing.'
+    },
+      {
+      logo: Top10,
+      name: 'Top 10 London',
     },
     
     {
+      logo: KannanLogo,
+      name: 'KANAN INTERNATIONAL',
+    },
+    
+     {
+      logo: DogNBay,
+      name: 'DOCK & BAY',
+    },
+   
+     {
+      logo: LanesLogo,
+      name: 'LANES LONDON',
+    },
+     {
+      logo: Risin, 
+      name: 'RISIN VENTURES',
+    },
+    
+     {
+      logo: BadgerMap,
+      name: 'BADGER MAPS',
+    },
+     
+   
+    {
+      logo: Biota,
+      name: 'BIOTA',
+    },
+    {
+      logo: OffbeatsLogo,
+      name: 'OFFBEAT STUDIOS',
+    },
+    {
+      logo: SapaniLogo,
+      name: 'MIKALI SAPANI',
+    },
+  {
+      logo: PitchBook,
+      name: 'Pitch Book',
+    },
+     {
       logo: JackWills,
-      name: 'Jack Wills',
-      description: 'British fashion retailer known for its casualwear and accessories.',
-      work: 'Brand development, social media marketing, and customer engagement strategies.'
+      name: 'JACK WILLS',
+    },
+    {
+      logo: WebSiteSetup,
+      name: 'WEBSITESETUP',
     }
-
   ]
 
 export default function Hero() {
