@@ -49,7 +49,7 @@ const About = React.memo(function About() {
             </div>
 
             {/* Stat & Body */}
-            <div className='flex flex-col gap-3 items-center lg:gap-5 w-full'>
+            <div className='flex flex-col gap-3 items-center lg:items-start lg:gap-5 w-full'>
                 <h3 className='font-bold text-[#911c28] whitespace-nowrap fade-in' ref={useViewportAnimation()}
                 style={{ fontSize: "clamp(18px, min(2.5vw, 4vh), 32px)" }}>
                     {t('about_stat')}
