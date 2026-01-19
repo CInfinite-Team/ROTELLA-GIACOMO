@@ -32,7 +32,8 @@ import LondonLanesImg from '../../assets/Brands/LondonLanesImg.svg'
 import JackWillsDesktop from '../../assets/Brands/JackWillsDesktop.png'
 // import OffbeatsLogo from '../../assets/Brands/OFFBEATS.svg'
 import SapniImg from '../../assets/Brands/SapniImg.svg'
-import PitchbookLogo from '../../assets/Brands/SapniImg.svg'
+import pitchbookDesktop from '../../assets/Brands/pitchbookDesktop.png'
+import pitchbook from '../../assets/Brands/pitchbookImage.png'
 // import BadgerMap from '../../assets/Brands/BadgerMap.svg'
 import { useCalendly } from '../../hooks/useCalendly'
 import ClippedText from './ClippedText';
@@ -156,8 +157,8 @@ const BrandCarousel = React.memo(function BrandCarousel() {
     type: 'img'
   },
   {
-    logo: PitchbookLogo,
-    mobileLogo: PitchbookLogo,
+    logo: pitchbookDesktop,
+    mobileLogo: pitchbook,
     name: 'PITCHBOOK',
     work: t('brand_pitchbook_work'),
     category: t('brand_financial_saas'),
@@ -292,14 +293,14 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                      style={{ fontSize: "clamp(14px, min(1.6vw, 5vh), 56px)" }}
                     />
 
-                    <div className="flex flex-nowrap gap-2 xl:gap-4 mt-auto">
+                    {/* <div className="flex flex-nowrap gap-2 xl:gap-4 mt-auto">
                         <button className="px-4 xl:px-6 py-2 xl:py-3 rounded-full bg-white text-[#0b1120] font-bold text-[10px] xl:text-sm hover:bg-gray-200 transition-colors whitespace-nowrap">
                             {t('visit_project')}
                         </button>
                         <button onClick={handleCallClick} className="px-4 xl:px-6 py-2 xl:py-3 rounded-full border border-white text-white font-bold text-[10px] xl:text-sm hover:bg-white hover:text-[#0b1120] transition-colors whitespace-nowrap">
                             {t('book_call_short')}
                         </button>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Right Panel (Media) */}
@@ -316,7 +317,7 @@ const BrandCarousel = React.memo(function BrandCarousel() {
                             <img 
                                 src={brand.logo} 
                                 alt={`${brand.name} logo`}
-                                className="w-full h-full object-cover object-center"
+                                className="w-full h-full object-cover object-top"
                                 loading="lazy"
                                 decoding="async"
                             />

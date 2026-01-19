@@ -8,6 +8,7 @@ import 'swiper/css/pagination'
 // import Giacomo from '../../assets/Giacomo.webp'
 import { PopupButton } from 'react-calendly'
 import RisinVenture from '../../assets/Brands/RisinVenturesMob.png'
+import pitchbook from '../../assets/Brands/pitchbookImage.png'
 import ClippedText from '../sharedComponents/ClippedText';
 
 import DoGBay from '../../assets/Brands/DoGBay.mp4'
@@ -27,7 +28,6 @@ import LondonLanesImg from '../../assets/Brands/LondonLanesImg.svg'
 import JackWIllsImg from '../../assets/Brands/JackWIllsImg.svg'
 // import OffbeatsLogo from '../../assets/Brands/OFFBEATS.svg'
 import SapniImg from '../../assets/Brands/SapniImg.svg'
-import PitchbookLogo from '../../assets/Brands/SapniImg.svg'
 function BrandsWorkedWith() {
 
 
@@ -129,7 +129,14 @@ function BrandsWorkedWith() {
        work: t('brand_jack_wills_work'),
        category: t('brand_retail_apparel'),
        type: 'img'
-     }
+     },
+     {
+         logo: pitchbook,
+         name: 'PITCHBOOK',
+         work: t('brand_pitchbook_work'),
+         category: t('brand_financial_saas'),
+         type: 'img'
+       },
    ], [t]);
 
     // Track if carousel is in view
@@ -255,15 +262,15 @@ function BrandsWorkedWith() {
                     style={{ fontSize: "clamp(12px, min(8.5vw, 2.2vh), 16px)" }}
                   />
 
-                  <div className="flex gap-3 mt-auto mb-1">
+                  {/* <div className="flex gap-3 mt-auto mb-1">
                     <button className="flex-1 py-2.5 rounded-full bg-white text-[#0b1120] font-bold text-[10px] hover:bg-gray-200 transition-colors text-center shadow-lg uppercase tracking-wide">
                         {t('visit_project')}
-                    </button>
+                    </button> */}
                     {/* Placeholder click handler for demo */}
-                    <button onClick={() => window.open('https://calendly.com/rgiacomo', '_blank')} className="flex-1 py-2.5 rounded-full border border-white text-white font-bold text-[10px] hover:bg-white hover:text-[#0b1120] transition-colors text-center shadow-lg uppercase tracking-wide">
+                    {/* <button onClick={() => window.open('https://calendly.com/rgiacomo', '_blank')} className="flex-1 py-2.5 rounded-full border border-white text-white font-bold text-[10px] hover:bg-white hover:text-[#0b1120] transition-colors text-center shadow-lg uppercase tracking-wide">
                         {t('book_call_short')}
                     </button>
-                  </div>
+                  </div> */}
               </div>
 
             </div>
