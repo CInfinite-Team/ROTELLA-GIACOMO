@@ -24,7 +24,7 @@ const ServiceItem = ({ s, t }) => {
         {s.title}
         {/* <p className={`opacity-0 select-none hidden lg:block ${s.title === t('service_other') ? 'hidden' : ''} `}>{s.title}</p> */}
       </div>
-      <div ref={imgRef} className='max-h-[60vh] sm:max-h-[70vh] lg:aspect-video 2xl:max-h-[80vh] shadow-xl w-full max-w-[90vw] fade-in-blur overflow-hidden rounded-xl'>
+      <div ref={imgRef} className='relative max-h-[60vh] sm:max-h-[70vh] lg:aspect-video 2xl:max-h-[80vh] shadow-xl w-full max-w-[90vw] fade-in-blur overflow-hidden rounded-xl group'>
         <img
           src={s.img}
           loading='lazy'
@@ -33,6 +33,11 @@ const ServiceItem = ({ s, t }) => {
           className='w-full h-full object-contain sm:object-cover rounded-xl'
           alt={s.title}
         />
+        <div className="absolute inset-0 bg-black/80 flex items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <p className="text-white text-base md:text-xl font-medium text-center leading-relaxed">
+            {s.description}
+          </p>
+        </div>
       </div>
     </div>
   )
@@ -68,19 +73,23 @@ const Services = React.memo(function Services() {
   const services = [
     {
       title: t('service_website'),
-      img: image
+      img: image,
+      description: t('service_website_desc')
     },
     {
       title: t('service_seo'),
-      img: image3
+      img: image3,
+      description: t('service_seo_desc')
     },
     {
       title: t('service_social'),
-      img: image2
+      img: image2,
+      description: t('service_social_desc')
     },
     {
       title: t('service_other'),
-      img: image4
+      img: image4,
+      description: t('service_other_desc')
     }
   ]
 
