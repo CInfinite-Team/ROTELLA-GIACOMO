@@ -2,8 +2,8 @@ import React from "react";
 import { useViewportAnimation } from "../animations/ScrollAnimations";
 import { useTranslation, Trans } from "react-i18next";
 import BlurText from "../animations/BlurText";
-const WhyMe = React.memo(function WhyMe() {
-  const { t, i18n } = useTranslation();
+const WhyMe = React.memo(function WhyMe({ namespace = "translation" }) {
+  const { t, i18n } = useTranslation(namespace);
   return (
     <div className="flex flex-col  bg-[#f5f5f5] gap-5 justify-center min-h-screen">
       <h2
@@ -19,9 +19,9 @@ const WhyMe = React.memo(function WhyMe() {
         ref={useViewportAnimation()}
         style={{ fontSize: "clamp(22px, 2.8vw, 67px)" }}
       >
-        <Trans i18nKey="whyme_point1" />
+        <Trans i18nKey="whyme_point1" t={t} />
         <BlurText
-          text={t("whyme_point2_part1")}
+          text={t(`whyme_point2_part1`)}
           delay={150}
           animateBy="words"
           direction="top"
@@ -29,7 +29,7 @@ const WhyMe = React.memo(function WhyMe() {
           style={{ fontSize: "clamp(22px, 2.8vw, 67px)" }}
         />
         <BlurText
-          text={t("whyme_point2_part2")}
+          text={t(`whyme_point2_part2`)}
           delay={150}
           animateBy="words"
           direction="top"

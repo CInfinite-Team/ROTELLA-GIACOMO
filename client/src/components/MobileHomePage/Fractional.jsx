@@ -3,8 +3,10 @@ import { useViewportAnimation } from "../animations/ScrollAnimations";
 
 import { useTranslation } from "react-i18next";
 
-const Fractional = React.memo(function Fractional() {
-  const { t } = useTranslation();
+const Fractional = React.memo(function Fractional({
+  namespace = "translation",
+}) {
+  const { t } = useTranslation(namespace);
   const part5Ref = useViewportAnimation();
   return (
     <div className="flex flex-col bg-[#f5f5f5]  gap-5 min-h-[80vh] lg:min-h-[100vh]  items-center justify-center">

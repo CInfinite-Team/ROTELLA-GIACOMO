@@ -96,8 +96,8 @@ const brands = [
   },
 ];
 
-export default function Hero() {
-  const { t } = useTranslation();
+export default function Hero({ namespace = "translation" }) {
+  const { t } = useTranslation(namespace);
   const { currentPrice, discountPrice, symbol } = useCurrency();
 
   return (

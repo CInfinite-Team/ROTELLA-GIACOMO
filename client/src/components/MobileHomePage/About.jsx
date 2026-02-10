@@ -3,8 +3,8 @@ import { useViewportAnimation } from "../animations/ScrollAnimations";
 import { useTranslation } from "react-i18next";
 import BlurText from "../animations/BlurText";
 
-const About = React.memo(function About() {
-  const { t } = useTranslation();
+const About = React.memo(function About({ namespace = "translation" }) {
+  const { t } = useTranslation(namespace);
   return (
     <div className="flex bg-[#f5f5f5] h-[90vh] w-full md:px-4 justify-center items-center overflow-hidden relative  ">
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 w-full max-w-screen-xl mx-auto items-center h-full justify-center">

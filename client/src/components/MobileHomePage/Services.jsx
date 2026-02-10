@@ -51,8 +51,8 @@ const ServiceItem = ({ s, t }) => {
   );
 };
 
-const Services = React.memo(function Services() {
-  const { t } = useTranslation();
+const Services = React.memo(function Services({ namespace = "translation" }) {
+  const { t } = useTranslation(namespace);
   const [swiperInstance, setSwiperInstance] = React.useState(null);
   const sectionRef = React.useRef(null);
 
