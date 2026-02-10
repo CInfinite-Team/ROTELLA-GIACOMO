@@ -1,36 +1,44 @@
-import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Navigation } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/effect-fade'
-import image from '../../assets/pics/image.png'
-import image2 from '../../assets/pics/image2.png'
-import image3 from '../../assets/pics/image3.png'
-import image4 from '../../assets/pics/image4.png'
-import { useViewportAnimation } from '../animations/ScrollAnimations'
-import { useTranslation } from 'react-i18next';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import image from "../../assets/pics/image.png";
+import image2 from "../../assets/pics/image2.png";
+import image3 from "../../assets/pics/image3.png";
+import image4 from "../../assets/pics/image4.png";
+import { useViewportAnimation } from "../animations/ScrollAnimations";
+import { useTranslation } from "react-i18next";
 
 const ServiceItem = ({ s, t }) => {
-  const titleRef = useViewportAnimation({ animationClass: 'animate-in stagger-2' });
-  const imgRef = useViewportAnimation({ animationClass: 'animate-in stagger-4' });
+  const titleRef = useViewportAnimation({
+    animationClass: "animate-in stagger-2",
+  });
+  const imgRef = useViewportAnimation({
+    animationClass: "animate-in stagger-4",
+  });
 
   return (
-    <div className='flex flex-col items-center justify-center lg:justify-start gap-5  '>
-      <div
-        className='font-bold text-center text-capitalize  text-[#181818] relative fade-in slide-up h-[100px] flex items-center justify-center'
+    <div className="flex flex-col items-center justify-center lg:justify-start gap-5  ">
+      <h3
+        className="font-bold text-center text-capitalize  text-[#181818] relative fade-in slide-up h-[100px] flex items-center justify-center"
         ref={titleRef}
         style={{ fontSize: "clamp(16px, 3vw, 30px)" }}
       >
         {s.title}
         {/* <p className={`opacity-0 select-none hidden lg:block ${s.title === t('service_other') ? 'hidden' : ''} `}>{s.title}</p> */}
-      </div>
-      <div ref={imgRef} className='relative max-h-[60vh] sm:max-h-[70vh] lg:aspect-video 2xl:max-h-[80vh] shadow-xl w-full max-w-[90vw] fade-in-blur overflow-hidden rounded-xl group'>
+      </h3>
+      <div
+        ref={imgRef}
+        className="relative max-h-[60vh] sm:max-h-[70vh] lg:aspect-video 2xl:max-h-[80vh] shadow-xl w-full max-w-[90vw] fade-in-blur overflow-hidden rounded-xl group"
+      >
         <img
           src={s.img}
-          loading='lazy'
-          decoding='async'
-          width='651' height='434'
-          className='w-full h-full object-contain sm:object-cover rounded-xl'
+          loading="lazy"
+          decoding="async"
+          width="651"
+          height="434"
+          className="w-full h-full object-contain sm:object-cover rounded-xl"
           alt={s.title}
         />
         <div className="absolute inset-0 bg-black/80 flex items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -40,8 +48,8 @@ const ServiceItem = ({ s, t }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Services = React.memo(function Services() {
   const { t } = useTranslation();
@@ -51,18 +59,21 @@ const Services = React.memo(function Services() {
   React.useEffect(() => {
     if (!swiperInstance || !sectionRef.current) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Reset to first slide and start autoplay
-          swiperInstance.slideToLoop(0, 0);
-          swiperInstance.autoplay.start();
-        } else {
-          // Stop autoplay when not in view to preserve resources and allow reset on re-entry
-          swiperInstance.autoplay.stop();
-        }
-      });
-    }, { threshold: 0.1 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Reset to first slide and start autoplay
+            swiperInstance.slideToLoop(0, 0);
+            swiperInstance.autoplay.start();
+          } else {
+            // Stop autoplay when not in view to preserve resources and allow reset on re-entry
+            swiperInstance.autoplay.stop();
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
 
     observer.observe(sectionRef.current);
     return () => {
@@ -72,70 +83,90 @@ const Services = React.memo(function Services() {
 
   const services = [
     {
-      title: t('service_website'),
+      title: t("service_website"),
       img: image,
-      description: t('service_website_desc')
+      description: t("service_website_desc"),
     },
     {
-      title: t('service_seo'),
+      title: t("service_seo"),
       img: image3,
-      description: t('service_seo_desc')
+      description: t("service_seo_desc"),
     },
     {
-      title: t('service_social'),
+      title: t("service_social"),
       img: image2,
-      description: t('service_social_desc')
+      description: t("service_social_desc"),
     },
     {
-      title: t('service_other'),
+      title: t("service_other"),
       img: image4,
-      description: t('service_other_desc')
-    }
-  ]
+      description: t("service_other_desc"),
+    },
+  ];
 
   return (
-    <div ref={sectionRef} className="bg-[#f5f5f5]  relative min-h-screen flex items-center justify-center pt-8 pb-16 px-4 md:px-20">
-
+    <div
+      ref={sectionRef}
+      className="bg-[#f5f5f5]  relative min-h-screen flex items-center justify-center pt-8 pb-16 px-4 md:px-20"
+    >
       <div className="relative w-full max-w-7xl mx-auto">
-      <Swiper
-        onSwiper={setSwiperInstance}
-        modules={[Autoplay, Navigation]}
-        spaceBetween={16}
-        slidesPerView={1}
+        <Swiper
+          onSwiper={setSwiperInstance}
+          modules={[Autoplay, Navigation]}
+          spaceBetween={16}
+          slidesPerView={1}
+          navigation={{
+            nextEl: ".services-next",
+            prevEl: ".services-prev",
+          }}
+          autoplay={{
+            delay: 2000,
+            pauseOnMouseEnter: true,
+          }}
+          speed={900}
+          loop
+          className="w-full relative"
+        >
+          {services.map((s, i) => (
+            <SwiperSlide key={i}>
+              <ServiceItem s={s} t={t} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div className=" hidden lg:block services-prev absolute left-4 lg:-left-10 top-[55%] transform  -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
+          <svg
+            className="w-5 h-5 cursor-pointer"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </div>
 
-        navigation={{
-          nextEl: '.services-next',
-          prevEl: '.services-prev'
-        }}
-        autoplay={{
-          delay: 2000,
-          pauseOnMouseEnter: true,
-        }}
-        speed={900}
-        loop
-        className="w-full relative"
-      >
-        {services.map((s, i) => (
-          <SwiperSlide key={i}>
-            <ServiceItem s={s} t={t} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <div className=" hidden lg:block services-prev absolute left-4 lg:-left-10 top-[55%] transform  -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
-        <svg className="w-5 h-5 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
+        <div className="hidden lg:block services-next absolute right-4 lg:-right-10 top-[55%] transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
+          <svg
+            className="w-5 h-5 cursor-pointer"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </div>
       </div>
-
-      <div className="hidden lg:block services-next absolute right-4 lg:-right-10 top-[55%] transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
-        <svg className="w-5 h-5 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </div>
-      </div>
-
     </div>
-  )
-})
+  );
+});
 
-export default Services
+export default Services;
