@@ -77,7 +77,7 @@ const PrizeCard = React.memo(function PrizeCard({ namespace = "translation" }) {
               {t("hero_price_comparison")}
             </span>
 
-            <p
+            <h2
               className="text-gray-600 leading-snug font-medium"
               style={{ fontSize: "clamp(12px, min(1.5vw, 1.8vh), 16px)" }}
             >
@@ -85,7 +85,7 @@ const PrizeCard = React.memo(function PrizeCard({ namespace = "translation" }) {
               <span className="font-bold text-[#911c28]">
                 {t("hero_target")}
               </span>
-            </p>
+            </h2>
           </div>
 
           {/* List Points */}

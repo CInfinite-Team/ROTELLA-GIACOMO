@@ -10,6 +10,8 @@ import image4 from "../../assets/pics/image4.png";
 import { useViewportAnimation } from "../animations/ScrollAnimations";
 import { useTranslation } from "react-i18next";
 
+import { useIsMobile } from "../../hooks/useMediaQuery";
+
 const ServiceItem = ({ s, t }) => {
   const titleRef = useViewportAnimation({
     animationClass: "animate-in stagger-2",
@@ -55,6 +57,7 @@ const Services = React.memo(function Services({ namespace = "translation" }) {
   const { t } = useTranslation(namespace);
   const [swiperInstance, setSwiperInstance] = React.useState(null);
   const sectionRef = React.useRef(null);
+  const isMobile = useIsMobile();
 
   React.useEffect(() => {
     if (!swiperInstance || !sectionRef.current) return;
@@ -133,37 +136,41 @@ const Services = React.memo(function Services({ namespace = "translation" }) {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className=" hidden lg:block services-prev absolute left-4 lg:-left-10 top-[55%] transform  -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
-          <svg
-            className="w-5 h-5 cursor-pointer"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </div>
+        {!isMobile && (
+          <div className=" hidden lg:block services-prev absolute left-4 lg:-left-10 top-[55%] transform  -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
+            <svg
+              className="w-5 h-5 cursor-pointer"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </div>
+        )}
 
-        <div className="hidden lg:block services-next absolute right-4 lg:-right-10 top-[55%] transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
-          <svg
-            className="w-5 h-5 cursor-pointer"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </div>
+        {!isMobile && (
+          <div className="hidden lg:block services-next absolute right-4 lg:-right-10 top-[55%] transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
+            <svg
+              className="w-5 h-5 cursor-pointer"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,9 +1,12 @@
+import { useIsMobile } from "../../hooks/useMediaQuery";
 import React from "react";
 import { Phone, Mail } from "lucide-react";
 import { useTranslation, Trans } from "react-i18next";
+
 function Footer({ namespace = "translation" }) {
   const { t, i18n } = useTranslation(namespace);
   const currentLang = i18n.language || "en";
+  const isMobile = useIsMobile();
 
   return (
     <footer className="text-sm md:text-xl pb-10 h-screen flex flex-col items-center lg:items-start gap-5 justify-center lg:px-[100px]">
@@ -40,14 +43,14 @@ function Footer({ namespace = "translation" }) {
         >
           {t("privacy_policy")}
         </a>
-        <span className="hidden lg:block">•</span>
+        {!isMobile && <span className="hidden lg:block">•</span>}
         <a
           href={`/${currentLang}/cookie-policy`}
           className="hover:underline hover:text-[#911c28] transition-colors"
         >
           {t("cookie_policy")}
         </a>
-        <span className="hidden lg:block">•</span>
+        {!isMobile && <span className="hidden lg:block">•</span>}
         <a
           href={`/${currentLang}/terms-and-conditions`}
           className="hover:underline hover:text-[#911c28] transition-colors text-center"

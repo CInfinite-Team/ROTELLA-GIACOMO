@@ -1,10 +1,12 @@
+import { useIsMobile } from "../../hooks/useMediaQuery";
 import React from "react";
 import { useViewportAnimation } from "../animations/ScrollAnimations";
 import { useTranslation } from "react-i18next";
 import BlurText from "../animations/BlurText";
-
 const About = React.memo(function About({ namespace = "translation" }) {
   const { t } = useTranslation(namespace);
+  const isMobile = useIsMobile();
+
   return (
     <div className="flex bg-[#f5f5f5] h-[90vh] w-full md:px-4 justify-center items-center overflow-hidden relative  ">
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 w-full max-w-screen-xl mx-auto items-center h-full justify-center">
@@ -13,22 +15,25 @@ const About = React.memo(function About({ namespace = "translation" }) {
           className="w-full lg:w-5/12 flex justify-center lg:justify-end fade-in lg:pr-8"
           ref={useViewportAnimation()}
         >
-          <div className="relative hidden lg:block h-[clamp(200px,40vh,500px)] w-auto aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 ease-out">
-            <img
-              src="/Giacomo.webp"
-              alt="Giacomo Rotella"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div className="relative lg:hidden h-[clamp(100px,30vh,500px)] w-auto aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 ease-out">
-            <img
-              src="/Giacomo.webp"
-              alt="Giacomo Rotella"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
+          {isMobile ? (
+            <div className="relative lg:hidden h-[clamp(100px,30vh,500px)] w-auto aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 ease-out">
+              <img
+                src="/Giacomo.webp"
+                alt="Giacomo Rotella"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          ) : (
+            <div className="relative hidden lg:block h-[clamp(200px,40vh,500px)] w-auto aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 ease-out">
+              <img
+                src="/Giacomo.webp"
+                alt="Giacomo Rotella"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          )}
         </div>
 
         {/* Content Section */}

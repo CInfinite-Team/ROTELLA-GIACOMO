@@ -12,8 +12,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-// import Giacomo from '../../assets/Giacomo.webp'
-import DoGBay from "../../assets/Brands/DoGBay.mp4"; // Seems to be the only one, using for both for now
+import DoGBay from "../../assets/Brands/DoGBay.mp4";
 import RisinVenture from "../../assets/Brands/RisinVenture.png";
 import RisinVentureMob from "../../assets/Brands/RisinVenturesMob.png";
 import BadgervidDesktop from "../../assets/Brands/BadgerMapVidDesktop.mp4";
@@ -24,25 +23,20 @@ import AiSummitVidDesktop from "../../assets/Brands/AiSummitVidDesktop.mp4";
 import AiSummitVid from "../../assets/Brands/AiSummitVid.mp4";
 import RadianceVidDesktop from "../../assets/Brands/RadianceVidDesktop.mp4";
 import RadianceVid from "../../assets/Brands/RadianceVid.mp4";
-// Import brand logos
 import GucciImage from "../../assets/Brands/GucciImage.svg";
 import WebSetupVidDesktop from "../../assets/Brands/WebSetupVidDesktop.mp4";
 import WebSetupVid from "../../assets/Brands/WebSetupVid.mp4";
-// import BardeLogo from '../../assets/Brands/Barde.svg'
-// import GucciLogo from '../../assets/Brands/GUCCI.svg'
 import KananVidDesktop from "../../assets/Brands/KananVidDesktop.mp4";
 import KananVid from "../../assets/Brands/KananVid.mp4";
 import OffBeattImg from "../../assets/Brands/OffBeattImg.png";
-// import KukrejaLogo from '../../assets/Brands/Kukreja.svg'
 import LondonLanesImg from "../../assets/Brands/LondonLanesImg.svg";
 import JackWillsDesktop from "../../assets/Brands/JackWillsDesktop.png";
-// import OffbeatsLogo from '../../assets/Brands/OFFBEATS.svg'
 import SapniImg from "../../assets/Brands/SapniImg.svg";
 import pitchbookDesktop from "../../assets/Brands/pitchbookDesktop.png";
 import pitchbook from "../../assets/Brands/pitchbookImage.png";
-// import BadgerMap from '../../assets/Brands/BadgerMap.svg'
 import { useCalendly } from "../../hooks/useCalendly";
 import ClippedText from "./ClippedText";
+import { useIsMobile } from "../../hooks/useMediaQuery";
 
 const BrandCarousel = React.memo(function BrandCarousel({
   namespace = "translation",
@@ -53,6 +47,7 @@ const BrandCarousel = React.memo(function BrandCarousel({
   const carouselRef = useRef(null);
   const videoRefs = useRef([]);
   const mobileVideoRefs = useRef([]);
+  const isMobile = useIsMobile();
 
   const { openCalendlyPopup } = useCalendly();
   const { t } = useTranslation(namespace);
@@ -260,10 +255,6 @@ const BrandCarousel = React.memo(function BrandCarousel({
         className="w-full  absolute top-1/2 -translate-y-1/2 max-w-6xl mx-auto py-8 md:px-14"
         ref={useViewportAnimation()}
       >
-        {/* <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
-        Some of the brands I've worked with
-      </h2> */}
-
         {/* Swiper Carousel */}
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
@@ -303,56 +294,41 @@ const BrandCarousel = React.memo(function BrandCarousel({
         >
           {brands.map((brand, index) => (
             <SwiperSlide key={index}>
-              <div
-                //  w-[70%] 2xl:w-[65%] 2xl:h-[90vh] h-[450px] md:h-[560px] lg:h-[80vh] lg:w-[400px] lg:
-                className="group relative  xl:mt-auto flex flex-col  overflow-hidden cursor-pointer transition-all duration-300 w-auto max-h-[80vh]  mx-auto "
-              >
-                {/* Card Header */}
-                {/* <div className="  p-3 pb-5  top-0 w-full text-center ">
-                <h3 className="font-bold text-sm uppercase text-gray-800 mb-1">{brand.name}</h3>
-                <p className="text-xs text-gray-600">{brand.category}</p>
-              </div> */}
-
-                {/* Card Image/Logo Area */}
+              <div className="group relative  xl:mt-auto flex flex-col  overflow-hidden cursor-pointer transition-all duration-300 w-auto max-h-[80vh]  mx-auto ">
                 {/* Card Image/Logo Area */}
                 <div className="w-full relative rounded-2xl shadow-lg overflow-hidden h-full flex flex-row bg-[#00050f] aspect-[9/16] lg:aspect-[14/9]">
                   {/* Left Panel (Info) - Visible on Hover (Desktop) */}
-                  <div
-                    className={`hidden lg:flex flex-col justify-center p-8 lg:p-12 text-white h-full transition-all duration-500 ease-in-out absolute left-0 top-0 z-20 ${
-                      isHovered !== index
-                        ? "w-[65%] opacity-100 translate-x-0"
-                        : "w-[65%] opacity-0 -translate-x-10 pointer-events-none"
-                    }`}
-                  >
-                    <h3
-                      className="font-bold uppercase mb-2 leading-tight"
-                      style={{ fontSize: "clamp(22px, 3vw, 40px)" }}
+                  {!isMobile && (
+                    <div
+                      className={`hidden lg:flex flex-col justify-center p-8 lg:p-12 text-white h-full transition-all duration-500 ease-in-out absolute left-0 top-0 z-20 ${
+                        isHovered !== index
+                          ? "w-[65%] opacity-100 translate-x-0"
+                          : "w-[65%] opacity-0 -translate-x-10 pointer-events-none"
+                      }`}
                     >
-                      {brand.name}
-                    </h3>
-                    <p
-                      className="text-gray-400 font-medium tracking-wider uppercase mb-4"
-                      style={{ fontSize: "clamp(12px, 1.2vw, 16px)" }}
-                    >
-                      {brand.category}
-                    </p>
+                      <h3
+                        className="font-bold uppercase mb-2 leading-tight"
+                        style={{ fontSize: "clamp(22px, 3vw, 40px)" }}
+                      >
+                        {brand.name}
+                      </h3>
+                      <p
+                        className="text-gray-400 font-medium tracking-wider uppercase mb-4"
+                        style={{ fontSize: "clamp(12px, 1.2vw, 16px)" }}
+                      >
+                        {brand.category}
+                      </p>
 
-                    <ClippedText
-                      text={brand.work}
-                      className="mb-6"
-                      textClassName="text-gray-300 leading-relaxed line-clamp-4 xl:line-clamp-6 2xl:line-clamp-[8] "
-                      style={{ fontSize: "clamp(14px, min(1.6vw, 5vh), 56px)" }}
-                    />
-
-                    {/* <div className="flex flex-nowrap gap-2 xl:gap-4 mt-auto">
-                        <button className="px-4 xl:px-6 py-2 xl:py-3 rounded-full bg-white text-[#0b1120] font-bold text-[10px] xl:text-sm hover:bg-gray-200 transition-colors whitespace-nowrap">
-                            {t('visit_project')}
-                        </button>
-                        <button onClick={handleCallClick} className="px-4 xl:px-6 py-2 xl:py-3 rounded-full border border-white text-white font-bold text-[10px] xl:text-sm hover:bg-white hover:text-[#0b1120] transition-colors whitespace-nowrap">
-                            {t('book_call_short')}
-                        </button>
-                    </div> */}
-                  </div>
+                      <ClippedText
+                        text={brand.work}
+                        className="mb-6"
+                        textClassName="text-gray-300 leading-relaxed line-clamp-4 xl:line-clamp-6 2xl:line-clamp-[8] "
+                        style={{
+                          fontSize: "clamp(14px, min(1.6vw, 5vh), 56px)",
+                        }}
+                      />
+                    </div>
+                  )}
 
                   {/* Right Panel (Media) */}
                   <div
@@ -365,93 +341,75 @@ const BrandCarousel = React.memo(function BrandCarousel({
                     }`}
                   >
                     {/* DESKTOP MEDIA (Visible on HOVER) */}
-                    <div
-                      className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${isHovered === index ? "opacity-100" : "opacity-0"}`}
-                    >
-                      {brand.type === "img" ? (
-                        <img
-                          src={brand.logo}
-                          alt={`${brand.name} logo`}
-                          className="w-full h-full object-cover object-top"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      ) : (
-                        <video
-                          ref={(el) => (videoRefs.current[index] = el)}
-                          src={brand.logo}
-                          playsInline
-                          loop
-                          autoPlay
-                          muted
-                          preload="metadata"
-                          className="w-full h-full object-cover object-center bg-black"
-                        />
-                      )}
-                    </div>
+                    {(!isMobile || isHovered === index) && (
+                      <div
+                        className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${isHovered === index ? "opacity-100" : "opacity-0"}`}
+                      >
+                        {brand.type === "img" ? (
+                          <img
+                            src={brand.logo}
+                            alt={`${brand.name} logo`}
+                            className="w-full h-full object-cover object-top"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
+                          <video
+                            ref={(el) => (videoRefs.current[index] = el)}
+                            src={brand.logo}
+                            playsInline
+                            loop
+                            autoPlay
+                            muted
+                            preload="metadata"
+                            className="w-full h-full object-cover object-center bg-black"
+                          />
+                        )}
+                      </div>
+                    )}
 
                     {/* MOBILE MEDIA (Visible on DEFAULT / NO HOVER) */}
-                    <div
-                      className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${isHovered !== index ? "opacity-100" : "opacity-0"}`}
-                    >
-                      {brand.type === "img" ? (
-                        <img
-                          src={brand.mobileLogo}
-                          alt={`${brand.name} mobile logo`}
-                          className="w-full h-full object-cover object-top scale-110"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      ) : (
-                        <video
-                          ref={(el) => (mobileVideoRefs.current[index] = el)}
-                          src={brand.mobileLogo}
-                          playsInline
-                          muted
-                          autoPlay={false}
-                          preload="metadata"
-                          onLoadedMetadata={(e) => (e.target.currentTime = 2)}
-                          className="w-full h-full object-cover object-top bg-black scale-110"
-                        />
-                      )}
-                    </div>
-
-                    {/* Dark Overlay for non-hover state readability if text overlap, or just aesthetic */}
-                    <div
-                      className={`absolute inset-0 bg-black/20 pointer-events-none transition-opacity duration-300 ${isHovered === index ? "opacity-0" : "opacity-0"}`}
-                    ></div>
+                    {(isMobile || isHovered !== index) && (
+                      <div
+                        className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${isHovered !== index ? "opacity-100" : "opacity-0"}`}
+                      >
+                        {brand.type === "img" ? (
+                          <img
+                            src={brand.mobileLogo}
+                            alt={`${brand.name} mobile logo`}
+                            className="w-full h-full object-cover object-top scale-110"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
+                          <video
+                            ref={(el) => (mobileVideoRefs.current[index] = el)}
+                            src={brand.mobileLogo}
+                            playsInline
+                            muted
+                            autoPlay={false}
+                            preload="metadata"
+                            onLoadedMetadata={(e) => (e.target.currentTime = 2)}
+                            className="w-full h-full object-cover object-top bg-black scale-110"
+                          />
+                        )}
+                      </div>
+                    )}
                   </div>
 
                   {/* Mobile Overlay (kept for smaller screens) */}
-                  <div
-                    className={`lg:hidden absolute inset-0 bg-black/80 text-white p-6 flex flex-col justify-center text-center transition-opacity duration-300 ${isHovered === index ? "opacity-100" : "opacity-0"}`}
-                  >
-                    <h3 className="font-bold text-xl mb-1">{brand.name}</h3>
-                    <p className="text-blue-200 text-xs mb-3 uppercase">
-                      {brand.category}
-                    </p>
-                    <div className="text-sm text-gray-200">{brand.work}</div>
-                  </div>
+                  {isMobile && (
+                    <div
+                      className={`lg:hidden absolute inset-0 bg-black/80 text-white p-6 flex flex-col justify-center text-center transition-opacity duration-300 ${isHovered === index ? "opacity-100" : "opacity-0"}`}
+                    >
+                      <h3 className="font-bold text-xl mb-1">{brand.name}</h3>
+                      <p className="text-blue-200 text-xs mb-3 uppercase">
+                        {brand.category}
+                      </p>
+                      <div className="text-sm text-gray-200">{brand.work}</div>
+                    </div>
+                  )}
                 </div>
-
-                {/* Card Footer with CTA */}
-                {/* <div className=" bottom-0  flex justify-between items-center gap-2 z-50 left-0 right-0 pt-5 p-3">
-                 <button
-                           type="button"
-                           onClick={handleCallClick}
-                           className="w-fit h-fit bg-red-800 hover:bg-red-900 text-white text-xs 2xl:text-xl font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
-                         >
-                           LET'S TALK
-                         </button>
-                  <div className='relative w-fit h-fit'>
-                <img src='/Giacomo.webp'  loading="lazy"
-                  decoding="async" className='bg-gray-400 w-14 2xl:w-24 2xl:h-24 object-cover object-top h-14 rounded-full' alt="Rotella Giacomo"  width="96" height="96" />
-                <span className="absolute bottom-2 left-0 flex size-3">
-                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-                 <span className="relative inline-flex size-3 rounded-full bg-[#0add0a]"></span>
-                </span>
-                </div>
-              </div> */}
               </div>
             </SwiperSlide>
           ))}
@@ -461,37 +419,41 @@ const BrandCarousel = React.memo(function BrandCarousel({
         </Swiper>
 
         {/* Custom Navigation Buttons */}
-        <div className="swiper-button-prev-custom hidden md:block absolute left-4 xl:left-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
-          <svg
-            className="w-5 h-5 cursor-pointer"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </div>
+        {!isMobile && (
+          <>
+            <div className="swiper-button-prev-custom hidden md:block absolute left-4 xl:left-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
+              <svg
+                className="w-5 h-5 cursor-pointer"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </div>
 
-        <div className="swiper-button-next-custom hidden md:block absolute right-4 xl:right-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
-          <svg
-            className="w-5 h-5 cursor-pointer"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </div>
+            <div className="swiper-button-next-custom hidden md:block absolute right-4 xl:right-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
+              <svg
+                className="w-5 h-5 cursor-pointer"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
