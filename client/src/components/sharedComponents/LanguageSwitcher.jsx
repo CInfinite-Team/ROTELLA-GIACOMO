@@ -37,7 +37,7 @@ const LanguageSwitcher = () => {
     const whatsappMessage = "Ciao Giacomo! I'm interested in your services."; 
 
     return (
-        <div className="fixed bottom-20 md:bottom-24 lg:bottom-6 right-6 z-[9999] flex flex-col items-end gap-2">
+        <div className="fixed hidden lg:flex bottom-20 md:bottom-24 lg:bottom-6 right-6 z-[9999]  flex-col items-end gap-2">
             <AnimatePresence>
              {isOpen && (
                 <motion.div
