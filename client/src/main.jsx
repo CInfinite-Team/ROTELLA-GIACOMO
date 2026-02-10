@@ -1,12 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import AppRouter from './Router.jsx'
-import { BrowserRouter } from 'react-router-dom'
-import { CurrencyProvider } from './context/CurrencyContext.jsx'
-import './i18n'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import AppRouter from "./Router.jsx";
+import { BrowserRouter } from "react-router-dom";
+import { CurrencyProvider } from "./context/CurrencyContext.jsx";
+import "./i18n";
 
-createRoot(document.getElementById('root')).render(
+// import { HelmetProvider } from 'react-helmet-async';
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <CurrencyProvider>
@@ -14,4 +16,4 @@ createRoot(document.getElementById('root')).render(
       </CurrencyProvider>
     </BrowserRouter>
   </StrictMode>,
-)
+);

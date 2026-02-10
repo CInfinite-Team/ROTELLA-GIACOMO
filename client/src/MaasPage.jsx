@@ -2,6 +2,9 @@ import { useEffect, useState, lazy, Suspense } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative, Mousewheel, Keyboard } from "swiper/modules";
 import "swiper/css";
+// import { Helmet } from "react-helmet-async";
+
+import { useTranslation } from "react-i18next";
 import "swiper/css/pagination";
 // import Hero from '../MobileHomePage/Hero'
 const SmallBusiness = lazy(
@@ -45,7 +48,7 @@ const SlideLayout = ({ children, padding = true }) => (
   </div>
 );
 
-function WorkBook() {
+function MaasPage() {
   // Delay mounting Swiper to improve FCP/LCP/TBT by rendering only first slide initially
   const [enableSwiper, setEnableSwiper] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -81,8 +84,25 @@ function WorkBook() {
     }
   }, []);
 
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language;
+
+  console.log("MaasPage (WorkBook) rendering with lang:", currentLang);
+
   return (
     <>
+      {/* React 19 Native Metadata Hoisting */}
+      <title>Marketing Team as a Service | Rotella Giacomo</title>
+      <meta
+        name="description"
+        content="Marketing Team as a Service for small businesses. Get a full marketing team without hiring full time. Strategy, SEO, website, social media and execution. Book a free call."
+      />
+      <link
+        rel="canonical"
+        href={`https://rotella-giacomo.vercel.app/${currentLang}/marketing-team-as-a-service`}
+      />
+      {console.log("Rendering meta tags in MaasPage for lang:", currentLang)}
+
       <div className="lg:hidden w-full h-full bg-[#f5f5f5]">
         <Suspense
           fallback={
@@ -268,4 +288,4 @@ function WorkBook() {
   );
 }
 
-export default WorkBook;
+export default MaasPage;
