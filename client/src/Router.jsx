@@ -111,7 +111,7 @@ export default function AppRouter() {
         {/* English routes - specific routes BEFORE wildcard */}
         <Route path="/en/marketing-team-as-a-service" element={<MaasPage />} />
         <Route
-          path="/en/fractional-marketing"
+          path="/en/fractional-marketing-team"
           element={<FractionalPage />}
         />
         <Route path="/en/privacy-policy" element={<PrivacyPolicy />} />
@@ -125,7 +125,7 @@ export default function AppRouter() {
         {/* Italian routes - specific routes BEFORE wildcard */}
         <Route path="/it/marketing-team-as-a-service" element={<MaasPage />} />
         <Route
-          path="/it/fractional-marketing"
+          path="/it/fractional-marketing-team"
           element={<FractionalPage />}
         />
         <Route path="/it/privacy-policy" element={<PrivacyPolicy />} />
@@ -139,7 +139,7 @@ export default function AppRouter() {
         {/* German routes - specific routes BEFORE wildcard */}
         <Route path="/de/marketing-team-as-a-service" element={<MaasPage />} />
         <Route
-          path="/de/fractional-marketing"
+          path="/de/fractional-marketing-team"
           element={<FractionalPage />}
         />
         <Route path="/de/privacy-policy" element={<PrivacyPolicy />} />
@@ -153,7 +153,7 @@ export default function AppRouter() {
         {/* French routes - specific routes BEFORE wildcard */}
         <Route path="/fr/marketing-team-as-a-service" element={<MaasPage />} />
         <Route
-          path="/fr/fractional-marketing"
+          path="/fr/fractional-marketing-team"
           element={<FractionalPage />}
         />
         <Route path="/fr/privacy-policy" element={<PrivacyPolicy />} />
@@ -174,7 +174,7 @@ export default function AppRouter() {
         />
         <Route path="/es/marketing-team-as-a-service" element={<MaasPage />} />
         <Route
-          path="/es/fractional-marketing"
+          path="/es/fractional-marketing-team"
           element={<FractionalPage />}
         />
         <Route path="/es/*" element={<App />} />
