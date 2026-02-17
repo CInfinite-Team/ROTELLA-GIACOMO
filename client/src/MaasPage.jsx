@@ -37,6 +37,10 @@ const Testimonials = lazy(
   () => import("./components/sharedComponents/Testimonials"),
 );
 
+const SlideNavigation = lazy(
+  () => import("./components/sharedComponents/SlideNavigation"),
+);
+
 const SlideLayout = ({ children, padding = true }) => (
   <div
     className={`flex-1 h-full overflow-hidden lg:pr-[35%] xl:pr-[32%] 2xl:pr-[30vw] ${padding ? "px-5 md:px-10 2xl:pl-[10vw]" : "2xl:px-5 "}`}
@@ -49,7 +53,7 @@ function MaasPage() {
   // Delay mounting Swiper to improve FCP/LCP/TBT by rendering only first slide initially
   const [enableSwiper, setEnableSwiper] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const totalSlides = 13; // Total number of slides
+  const totalSlides = 14; // Total number of slides
   const [swiperInstance, setSwiperInstance] = useState(null);
 
   useEffect(() => {
@@ -260,6 +264,11 @@ function MaasPage() {
                     </Suspense>
                   </SlideLayout>
                 </SwiperSlide>
+                <SlideNavigation
+                  swiper={swiperInstance}
+                  activeIndex={activeIndex}
+                  totalSlides={totalSlides}
+                />
               </Swiper>
             )}
           </div>
