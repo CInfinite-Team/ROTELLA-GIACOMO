@@ -37,6 +37,7 @@ import PrivacyPolicy from "./components/Pages/PrivacyPolicy";
 import CookiePolicy from "./components/Pages/CookiePolicy";
 import TermsAndConditions from "./components/Pages/TermsAndConditions";
 import MaasPage from "./MaasPage.jsx";
+import FractionalPage from "./FractionalPage.jsx";
 
 function RootRedirect() {
   // This component handles the "/" path logic
@@ -109,6 +110,10 @@ export default function AppRouter() {
 
         {/* English routes - specific routes BEFORE wildcard */}
         <Route path="/en/marketing-team-as-a-service" element={<MaasPage />} />
+        <Route
+          path="/en/fractional-marketing"
+          element={<FractionalPage />}
+        />
         <Route path="/en/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/en/cookie-policy" element={<CookiePolicy />} />
         <Route
@@ -119,6 +124,10 @@ export default function AppRouter() {
 
         {/* Italian routes - specific routes BEFORE wildcard */}
         <Route path="/it/marketing-team-as-a-service" element={<MaasPage />} />
+        <Route
+          path="/it/fractional-marketing"
+          element={<FractionalPage />}
+        />
         <Route path="/it/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/it/cookie-policy" element={<CookiePolicy />} />
         <Route
@@ -129,6 +138,10 @@ export default function AppRouter() {
 
         {/* German routes - specific routes BEFORE wildcard */}
         <Route path="/de/marketing-team-as-a-service" element={<MaasPage />} />
+        <Route
+          path="/de/fractional-marketing"
+          element={<FractionalPage />}
+        />
         <Route path="/de/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/de/cookie-policy" element={<CookiePolicy />} />
         <Route
@@ -139,6 +152,10 @@ export default function AppRouter() {
 
         {/* French routes - specific routes BEFORE wildcard */}
         <Route path="/fr/marketing-team-as-a-service" element={<MaasPage />} />
+        <Route
+          path="/fr/fractional-marketing"
+          element={<FractionalPage />}
+        />
         <Route path="/fr/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/fr/cookie-policy" element={<CookiePolicy />} />
         <Route
@@ -154,6 +171,11 @@ export default function AppRouter() {
         <Route
           path="/es/terms-and-conditions"
           element={<TermsAndConditions />}
+        />
+        <Route path="/es/marketing-team-as-a-service" element={<MaasPage />} />
+        <Route
+          path="/es/fractional-marketing"
+          element={<FractionalPage />}
         />
         <Route path="/es/*" element={<App />} />
       </Routes>
