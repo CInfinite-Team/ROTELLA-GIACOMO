@@ -14,9 +14,9 @@ i18n
             escapeValue: false, // not needed for react as it escapes by default
         },
         backend: {
-            loadPath: '/locales/{{lng}}/{{ns}}.json',
+            loadPath: '/locales/{{lng}}/{{ns}}.json?v=1',
         },
-        ns: ['translation', 'maas'],
+        ns: ['translation', 'maas', 'fractional'],
         defaultNS: 'translation',
         react: {
             useSuspense: true,

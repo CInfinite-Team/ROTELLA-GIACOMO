@@ -249,7 +249,7 @@ function MaasPage() {
                 <SwiperSlide className="overflow-hidden bg-[#F5F5F5]">
                   <SlideLayout>
                     <Suspense fallback={<div className="w-full" />}>
-                      <Faq namespace="maas" />
+                      <Faq namespace="maas" page="MaaS" />
                     </Suspense>
                   </SlideLayout>
                 </SwiperSlide>

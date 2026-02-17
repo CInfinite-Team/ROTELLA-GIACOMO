@@ -142,7 +142,7 @@ function HomeMobile({ namespace = "translation" }) {
         </SwiperSlide>
         <SwiperSlide className="overflow-hidden bg-[#F5F5F5]">
           <div className="px-5 md:px-10">
-            <Faq namespace={namespace} />
+            <Faq namespace={namespace} page="Home" />
           </div>
         </SwiperSlide>
         <SwiperSlide className="overflow-hidden bg-[#F5F5F5]">

@@ -249,7 +249,7 @@ function FractionalPage() {
                 <SwiperSlide className="overflow-hidden bg-[#F5F5F5]">
                   <SlideLayout>
                     <Suspense fallback={<div className="w-full" />}>
-                      <Faq namespace="fractional" />
+                      <Faq namespace="fractional" page="Fractional Marketing" />
                     </Suspense>
                   </SlideLayout>
                 </SwiperSlide>

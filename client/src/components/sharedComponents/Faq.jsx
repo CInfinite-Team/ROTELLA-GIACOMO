@@ -4,54 +4,123 @@ import { useCurrency } from "../../context/CurrencyContext";
 import { useViewportAnimation } from "../../components/animations/ScrollAnimations";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-const FAQ = React.memo(function FAQ({ namespace = "translation" }) {
+const FAQ = React.memo(function FAQ({
+  namespace = "translation",
+  page = "Home",
+}) {
   const [activeIndex, setActiveIndex] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [startIndex, setStartIndex] = useState(0);
-  const { t } = useTranslation(namespace);
+  const { t } = useTranslation(["translation", "maas", "fractional"]);
   const { formatPrice, currentPrice, discountPrice } = useCurrency();
-
-  const categories = ["All", "Fractional Marketing"];
 
   const allItems = useMemo(
     () => [
+      // Home FAQs - these use the "translation" namespace translations
       {
-        category: "Fractional Marketing",
-        question: t("faq_q1"),
-        answer: t("faq_a1"),
+        page: "Home",
+        category: "General",
+        question: t("translation:faq_q1"),
+        answer: t("translation:faq_a1"),
       },
       {
-        category: "Fractional Marketing",
-        question: t("faq_q2"),
-        answer: t("faq_a2", { price: formatPrice(discountPrice) }),
+        page: "Home",
+        category: "General",
+        question: t("translation:faq_q2"),
+        answer: t("translation:faq_a2", { price: formatPrice(discountPrice) }),
+      },
+      // MaaS FAQs - these use the "maas" namespace translations
+      {
+        page: "MaaS",
+        category: "MaaS",
+        question: t("maas:faq_q1"),
+        answer: t("maas:faq_a1"),
       },
       {
-        category: "Fractional Marketing",
-        question: t("faq_q3"),
-        answer: t("faq_a3"),
+        page: "MaaS",
+        category: "MaaS",
+        question: t("maas:faq_q2"),
+        answer: t("maas:faq_a2", { price: formatPrice(discountPrice) }),
       },
       {
-        category: "Fractional Marketing",
-        question: t("faq_q4"),
-        answer: t("faq_a4"),
+        page: "MaaS",
+        category: "MaaS",
+        question: t("maas:faq_q3"),
+        answer: t("maas:faq_a3"),
       },
       {
-        category: "Fractional Marketing",
-        question: t("faq_q5"),
-        answer: t("faq_a5"),
+        page: "MaaS",
+        category: "MaaS",
+        question: t("maas:faq_q4"),
+        answer: t("maas:faq_a4"),
       },
       {
+        page: "MaaS",
+        category: "MaaS",
+        question: t("maas:faq_q5"),
+        answer: t("maas:faq_a5"),
+      },
+      {
+        page: "MaaS",
+        category: "MaaS",
+        question: t("maas:faq_q6"),
+        answer: t("maas:faq_a6"),
+      },
+      // Fractional Marketing FAQs - these use the "fractional" namespace translations
+      {
+        page: "Fractional Marketing",
         category: "Fractional Marketing",
-        question: t("faq_q6"),
-        answer: t("faq_a6"),
+        question: t("fractional:faq_q1"),
+        answer: t("fractional:faq_a1"),
+      },
+      {
+        page: "Fractional Marketing",
+        category: "Fractional Marketing",
+        question: t("fractional:faq_q2"),
+        answer: t("fractional:faq_a2", { price: formatPrice(discountPrice) }),
+      },
+      {
+        page: "Fractional Marketing",
+        category: "Fractional Marketing",
+        question: t("fractional:faq_q3"),
+        answer: t("fractional:faq_a3"),
+      },
+      {
+        page: "Fractional Marketing",
+        category: "Fractional Marketing",
+        question: t("fractional:faq_q4"),
+        answer: t("fractional:faq_a4"),
+      },
+      {
+        page: "Fractional Marketing",
+        category: "Fractional Marketing",
+        question: t("fractional:faq_q5"),
+        answer: t("fractional:faq_a5"),
+      },
+      {
+        page: "Fractional Marketing",
+        category: "Fractional Marketing",
+        question: t("fractional:faq_q6"),
+        answer: t("fractional:faq_a6"),
       },
     ],
-    [t, formatPrice],
+    [t, formatPrice, discountPrice],
   );
 
+  const pageCategories = useMemo(() => {
+    const pages = new Set(allItems.map((item) => item.page));
+    // Remove "Home" from the filter buttons
+    pages.delete("Home");
+    return ["All", ...Array.from(pages)];
+  }, [allItems]);
+
   const filteredItems = useMemo(() => {
-    if (selectedCategory === "All") return allItems;
-    return allItems.filter((item) => item.category === selectedCategory);
+    if (selectedCategory === "All") {
+      // Show all FAQs including Home FAQs
+      return allItems;
+    }
+    // Filter by specific page
+    return allItems.filter((item) => item.page === selectedCategory);
   }, [selectedCategory, allItems]);
 
   const itemsPerView = 4; // Show 4 items at a time
@@ -92,9 +161,9 @@ const FAQ = React.memo(function FAQ({ namespace = "translation" }) {
           {t("faq_title")}
         </h2>
 
-        {/* Category Buttons */}
+        {/* Page Filter Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-3 sm:mb-6 xl:mb-10">
-          {categories.map((cat) => (
+          {pageCategories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
