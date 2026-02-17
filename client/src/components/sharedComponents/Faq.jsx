@@ -14,6 +14,8 @@ const FAQ = React.memo(function FAQ({
   const { t } = useTranslation(["translation", "maas", "fractional"]);
   const { formatPrice, currentPrice, discountPrice } = useCurrency();
 
+  console.log("FAQ Render - Page:", page, "Namespace:", namespace);
+
   const allItems = useMemo(
     () => [
       // Home FAQs - these use the "translation" namespace translations
@@ -26,8 +28,26 @@ const FAQ = React.memo(function FAQ({
       {
         page: "Home",
         category: "General",
-        question: t("translation:faq_q2"),
-        answer: t("translation:faq_a2", { price: formatPrice(discountPrice) }),
+        question: t("translation:faq_q3"),
+        answer: t("translation:faq_a3", { price: formatPrice(discountPrice) }),
+      },
+      {
+        page: "Home",
+        category: "General",
+        question: t("translation:faq_q4"),
+        answer: t("translation:faq_a4", { price: formatPrice(discountPrice) }),
+      },
+      {
+        page: "Home",
+        category: "General",
+        question: t("translation:faq_q5"),
+        answer: t("translation:faq_a5", { price: formatPrice(discountPrice) }),
+      },
+      {
+        page: "Home",
+        category: "General",
+        question: t("translation:faq_q6"),
+        answer: t("translation:faq_a6", { price: formatPrice(discountPrice) }),
       },
       // MaaS FAQs - these use the "maas" namespace translations
       {
@@ -108,11 +128,8 @@ const FAQ = React.memo(function FAQ({
   );
 
   const pageCategories = useMemo(() => {
-    const pages = new Set(allItems.map((item) => item.page));
-    // Remove "Home" from the filter buttons
-    pages.delete("Home");
-    return ["All", ...Array.from(pages)];
-  }, [allItems]);
+    return ["All", page];
+  }, [page]);
 
   const filteredItems = useMemo(() => {
     if (selectedCategory === "All") {

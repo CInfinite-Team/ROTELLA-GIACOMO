@@ -106,7 +106,7 @@ function MaasPage() {
               <div className="w-full h-full flex items-center justify-center"></div>
             }
           >
-            <HomeMobile namespace="maas" />
+            <HomeMobile namespace="maas" page="MaaS" />
           </Suspense>
         </div>
       ) : (

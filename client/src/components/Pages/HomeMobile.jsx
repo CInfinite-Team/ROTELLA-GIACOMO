@@ -21,7 +21,7 @@ import Testimonials from "../sharedComponents/Testimonials";
 import BrandCarousel from "../sharedComponents/BrandCarousel";
 
 import { useEffect } from "react";
-function HomeMobile({ namespace = "translation" }) {
+function HomeMobile({ page="Home",namespace = "translation" }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const totalSlides = 14; // Total number of slides
@@ -142,7 +142,7 @@ function HomeMobile({ namespace = "translation" }) {
         </SwiperSlide>
         <SwiperSlide className="overflow-hidden bg-[#F5F5F5]">
           <div className="px-5 md:px-10">
-            <Faq namespace={namespace} page="Home" />
+            <Faq namespace={namespace} page={page} />
           </div>
         </SwiperSlide>
         <SwiperSlide className="overflow-hidden bg-[#F5F5F5]">

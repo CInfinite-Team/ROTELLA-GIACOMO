@@ -220,7 +220,7 @@ function WorkBook() {
             <SwiperSlide className="overflow-hidden bg-[#F5F5F5]">
               <SlideLayout>
                 <Suspense fallback={<div className="w-full" />}>
-                  <Faq page="Home" />
+                  <Faq page="Maas" />
                 </Suspense>
               </SlideLayout>
             </SwiperSlide>

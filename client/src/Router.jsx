@@ -120,7 +120,7 @@ export default function AppRouter() {
           path="/en/terms-and-conditions"
           element={<TermsAndConditions />}
         />
-        <Route path="/en/*" element={<App />} />
+        <Route path="/en/" element={<App />} />
 
         {/* Italian routes - specific routes BEFORE wildcard */}
         <Route path="/it/marketing-team-as-a-service" element={<MaasPage />} />
@@ -134,7 +134,7 @@ export default function AppRouter() {
           path="/it/terms-and-conditions"
           element={<TermsAndConditions />}
         />
-        <Route path="/it/*" element={<App />} />
+        <Route path="/it/" element={<App />} />
 
         {/* German routes - specific routes BEFORE wildcard */}
         <Route path="/de/marketing-team-as-a-service" element={<MaasPage />} />
@@ -148,7 +148,7 @@ export default function AppRouter() {
           path="/de/terms-and-conditions"
           element={<TermsAndConditions />}
         />
-        <Route path="/de/*" element={<App />} />
+        <Route path="/de/" element={<App />} />
 
         {/* French routes - specific routes BEFORE wildcard */}
         <Route path="/fr/marketing-team-as-a-service" element={<MaasPage />} />
@@ -162,7 +162,7 @@ export default function AppRouter() {
           path="/fr/terms-and-conditions"
           element={<TermsAndConditions />}
         />
-        <Route path="/fr/*" element={<App />} />
+        <Route path="/fr/" element={<App />} />
 
         {/* Spanish routes - specific routes BEFORE wildcard */}
         <Route path="/es/marketing-team-as-a-service" element={<MaasPage />} />

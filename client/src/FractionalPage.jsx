@@ -106,7 +106,7 @@ function FractionalPage() {
               <div className="w-full h-full flex items-center justify-center"></div>
             }
           >
-            <HomeMobile namespace="fractional" />
+            <HomeMobile namespace="fractional" page="Fractional Marketing" />
           </Suspense>
         </div>
       ) : (
