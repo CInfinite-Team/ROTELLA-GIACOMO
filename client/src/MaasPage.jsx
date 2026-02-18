@@ -42,6 +42,10 @@ const SlideNavigation = lazy(
   () => import("./components/sharedComponents/SlideNavigation"),
 );
 
+const LanguageSwitcher = lazy(
+  () => import("./components/sharedComponents/LanguageSwitcher"),
+);
+
 const SlideLayout = ({ children, padding = true }) => (
   <div
     className={`flex-1 h-full overflow-hidden lg:pr-[35%] xl:pr-[32%] 2xl:pr-[30vw] ${padding ? "px-5 md:px-10 2xl:pl-[10vw]" : "2xl:px-5 "}`}
@@ -283,6 +287,9 @@ function MaasPage() {
                 <PrizeCard namespace="maas" />
               </Suspense>
             </div>
+            <Suspense fallback={null}>
+              <LanguageSwitcher />
+            </Suspense>
           </div>
 
           {/* Progress Bar */}
