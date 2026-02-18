@@ -5,6 +5,7 @@ import "swiper/css";
 import { useTranslation } from "react-i18next";
 import "swiper/css/pagination";
 import { useIsMobile } from "./hooks/useMediaQuery";
+import BackToTop from "./components/sharedComponents/BackToTop";
 
 const SmallBusiness = lazy(
   () => import("./components/MobileHomePage/SmallBusiness"),
@@ -271,6 +272,7 @@ function MaasPage() {
                 />
               </Swiper>
             )}
+            <BackToTop />
           </div>
 
           <div

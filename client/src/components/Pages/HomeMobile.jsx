@@ -19,9 +19,10 @@ import Footer from "../sharedComponents/Footer";
 import FeaturedIn from "../sharedComponents/FeaturedIn";
 import Testimonials from "../sharedComponents/Testimonials";
 import BrandCarousel from "../sharedComponents/BrandCarousel";
+import BackToTop from "../sharedComponents/BackToTop";
 
 import { useEffect } from "react";
-function HomeMobile({ page="Home",namespace = "translation" }) {
+function HomeMobile({ page = "Home", namespace = "translation" }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const totalSlides = 14; // Total number of slides
@@ -154,6 +155,7 @@ function HomeMobile({ page="Home",namespace = "translation" }) {
 
       {/* Show StickyEle on all slides except the first (Hero) */}
       {activeIndex !== 0 && <StickyEle />}
+      <BackToTop />
 
       {/* Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-300 z-50">
