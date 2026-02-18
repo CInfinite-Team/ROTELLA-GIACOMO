@@ -105,7 +105,7 @@ function MaasPage() {
       />
 
       {isMobile ? (
-        <div className="w-full h-full bg-[#f5f5f5]">
+        <div className="w-full  h-full bg-[#f5f5f5]">
           <Suspense
             fallback={
               <div className="w-full h-full flex items-center justify-center"></div>
@@ -115,7 +115,7 @@ function MaasPage() {
           </Suspense>
         </div>
       ) : (
-        <div className="relative w-full h-full  bg-[#f5f5f5]">
+        <div className="relative  max-w-[1920px] w-full h-full  bg-[#f5f5f5]">
           <div className="flex-1 h-full overflow-hidden">
             {!enableSwiper ? (
               <div

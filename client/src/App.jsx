@@ -94,7 +94,7 @@ function App() {
           <HomeMobile />
         </div>
       ) : (
-        <div className="hidden lg:block">
+        <div className="hidden max-w-[1920px] lg:block">
           <CustomCursor />
           <WorkBook />
         </div>

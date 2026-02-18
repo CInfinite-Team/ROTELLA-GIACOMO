@@ -4,7 +4,7 @@ export default function SlideNavigation({ swiper, activeIndex, totalSlides }) {
   if (!swiper || activeIndex === 0) return null;
 
   return (
-    <div className="fixed  lg:right-[30.5%] 2xl:right-[31vw] top-[35%] -translate-y-1/2 z-50 flex flex-col gap-4 hidden lg:flex">
+    <div className="fixed  lg:right-[33%] 2xl:right-[28vw] top-[35%] -translate-y-1/2 z-50 flex flex-col gap-4 hidden lg:flex">
       <button
         onClick={() => swiper.slidePrev()}
         disabled={activeIndex === 0}
