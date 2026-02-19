@@ -8,7 +8,7 @@ import React, {
 import { useTranslation, Trans } from "react-i18next";
 import { useViewportAnimation } from "../animations/ScrollAnimations";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -45,6 +45,7 @@ const BrandCarousel = React.memo(function BrandCarousel({
   const [activeIndex, setActiveIndex] = useState(0);
   const [isInView, setIsInView] = useState(false);
   const carouselRef = useRef(null);
+  const swiperRef = useRef(null);
   const videoRefs = useRef([]);
   const mobileVideoRefs = useRef([]);
   const isMobile = useIsMobile();
@@ -257,13 +258,10 @@ const BrandCarousel = React.memo(function BrandCarousel({
       >
         {/* Swiper Carousel */}
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
+          modules={[Pagination, Autoplay]}
           spaceBetween={16}
           slidesPerView={1}
-          navigation={{
-            nextEl: ".swiper-button-next-custom",
-            prevEl: ".swiper-button-prev-custom",
-          }}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
           pagination={{
             clickable: true,
             el: ".swiper-pagination-custom",
@@ -284,13 +282,12 @@ const BrandCarousel = React.memo(function BrandCarousel({
               slidesPerView: 1,
               spaceBetween: 14,
             },
-
             1900: {
               slidesPerView: 1,
               spaceBetween: 16,
             },
           }}
-          className="relative  xl:mt-auto pt-10"
+          className="relative xl:mt-auto pt-10"
         >
           {brands.map((brand, index) => (
             <SwiperSlide key={index}>
@@ -418,12 +415,15 @@ const BrandCarousel = React.memo(function BrandCarousel({
           <div className="swiper-pagination-custom flex justify-center !text-black mt-6 space-x-2"></div>
         </Swiper>
 
-        {/* Custom Navigation Buttons */}
+        {/* Custom Navigation Buttons - outside Swiper, use imperative API */}
         {!isMobile && (
           <>
-            <div className="swiper-button-prev-custom hidden md:block absolute left-4 xl:left-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
+            <div
+              onClick={() => swiperRef.current?.slidePrev()}
+              className="hidden md:flex items-center justify-center absolute left-4 xl:left-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200"
+            >
               <svg
-                className="w-5 h-5 cursor-pointer"
+                className="w-5 h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -436,10 +436,12 @@ const BrandCarousel = React.memo(function BrandCarousel({
                 />
               </svg>
             </div>
-
-            <div className="swiper-button-next-custom hidden md:block absolute right-4 xl:right-0 top-1/2 transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
+            <div
+              onClick={() => swiperRef.current?.slideNext()}
+              className="hidden md:flex items-center justify-center absolute right-4 xl:right-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200"
+            >
               <svg
-                className="w-5 h-5 cursor-pointer"
+                className="w-5 h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

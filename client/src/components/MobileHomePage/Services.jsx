@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import image from "../../assets/pics/image.png";
@@ -66,11 +66,9 @@ const Services = React.memo(function Services({ namespace = "translation" }) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Reset to first slide and start autoplay
             swiperInstance.slideToLoop(0, 0);
             swiperInstance.autoplay.start();
           } else {
-            // Stop autoplay when not in view to preserve resources and allow reset on re-entry
             swiperInstance.autoplay.stop();
           }
         });
@@ -115,13 +113,9 @@ const Services = React.memo(function Services({ namespace = "translation" }) {
       <div className="relative w-full max-w-7xl mx-auto">
         <Swiper
           onSwiper={setSwiperInstance}
-          modules={[Autoplay, Navigation]}
+          modules={[Autoplay]}
           spaceBetween={16}
           slidesPerView={1}
-          navigation={{
-            nextEl: ".services-next",
-            prevEl: ".services-prev",
-          }}
           autoplay={{
             delay: 2000,
             pauseOnMouseEnter: true,
@@ -136,40 +130,47 @@ const Services = React.memo(function Services({ namespace = "translation" }) {
             </SwiperSlide>
           ))}
         </Swiper>
-        {!isMobile && (
-          <div className=" hidden lg:block services-prev absolute left-4 lg:-left-10 top-[55%] transform  -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
-            <svg
-              className="w-5 h-5 cursor-pointer"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </div>
-        )}
 
+        {/* Navigation Buttons - outside Swiper, use imperative API */}
         {!isMobile && (
-          <div className="hidden lg:block services-next absolute right-4 lg:-right-10 top-[55%] transform -translate-y-1/2 mt-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200">
-            <svg
-              className="w-5 h-5 cursor-pointer"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <>
+            <div
+              onClick={() => swiperInstance?.slidePrev()}
+              className="hidden lg:flex items-center justify-center absolute -left-10 top-[60%] -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </div>
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </div>
+            <div
+              onClick={() => swiperInstance?.slideNext()}
+              className="hidden lg:flex items-center justify-center absolute -right-10 top-[60%] -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-1 shadow-lg transition-all duration-200 hover:scale-110 z-50 cursor-pointer border border-gray-200"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </div>
+          </>
         )}
       </div>
     </div>
